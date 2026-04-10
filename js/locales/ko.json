@@ -9,7 +9,7 @@
         "subtitle": "다메이샤 만 요트 클럽 리조트",
         "title": "타임쉐어 휴가 권리 + 무료 RCI 멤버십",
         "description": "전 세계 110개국 5,000개 리조트에서 교환 가능",
-        "button": "여정을 시작하세요"
+        "button": "호텔 상세 보기"
     },
     "benefits": {
         "price": "$49,800",
@@ -80,21 +80,17 @@
         "friendsTripDesc": "친구들과 함께 여행하고 멋진 목적지를 탐험"
     },
     "footer": {
-        "brandDesc": "새로운 럭셔리 여행 경험을 시작하세요, 전 세계 최고의 호텔과 리조트를 엄선했습니다.",
+        "brandDesc": "RCI 멤버십 혜택을 해제하고, RCI 글로벌 프리미엄 리조트 네트워크에 무료로 접속하세요.",
         "explore": "탐색",
         "hotels": "호텔",
         "destinations": "여행지",
-        "promotions": "프로모션",
-        "blog": "여행 블로그",
         "company": "회사",
-        "partners": "파트너",
         "privacy": "개인정보 보호정책",
         "terms": "이용약관",
-        "careers": "채용",
         "contact": "연락처",
         "quickLinks": "빠른 링크",
-        "location": "중국 · 상하이",
-        "email": "contact@huanxiang.com",
+        "location": "중국 · 심천",
+        "email": "dameisha666@gmail.com",
         "phone": "+86 400-888-8888",
         "copyright": "© 2024 환상 행성. All Rights Reserved.",
         "sitemap": "사이트맵",
@@ -218,7 +214,7 @@
         "db2Location": "두바이 · UAE",
         "tf1Name": "라 핀타 비치 클럽",
         "tf1Location": "테네리페 · 스페인",
-        "tf2Name": "라 핀타 비치 호텔 클럽 아틀란티스",
+        "tf2Name": "선셋 뷰 클럽",
         "tf2Location": "테네리페 · 스페인",
         "tf3Name": "선셋 뷰 클럽",
         "tf3Location": "테네리페 · 스페인",

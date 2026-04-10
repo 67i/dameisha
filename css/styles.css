@@ -416,7 +416,7 @@ h1, h2, h3, .headline-font {
 }
 
 /* 语言按钮激活状态 */
-.lang-btn.active {
+.lang-switcher .lang-btn.active {
     background-color: #0f1f30;
     color: #ffffff;
 }
@@ -541,7 +541,7 @@ h1, h2, h3, .headline-font {
     background-color: #e5e5e5;
 }
 
-.mobile-lang-btn.active {
+.mobile-lang-switcher .mobile-lang-btn.active {
     background-color: #0f1f30;
     color: #ffffff;
 }
@@ -628,11 +628,18 @@ h1, h2, h3, .headline-font {
     max-width: 1536px;
     margin: 0 auto;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 /* Hero 文本容器 */
 .hero-text-wrapper {
     max-width: 42rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Hero 副标题 */
@@ -1108,6 +1115,8 @@ h1, h2, h3, .headline-font {
     background-color: #f5f5f5;
     overflow: hidden;
     transition: all 0.3s ease;
+    border-radius: 0.75rem;
+    border: 1px solid #e5e7eb;
 }
 
 .promo-card-link {
@@ -1132,6 +1141,7 @@ h1, h2, h3, .headline-font {
     aspect-ratio: 16 / 10;
     object-fit: cover;
     display: block;
+    object-position: center;
 }
 
 /* 免费住宿标签 */
@@ -2129,6 +2139,20 @@ h1, h2, h3, .headline-font {
 .hotel-intro-image-single {
     width: 100%;
     flex-shrink: 0;
+    position: relative;
+}
+
+.hotel-intro-image-single::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+    border-radius: 0.25rem;
+    pointer-events: none;
+}
+
+.hotel-intro-image-single.no-overlay::after {
+    display: none;
 }
 
 .hotel-intro-image-single img {
@@ -2750,10 +2774,34 @@ h1, h2, h3, .headline-font {
     .hotel-intro-content {
         padding: 0 1rem;
         gap: 2rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hotel-intro-text {
+        display: contents;
+    }
+
+    .hotel-intro-label {
+        order: 1;
     }
 
     .hotel-intro-title {
+        order: 2;
         font-size: 1.5rem;
+    }
+
+    #introText {
+        order: 3;
+    }
+
+    .hotel-intro-image-single {
+        order: 4;
+    }
+
+    .hotel-map-container {
+        order: 5;
+        margin-top: 1rem;
     }
 
     .hotel-intro-p {
@@ -3840,13 +3888,17 @@ h1, h2, h3, .headline-font {
     }
 
     .logic-step-options {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        gap: 2rem;
+        gap: 1rem;
+        width: 100%;
+        max-width: 28rem;
+        margin: 0 auto;
     }
 
     .logic-step-options::before {
-        display: none;
+        display: block;
+        width: 80%;
     }
 
     .logic-option-col::before {

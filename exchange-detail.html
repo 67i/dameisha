@@ -57,16 +57,6 @@
     </nav>
 
     <main>
-        <section class="hotel-detail-hero" id="heroSection">
-            <img src="" alt="" class="hotel-hero-image" id="heroBanner">
-            <div class="hotel-hero-overlay"></div>
-            <div class="hotel-hero-content">
-                <span class="hotel-hero-location" data-i18n="exchangeDetail.label">真实可靠的交换</span>
-                <h1 class="hotel-hero-title" id="heroTitle"></h1>
-                <p class="hotel-hero-desc" id="heroDesc"></p>
-            </div>
-        </section>
-
         <section class="hotel-intro-section">
             <div class="hotel-intro-content">
                 <div class="hotel-intro-text">
@@ -74,7 +64,7 @@
                     <h2 class="hotel-intro-title" id="introTitle"></h2>
                     <div id="introText"></div>
                 </div>
-                <div class="hotel-intro-image-single intro-image-clickable">
+                <div class="hotel-intro-image-single intro-image-clickable no-overlay">
                     <img src="" alt="" id="introImage">
                     <div class="intro-image-zoom-hint">
                         <span class="material-symbols-outlined">zoom_in</span>
@@ -189,10 +179,6 @@
             var lang = getCurrentLang();
             var i18n = exchange.i18n && exchange.i18n[lang] ? exchange.i18n[lang] : exchange.i18n && exchange.i18n['zh'] ? exchange.i18n['zh'] : {};
 
-            document.getElementById('heroBanner').src = exchange.cover;
-            document.getElementById('heroBanner').alt = i18n.title || '';
-            document.getElementById('heroTitle').textContent = i18n.title || '';
-            document.getElementById('heroDesc').textContent = i18n.description || '';
             document.getElementById('introTitle').textContent = i18n.introTitle || '';
 
             var introTextHtml = '';
