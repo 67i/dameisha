@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - 换享星球</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Tailwind Configuration -->
+    <script src="./js/tailwind.config.js"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+
+    <!-- ==================== 导航�?==================== -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <!-- Logo -->
+            <a href="./index.html" class="nav-logo">
+                <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="nav-logo-img">
+            </a>
+            <!-- 导航链接 -->
+            <div class="nav-links">
+                <a href="./index.html" class="nav-link nav-link-secondary" data-i18n="nav.hotelIntro">酒店介绍</a>
+                <a href="./index.html" class="nav-link nav-link-secondary" data-i18n="nav.benefitsIntro">权益介绍</a>
+                <a href="./faq.html" class="nav-link nav-link-secondary" data-i18n="nav.faq">FAQ</a>
+            </div>
+            <!-- 语言切换和联系我们按�?-->
+            <div class="nav-right">
+                <!-- 移动端汉堡菜单按�?-->
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="zh">中文</button>
+                    <button class="lang-btn" data-lang="ko">한국어</button>
+                    <button class="lang-btn" data-lang="ja">日本語</button>
+                </div>
+                <a href="./contact.html" class="nav-button nav-link-active" data-i18n="nav.contactUs">联系我们</a>
+            </div>
+        </div>
+        <!-- 移动端菜单下拉面�?-->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-content">
+                <a href="./index.html" class="mobile-menu-link" data-i18n="nav.hotelIntro">酒店介绍</a>
+                <a href="./index.html" class="mobile-menu-link" data-i18n="nav.benefitsIntro">权益介绍</a>
+                <a href="./faq.html" class="mobile-menu-link" data-i18n="nav.faq">FAQ</a>
+                <div class="mobile-menu-divider"></div>
+                <div class="mobile-lang-switcher">
+                    <button class="mobile-lang-btn active" data-lang="en">English</button>
+                    <button class="mobile-lang-btn" data-lang="zh">中文</button>
+                    <button class="mobile-lang-btn" data-lang="ko">한국어</button>
+                    <button class="mobile-lang-btn" data-lang="ja">日本語</button>
+                </div>
+                <a href="./contact.html" class="mobile-nav-button" data-i18n="nav.contactUs">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== 联系我们内容 ==================== -->
+    <main class="contact-page">
+        <div class="contact-container">
+            <div class="contact-header">
+                <h1 class="contact-title" data-i18n="contact.title">联系我们</h1>
+                <p class="contact-subtitle" data-i18n="contact.subtitle">我们随时准备为您提供帮助</p>
+            </div>
+
+            <div class="contact-cards scroll-animate">
+                <!-- WhatsApp 联系卡片 -->
+                <a href="https://wa.me/8613800138000" target="_blank" rel="noopener noreferrer" class="contact-card">
+                    <div class="contact-icon whatsapp-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <h3 class="contact-label" data-i18n="contact.whatsapp">WhatsApp</h3>
+                        <p class="contact-value">+86 138 0013 8000</p>
+                    </div>
+                    <span class="material-symbols-outlined contact-arrow">arrow_outward</span>
+                </a>
+
+                <!-- 邮箱联系卡片 -->
+                <a href="mailto:dameisha666@gmail.com" class="contact-card">
+                    <div class="contact-icon email-icon">
+                        <span class="material-symbols-outlined">mail</span>
+                    </div>
+                    <div class="contact-info">
+                        <h3 class="contact-label" data-i18n="contact.email">电子邮箱</h3>
+                        <p class="contact-value">dameisha666@gmail.com</p>
+                    </div>
+                    <span class="material-symbols-outlined contact-arrow">arrow_outward</span>
+                </a>
+            </div>
+
+            <div class="contact-footer">
+                <p class="contact-footer-text" data-i18n="contact.footer">期待与您的沟�?/p>
+            </div>
+        </div>
+    </main>
+
+    <!-- ==================== 页脚 ==================== -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="footer-logo-img">
+                <p class="footer-brand-description" data-i18n="footer.brandDesc">开启您的交换旅行体验，探索全球精彩目的�?/p>
+                <div class="footer-social-links">
+                    <a href="#" class="footer-social-link">
+                        <span class="material-symbols-outlined">language</span>
+                    </a>
+                    <a href="#" class="footer-social-link">
+                        <span class="material-symbols-outlined">mail</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-column-title" data-i18n="footer.quickLinks">快速链�?/h4>
+                <a href="./index.html" class="footer-link" data-i18n="nav.hotelIntro">酒店介绍</a>
+                <a href="./index.html" class="footer-link" data-i18n="nav.benefitsIntro">权益介绍</a>
+                <a href="./contact.html" class="footer-link" data-i18n="nav.contactUs">联系我们</a>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-column-title" data-i18n="footer.contact">联系方式</h4>
+                <a href="mailto:dameisha666@gmail.com" class="footer-link">dameisha666@gmail.com</a>
+                <a href="https://wa.me/8613800138000" target="_blank" class="footer-link">WhatsApp</a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p class="footer-copyright-text">© 2024 换享星球. All rights reserved.</p>
+            <a href="#" class="footer-copyright-link" data-i18n="footer.privacy">隐私政策</a>
+        </div>
+    </footer>
+
+    <!-- i18n Script -->
+    <script src="./js/i18n.js"></script>
+    <script src="./js/scroll-animations.js"></script>
+</body>
+
+</html>

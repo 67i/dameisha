@@ -1,0 +1,235 @@
+{
+    "hotels": [
+        {
+            "id": "ny1",
+            "dest": [
+                "newyork"
+            ],
+            "image": "./assets/hotel-list-images/newyork-manhattan-club.jpg",
+            "nameKey": "hotelList.ny1Name",
+            "locKey": "hotelList.ny1Location",
+            "detail": "https://www.booking.com/hotel/us/the-manhattan-club.html",
+            "badge": true
+        },
+        {
+            "id": "ny2",
+            "dest": [
+                "newyork"
+            ],
+            "image": "./assets/hotel-list-images/newyork-the-hilton-club-new-york.jpg",
+            "nameKey": "hotelList.ny2Name",
+            "locKey": "hotelList.ny2Location",
+            "detail": "https://www.booking.com/hotel/us/hilton-club-new-york.html",
+            "badge": true
+        },
+        {
+            "id": "ny3",
+            "dest": [
+                "newyork"
+            ],
+            "image": "./assets/hotel-list-images/newyork-wyndham-midtown-45.jpg",
+            "nameKey": "hotelList.ny3Name",
+            "locKey": "hotelList.ny3Location",
+            "detail": "https://www.booking.com/hotel/us/wyndham-midtown-45.html",
+            "badge": true
+        },
+        {
+            "id": "pk1",
+            "dest": [
+                "phuket"
+            ],
+            "image": "./assets/hotel-list-images/phuket-anantara-mai-khao-phuket-villas.jpg",
+            "nameKey": "hotelList.pk1Name",
+            "locKey": "hotelList.pk1Location",
+            "detail": "https://www.booking.com/hotel/th/anantara-phuket-resort-spa.html",
+            "badge": true
+        },
+        {
+            "id": "pk2",
+            "dest": [
+                "phuket"
+            ],
+            "image": "./assets/hotel-list-images/phuket-homm-suites-laguna.jpg",
+            "nameKey": "hotelList.pk2Name",
+            "locKey": "hotelList.pk2Location",
+            "detail": "https://www.booking.com/hotel/th/laguna-holiday-club-phuket-resort.html",
+            "badge": true
+        },
+        {
+            "id": "fi1",
+            "dest": [
+                "finland"
+            ],
+            "image": "./assets/hotel-list-images/finland-holiday-club-katinkulta.jpg",
+            "nameKey": "hotelList.fi1Name",
+            "locKey": "hotelList.fi1Location",
+            "detail": "https://www.booking.com/hotel/fi/holiday-club-katinkulta-vuokatti.html",
+            "badge": true
+        },
+        {
+            "id": "fi2",
+            "dest": [
+                "finland"
+            ],
+            "image": "./assets/hotel-list-images/finland-holiday-club-pyhaniemi.jpg",
+            "nameKey": "hotelList.fi2Name",
+            "locKey": "hotelList.fi2Location",
+            "detail": "https://www.booking.com/hotel/fi/holiday-club-pyhaniemi-apartments.html",
+            "badge": true
+        },
+        {
+            "id": "fi3",
+            "dest": [
+                "finland"
+            ],
+            "image": "./assets/hotel-list-images/finland-naantali-spa.jpg",
+            "nameKey": "hotelList.fi3Name",
+            "locKey": "hotelList.fi3Location",
+            "detail": "https://www.booking.com/hotel/fi/naantali-spa.html",
+            "badge": true
+        },
+        {
+            "id": "mv1",
+            "dest": [
+                "maldives"
+            ],
+            "image": "./assets/hotel-list-images/maldives-medhufushi-island-resort.jpg",
+            "nameKey": "hotelList.mv1Name",
+            "locKey": "hotelList.mv1Location",
+            "detail": "./hotel-detail.html?id=hotel1",
+            "badge": true
+        },
+        {
+            "id": "mv2",
+            "dest": [
+                "maldives"
+            ],
+            "image": "./assets/hotel-list-images/maldives-filitheyo-island.jpg",
+            "nameKey": "hotelList.mv2Name",
+            "locKey": "hotelList.mv2Location",
+            "detail": "./hotel-detail.html?id=hotel2",
+            "badge": true
+        },
+        {
+            "id": "bl1",
+            "dest": [
+                "bali"
+            ],
+            "image": "./assets/hotel-list-images/bali-anantara-vacation-club-legian.jpg",
+            "nameKey": "hotelList.bl1Name",
+            "locKey": "hotelList.bl1Location",
+            "detail": "https://www.booking.com/hotel/id/anantara-vacation-club-legian.html",
+            "badge": true
+        },
+        {
+            "id": "bl2",
+            "dest": [
+                "bali"
+            ],
+            "image": "./assets/hotel-list-images/bali-avani-seminyak.jpg",
+            "nameKey": "hotelList.bl2Name",
+            "locKey": "hotelList.bl2Location",
+            "detail": "https://www.booking.com/hotel/id/avani-seminyak-bali-resort.html",
+            "badge": true
+        },
+        {
+            "id": "bl3",
+            "dest": [
+                "bali"
+            ],
+            "image": "./assets/hotel-list-images/bali-the-grand-bali-nusa-dua.jpg",
+            "nameKey": "hotelList.bl3Name",
+            "locKey": "hotelList.bl3Location",
+            "detail": "https://www.booking.com/hotel/id/the-grand-bali-nusa-dua.html",
+            "badge": true
+        },
+        {
+            "id": "cc1",
+            "dest": [
+                "cancun"
+            ],
+            "image": "./assets/hotel-list-images/cancun-secrets-maroma-beach-riviera-cancun.jpg",
+            "nameKey": "hotelList.cc1Name",
+            "locKey": "hotelList.cc1Location",
+            "detail": "https://www.booking.com/hotel/mx/secrets-maroma-beach-riviera-cancun.html",
+            "badge": true
+        },
+        {
+            "id": "cc2",
+            "dest": [
+                "cancun"
+            ],
+            "image": "./assets/hotel-list-images/cancun-secrets-the-vine-cancun.jpg",
+            "nameKey": "hotelList.cc2Name",
+            "locKey": "hotelList.cc2Location",
+            "detail": "https://www.booking.com/hotel/mx/secrets-the-vine-cancun.html",
+            "badge": true
+        },
+        {
+            "id": "cc3",
+            "dest": [
+                "cancun"
+            ],
+            "image": "./assets/hotel-list-images/cancun-the-royal-sands-resort-spa.jpg",
+            "nameKey": "hotelList.cc3Name",
+            "locKey": "hotelList.cc3Location",
+            "detail": "https://www.booking.com/hotel/mx/the-royal-sands.html",
+            "badge": true
+        },
+        {
+            "id": "cc4",
+            "dest": [
+                "cancun"
+            ],
+            "image": "./assets/hotel-list-images/cancun-hard-rock-hotel.jpg",
+            "nameKey": "hotelList.cc4Name",
+            "locKey": "hotelList.cc4Location",
+            "detail": "https://www.booking.com/hotel/mx/hard-rock-hotel-cancun.html",
+            "badge": true
+        },
+        {
+            "id": "db1",
+            "dest": [
+                "dubai"
+            ],
+            "image": "./assets/hotel-list-images/dubai-balqis-residence.jpg",
+            "nameKey": "hotelList.db1Name",
+            "locKey": "hotelList.db1Location",
+            "detail": "https://www.booking.com/hotel/ae/balqis-residence-dubai1.html",
+            "badge": true
+        },
+        {
+            "id": "db2",
+            "dest": [
+                "dubai"
+            ],
+            "image": "./assets/hotel-list-images/dubai-habtoor.jpg",
+            "nameKey": "hotelList.db2Name",
+            "locKey": "hotelList.db2Location",
+            "detail": "https://www.booking.com/hotel/ae/al-habtoor-palace-a-hilton-luxury-hotel.html",
+            "badge": true
+        },
+        {
+            "id": "tf1",
+            "dest": [
+                "tenerife"
+            ],
+            "image": "./assets/hotel-list-images/tenerife-la-pinta-beach-hotel-club-atlantis.jpg",
+            "nameKey": "hotelList.tf1Name",
+            "locKey": "hotelList.tf1Location",
+            "detail": "https://www.booking.com/hotel/es/la-pinta-beach-costa-adeje.html",
+            "badge": true
+        },
+        {
+            "id": "tf2",
+            "dest": [
+                "tenerife"
+            ],
+            "image": "./assets/hotel-list-images/tenerife-sunset-view-club-2.jpg",
+            "nameKey": "hotelList.tf2Name",
+            "locKey": "hotelList.tf2Location",
+            "detail": "https://www.booking.com/hotel/es/sunset-view-club.html",
+            "badge": true
+        }
+    ]
+}

@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常见问题 - 换享星球</title>
+
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="./js/tailwind.config.js"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="./index.html" class="nav-logo">
+                <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="nav-logo-img">
+            </a>
+            <div class="nav-links">
+                <a href="./hotel-detail.html?id=hotel7" class="nav-link nav-link-secondary" data-i18n="nav.hotelIntro">酒店介绍</a>
+                <a href="./benefits-detail.html" class="nav-link nav-link-secondary" data-i18n="nav.benefitsIntro">权益介绍</a>
+                <a href="./faq.html" class="nav-link nav-link-active" data-i18n="nav.faq">FAQ</a>
+            </div>
+            <div class="nav-right">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="zh">中文</button>
+                    <button class="lang-btn" data-lang="ko">한국어</button>
+                    <button class="lang-btn" data-lang="ja">日本語</button>
+                </div>
+                <a href="./contact.html" class="nav-button" data-i18n="nav.contactUs">联系我们</a>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-content">
+                <a href="./hotel-detail.html?id=hotel7" class="mobile-menu-link" data-i18n="nav.hotelIntro">酒店介绍</a>
+                <a href="./benefits-detail.html" class="mobile-menu-link" data-i18n="nav.benefitsIntro">权益介绍</a>
+                <a href="./faq.html" class="mobile-menu-link" data-i18n="nav.faq">FAQ</a>
+                <div class="mobile-menu-divider"></div>
+                <div class="mobile-lang-switcher">
+                    <button class="mobile-lang-btn active" data-lang="en">English</button>
+                    <button class="mobile-lang-btn" data-lang="zh">中文</button>
+                    <button class="mobile-lang-btn" data-lang="ko">한국어</button>
+                    <button class="mobile-lang-btn" data-lang="ja">日本語</button>
+                </div>
+                <a href="./contact.html" class="mobile-nav-button" data-i18n="nav.contactUs">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="faq-hero-section">
+            <div class="faq-hero-content scroll-animate">
+                <h1 class="faq-hero-title" data-i18n="faq.title">常见问题</h1>
+                <p class="faq-hero-subtitle" data-i18n="faq.subtitle">探索 RCI 铂金会员的卓越价值。我们在此为您解答关于全球度假村交换及会员权益的所有疑问。</p>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="faq-content">
+                <div class="faq-list scroll-animate">
+                    <!-- Question 1 -->
+                    <div class="faq-item">
+                        <div class="faq-question-wrapper">
+                            <div class="faq-question-number">01</div>
+                            <h3 class="faq-question" data-i18n="faq.q1">这项 RCI 会员资格是否合法？</h3>
+                            <button class="faq-toggle">
+                                <span class="material-symbols-outlined">add</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="faq.a1">是的。这是真正的、官方的 RCI 铂金会员资格。激活后，您可以立即在 RCI 官方网站或应用程序上验证您的状态和所有相关权益。</p>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="faq-item">
+                        <div class="faq-question-wrapper">
+                            <div class="faq-question-number">02</div>
+                            <h3 class="faq-question" data-i18n="faq.q2">是否有任何年费或隐藏费用？</h3>
+                            <button class="faq-toggle">
+                                <span class="material-symbols-outlined">add</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="faq.a2">会员资格本身没有隐藏费用。RCI 交换费按照国际标准收取，完全透明。年费为 198 元人民币（而标准海外会员年费超过 1000 美元）。</p>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="faq-item">
+                        <div class="faq-question-wrapper">
+                            <div class="faq-question-number">03</div>
+                            <h3 class="faq-question" data-i18n="faq.q3">如果我不在中国，可以使用吗？</h3>
+                            <button class="faq-toggle">
+                                <span class="material-symbols-outlined">add</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="faq.a3">完全可以。核心权益旨在进行全球度假村交换，因此居住在中国境外不会影响您使用会员资格。</p>
+                        </div>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="faq-item">
+                        <div class="faq-question-wrapper">
+                            <div class="faq-question-number">04</div>
+                            <h3 class="faq-question" data-i18n="faq.q4">交换成功率是多少？</h3>
+                            <button class="faq-toggle">
+                                <span class="material-symbols-outlined">add</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="faq.a4">交换遵循 RCI 的官方规则。铂金会员享有更高优先级，规则与全球会员一致。历史数据显示成功率约为 98%。</p>
+                        </div>
+                    </div>
+
+                    <!-- Question 5 -->
+                    <div class="faq-item">
+                        <div class="faq-question-wrapper">
+                            <div class="faq-question-number">05</div>
+                            <h3 class="faq-question" data-i18n="faq.q5">付款后激活需要多长时间？</h3>
+                            <button class="faq-toggle">
+                                <span class="material-symbols-outlined">add</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="faq.a5">收到付款并核实您的信息后，您的 RCI 会员特权通常会在 7 个工作日内激活。</p>
+                        </div>
+                    </div>
+
+                    <!-- Question 6 -->
+                    <div class="faq-item">
+                        <div class="faq-question-wrapper">
+                            <div class="faq-question-number">06</div>
+                            <h3 class="faq-question" data-i18n="faq.q6">谁有资格购买此会员资格？</h3>
+                            <button class="faq-toggle">
+                                <span class="material-symbols-outlined">add</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="faq.a6">此项优惠面向全球国际用户。没有国家或地区限制，包括海外华人和全球客户。</p>
+                        </div>
+                    </div>
+
+                    <!-- Question 7 -->
+                    <div class="faq-item">
+                        <div class="faq-question-wrapper">
+                            <div class="faq-question-number">07</div>
+                            <h3 class="faq-question" data-i18n="faq.q7">我如何验证此产品的真实性？</h3>
+                            <button class="faq-toggle">
+                                <span class="material-symbols-outlined">add</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="faq.a7">您可以在 RCI 官方网站上验证我们的合作伙伴状态。我们还提供官方合同模板，并支持公司银行转账，以确保过程完全合规且可追溯。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-help-center">
+                    <p class="faq-help-text" data-i18n="faq.stillHaveQuestions">仍然有疑问。</p>
+                    <a href="./contact.html" class="faq-help-link" data-i18n="faq.contactAdvisor">联系您的专属旅行顾问</a>
+                </div>
+
+                <div class="faq-cta scroll-animate">
+                    <h2 class="faq-cta-title" data-i18n="faq.startJourney">开启您的全球旅程</h2>
+                    <p class="faq-cta-subtitle" data-i18n="faq.joinRCI">加入 RCI 铂金会员，尊享全球 4,300 多家顶级度假村。</p>
+                    <a href="./contact.html" class="faq-cta-button" data-i18n="faq.inquireNow">立即咨询详情</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="footer-logo-img">
+                <p class="footer-brand-description" data-i18n="footer.brandDesc">开启奢华旅行新体验，为您精心甄选全球顶级酒店与度假村。p>
+                <div class="footer-social-links">
+                    <a href="#" class="footer-social-link">
+                        <span class="material-symbols-outlined">share</span>
+                    </a>
+                    <a href="#" class="footer-social-link">
+                        <span class="material-symbols-outlined">language</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-column-title" data-i18n="footer.quickLinks">快速链接</h4>
+                <a href="./hotel-detail.html?id=hotel7" class="footer-link" data-i18n="nav.hotelIntro">酒店介绍</a>
+                <a href="./benefits-detail.html" class="footer-link" data-i18n="nav.benefitsIntro">权益介绍</a>
+                <a href="./contact.html" class="footer-link" data-i18n="nav.contactUs">联系我们</a>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-column-title" data-i18n="footer.company">公司</h4>
+                <ul class="footer-links">
+                    <li class="footer-link-item"><a href="#" class="footer-link" data-i18n="footer.partners">合作伙伴</a></li>
+                    <li class="footer-link-item"><a href="#" class="footer-link" data-i18n="footer.privacy">隐私政策</a></li>
+                    <li class="footer-link-item"><a href="#" class="footer-link" data-i18n="footer.terms">服务条款</a></li>
+                    <li class="footer-link-item"><a href="#" class="footer-link" data-i18n="footer.careers">加入我们</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="footer-column-title" data-i18n="footer.contact">联系方式</h5>
+                <ul class="footer-links">
+                    <li class="footer-contact-item-top">
+                        <span class="material-symbols-outlined footer-contact-icon">location_on</span>
+                        <span data-i18n="footer.location">中国 · 上海</span>
+                    </li>
+                    <li class="footer-contact-item">
+                        <span class="material-symbols-outlined footer-contact-icon">mail</span>
+                        <span data-i18n="footer.email">contact@huanxiang.com</span>
+                    </li>
+                    <li class="footer-contact-item">
+                        <span class="material-symbols-outlined footer-contact-icon">call</span>
+                        <span data-i18n="footer.phone">+86 400-888-8888</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p class="footer-copyright-text" data-i18n="footer.copyright">© 2024 换享星球. All Rights Reserved.</p>
+            <div class="footer-copyright-links">
+                <a href="#" class="footer-copyright-link" data-i18n="footer.sitemap">网站地图</a>
+                <a href="#" class="footer-copyright-link" data-i18n="footer.cookiePolicy">Cookie 政策</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/i18n.js"></script>
+    <script src="./js/scroll-animations.js"></script>
+    <script>
+        (function() {
+            function initFAQ() {
+                var faqItems = document.querySelectorAll('.faq-item');
+                
+                faqItems.forEach(function(item) {
+                    var questionWrapper = item.querySelector('.faq-question-wrapper');
+                    var answer = item.querySelector('.faq-answer');
+                    
+                    questionWrapper.addEventListener('click', function() {
+                        item.classList.toggle('faq-active');
+                        if (item.classList.contains('faq-active')) {
+                            answer.style.maxHeight = answer.scrollHeight + 'px';
+                            answer.style.opacity = '1';
+                            item.querySelector('.material-symbols-outlined').textContent = 'remove';
+                        } else {
+                            answer.style.maxHeight = '0';
+                            answer.style.opacity = '0';
+                            item.querySelector('.material-symbols-outlined').textContent = 'add';
+                        }
+                    });
+                });
+            }
+            
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initFAQ);
+            } else {
+                initFAQ();
+            }
+        })();
+    </script>
+</body>
+
+</html>

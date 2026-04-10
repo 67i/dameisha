@@ -1,0 +1,58 @@
+{
+    "hotels": [
+        {
+            "id": "hotel1",
+            "image": "./assets/usa/usa-list-pic/us-home-banner-01.jpg",
+            "name": "The Manhattan Club",
+            "location": "New York",
+            "nameKey": "hotels.hotel1Name",
+            "locationKey": "hotels.hotel1Location",
+            "detailUrl": "./hotel-detail.html?id=hotel1"
+        },
+        {
+            "id": "hotel2",
+            "image": "./assets/usa/usa-list-pic/us-home-banner-02.jpg",
+            "name": "Hilton Grand Vacation Club SeaWorld Orlando",
+            "location": "Orlando",
+            "nameKey": "hotels.hotel2Name",
+            "locationKey": "hotels.hotel2Location",
+            "detailUrl": "./hotel-detail.html?id=hotel2"
+        },
+        {
+            "id": "hotel3",
+            "image": "./assets/usa/usa-list-pic/us-home-banner-03.jpg",
+            "name": "Trump International Hotel Las Vegas",
+            "location": "Las Vegas",
+            "nameKey": "hotels.hotel3Name",
+            "locationKey": "hotels.hotel3Location",
+            "detailUrl": "./hotel-detail.html?id=hotel3"
+        },
+        {
+            "id": "hotel4",
+            "image": "./assets/usa/usa-list-pic/us-home-banner-04.jpg",
+            "name": "Rams Horn Village Resort",
+            "location": "Rocky Mountain National Park",
+            "nameKey": "hotels.hotel4Name",
+            "locationKey": "hotels.hotel4Location",
+            "detailUrl": "./hotel-detail.html?id=hotel4"
+        },
+        {
+            "id": "hotel5",
+            "image": "./assets/usa/usa-list-pic/us-home-banner-05.jpg",
+            "name": "Valdoro Mountain Lodge Hilton Grand Vacations Club",
+            "location": "Breckenridge",
+            "nameKey": "hotels.hotel5Name",
+            "locationKey": "hotels.hotel5Location",
+            "detailUrl": "./hotel-detail.html?id=hotel5"
+        },
+        {
+            "id": "hotel6",
+            "image": "./assets/usa/usa-list-pic/us-home-banner-06.jpg",
+            "name": "Kohala Suites Hilton Grand Vacations Club",
+            "location": "Waikoloa, Hawaii",
+            "nameKey": "hotels.hotel6Name",
+            "locationKey": "hotels.hotel6Location",
+            "detailUrl": "./hotel-detail.html?id=hotel6"
+        }
+    ]
+}

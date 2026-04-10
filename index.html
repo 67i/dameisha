@@ -1,0 +1,398 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>换享星球 - 开启您的交换旅行体验</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Tailwind Configuration -->
+    <script src="./js/tailwind.config.js"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+
+    <!-- ==================== 导航栏 ==================== -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <!-- Logo -->
+            <a href="#" class="nav-logo">
+                <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="nav-logo-img">
+            </a>
+            <!-- 导航链接 -->
+            <div class="nav-links">
+                <a href="./hotel-detail.html?id=hotel7" class="nav-link nav-link-active" data-i18n="nav.hotelIntro">酒店介绍</a>
+                <a href="./benefits-detail.html" class="nav-link nav-link-secondary" data-i18n="nav.benefitsIntro">权益介绍</a>
+                <a href="./faq.html" class="nav-link nav-link-secondary" data-i18n="nav.faq">FAQ</a>
+            </div>
+            <!-- 语言切换和联系我们按钮 -->
+            <div class="nav-right">
+                <!-- 移动端汉堡菜单按钮 -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="zh">中文</button>
+                    <button class="lang-btn" data-lang="ko">한국어</button>
+                    <button class="lang-btn" data-lang="ja">日本語</button>
+                </div>
+                <a href="./contact.html" class="nav-button" data-i18n="nav.contactUs">联系我们</a>
+            </div>
+        </div>
+        <!-- 移动端菜单下拉面板 -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-content">
+                <a href="./hotel-detail.html?id=hotel7" class="mobile-menu-link" data-i18n="nav.hotelIntro">酒店介绍</a>
+                <a href="./benefits-detail.html" class="mobile-menu-link" data-i18n="nav.benefitsIntro">权益介绍</a>
+                <a href="./faq.html" class="mobile-menu-link" data-i18n="nav.faq">FAQ</a>
+                <div class="mobile-menu-divider"></div>
+                <div class="mobile-lang-switcher">
+                    <button class="mobile-lang-btn active" data-lang="en">English</button>
+                    <button class="mobile-lang-btn" data-lang="zh">中文</button>
+                    <button class="mobile-lang-btn" data-lang="ko">한국어</button>
+                    <button class="mobile-lang-btn" data-lang="ja">日本語</button>
+                </div>
+                <a href="./contact.html" class="mobile-nav-button" data-i18n="nav.contactUs">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- ==================== Hero 区域（视频背景） ==================== -->
+        <section class="hero-section">
+            <!-- 视频容器 -->
+            <div class="hero-video-container">
+                <video autoplay muted loop playsinline class="hero-video">
+                    <source src="./assets/herovideofinal-transcode.mp4" type="video/mp4">
+                </video>
+            </div>
+            <!-- Hero 内容 -->
+            <div class="hero-content">
+                <div class="hero-text-wrapper">
+                    <span class="hero-subtitle" data-i18n="hero.subtitle">大梅沙湾游艇会度假酒店</span>
+                    <h1 class="hero-title" data-i18n="hero.title">
+                        分时度假权益+赠送RCI会籍 <span class="hero-title-italic"></span>
+                    </h1>
+                    <p class="hero-description" data-i18n="hero.description">
+                        可在全球110个国家的5000家度假村进行交换
+                    </p>
+                    <a href="./hotel-detail.html?id=hotel7" class="hero-button" data-i18n="hero.button">
+                        点击查看酒店详情
+                        <span class="material-symbols-outlined hero-button-arrow">arrow_right_alt</span>
+                    </a>
+                </div>
+                
+            </div>
+            <!-- 滚动指示器 -->
+            <div class="hero-scroll-indicator">
+                <span class="material-symbols-outlined">keyboard_arrow_down</span>
+            </div>
+        </section>
+
+        <!-- ==================== 权益区域 ==================== -->
+        <section class="benefits-section" id="benefits">
+            <div class="benefits-content">
+                <div class="benefits-header scroll-animate">
+                    <h2 class="benefits-title" data-i18n="benefits.price">¥49,800</h2>
+                    <p class="benefits-description" data-i18n="benefits.description">
+                        大梅沙湾游艇会度假酒店5年,每年两周分时度假权益,共10周度假权益
+                    </p>
+                </div>
+                <div class="benefits-grid">
+                    <!-- 权益卡片1：历史冰点价格 -->
+                    <div class="benefit-card scroll-animate scroll-animate-delay-1">
+                        <div class="benefit-icon-wrapper">
+                            <svg class="benefit-icon-svg" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M269.44 259.029333c-45.909333 0-83.2 37.290667-83.2 83.2s37.290667 83.2 83.2 83.2a83.2 83.2 0 0 0 0-166.4z m0 103.210667a20.053333 20.053333 0 0 1-20.010667-20.010667 20.053333 20.053333 0 0 1 20.010667-20.010666 20.053333 20.053333 0 0 1 20.010667 20.053333 20.053333 20.053333 0 0 1-20.053334 19.968z m629.376 162.133333l-358.997333-362.453333a42.112 42.112 0 0 0-30.165334-12.586667H147.328C113.152 149.333333 85.333333 176.853333 85.333333 210.773333v223.573334c0 11.178667 4.394667 21.674667 12.373334 29.696l358.613333 354.304a62.421333 62.421333 0 0 0 87.594667 0l28.330666-28.032 28.288 28.032a62.421333 62.421333 0 0 0 87.594667 0l210.218667-207.701334a61.013333 61.013333 0 0 0 0.469333-86.314666z m-144.682667 86.272c11.690667-11.392 18.090667-26.709333 18.218667-43.008a60.586667 60.586667 0 0 0-17.706667-43.306666l-308.906666-311.893334h55.296l351.317333 354.816-208 205.482667-27.221333-26.794667 137.002666-135.296zM148.522667 425.344v-212.906667h208.298666l351.232 354.56-140.117333 138.538667-36.266667 36.096-31.573333 31.104-351.573333-347.392z" fill="currentColor"/></svg>
+                        </div>
+                        <h3 class="benefit-card-title" data-i18n="benefits.card1Title">历史冰点价格</h3>
+                        <p class="benefit-card-description" data-i18n="benefits.card1Desc">
+                            一周不到400美金，享受一线海景，私人海滩，毗邻香港的中国科技之都——深圳的度假生活。
+                        </p>
+                    </div>
+                    <div class="benefit-card scroll-animate scroll-animate-delay-2">
+                        <div class="benefit-icon-wrapper">
+                            <svg class="benefit-icon-svg" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M900.654545 246.690909c-16.290909-16.290909-41.890909-20.945455-62.836363-13.963636l-137.309091 46.545454-148.945455-167.563636c-11.636364-13.963636-30.254545-20.945455-48.872727-20.945455-18.618182 2.327273-34.909091 11.636364-46.545454 25.6l-109.381819 162.909091-165.236363-48.872727c-20.945455-6.981818-44.218182 0-58.181818 13.963636-16.290909 13.963636-23.272727 37.236364-18.618182 58.181819l100.072727 418.90909c6.981818 27.927273 30.254545 48.872727 60.509091 48.872728h470.109091c27.927273 0 51.2-18.618182 58.181818-44.218182l123.345455-416.581818c6.981818-23.272727 0-46.545455-16.29091-62.836364zM728.436364 698.181818H272.290909L174.545455 300.218182l155.927272 46.545454c25.6 6.981818 53.527273-2.327273 67.490909-23.272727l107.054546-155.927273 144.290909 162.909091c16.290909 18.618182 41.890909 25.6 65.163636 16.290909l128-44.218181-114.036363 395.636363zM875.054545 861.090909H146.618182c-18.618182 0-34.909091 16.290909-34.909091 34.909091S125.672727 930.909091 146.618182 930.909091h730.763636c18.618182 0 34.909091-16.290909 34.909091-34.909091s-16.290909-34.909091-37.236364-34.909091z" fill="currentColor"/></svg>
+                        </div>
+                        <h3 class="benefit-card-title" data-i18n="benefits.card2Title">酒店加盟RCI,5年RCI会籍</h3>
+                        <p class="benefit-card-description" data-i18n="benefits.card2Desc">
+                            大梅沙游艇会度假酒店正式加盟RCI，购买该度假酒店分时度假权，赠送5年RCI的会籍权益。
+                        </p>
+                    </div>
+                    <!-- 权益卡片3：换住全球 -->
+                    <div class="benefit-card scroll-animate">
+                        <div class="benefit-icon-wrapper">
+                            <svg class="benefit-icon-svg" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 0C229.2 0 0 229.2 0 512s229.2 512 512 512 512-229.2 512-512S794.8 0 512 0zM337.6 924.8c-53.3-22.6-101.3-54.9-142.4-96-41.2-41.2-73.5-89.1-96-142.4C75.8 631.2 64 572.5 64 512c0-29 2.7-57.6 8.1-85.5 6.5 2.5 13.8 3.9 20.9 3.9 9.7 0 19.3-2.4 27.1-7.6 8-5.3 17.3-8.1 26.5-8.1 7.9 0 15.8 2.1 22.8 6.4 8.1 5 13.8 11.6 13.8 22.8 0 81.6 2.8 168.7 76.9 169.9 2.2 0 41.2 14.9 59.8 63.3 2.2 5.6 6.4 7.4 12.2 7.4 11.5 0 29-7.4 47.6-7.4 13.9 0 0 23.6 0 74.5C379.8 802 489 880.1 489 880.1c-0.6 32 0.9 58.5 3.3 79.4-53.5-2.2-105.5-13.9-154.7-34.7z m491.2-96c-41.2 41.2-89.1 73.5-142.4 96-24.4 10.3-49.4 18.4-75 24.1-1.5-0.3-3.2-0.4-5-0.4-3.5 0-7.5 0.5-12 1.7 15.5-65.5 22.9-102.4 54.9-130.2 44-38.2 9.7-80.4-24-80.4-1.9 0-3.9 0.1-5.8 0.4-1.5 0.2-2.8 0.3-4 0.3-22.2 0-7.5-34.9-31.1-36.9-24.8-2.1-57.3-51.4-93.4-68.5-19-9-37.5-33.2-67-34.5h-1.7c-18.6 0-42.3 11.1-54.4 11.1-4.8 0-7.8-1.8-7.8-6.7 0-57.1-5.9-97.7-6.8-113.8-0.4-5.5-2-7.1-1.1-7.1 1.2 0 7.2 3.2 27.8 3.7h0.5c18.6 0 9.7-38.5 28.1-40 0.8-0.1 1.6-0.1 2.4-0.1 16.4 0 47.5 11.8 63.8 11.8 3.4 0 6.1-0.5 7.9-1.7 0.2-0.1 0.4-0.2 0.7-0.2 8.8 0 43.4 86.3 62.8 86.3 8 0 13.4-14.7 13.4-56 0-17.1-9-46.9 0-63.3 35.1-64.2 67.9-116.7 65.1-124.1-0.9-2.3-11.3-4.4-25-4.4-11.7 0-25.7 1.5-38.3 5.6-9.4 3.1 2.8 17.7-10.2 20.8-8.7 2-17.2 2.9-25.2 2.9-38.2 0-65.8-20.3-53.3-39.8 15.9-23.9 72.8-10.6 77.9-58.6 2.3-22.2 4.3-47.2 5.8-68.5 0.5-7.7 6.7-13.7 14.4-14.2 37.2-2.7 41-47 6.2-75.3 37.5 5.4 74.1 15.6 109.2 30.5 53.3 22.6 101.3 54.9 142.4 96 37.4 37.4 67.4 80.3 89.6 127.8-5.7-3.5-11.6-5.2-17.4-5.2-28.3 0-54.2 38.4-38 82-133 102-98.9 173.4-55.5 214 12.8 12 25.4 27.4 36.4 42.7 10.6 14.6 17.2 31.5 21 49.2 1.4 6.4 6.4 9.6 13.7 9.6 11 0 26.1-9.7 39.5-9.7 5.5 0 10.6 1.5 14.8 5.5 8.7 8.2 7.3 23.3 7.3 34.5 0 77.3-28.6 153.9-80.5 212.3z" fill="currentColor"/></svg>
+                        </div>
+                        <h3 class="benefit-card-title" data-i18n="benefits.card3Title">换住全球5000+度假村</h3>
+                        <p class="benefit-card-description" data-i18n="benefits.card3Desc">
+                            会员可通过RCI（全球最大分时度假互换平台），丝滑换住全球110个国家的5000多家度假酒店。
+                        </p>
+                    </div>
+                    <!-- 权益卡片4：同等度假权益 -->
+                    <div class="benefit-card scroll-animate">
+                        <div class="benefit-icon-wrapper">
+                            <svg class="benefit-icon-svg" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M85.930667 950.016c0 24.576 7.125333 31.317333 29.44 31.317333l353.365333 0L468.736 511.744 85.930667 511.744 85.930667 950.016zM555.264 981.333333l353.365333 0c22.357333 0 29.44-6.698667 29.44-31.317333L938.069333 511.744l-382.848 0L555.221333 981.333333zM938.666667 256l-213.333333 0c51.498667-11.733333 105.898667-49.706667 112.597333-94.293333 7.850667-50.858667-52.565333-127.957333-125.653333-118.186667-87.424 12.117333-151.509333 89.258667-196.736 149.077333C470.656 133.930667 412.16 65.408 328.362667 45.482667c-81.152-19.2-136.746667 64.938667-135.253333 116.992C194.56 206.72 245.717333 244.309333 298.666667 256L85.333333 256C58.965333 256 42.666667 270.848 42.666667 298.666667l0 170.581333L469.333333 469.333333 469.333333 256l85.333333 0 0 213.333333 426.666667-0.085333L981.333333 298.666667C981.333333 270.848 964.992 256 938.666667 256zM251.648 178.176C236.885333 161.749333 246.869333 139.434667 256.128 122.581333c17.024-29.696 40.746667-47.744 81.152-30.933333 56.32 23.509333 97.792 73.216 131.584 117.802667C397.312 217.344 290.56 220.416 251.648 178.176zM562.944 208.682667c34.816-44.629333 75.221333-89.941333 131.157333-117.802667 58.581333-28.970667 113.024 49.322667 85.205333 86.912-21.418667 28.544-89.258667 31.232-125.909333 32.853333C623.317333 212.181333 592.896 211.456 562.944 208.682667z" fill="currentColor"/></svg>
+                        </div>
+                        <h3 class="benefit-card-title" data-i18n="benefits.card4Title">价值无可匹敌</h3>
+                        <p class="benefit-card-description" data-i18n="benefits.card4Desc">
+                            尊享5年全球度假村入住权益，费用仅为国际主流品牌的零头。
+                        </p>
+                    </div>
+                    <!-- 权益卡片5：无年费 -->
+                    <div class="benefit-card scroll-animate">
+                        <div class="benefit-icon-wrapper">
+                            <svg class="benefit-icon-svg" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M928 864h-32V363c0-20.167-7.765-39.038-21.863-53.137S841.167 288 821 288H704V172c0-20.167-7.765-39.038-21.863-53.137C668.038 104.765 649.167 97 629 97H204c-41.907 0-76 33.645-76 75v692H96c-17.673 0-32 14.327-32 32s14.327 32 32 32h832c17.673 0 32-14.327 32-32s-14.327-32-32-32zM821 351c6.953 0 12 5.047 12 12v501H704V351h117zM191 172c0-6.617 5.832-12 13-12h425c6.953 0 12 5.047 12 12v692h-65V607.5c0-52.107-42.393-94.5-94.5-94.5h-130c-52.107 0-94.5 42.393-94.5 94.5V864h-66V172z m322 692H320V607.5c0-17.369 14.131-31.5 31.5-31.5h130c17.369 0 31.5 14.131 31.5 31.5V864z" fill="currentColor"/><path d="M287 321h256c17.673 0 32-14.327 32-32s-14.327-32-32-32H287c-17.673 0-32 14.327-32 32s14.327 32 32 32zM287 448h256c17.673 0 32-14.327 32-32s-14.327-32-32-32H287c-17.673 0-32 14.327-32 32s14.327 32 32 32z" fill="currentColor"/></svg>
+                        </div>
+                        <h3 class="benefit-card-title" data-i18n="benefits.card5Title">无年费等任何其他隐形费用</h3>
+                        <p class="benefit-card-description" data-i18n="benefits.card5Desc">
+                            该度假权益无年费等其他隐形费用，本产品仅需一次性投入且无年费。度假时按RCI平台标准支付周次交换服务费，即可全球畅游。
+                        </p>
+                    </div>
+                    <!-- 权益卡片6：可分享可转让 -->
+                    <div class="benefit-card scroll-animate">
+                        <div class="benefit-icon-wrapper">
+                            <svg class="benefit-icon-svg" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M809.3 659.5c-50.2 0-94.7 24.8-121.9 62.8L490.6 597.4c10.9-26.3 16.6-54.8 16.6-84.2 0-28.4-5.4-56-15.6-81.6l209.6-115.4c27.4 29.1 66.2 47.3 109.2 47.3 82.7 0 149.9-67.3 149.9-149.9S893.1 63.7 810.4 63.7 660.5 131 660.5 213.6c0 10.2 1 20.2 3 29.8l-216 118.9c-1.6-1.7-3.2-3.4-4.8-5-41.6-41.6-97-64.6-155.9-64.6s-114.2 22.9-155.9 64.6c-41.6 41.6-64.6 97-64.6 155.9s22.9 114.2 64.6 155.9c41.6 41.6 97 64.6 155.9 64.6s114.2-22.9 155.9-64.6c1-1 2-2.1 3-3.1l213.9 135.7c-0.1 2.6-0.2 5.1-0.2 7.7 0 82.7 67.3 149.9 149.9 149.9S959.2 892 959.2 809.4s-67.3-149.9-149.9-149.9z m1.1-513.8c37.5 0 67.9 30.5 67.9 67.9s-30.5 67.9-67.9 67.9-67.9-30.5-67.9-67.9 30.5-67.9 67.9-67.9z m-523.7 506c-76.3 0-138.5-62.1-138.5-138.5s62.1-138.5 138.5-138.5 138.5 62.1 138.5 138.5-62.1 138.5-138.5 138.5z m522.6 225.6c-37.5 0-67.9-30.5-67.9-67.9s30.5-67.9 67.9-67.9 67.9 30.5 67.9 67.9-30.5 67.9-67.9 67.9z" fill="currentColor"/></svg>
+                        </div>
+                        <h3 class="benefit-card-title" data-i18n="benefits.card6Title">可分享，可转让，可继承</h3>
+                        <p class="benefit-card-description" data-i18n="benefits.card6Desc">
+                            该度假权益（包含附赠的RCI会籍）可以分享给家人和朋友使用，可以进行转让，可以被继承。
+                        </p>
+                    </div>
+                </div>
+                <!-- 权益卡片下方按钮 -->
+                <div class="benefits-buttons">
+                    <a href="./benefits-detail.html" class="benefits-btn benefits-btn-primary" data-i18n="benefits.detailsBtn">权益详情介绍</a>
+                    <a href="#" class="benefits-btn benefits-btn-secondary" id="rciLinkBtn" data-i18n="benefits.hotelsBtn" target="_blank" rel="noopener noreferrer">所有可交换酒店</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 美国可交换酒店 ==================== -->
+        <section class="hotels-section">
+            <div class="hotels-content scroll-animate">
+                <h2 class="section-title" data-i18n="hotels.title">美国可交换酒店</h2>
+                <div class="hotels-grid" id="hotelsGrid">
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 全球推荐目的地 ==================== -->
+        <section class="destinations-section">
+            <div class="destinations-content scroll-animate">
+                <h2 class="section-title" data-i18n="destinations.title">全球推荐目的地</h2>
+                <div class="destinations-grid">
+                    <a href="./hotel-list.html?dest=newyork" class="destination-card" style="text-decoration: none; color: inherit;">
+                        <img src="./assets/destinations/new-york.jpg" alt="纽约" class="destination-image">
+                        <div class="destination-overlay-text" data-i18n="destinations.newYork">纽约</div>
+                    </a>
+                    <a href="./hotel-list.html?dest=phuket" class="destination-card" style="text-decoration: none; color: inherit;">
+                        <img src="./assets/destinations/phuket.png" alt="普吉岛" class="destination-image">
+                        <div class="destination-overlay-text" data-i18n="destinations.phuket">普吉岛</div>
+                    </a>
+                    <a href="./hotel-list.html?dest=finland" class="destination-card" style="text-decoration: none; color: inherit;">
+                        <img src="./assets/destinations/finland.png" alt="芬兰" class="destination-image">
+                        <div class="destination-overlay-text" data-i18n="destinations.finland">芬兰</div>
+                    </a>
+                    <a href="./hotel-list.html?dest=maldives" class="destination-card" style="text-decoration: none; color: inherit;">
+                        <img src="./assets/destinations/maldives.png" alt="马尔代夫" class="destination-image">
+                        <div class="destination-overlay-text" data-i18n="destinations.maldives">马尔代夫</div>
+                    </a>
+                    <a href="./hotel-list.html?dest=bali" class="destination-card" style="text-decoration: none; color: inherit;">
+                        <img src="./assets/destinations/bali.png" alt="巴厘岛" class="destination-image">
+                        <div class="destination-overlay-text" data-i18n="destinations.bali">巴厘岛</div>
+                    </a>
+                    <a href="./hotel-list.html?dest=cancun" class="destination-card" style="text-decoration: none; color: inherit;">
+                        <img src="./assets/destinations/cancun.png" alt="坎昆" class="destination-image">
+                        <div class="destination-overlay-text" data-i18n="destinations.cancun">坎昆</div>
+                    </a>
+                    <a href="./hotel-list.html?dest=dubai" class="destination-card" style="text-decoration: none; color: inherit;">
+                        <img src="./assets/destinations/dubai.png" alt="迪拜" class="destination-image">
+                        <div class="destination-overlay-text" data-i18n="destinations.dubai">迪拜</div>
+                    </a>
+                    <a href="./hotel-list.html?dest=tenerife" class="destination-card" style="text-decoration: none; color: inherit;">
+                        <img src="./assets/destinations/tenerife.png" alt="特内里费" class="destination-image">
+                        <div class="destination-overlay-text" data-i18n="destinations.tenerife">特内里费</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 激动人心的假期 ==================== -->
+        <section class="promo-section"><div class="promo-content scroll-animate">
+                <h2 class="section-title" data-i18n="promo.excitingTitle">激动人心的假期</h2>
+                <div class="promo-grid">
+                    <!-- 家庭出游 -->
+                    <a href="./vacation-detail.html?type=family-trip" class="promo-card-new promo-card-link scroll-animate">
+                        <div class="promo-card-image-wrapper">
+                            <img src="./assets/exciting-vacations/family-trip/cover.jpg" alt="家庭出游" class="promo-card-image">
+                            <span class="promo-tag" data-i18n="promo.familyTrip">家庭出游</span>
+                        </div>
+                        <div class="promo-card-info">
+                            <h3 class="promo-card-title" data-i18n="promo.familyTripTitle">家庭出游</h3>
+                            <p class="promo-card-date" data-i18n="promo.familyTripDesc">与家人共享温馨时光，创造美好回忆
+                        </div>
+                    </a>
+                    <!-- 情侣出游 -->
+                    <a href="./vacation-detail.html?type=couple-trip" class="promo-card-new promo-card-link scroll-animate">
+                        <div class="promo-card-image-wrapper">
+                            <img src="./assets/exciting-vacations/couple-trip/cover.jpg" alt="情侣出游" class="promo-card-image">
+                            <span class="promo-tag" data-i18n="promo.coupleTrip">情侣出游</span>
+                        </div>
+                        <div class="promo-card-info">
+                            <h3 class="promo-card-title" data-i18n="promo.coupleTripTitle">情侣出游</h3>
+                            <p class="promo-card-date" data-i18n="promo.coupleTripDesc">浪漫度假，享受二人世界的甜蜜时光</p>
+                        </div>
+                    </a>
+                    <!-- 朋友出游 -->
+                    <a href="./vacation-detail.html?type=friends-trip" class="promo-card-new promo-card-link scroll-animate">
+                        <div class="promo-card-image-wrapper">
+                            <img src="./assets/exciting-vacations/friends-trip/cover.jpg" alt="朋友出游" class="promo-card-image">
+                            <span class="promo-tag" data-i18n="promo.friendsTrip">朋友出游</span>
+                        </div>
+                        <div class="promo-card-info">
+                            <h3 class="promo-card-title" data-i18n="promo.friendsTripTitle">朋友出游</h3>
+                            <p class="promo-card-date" data-i18n="promo.friendsTripDesc">与好友结伴同行，探索精彩目的地
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 真实可靠的交换体验 ==================== -->
+        <section class="promo-section"><div class="promo-content scroll-animate">
+                <h2 class="section-title" data-i18n="promo.reliableTitle">真实可靠的交换体验</h2>
+                <div class="promo-grid">
+                    <!-- 交换卡片1 - RCI交换确认信 -->
+                    <a href="./exchange-detail.html?type=manhattan-club" class="promo-card-new promo-card-link scroll-animate">
+                        <div class="promo-card-image-wrapper">
+                            <img src="./assets/exchange-showcase/rci-confirmation-1.png" alt="RCI Exchange Confirmation" class="promo-card-image">
+                            <span class="promo-tag" data-i18n="promo.exchangeConfirm">交换确认信</span>
+                        </div>
+                        <div class="promo-card-info">
+                            <p class="promo-card-subtitle" data-i18n="promo.card1Subtitle">The Manhattan Club</p>
+                            <h3 class="promo-card-title" data-i18n="promo.card1Title">RCI交换确认信 - 曼哈顿俱乐部</h3>
+                            <p class="promo-card-date" data-i18n="promo.card1Date">2026年3月交换</p>
+                        </div>
+                    </a>
+                    <!-- 交换卡片2 - RCI交换确认信 -->
+                    <a href="./exchange-detail.html?type=elara-hilton" class="promo-card-new promo-card-link scroll-animate">
+                        <div class="promo-card-image-wrapper">
+                            <img src="./assets/exchange-showcase/rci-confirmation-2.png" alt="RCI Exchange Confirmation" class="promo-card-image">
+                            <span class="promo-tag" data-i18n="promo.exchangeConfirm">交换确认信</span>
+                        </div>
+                        <div class="promo-card-info">
+                            <p class="promo-card-subtitle" data-i18n="promo.card2Subtitle">Elara, a Hilton Grand Vacations Club</p>
+                            <h3 class="promo-card-title" data-i18n="promo.card2Title">RCI交换确认信 - 希尔顿度假俱乐部</h3>
+                            <p class="promo-card-date" data-i18n="promo.card2Date">2026年3月交换</p>
+                        </div>
+                    </a>
+                    <!-- 交换卡片3 - RCI会员账号 -->
+                    <a href="./exchange-detail.html?type=member-account" class="promo-card-new promo-card-link scroll-animate">
+                        <div class="promo-card-image-wrapper">
+                            <img src="./assets/exchange-showcase/rci-member-account.jpg" alt="RCI Member Account" class="promo-card-image">
+                            <span class="promo-tag" data-i18n="promo.memberAccount">会员账号</span>
+                        </div>
+                        <div class="promo-card-info">
+                            <p class="promo-card-subtitle" data-i18n="promo.card3Subtitle">RCI Membership</p>
+                            <h3 class="promo-card-title" data-i18n="promo.card3Title">RCI会员账号展示</h3>
+                            <p class="promo-card-date" data-i18n="promo.card3Date">真实有效的RCI会员权益</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== 页脚 ==================== -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- 品牌区域 -->
+            <div class="footer-brand">
+                <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="footer-logo-img">
+                <p class="footer-brand-description" data-i18n="footer.brandDesc">
+                    开启奢华旅行新体验，为您精心甄选全球顶级酒店与度假村。
+                </p>
+                <div class="footer-social-links">
+                    <a href="#" class="footer-social-link">
+                        <span class="material-symbols-outlined">share</span>
+                    </a>
+                    <a href="#" class="footer-social-link">
+                        <span class="material-symbols-outlined">language</span>
+                    </a>
+                </div>
+            </div>
+            <!-- 探索链接 -->
+            <div>
+                <h5 class="footer-column-title" data-i18n="footer.explore">探索</h5>
+                <ul class="footer-links">
+                    <li class="footer-link-item"><a href="#" class="footer-link" data-i18n="footer.hotels">酒店</a></li>
+                    <li class="footer-link-item"><a href="#" class="footer-link" data-i18n="footer.destinations">目的地</a>
+                    </li>
+                    <li class="footer-link-item"><a href="#" class="footer-link" data-i18n="footer.promotions">特惠活动</a>
+                    </li>
+                    <li class="footer-link-item"><a href="#" class="footer-link" data-i18n="footer.blog">旅行博客</a></li>
+                </ul>
+            </div>
+            <!-- 公司链接 -->
+            <div>
+                <h5 class="footer-column-title" data-i18n="footer.company">公司</h5>
+                <ul class="footer-links">
+                    <li class="footer-link-item"><a href="#" class="footer-link" data-i18n="footer.partners">合作伙伴</a>
+                    </li>
+                    <li class="footer-link-item"><a href="#" class="footer-link" data-i18n="footer.privacy">隐私政策</a>
+                    </li>
+                    <li class="footer-link-item"><a href="#" class="footer-link" data-i18n="footer.terms">服务条款</a></li>
+                    <li class="footer-link-item"><a href="#" class="footer-link" data-i18n="footer.careers">加入我们</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 联系方式 -->
+            <div>
+                <h5 class="footer-column-title" data-i18n="footer.contact">联系方式</h5>
+                <ul class="footer-links">
+                    <li class="footer-contact-item-top">
+                        <span class="material-symbols-outlined footer-contact-icon">location_on</span>
+                        <span data-i18n="footer.location">中国 · 上海</span>
+                    </li>
+                    <li class="footer-contact-item">
+                        <span class="material-symbols-outlined footer-contact-icon">mail</span>
+                        <span data-i18n="footer.email">contact@huanxiang.com</span>
+                    </li>
+                    <li class="footer-contact-item">
+                        <span class="material-symbols-outlined footer-contact-icon">call</span>
+                        <span data-i18n="footer.phone">+86 400-888-8888</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 版权区域 -->
+        <div class="footer-copyright">
+            <p class="footer-copyright-text" data-i18n="footer.copyright">© 2024 换享星球. All Rights Reserved.</p>
+            <div class="footer-copyright-links">
+                <a href="#" class="footer-copyright-link" data-i18n="footer.sitemap">网站地图</a>
+                <a href="#" class="footer-copyright-link" data-i18n="footer.cookiePolicy">Cookie 政策</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- i18n Internationalization -->
+    <script src="./js/i18n.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/scroll-animations.js"></script>
+</body>
+
+</html>

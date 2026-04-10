@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>权益详情 - 换享星球</title>
+
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="./js/tailwind.config.js"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="./index.html" class="nav-logo">
+                <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="nav-logo-img">
+            </a>
+            <div class="nav-links">
+                <a href="./hotel-detail.html?id=hotel7" class="nav-link nav-link-secondary" data-i18n="nav.hotelIntro">酒店介绍</a>
+                <a href="./benefits-detail.html" class="nav-link nav-link-active" data-i18n="nav.benefitsIntro">权益介绍</a>
+                <a href="./faq.html" class="nav-link nav-link-secondary" data-i18n="nav.faq">FAQ</a>
+            </div>
+            <div class="nav-right">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="zh">中文</button>
+                    <button class="lang-btn" data-lang="ko">한국어</button>
+                    <button class="lang-btn" data-lang="ja">日本語</button>
+                </div>
+                <a href="./contact.html" class="nav-button" data-i18n="nav.contactUs">联系我们</a>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-content">
+                <a href="./hotel-detail.html?id=hotel7" class="mobile-menu-link" data-i18n="nav.hotelIntro">酒店介绍</a>
+                <a href="./benefits-detail.html" class="mobile-menu-link" data-i18n="nav.benefitsIntro">权益介绍</a>
+                <a href="./faq.html" class="mobile-menu-link" data-i18n="nav.faq">FAQ</a>
+                <div class="mobile-menu-divider"></div>
+                <div class="mobile-lang-switcher">
+                    <button class="mobile-lang-btn active" data-lang="en">English</button>
+                    <button class="mobile-lang-btn" data-lang="zh">中文</button>
+                    <button class="mobile-lang-btn" data-lang="ko">한국어</button>
+                    <button class="mobile-lang-btn" data-lang="ja">日本語</button>
+                </div>
+                <a href="./contact.html" class="mobile-nav-button" data-i18n="nav.contactUs">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="benefits-hero-section">
+            <div class="benefits-hero-bg">
+                <img src="./assets/dameishawan/banner.png" alt="Hero" class="benefits-hero-image">
+                <div class="benefits-hero-overlay"></div>
+            </div>
+            <div class="benefits-hero-content">
+                <h1 class="benefits-hero-title" data-i18n="benefitsDetail.heroTitle">购买一个度假权</h1>
+                <p class="benefits-hero-subtitle" data-i18n="benefitsDetail.heroSubtitle">省钱换享全世界</p>
+            </div>
+        </section>
+
+        <section class="benefits-logic-section">
+            <div class="benefits-logic-content benefits-animate">
+                <h2 class="benefits-section-title benefits-section-title-center" data-i18n="benefitsDetail.logicTitle">度假权交易逻辑</h2>
+                <p class="benefits-section-desc benefits-section-desc-center" data-i18n="benefitsDetail.logicDesc">通过换享星球的全球网络，您的度假权不再受限于单一目的地。我们构建了一个透明、高效的交换生态系统，让您的资产在全球范围内流动。</p>
+                <div class="logic-flowchart">
+                    <div class="logic-step logic-step-main">
+                        <div class="logic-circle logic-circle-main">
+                            <div class="logic-circle-inner">
+                                <span class="logic-circle-text-cn" data-i18n="benefitsDetail.flowMainCn">购买游艇会<br>分时度假权</span>
+                                <span class="logic-circle-text-en" data-i18n="benefitsDetail.flowMainEn">Purchase Dameisha Bay Yacht Club<br>Timeshare Vacation Rights</span>
+                            </div>
+                        </div>
+                        <div class="logic-price-tag">
+                            <span class="logic-price-value">$ 4980</span>
+                            <span class="logic-price-note" data-i18n="benefitsDetail.flowPriceNote">5年，每年2周，共10周分时度假权</span>
+                        </div>
+                    </div>
+
+                    <div class="logic-connector">
+                        <div class="logic-connector-line"></div>
+                        <div class="logic-or-label">OR</div>
+                        <div class="logic-connector-line"></div>
+                    </div>
+
+                    <div class="logic-step logic-step-options">
+                        <div class="logic-option-col">
+                            <div class="logic-circle logic-circle-option">
+                                <div class="logic-circle-inner">
+                                    <span class="logic-circle-text-cn" data-i18n="benefitsDetail.flowOption1Cn">入住游艇会<br>直接行权</span>
+                                    <span class="logic-circle-text-en" data-i18n="benefitsDetail.flowOption1En">Stay at Yacht Club<br>Direct Redemption</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="logic-option-col">
+                            <div class="logic-circle logic-circle-option">
+                                <div class="logic-circle-inner">
+                                    <span class="logic-circle-text-cn" data-i18n="benefitsDetail.flowOption2Cn">通过RCI<br>交换行权</span>
+                                    <span class="logic-circle-text-en" data-i18n="benefitsDetail.flowOption2En">Exchange via RCI<br>Global Network</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits-rci-section">
+            <div class="benefits-rci-content benefits-animate">
+                <div class="rci-world-wrap">
+                    <div class="rci-header-box" data-i18n="benefitsDetail.rciTopBar">大梅沙湾游艇会度假酒店</div>
+                    <div class="rci-arrow-down">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 16l-5-5h10l-5 5zm0-14L2 11l10 9 10-9z"/></svg>
+                    </div>
+                    <div class="rci-map-area">
+                        <img src="./assets/image.png" alt="RCI全球网络" class="rci-world-image">
+                        <div class="rci-logo-center">RCI</div>
+                    </div>
+                    <div class="rci-main-title" data-i18n="benefitsDetail.rciSubtitle">全世界最大度假网络交换平台</div>
+                    <div class="rci-stats-row">
+                        <span class="rci-stat-item" data-i18n="benefitsDetail.rciStatMembers">400W会员</span>
+                        <span class="rci-stat-item" data-i18n="benefitsDetail.rciStatCountries">110个国家</span>
+                        <span class="rci-stat-item" data-i18n="benefitsDetail.rciStatHotels">5000家酒店</span>
+                    </div>
+                    <div class="rci-footer-note" data-i18n="benefitsDetail.rciFooterNote">累计完成近1700万次度假交换，每年确认交换超180万次，交换成功率达98%</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits-history-section">
+            <div class="benefits-history-content">
+                <div class="benefits-history-header benefits-animate">
+                    <h2 class="benefits-section-title benefits-section-title-center" data-i18n="benefitsDetail.historyTitle">半个世纪的辉煌历程</h2>
+                    <p class="benefits-history-subtitle" data-i18n="benefitsDetail.historySubtitle">RCI 1974 - 2024：定义全球高端度假新标准</p>
+                </div>
+                <div class="benefits-timeline">
+                    <div class="benefits-timeline-item">
+                        <div class="benefits-timeline-year">1974</div>
+                        <div class="benefits-timeline-content">
+                            <h4 class="benefits-timeline-title" data-i18n="benefitsDetail.timeline1974Title">RCI成立</h4>
+                            <p class="benefits-timeline-desc" data-i18n="benefitsDetail.timeline1974Desc">首创交换度假概念</p>
+                        </div>
+                    </div>
+                    <div class="benefits-timeline-item">
+                        <div class="benefits-timeline-year">1995</div>
+                        <div class="benefits-timeline-content">
+                            <h4 class="benefits-timeline-title" data-i18n="benefitsDetail.timeline1995Title">纽交所上市</h4>
+                            <p class="benefits-timeline-desc" data-i18n="benefitsDetail.timeline1995Desc">代码：TNL，市值：300亿人民币</p>
+                        </div>
+                    </div>
+                    <div class="benefits-timeline-item">
+                        <div class="benefits-timeline-year">2017</div>
+                        <div class="benefits-timeline-content">
+                            <h4 class="benefits-timeline-title" data-i18n="benefitsDetail.timeline2017Title">全球收购</h4>
+                            <p class="benefits-timeline-desc" data-i18n="benefitsDetail.timeline2017Desc">收购澳大利亚DAE和@WORK，收购英国Love Home Swap</p>
+                        </div>
+                    </div>
+                    <div class="benefits-timeline-item">
+                        <div class="benefits-timeline-year">2019</div>
+                        <div class="benefits-timeline-content">
+                            <h4 class="benefits-timeline-title" data-i18n="benefitsDetail.timeline2019Title">技术收购</h4>
+                            <p class="benefits-timeline-desc" data-i18n="benefitsDetail.timeline2019Desc">9200万美金收购技术平台</p>
+                        </div>
+                    </div>
+                    <div class="benefits-timeline-item">
+                        <div class="benefits-timeline-year">2021</div>
+                        <div class="benefits-timeline-content">
+                            <h4 class="benefits-timeline-title" data-i18n="benefitsDetail.timeline2021Title">媒体收购</h4>
+                            <p class="benefits-timeline-desc" data-i18n="benefitsDetail.timeline2021Desc">1亿美金收购"漫旅杂志"</p>
+                        </div>
+                    </div>
+                    <div class="benefits-timeline-item">
+                        <div class="benefits-timeline-year">2024</div>
+                        <div class="benefits-timeline-content">
+                            <h4 class="benefits-timeline-title" data-i18n="benefitsDetail.timeline2024Title">雅高收购</h4>
+                            <p class="benefits-timeline-desc" data-i18n="benefitsDetail.timeline2024Desc">4900万美金收购"雅高度假会"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits-partners-section">
+            <div class="benefits-partners-content">
+                <div class="partners-header benefits-animate">
+                    <span class="partners-header-label" data-i18n="benefitsDetail.partnersLabel">全球合作酒店品牌（部分）</span>
+                </div>
+                <div class="brands-grid benefits-animate-scale">
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/喜来登.png" alt="Sheraton"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/安纳塔拉.png" alt="Anantara"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/日落世界.png" alt="Sunset World"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/丽思卡尔顿.png" alt="The Ritz-Carlton"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/帕克瑞吉.png" alt="Park Regis"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/圣安东尼奥.png" alt="San Antonio"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/温德姆.png" alt="Wyndham"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/希尔度假俱乐部.png" alt="Shell Vacations Club"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/皇冠假日.png" alt="Crowne Plaza"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/假日酒店.png" alt="Holiday Inn"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/香格里拉.png" alt="Shangri-La Circle"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/万豪.png" alt="Marriott"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/美利亚.png" alt="Melia"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/度假村.png" alt="Vacation Village"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/格明德凯尔公园.png" alt="Gemunder Keilpark"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/希尔顿.png" alt="Hilton"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/洲际.png" alt="InterContinental"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/华美达.png" alt="Ramada"></div>
+                </div>
+                <div class="pricing-buttons benefits-animate">
+                    <button class="price-btn" data-i18n="benefitsDetail.priceBtnAsia">东南亚支付198新币每周次</button>
+                    <button class="price-btn" data-i18n="benefitsDetail.priceBtnGlobal">欧美澳其他国家支付388新币每周次</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits-themes-section">
+            <div class="benefits-themes-content">
+                <div class="themes-gallery-frame benefits-animate-scale">
+                    <div class="themes-gallery-grid">
+                        <div class="theme-photo-card">
+                            <img src="./assets/hotel-themes/高尔夫.jpg" alt="高尔夫" class="theme-photo-img">
+                        </div>
+                        <div class="theme-photo-card">
+                            <img src="./assets/hotel-themes/滑雪.jpg" alt="滑雪" class="theme-photo-img">
+                        </div>
+                        <div class="theme-photo-card">
+                            <img src="./assets/hotel-themes/温泉.jpg" alt="温泉" class="theme-photo-img">
+                        </div>
+                        <div class="theme-photo-card">
+                            <img src="./assets/hotel-themes/潜水.jpg" alt="潜水" class="theme-photo-img">
+                        </div>
+                        <div class="theme-photo-card">
+                            <img src="./assets/hotel-themes/亲子.png" alt="亲子" class="theme-photo-img">
+                        </div>
+                        <div class="theme-photo-card">
+                            <img src="./assets/hotel-themes/沙滩.jpg" alt="沙滩" class="theme-photo-img">
+                        </div>
+                    </div>
+                </div>
+                <div class="themes-gallery-caption benefits-animate" data-i18n="benefitsDetail.themesCaption">6大主题类型酒店：高尔夫、滑雪、温泉、潜水、亲子、沙滩</div>
+            </div>
+        </section>
+
+        <section class="hotel-back-section">
+            <a href="./index.html" class="back-button">
+                <span class="material-symbols-outlined back-arrow">arrow_back</span>
+                <span data-i18n="benefitsDetail.backBtn">返回首页</span>
+            </a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="footer-logo-img">
+                <p class="footer-brand-description" data-i18n="footer.brandDesc">开启奢华旅行新体验，为您精心甄选全球顶级酒店与度假村。</p>
+                <div class="footer-social-links">
+                    <a href="#" class="footer-social-link">
+                        <span class="material-symbols-outlined">share</span>
+                    </a>
+                    <a href="#" class="footer-social-link">
+                        <span class="material-symbols-outlined">language</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-column-title" data-i18n="footer.quickLinks">快速链接</h4>
+                <a href="./hotel-detail.html?id=hotel7" class="footer-link" data-i18n="nav.hotelIntro">酒店介绍</a>
+                <a href="./benefits-detail.html" class="footer-link" data-i18n="nav.benefitsIntro">权益介绍</a>
+                <a href="./contact.html" class="footer-link" data-i18n="nav.contactUs">联系我们</a>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-column-title" data-i18n="footer.contact">联系方式</h4>
+                <a href="mailto:dameisha666@gmail.com" class="footer-link">dameisha666@gmail.com</a>
+                <a href="https://wa.me/8613800138000" target="_blank" class="footer-link">WhatsApp</a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p class="footer-copyright-text">© 2024 换享星球. All rights reserved.</p>
+            <a href="#" class="footer-copyright-link" data-i18n="footer.privacy">隐私政策</a>
+        </div>
+    </footer>
+
+    <script src="./js/i18n.js"></script>
+    <script src="./js/scroll-animations.js"></script>
+</body>
+
+</html>

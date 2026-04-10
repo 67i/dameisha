@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>酒店列表 - 换享星球</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="./js/tailwind.config.js"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="./index.html" class="nav-logo">
+                <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="nav-logo-img">
+            </a>
+            <div class="nav-links">
+                <a href="./index.html" class="nav-link nav-link-secondary" data-i18n="nav.hotelIntro">酒店介绍</a>
+                <a href="./index.html" class="nav-link nav-link-secondary" data-i18n="nav.benefitsIntro">权益介绍</a>
+                <a href="./faq.html" class="nav-link nav-link-secondary" data-i18n="nav.faq">FAQ</a>
+            </div>
+            <div class="nav-right">
+                <button class="mobile-menu-btn" id="mobileMenuBtn"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button>
+                <div class="lang-switcher"><button class="lang-btn active" data-lang="en">EN</button><button class="lang-btn" data-lang="zh">中文</button><button class="lang-btn" data-lang="ko">한국�?/button><button class="lang-btn" data-lang="ja">日本�?/button></div>
+                <a href="./contact.html" class="nav-button" data-i18n="nav.contactUs">联系我们</a>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-content">
+                <a href="./index.html" class="mobile-menu-link" data-i18n="nav.hotelIntro">酒店介绍</a>
+                <a href="./index.html" class="mobile-menu-link" data-i18n="nav.benefitsIntro">权益介绍</a>
+                <a href="./faq.html" class="mobile-menu-link" data-i18n="nav.faq">FAQ</a>
+                <div class="mobile-menu-divider"></div>
+                <div class="mobile-lang-switcher">
+                    <button class="mobile-lang-btn active" data-lang="en">English</button>
+                    <button class="mobile-lang-btn" data-lang="zh">中文</button>
+                    <button class="mobile-lang-btn" data-lang="ko">한국�?/button>
+                    <button class="mobile-lang-btn" data-lang="ja">日本�?/button>
+                </div>
+                <a href="./contact.html" class="mobile-nav-button" data-i18n="nav.contactUs">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hotel-list-hero">
+            <div class="hotel-list-hero-bg"></div>
+            <div class="hotel-list-hero-content scroll-animate">
+                <h1 class="hotel-list-hero-title" data-i18n="hotelList.heroTitle">全球可交换酒�?/h1>
+                <p class="hotel-list-hero-subtitle" data-i18n="hotelList.heroSubtitle">RCI 全球 110 �?5000+ 度假村，开启您的交换之�?/p>
+            </div>
+        </section>
+
+        <div class="hotel-list-layout">
+            <section class="hotel-list-main">
+                <div class="hotel-list-grid" id="hotelListGrid">
+                </div>
+            </section>
+        </div>
+
+        <section class="hotel-list-back">
+            <a href="./index.html#destinations" class="back-button"><span class="material-symbols-outlined back-arrow">arrow_back</span><span data-i18n="hotelList.backBtn">返回首页</span></a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="footer-logo-img">
+                <p class="footer-brand-description" data-i18n="footer.brandDesc">开启奢华旅行新体验，为您精心甄选全球顶级酒店与度假村�?/p>
+                <div class="footer-social-links"><a href="#" class="footer-social-link"><span class="material-symbols-outlined">share</span></a><a href="#" class="footer-social-link"><span class="material-symbols-outlined">language</span></a></div>
+            </div>
+            <div class="footer-column"><h4 class="footer-column-title" data-i18n="footer.quickLinks">快速链�?/h4><a href="./index.html" class="footer-link" data-i18n="nav.hotelIntro">酒店介绍</a><a href="./index.html" class="footer-link" data-i18n="nav.benefitsIntro">权益介绍</a><a href="./contact.html" class="footer-link" data-i18n="nav.contactUs">联系我们</a></div>
+            <div class="footer-column"><h4 class="footer-column-title" data-i18n="footer.contact">联系方式</h4><a href="mailto:dameisha666@gmail.com" class="footer-link">dameisha666@gmail.com</a><a href="https://wa.me/8613800138000" target="_blank" class="footer-link">WhatsApp</a></div>
+        </div>
+        <div class="footer-copyright"><p class="footer-copyright-text">© 2024 换享星球. All rights reserved.</p><a href="#" class="footer-copyright-link" data-i18n="footer.privacy">隐私政策</a></div>
+    </footer>
+
+    <script src="./js/i18n.js"></script>
+    <script src="./js/scroll-animations.js"></script>
+    <script>
+    (function() {
+        var allHotels = [];
+        var destTitleKeys = {
+            newyork: 'hotelList.destNewYork',
+            phuket: 'hotelList.destPhuket',
+            finland: 'hotelList.destFinland',
+            maldives: 'hotelList.destMaldives',
+            bali: 'hotelList.destBali',
+            cancun: 'hotelList.destCancun',
+            dubai: 'hotelList.destDubai',
+            tenerife: 'hotelList.destTenerife'
+        };
+
+        var destHeroImages = {
+            newyork: './assets/destinations/new-york.jpg',
+            phuket: './assets/destinations/phuket.png',
+            finland: './assets/destinations/finland.png',
+            maldives: './assets/destinations/maldives.png',
+            bali: './assets/destinations/bali.png',
+            cancun: './assets/destinations/cancun.png',
+            dubai: './assets/destinations/dubai.png',
+            tenerife: './assets/destinations/tenerife.png'
+        };
+
+        function getDestParam() {
+            var params = new URLSearchParams(window.location.search);
+            return params.get('dest') || '';
+        }
+
+        function renderHotels() {
+            var dest = getDestParam();
+            var grid = document.getElementById('hotelListGrid');
+            if (!grid) return;
+
+            var hotels = dest ? allHotels.filter(function(h) { return h.dest.indexOf(dest) !== -1; }) : allHotels;
+
+            if (dest && destTitleKeys[dest]) {
+                var heroTitle = document.querySelector('.hotel-list-hero-title');
+                if (heroTitle) {
+                    heroTitle.setAttribute('data-i18n', destTitleKeys[dest]);
+                }
+                var heroBg = document.querySelector('.hotel-list-hero-bg');
+                if (heroBg && destHeroImages[dest]) {
+                    heroBg.style.backgroundImage = 'url(' + destHeroImages[dest] + ')';
+                }
+            }
+
+            var html = '';
+            hotels.forEach(function(hotel) {
+                var badgeHtml = hotel.badge ? '<span class="hotel-list-card-badge" data-i18n="hotelList.badgePartner">RCI 合作</span>' : '';
+                var isExternal = hotel.detail && (hotel.detail.indexOf('http://') === 0 || hotel.detail.indexOf('https://') === 0);
+                var targetAttr = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
+                html += '<a href="' + hotel.detail + '" class="hotel-list-card"' + targetAttr + '>' +
+                    '<div class="hotel-list-card-image">' +
+                    '<img src="' + hotel.image + '" alt="">' +
+                    badgeHtml +
+                    '</div>' +
+                    '<div class="hotel-list-card-body">' +
+                    '<div class="hotel-list-card-header"><div>' +
+                    '<h3 class="hotel-list-card-name" data-i18n="' + hotel.nameKey + '"></h3>' +
+                    '<p class="hotel-list-card-location" data-i18n="' + hotel.locKey + '"></p>' +
+                    '</div></div>' +
+                    '<div class="hotel-list-card-footer">' +
+                    '<span class="hotel-list-card-detail" data-i18n="hotelList.viewDetails">查看详情</span>' +
+                    '</div></div></a>';
+            });
+
+            grid.innerHTML = html;
+
+            if (typeof I18n !== 'undefined' && I18n.applyTranslations) {
+                I18n.applyTranslations();
+            }
+        }
+
+        function tryRender() {
+            if (typeof I18n !== 'undefined' && I18n.translations && Object.keys(I18n.translations).length > 0) {
+                renderHotels();
+            } else {
+                setTimeout(tryRender, 50);
+            }
+        }
+
+        document.addEventListener('languageChanged', function() {
+            renderHotels();
+        });
+
+        fetch('./data/hotel-list.json').then(function(r) { return r.json(); }).then(function(data) {
+            allHotels = data.hotels || [];
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', tryRender);
+            } else {
+                tryRender();
+            }
+        });
+    })();
+    </script>
+</body>
+</html>

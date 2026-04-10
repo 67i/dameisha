@@ -1,0 +1,884 @@
+{
+    "hotels": {
+        "hotel1": {
+            "id": "hotel1",
+            "banner": "./assets/usa/the-manhattan-club/banner-01.jpg",
+            "name": "The Manhattan Club",
+            "location": "New York, USA",
+            "address": "133 W 56th St, New York, NY 10019, USA",
+            "i18n": {
+                "zh": {
+                    "location": "纽约，美国",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "Manhattan Club Hotel 拥有精致华丽的套房。客房装饰精美优雅，采用最先进的技术，提供各种便利设施，让您倍感舒适。私人套房和一居室套房可容纳2至4位客人，配备设施齐全的厨房。",
+                        "抵达后，礼宾服务人员将确保您享受最佳的城市假期。在私人俱乐部酒廊享用早餐和晚间鸡尾酒，开启美好的一天。酒店对面是卡内基音乐厅，百老汇也近在咫尺。"
+                    ],
+                    "services": [
+                        { "icon": "restaurant", "name": "餐饮服务" },
+                        { "icon": "local_bar", "name": "酒吧/酒廊" },
+                        { "icon": "spa", "name": "SPA（附近）" },
+                        { "icon": "fitness_center", "name": "健身中心" },
+                        { "icon": "shopping_bag", "name": "购物（附近）" },
+                        { "icon": "attractions", "name": "游乐园" },
+                        { "icon": "movie", "name": "电影院（附近）" },
+                        { "icon": "pool", "name": "水上乐园" },
+                        { "icon": "museum", "name": "文化景点（附近）" },
+                        { "icon": "wine_bar", "name": "酒庄" },
+                        { "icon": "park", "name": "公园/动物园（附近）" },
+                        { "icon": "landscape", "name": "自然景观（附近）" },
+                        { "icon": "local_laundry_service", "name": "洗衣设施（附近）" }
+                    ]
+                },
+                "en": {
+                    "location": "New York, USA",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "Manhattan Club Hotel has exquisite and luxurious suites. The rooms are beautifully and elegantly decorated, using the most advanced technology and providing various conveniences to make you feel more comfortable. Private and one-bedroom suites accommodate two to four guests and feature fully equipped kitchens.",
+                        "Upon your arrival, the concierge is on hand to ensure you have the best possible city break. Start your day with breakfast and evening cocktails in the private club lounge. Across from the hotel is Carnegie Hall and Broadway is nearby."
+                    ],
+                    "services": [
+                        { "icon": "restaurant", "name": "Dining Service" },
+                        { "icon": "local_bar", "name": "Bar/Lounge" },
+                        { "icon": "spa", "name": "SPA (Nearby)" },
+                        { "icon": "fitness_center", "name": "Fitness Center" },
+                        { "icon": "shopping_bag", "name": "Shopping (Nearby)" },
+                        { "icon": "attractions", "name": "Amusement Park" },
+                        { "icon": "movie", "name": "Cinema (Nearby)" },
+                        { "icon": "pool", "name": "Water Park" },
+                        { "icon": "museum", "name": "Cultural Sites (Nearby)" },
+                        { "icon": "wine_bar", "name": "Winery" },
+                        { "icon": "park", "name": "Park/Zoo (Nearby)" },
+                        { "icon": "landscape", "name": "Natural Landscape (Nearby)" },
+                        { "icon": "local_laundry_service", "name": "Laundry Facilities (Nearby)" }
+                    ]
+                },
+                "ko": {
+                    "location": "뉴욕, 미국",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "맨해튼 클럽 호텔은 정교하고 화려한 스위트를 보유하고 있습니다. 객실은 아름답고 우아하게 장식되어 있으며, 최첨단 기술을 사용하여 다양한 편의 시설을 제공하여 더욱 편안하게 머무르실 수 있습니다. 프라이빗 및 원베드룸 스위트는 2~4명의 투숙객을 수용할 수 있으며, 완비된 주방을 갖추고 있습니다.",
+                        "도착 후 컨시어지가 최고의 도시 휴가를 즐기실 수 있도록 도와드립니다. 프라이빗 클럽 라운지에서 조식과 저녁 칵테일을 즐기며 하루를 시작하세요. 호텔 맞은편에 카네기홀이 있으며 브로드웨이도 가까이 있습니다."
+                    ],
+                    "services": [
+                        { "icon": "restaurant", "name": "다이닝 서비스" },
+                        { "icon": "local_bar", "name": "바/라운지" },
+                        { "icon": "spa", "name": "스파 (인근)" },
+                        { "icon": "fitness_center", "name": "피트니스 센터" },
+                        { "icon": "shopping_bag", "name": "쇼핑 (인근)" },
+                        { "icon": "attractions", "name": "놀이공원" },
+                        { "icon": "movie", "name": "영화관 (인근)" },
+                        { "icon": "pool", "name": "워터파크" },
+                        { "icon": "museum", "name": "문화 명소 (인근)" },
+                        { "icon": "wine_bar", "name": "와이너리" },
+                        { "icon": "park", "name": "공원/동물원 (인근)" },
+                        { "icon": "landscape", "name": "자연 경관 (인근)" },
+                        { "icon": "local_laundry_service", "name": "세탁 시설 (인근)" }
+                    ]
+                },
+                "ja": {
+                    "location": "ニューヨーク, アメリカ",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "マンハッタン・クラブ・ホテルは精巧で豪華なスイートを備えています。客室は美しく優雅に装飾され、最先端の技術を使用し、様々な便利設備を提供して、より快適にお過ごしいただけます。プライベートおよびワンベッドルームスイートは2〜4名様まで収容可能で、完全設備のキッチンを備えています。",
+                        "ご到着後、コンシェルジュが最高の都市休暇をお楽しみいただけるようサポートいたします。プライベートクラブラウンジで朝食とイブニングカクテルをお楽しみください。ホテルの向かいにはカーネギーホールがあり、ブロードウェイもすぐ近くです。"
+                    ],
+                    "services": [
+                        { "icon": "restaurant", "name": "ダイニングサービス" },
+                        { "icon": "local_bar", "name": "バー/ラウンジ" },
+                        { "icon": "spa", "name": "スパ（近隣）" },
+                        { "icon": "fitness_center", "name": "フィットネスセンター" },
+                        { "icon": "shopping_bag", "name": "ショッピング（近隣）" },
+                        { "icon": "attractions", "name": "遊園地" },
+                        { "icon": "movie", "name": "映画館（近隣）" },
+                        { "icon": "pool", "name": "ウォーターパーク" },
+                        { "icon": "museum", "name": "文化名所（近隣）" },
+                        { "icon": "wine_bar", "name": "ワイナリー" },
+                        { "icon": "park", "name": "公園/動物園（近隣）" },
+                        { "icon": "landscape", "name": "自然景観（近隣）" },
+                        { "icon": "local_laundry_service", "name": "ランドリー施設（近隣）" }
+                    ]
+                }
+            },
+            "introImage": "./assets/usa/the-manhattan-club/01.jpg",
+            "servicesGallery": [
+                "./assets/usa/the-manhattan-club/03.jpg",
+                "./assets/usa/the-manhattan-club/04.jpg",
+                "./assets/usa/the-manhattan-club/05.jpg",
+                "./assets/usa/the-manhattan-club/06.jpg",
+                "./assets/usa/the-manhattan-club/07.jpg",
+                "./assets/usa/the-manhattan-club/08.jpg"
+            ]
+        },
+        "hotel2": {
+            "id": "hotel2",
+            "banner": "./assets/usa/hilton-grand-vacation-seaworld-orlando/banner-03.jpg",
+            "name": "Hilton Grand Vacation Club SeaWorld Orlando",
+            "location": "Orlando, USA",
+            "address": "6924 Grand Vacations Way, Orlando, FL 32821, USA",
+            "i18n": {
+                "zh": {
+                    "location": "奥兰多，美国",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "Hilton Grand Vacations Club at SeaWorld International Center 是一座宏伟的度假村，在奥兰多景点中心地带提供舒适豪华的住宿。客人可以享受度假村的高品质休闲设施，包括三个加热泳池、五个热水浴缸、两个儿童泳池和游乐场、户外漩涡SPA、健身房、沙狐球、游戏室、池边酒吧烧烤和礼品店。",
+                        "4.5英亩的私人湖泊设有步行和慢跑道。度假村还为儿童和成人提供各种活动。这里是探索奥兰多各大主题公园的理想基地。"
+                    ],
+                    "services": [
+                        { "icon": "sports_esports", "name": "游戏室" },
+                        { "icon": "hot_tub", "name": "热水浴缸" },
+                        { "icon": "local_bar", "name": "池边酒吧" },
+                        { "icon": "pool", "name": "游泳池" },
+                        { "icon": "fitness_center", "name": "健身中心" },
+                        { "icon": "sports_soccer", "name": "运动场地" },
+                        { "icon": "nightlife", "name": "酒吧/酒廊" },
+                        { "icon": "restaurant", "name": "餐厅" },
+                        { "icon": "water", "name": "私人湖泊" },
+                        { "icon": "child_care", "name": "儿童活动" },
+                        { "icon": "sports_tennis", "name": "网球场" },
+                        { "icon": "local_laundry_service", "name": "洗衣设施" },
+                        { "icon": "movie", "name": "电影光盘租赁" },
+                        { "icon": "shopping_bag", "name": "购物" },
+                        { "icon": "attractions", "name": "游乐园" },
+                        { "icon": "pool", "name": "水上乐园" },
+                        { "icon": "museum", "name": "文化景点（13公里）" },
+                        { "icon": "park", "name": "公园/动物园（7公里）" },
+                        { "icon": "attractions", "name": "主题乐园（附近）" }
+                    ]
+                },
+                "en": {
+                    "location": "Orlando, USA",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "Hilton Grand Vacations Club at SeaWorld International Center is a magnificent resort offering comfortable and luxurious accommodations in the heart of Orlando's attractions. Guests can enjoy the resort's high-quality leisure facilities, including three heated pools, five hot tubs, two children's pools and playgrounds, an outdoor whirlpool spa, gym, shuffleboard, game room, poolside bar and grill, and gift shop.",
+                        "The 4.5-acre private lake features walking and jogging trails. The resort also offers activities for children and adults. This is an ideal base for exploring Orlando's major theme parks."
+                    ],
+                    "services": [
+                        { "icon": "sports_esports", "name": "Game Room" },
+                        { "icon": "hot_tub", "name": "Hot Tub" },
+                        { "icon": "local_bar", "name": "Pool Bar" },
+                        { "icon": "pool", "name": "Swimming Pool" },
+                        { "icon": "fitness_center", "name": "Fitness Center" },
+                        { "icon": "sports_soccer", "name": "Sports Field" },
+                        { "icon": "nightlife", "name": "Bar/Lounge" },
+                        { "icon": "restaurant", "name": "Restaurant" },
+                        { "icon": "water", "name": "Private Lake" },
+                        { "icon": "child_care", "name": "Children's Activities" },
+                        { "icon": "sports_tennis", "name": "Tennis Court" },
+                        { "icon": "local_laundry_service", "name": "Laundry Facilities" },
+                        { "icon": "movie", "name": "Movie Rental" },
+                        { "icon": "shopping_bag", "name": "Shopping" },
+                        { "icon": "attractions", "name": "Amusement Park" },
+                        { "icon": "pool", "name": "Water Park" },
+                        { "icon": "museum", "name": "Cultural Sites (13km)" },
+                        { "icon": "park", "name": "Park/Zoo (7km)" },
+                        { "icon": "attractions", "name": "Theme Parks (Nearby)" }
+                    ]
+                },
+                "ko": {
+                    "location": "올랜도, 미국",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "힐튼 그랜드 베케이션 클럽 앳 시월드 인터내셔널 센터는 올랜도 명소 중심지에서 편안하고 럭셔리한 숙박을 제공하는 웅장한 리조트입니다. 투숙객은 3개의 가열 수영장, 5개의 온천탕, 2개의 어린이 수영장과 놀이터, 야외 와풀 스파, 헬스장, 셔플보드, 게임룸, 수영장 바 & 그릴, 기프트 샵 등 리조트의 고품질 레저 시설을 이용할 수 있습니다.",
+                        "4.5에이커 규모의 프라이빗 호수에는 산책로와 조깅 트레일이 있습니다. 리조트는 어린이와 성인을 위한 다양한 액티비티도 제공합니다. 올랜도의 주요 테마파크를 탐험하기에 이상적인 베이스캠프입니다."
+                    ],
+                    "services": [
+                        { "icon": "sports_esports", "name": "게임룸" },
+                        { "icon": "hot_tub", "name": "온천탕" },
+                        { "icon": "local_bar", "name": "수영장 바" },
+                        { "icon": "pool", "name": "수영장" },
+                        { "icon": "fitness_center", "name": "피트니스 센터" },
+                        { "icon": "sports_soccer", "name": "스포츠 필드" },
+                        { "icon": "nightlife", "name": "바/라운지" },
+                        { "icon": "restaurant", "name": "레스토랑" },
+                        { "icon": "water", "name": "프라이빗 호수" },
+                        { "icon": "child_care", "name": "어린이 액티비티" },
+                        { "icon": "sports_tennis", "name": "테니스 코트" },
+                        { "icon": "local_laundry_service", "name": "세탁 시설" },
+                        { "icon": "movie", "name": "영화 대여" },
+                        { "icon": "shopping_bag", "name": "쇼핑" },
+                        { "icon": "attractions", "name": "놀이공원" },
+                        { "icon": "pool", "name": "워터파크" },
+                        { "icon": "museum", "name": "문화 명소 (13km)" },
+                        { "icon": "park", "name": "공원/동물원 (7km)" },
+                        { "icon": "attractions", "name": "테마파크 (인근)" }
+                    ]
+                },
+                "ja": {
+                    "location": "オーランド, アメリカ",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "ヒルトン・グランド・バケーション・クラブ・アット・シーワールド・インターナショナル・センターは、オーランドのアトラクションの中心地で快適でラグジュアリーな宿泊を提供する壮大なリゾートです。3つの加熱プール、5つのジャグジー、2つの子供用プールと遊び場、屋外ワールプールスパ、ジム、シャッフルボード、ゲームルーム、プールサイドバー＆グリル、ギフトショップなど、リゾートの高品質なレジャー施設をお楽しみいただけます。",
+                        "4.5エーカーのプライベート湖には散歩道とジョギングコースがあります。リゾートでは子供と大人のための様々なアクティビティも提供しています。オーランドの主要テーマパークを探索するのに理想的な拠点です。"
+                    ],
+                    "services": [
+                        { "icon": "sports_esports", "name": "ゲームルーム" },
+                        { "icon": "hot_tub", "name": "ジャグジー" },
+                        { "icon": "local_bar", "name": "プールサイドバー" },
+                        { "icon": "pool", "name": "プール" },
+                        { "icon": "fitness_center", "name": "フィットネスセンター" },
+                        { "icon": "sports_soccer", "name": "スポーツフィールド" },
+                        { "icon": "nightlife", "name": "バー/ラウンジ" },
+                        { "icon": "restaurant", "name": "レストラン" },
+                        { "icon": "water", "name": "プライベート湖" },
+                        { "icon": "child_care", "name": "子供向けアクティビティ" },
+                        { "icon": "sports_tennis", "name": "テニスコート" },
+                        { "icon": "local_laundry_service", "name": "ランドリー施設" },
+                        { "icon": "movie", "name": "映画レンタル" },
+                        { "icon": "shopping_bag", "name": "ショッピング" },
+                        { "icon": "attractions", "name": "遊園地" },
+                        { "icon": "pool", "name": "ウォーターパーク" },
+                        { "icon": "museum", "name": "文化名所（13km）" },
+                        { "icon": "park", "name": "公園/動物園（7km）" },
+                        { "icon": "attractions", "name": "テーマパーク（近隣）" }
+                    ]
+                }
+            },
+            "introImage": "./assets/usa/hilton-grand-vacation-seaworld-orlando/01.jpg",
+            "servicesGallery": [
+                "./assets/usa/hilton-grand-vacation-seaworld-orlando/03.jpg",
+                "./assets/usa/hilton-grand-vacation-seaworld-orlando/04.jpg",
+                "./assets/usa/hilton-grand-vacation-seaworld-orlando/05.jpg",
+                "./assets/usa/hilton-grand-vacation-seaworld-orlando/06.jpg",
+                "./assets/usa/hilton-grand-vacation-seaworld-orlando/07.jpg",
+                "./assets/usa/hilton-grand-vacation-seaworld-orlando/08.jpg"
+            ]
+        },
+        "hotel3": {
+            "id": "hotel3",
+            "banner": "./assets/usa/trump-international-las-vegas/banner-03.jpg",
+            "name": "Trump International Hotel Las Vegas",
+            "location": "Las Vegas, USA",
+            "address": "2000 Fashion Show Drive, Las Vegas Strip, Las Vegas, NV 89109, USA",
+            "i18n": {
+                "zh": {
+                    "location": "拉斯维加斯，美国",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "这家位于拉斯维加斯的全套房酒店提供奢华SPA服务、室外泳池以及配备小厨房设施和免费Wi-Fi的套房。酒店毗邻时尚秀购物中心（Fashion Show Mall）。",
+                        "每间套房均配备iPod底座和休息区。酒店内设SPA中心，拥有9间理疗室和全方位服务的美发美甲沙龙。客人还可以使用先进的健身房。酒店招牌餐厅DJT提供休闲美式料理，H2(eau)池边餐厅也提供休闲美式美食。酒店还提供便捷的套房内私人用餐服务。拉斯维加斯大道距离酒店仅5分钟步行路程。"
+                    ],
+                    "services": [
+                        { "icon": "pool", "name": "室外游泳池" },
+                        { "icon": "smoke_free", "name": "无烟客房" },
+                        { "icon": "spa", "name": "SPA" },
+                        { "icon": "local_parking", "name": "免费停车" },
+                        { "icon": "accessible", "name": "无障碍设施" },
+                        { "icon": "restaurant", "name": "2间餐厅" },
+                        { "icon": "room_service", "name": "客房服务" },
+                        { "icon": "fitness_center", "name": "健身中心" },
+                        { "icon": "local_bar", "name": "酒吧" }
+                    ]
+                },
+                "en": {
+                    "location": "Las Vegas, USA",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "Located in Las Vegas, this all-suite hotel offers luxury spa services, an outdoor pool and suites with kitchenette facilities and free Wi-Fi. The hotel is adjacent to the Fashion Show Mall.",
+                        "Every suite at Trump International Hotel Las Vegas is furnished with an iPod docking station and seating area. Las Vegas Trump International Hotel features an on-site spa with 9 treatment rooms and a full-service hair and nail salon. Guests can also use the state-of-the-art gym. Trump Hotel's signature restaurant, DJT, offers casual American cuisine. H2(eau) also offers casual American favorites in a vibrant, poolside atmosphere. Private gourmet meals are available through the hotel's convenient in-suite dining. Las Vegas Boulevard is within a 5-minute walk from the hotel."
+                    ],
+                    "services": [
+                        { "icon": "pool", "name": "Outdoor Pool" },
+                        { "icon": "smoke_free", "name": "Non-Smoking Rooms" },
+                        { "icon": "spa", "name": "SPA" },
+                        { "icon": "local_parking", "name": "Free Parking" },
+                        { "icon": "accessible", "name": "Accessible Facilities" },
+                        { "icon": "restaurant", "name": "2 Restaurants" },
+                        { "icon": "room_service", "name": "Room Service" },
+                        { "icon": "fitness_center", "name": "Fitness Center" },
+                        { "icon": "local_bar", "name": "Bar" }
+                    ]
+                },
+                "ko": {
+                    "location": "라스베이거스, 미국",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "라스베이거스에 위치한 이 올스위트 호텔은 럭셔리 스파 서비스, 야외 수영장, 키친렛 시설과 무료 Wi-Fi를 갖춘 스위트를 제공합니다. 호텔은 패션쇼 몰과 인접해 있습니다.",
+                        "트럼프 인터내셔널 호텔 라스베이거스의 모든 스위트에는 iPod 도킹 스테이션과 좌석 공간이 구비되어 있습니다. 라스베이거스 트럼프 인터내셔널 호텔은 9개의 트리트먼트 룸과 풀서비스 헤어 & 네일 살롱을 갖춘 온사이트 스파를 자랑합니다. 투숙객은 최첨단 헬스장도 이용할 수 있습니다. 트럼프 호텔의 시그니처 레스토랑 DJT는 캐주얼 아메리칸 요리를 제공합니다. H2(eau)는 활기찬 수영장 분위기에서 캐주얼 아메리칸 요리를 제공합니다. 호텔의 편리한 인스위트 다이닝을 통해 프라이빗 고메 식사를 이용하실 수 있습니다. 라스베이거스 대로는 호텔에서 도보 5분 거리에 있습니다."
+                    ],
+                    "services": [
+                        { "icon": "pool", "name": "야외 수영장" },
+                        { "icon": "smoke_free", "name": "금연 객실" },
+                        { "icon": "spa", "name": "스파" },
+                        { "icon": "local_parking", "name": "무료 주차" },
+                        { "icon": "accessible", "name": "장애인 편의 시설" },
+                        { "icon": "restaurant", "name": "2개 레스토랑" },
+                        { "icon": "room_service", "name": "룸서비스" },
+                        { "icon": "fitness_center", "name": "피트니스 센터" },
+                        { "icon": "local_bar", "name": "바" }
+                    ]
+                },
+                "ja": {
+                    "location": "ラスベガス, アメリカ",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "ラスベガスにあるこのオールスイートホテルは、ラグジュアリースパサービス、屋外プール、キッチン設備と無料Wi-Fiを備えたスイートを提供しています。ホテルはファッションモールに隣接しています。",
+                        "トランプ・インターナショナル・ホテル・ラスベガスのすべてのスイートにはiPodドッキングステーションとシーティングエリアが備わっています。ラスベガス・トランプ・インターナショナル・ホテルには9室のトリートメントルームとフルサービスのヘア＆ネイルサロンを備えたオンサイトスパがあります。お客様は最先端のジムもご利用いただけます。トランプホテルのシグネチャーレストランDJTはカジュアルなアメリカ料理を提供しています。H2(eau)は活気あるプールサイドの雰囲気でカジュアルなアメリカ料理を提供しています。ホテルの便利なインスイートダイニングでプライベートグルメミールをご利用いただけます。ラスベガス大通りはホテルから徒歩5分以内です。"
+                    ],
+                    "services": [
+                        { "icon": "pool", "name": "屋外プール" },
+                        { "icon": "smoke_free", "name": "禁煙客室" },
+                        { "icon": "spa", "name": "スパ" },
+                        { "icon": "local_parking", "name": "無料駐車" },
+                        { "icon": "accessible", "name": "バリアフリー施設" },
+                        { "icon": "restaurant", "name": "2つのレストラン" },
+                        { "icon": "room_service", "name": "ルームサービス" },
+                        { "icon": "fitness_center", "name": "フィットネスセンター" },
+                        { "icon": "local_bar", "name": "バー" }
+                    ]
+                }
+            },
+            "introImage": "./assets/usa/trump-international-las-vegas/01.jpg",
+            "servicesGallery": [
+                "./assets/usa/trump-international-las-vegas/03.jpg",
+                "./assets/usa/trump-international-las-vegas/04.jpg",
+                "./assets/usa/trump-international-las-vegas/05.jpg",
+                "./assets/usa/trump-international-las-vegas/06.jpg",
+                "./assets/usa/trump-international-las-vegas/07.jpg",
+                "./assets/usa/trump-international-las-vegas/08.jpg"
+            ]
+        },
+        "hotel4": {
+            "id": "hotel4",
+            "banner": "./assets/usa/rams-horn-village-resort/banner-04.jpg",
+            "name": "Rams Horn Village Resort",
+            "location": "Rocky Mountain National Park, USA",
+            "address": "Rams Horn Village Resort, Estes Park, CO 80517, USA",
+            "i18n": {
+                "zh": {
+                    "location": "落基山国家公园，美国",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "度假村坐落在落基山国家公园内，提供美丽的风景、舒适的环境和丰富的活动，让您的假期成为难忘的体验。登山、观赏野生动物、山地自行车、白水漂流、高尔夫、购物等活动都在步行距离内。",
+                        "客人还可以享用免费早午餐，包括美味的葡萄酒、奶酪、冰淇淋和自制华夫饼。附近还有一个设备齐全的小储藏室，为您的远足提供补给。不仅如此，您还可以在设施齐全的整体厨房里烹饪。一天的户外活动后，游客可以通过下棋、看电影和CD来享受家庭娱乐。度假村的工作人员将提供各种服务。"
+                    ],
+                    "services": [
+                        { "icon": "restaurant", "name": "餐饮服务" },
+                        { "icon": "local_laundry_service", "name": "洗衣设施" },
+                        { "icon": "fitness_center", "name": "健身中心" },
+                        { "icon": "pool", "name": "游泳池" },
+                        { "icon": "spa", "name": "SPA（附近）" },
+                        { "icon": "sports_soccer", "name": "运动场地" },
+                        { "icon": "sports_volleyball", "name": "排球场" },
+                        { "icon": "directions_bike", "name": "骑行（附近）" },
+                        { "icon": "sports", "name": "保龄球馆" },
+                        { "icon": "kayaking", "name": "划船（3公里）" },
+                        { "icon": "phishing", "name": "钓鱼（附近）" },
+                        { "icon": "hiking", "name": "骑马（1公里）" },
+                        { "icon": "golf_course", "name": "高尔夫（2公里）" },
+                        { "icon": "hiking", "name": "徒步（附近）" },
+                        { "icon": "water", "name": "湖泊（3公里）" }
+                    ]
+                },
+                "en": {
+                    "location": "Rocky Mountain National Park, USA",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "Nestled in Rocky Mountain National Park, the resort offers beautiful scenery, a comfortable environment and a wide range of activities to make your vacation an unforgettable experience. Mountaineering, wildlife viewing, mountain biking, whitewater rafting, golf, shopping, and more are all within walking distance.",
+                        "Guests can also enjoy a complimentary brunch with mouthwatering wine, cheese, ice cream, and homemade waffles. A small storage room is also available nearby, fully equipped to provide supplies for your excursions. Not only that, but you can also cook in the fully equipped monolithic kitchen. After a day of outdoor activities, visitors can enjoy family entertainment by playing chess, watching movies and CDs. The staff of the resort will offer a variety of services."
+                    ],
+                    "services": [
+                        { "icon": "restaurant", "name": "Dining Service" },
+                        { "icon": "local_laundry_service", "name": "Laundry Facilities" },
+                        { "icon": "fitness_center", "name": "Fitness Center" },
+                        { "icon": "pool", "name": "Swimming Pool" },
+                        { "icon": "spa", "name": "SPA (Nearby)" },
+                        { "icon": "sports_soccer", "name": "Sports Field" },
+                        { "icon": "sports_volleyball", "name": "Volleyball Court" },
+                        { "icon": "directions_bike", "name": "Cycling (Nearby)" },
+                        { "icon": "sports", "name": "Bowling Alley" },
+                        { "icon": "kayaking", "name": "Boating (3km)" },
+                        { "icon": "phishing", "name": "Fishing (Nearby)" },
+                        { "icon": "hiking", "name": "Horseback Riding (1km)" },
+                        { "icon": "golf_course", "name": "Golf (2km)" },
+                        { "icon": "hiking", "name": "Hiking (Nearby)" },
+                        { "icon": "water", "name": "Lake (3km)" }
+                    ]
+                },
+                "ko": {
+                    "location": "로키마운틴 국립공원, 미국",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "로키마운틴 국립공원에 자리 잡은 이 리조트는 아름다운 경치, 편안한 환경, 다양한 액티비티를 제공하여 잊지 못할 휴가 경험을 선사합니다. 등산, 야생동물 관찰, 산악자전거, 급류 래프팅, 골프, 쇼핑 등 모든 것이 도보 거리 내에 있습니다.",
+                        "투숙객은 맛있는 와인, 치즈, 아이스크림, 수제 와플이 포함된 무료 브런치도 즐기실 수 있습니다. 인근에는 여행에 필요한 물품을 제공하는 완비된 작은 보관실도 있습니다. 또한 완비된 주방에서 요리하실 수도 있습니다. 하루 종일 야외 활동을 즐긴 후, 체스를 두거나 영화와 CD를 보며 가족과 함께 즐거운 시간을 보내실 수 있습니다. 리조트 직원이 다양한 서비스를 제공해 드립니다."
+                    ],
+                    "services": [
+                        { "icon": "restaurant", "name": "다이닝 서비스" },
+                        { "icon": "local_laundry_service", "name": "세탁 시설" },
+                        { "icon": "fitness_center", "name": "피트니스 센터" },
+                        { "icon": "pool", "name": "수영장" },
+                        { "icon": "spa", "name": "스파 (인근)" },
+                        { "icon": "sports_soccer", "name": "스포츠 필드" },
+                        { "icon": "sports_volleyball", "name": "배구장" },
+                        { "icon": "directions_bike", "name": "자전거 (인근)" },
+                        { "icon": "sports", "name": "볼링장" },
+                        { "icon": "kayaking", "name": "보팅 (3km)" },
+                        { "icon": "phishing", "name": "낚시 (인근)" },
+                        { "icon": "hiking", "name": "승마 (1km)" },
+                        { "icon": "golf_course", "name": "골프 (2km)" },
+                        { "icon": "hiking", "name": "하이킹 (인근)" },
+                        { "icon": "water", "name": "호수 (3km)" }
+                    ]
+                },
+                "ja": {
+                    "location": "ロッキーマウンテン国立公園, アメリカ",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "ロッキーマウンテン国立公園に位置するこのリゾートは、美しい景色、快適な環境、幅広いアクティビティを提供し、忘れられない休暇体験をお届けします。登山、野生動物観察、マウンテンバイク、急流ラフティング、ゴルフ、ショッピングなど、すべて徒歩圏内にあります。",
+                        "お客様は美味しいワイン、チーズ、アイスクリーム、手作りワッフルを含む無料ブランチもお楽しみいただけます。近くには、お出かけに必要な用品を提供する完全設備の小さな貯蔵室もあります。さらに、完全設備のキッチンで料理することもできます。一日中アウトドアアクティビティを楽しんだ後、チェスをしたり、映画やCDを見たりして、家族と一緒に楽しい時間をお過ごしいただけます。リゾートのスタッフが様々なサービスをご提供します。"
+                    ],
+                    "services": [
+                        { "icon": "restaurant", "name": "ダイニングサービス" },
+                        { "icon": "local_laundry_service", "name": "ランドリー施設" },
+                        { "icon": "fitness_center", "name": "フィットネスセンター" },
+                        { "icon": "pool", "name": "プール" },
+                        { "icon": "spa", "name": "スパ（近隣）" },
+                        { "icon": "sports_soccer", "name": "スポーツフィールド" },
+                        { "icon": "sports_volleyball", "name": "バレーボールコート" },
+                        { "icon": "directions_bike", "name": "サイクリング（近隣）" },
+                        { "icon": "sports", "name": "ボウリング場" },
+                        { "icon": "kayaking", "name": "ボート（3km）" },
+                        { "icon": "phishing", "name": "釣り（近隣）" },
+                        { "icon": "hiking", "name": "乗馬（1km）" },
+                        { "icon": "golf_course", "name": "ゴルフ（2km）" },
+                        { "icon": "hiking", "name": "ハイキング（近隣）" },
+                        { "icon": "water", "name": "湖（3km）" }
+                    ]
+                }
+            },
+            "introImage": "./assets/usa/rams-horn-village-resort/01.jpg",
+            "servicesGallery": [
+                "./assets/usa/rams-horn-village-resort/03.jpg",
+                "./assets/usa/rams-horn-village-resort/04.jpg",
+                "./assets/usa/rams-horn-village-resort/05.jpg",
+                "./assets/usa/rams-horn-village-resort/06.jpg",
+                "./assets/usa/rams-horn-village-resort/07.jpg",
+                "./assets/usa/rams-horn-village-resort/08.jpg"
+            ]
+        },
+        "hotel5": {
+            "id": "hotel5",
+            "banner": "./assets/usa/valdoro-mountain-lodge-hilton-grand-vacations/banner-05.jpg",
+            "name": "Valdoro Mountain Lodge Hilton Grand Vacations Club",
+            "location": "Breckenridge, USA",
+            "address": "500 Village Road, Breckenridge, CO 80424, USA",
+            "i18n": {
+                "zh": {
+                    "location": "布雷肯里奇，美国",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "度假村最棒的设施包括：杂货店、健身中心、室内/室外游泳池、娱乐室、单人的私人水疗室，还有2个室外的热水浴池。度假村的客房装饰豪华，大小不等，有无间隔独居，还有3卧室别墅。",
+                        "度假村是您体验布雷肯里奇风情的理想地。毗邻布雷肯里奇滑雪场，提供便捷的滑雪进出通道，让您尽情享受世界级的滑雪体验。"
+                    ],
+                    "services": [
+                        { "icon": "local_laundry_service", "name": "洗衣设施" },
+                        { "icon": "hot_tub", "name": "热水浴缸" },
+                        { "icon": "spa", "name": "SPA" },
+                        { "icon": "pool", "name": "游泳池" },
+                        { "icon": "pool", "name": "室内游泳池" },
+                        { "icon": "fitness_center", "name": "健身中心" },
+                        { "icon": "hot_tub", "name": "蒸汽房" },
+                        { "icon": "sports_soccer", "name": "运动场地（附近）" },
+                        { "icon": "kayaking", "name": "划船（9公里）" },
+                        { "icon": "nightlife", "name": "娱乐/夜生活（附近）" },
+                        { "icon": "phishing", "name": "钓鱼（附近）" },
+                        { "icon": "golf_course", "name": "高尔夫（4公里）" },
+                        { "icon": "hiking", "name": "骑马（1公里）" },
+                        { "icon": "downhill_skiing", "name": "滑雪场（附近）" },
+                        { "icon": "downhill_skiing", "name": "越野滑雪（1公里）" },
+                        { "icon": "downhill_skiing", "name": "高山滑雪（附近）" },
+                        { "icon": "sports_tennis", "name": "网球（1公里）" },
+                        { "icon": "child_care", "name": "儿童活动（附近）" }
+                    ]
+                },
+                "en": {
+                    "location": "Breckenridge, USA",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "The resort's best amenities include: grocery store, fitness center, indoor/outdoor pool, rec room, private spa room for single persons, and 2 outdoor hot tubs. The resort's rooms are luxuriously decorated and range in size, ranging from separate studios to 3-bedroom villas.",
+                        "The resort is the perfect place to experience the Breckenridge atmosphere. Adjacent to Breckenridge Ski Resort, providing convenient ski-in/ski-out access for you to enjoy a world-class skiing experience."
+                    ],
+                    "services": [
+                        { "icon": "local_laundry_service", "name": "Laundry Facilities" },
+                        { "icon": "hot_tub", "name": "Hot Tub" },
+                        { "icon": "spa", "name": "SPA" },
+                        { "icon": "pool", "name": "Swimming Pool" },
+                        { "icon": "pool", "name": "Indoor Pool" },
+                        { "icon": "fitness_center", "name": "Fitness Center" },
+                        { "icon": "hot_tub", "name": "Steam Room" },
+                        { "icon": "sports_soccer", "name": "Sports Field (Nearby)" },
+                        { "icon": "kayaking", "name": "Boating (9km)" },
+                        { "icon": "nightlife", "name": "Entertainment/Nightlife (Nearby)" },
+                        { "icon": "phishing", "name": "Fishing (Nearby)" },
+                        { "icon": "golf_course", "name": "Golf (4km)" },
+                        { "icon": "hiking", "name": "Horseback Riding (1km)" },
+                        { "icon": "downhill_skiing", "name": "Ski Resort (Nearby)" },
+                        { "icon": "downhill_skiing", "name": "Cross-Country Skiing (1km)" },
+                        { "icon": "downhill_skiing", "name": "Alpine Skiing (Nearby)" },
+                        { "icon": "sports_tennis", "name": "Tennis (1km)" },
+                        { "icon": "child_care", "name": "Children's Activities (Nearby)" }
+                    ]
+                },
+                "ko": {
+                    "location": "브레켄리지, 미국",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "리조트의 최고 편의시설에는 식료품점, 피트니스 센터, 실내/야외 수영장, 레크리에이션 룸, 1인용 프라이빗 스파 룸, 2개의 야외 온천탕이 있습니다. 리조트 객실은 럭셔리하게 장식되어 있으며, 스튜디오부터 3베드룸 빌라까지 다양한 크기로 제공됩니다.",
+                        "이 리조트는 브레켄리지 분위기를 경험하기에 완벽한 장소입니다. 브레켄리지 스키장과 인접해 있어 편리한 스키 인/아웃 액세스를 제공하여 세계적인 수준의 스키 경험을 즐기실 수 있습니다."
+                    ],
+                    "services": [
+                        { "icon": "local_laundry_service", "name": "세탁 시설" },
+                        { "icon": "hot_tub", "name": "온천탕" },
+                        { "icon": "spa", "name": "스파" },
+                        { "icon": "pool", "name": "수영장" },
+                        { "icon": "pool", "name": "실내 수영장" },
+                        { "icon": "fitness_center", "name": "피트니스 센터" },
+                        { "icon": "hot_tub", "name": "스팀룸" },
+                        { "icon": "sports_soccer", "name": "스포츠 필드 (인근)" },
+                        { "icon": "kayaking", "name": "보팅 (9km)" },
+                        { "icon": "nightlife", "name": "엔터테인먼트/나이트라이프 (인근)" },
+                        { "icon": "phishing", "name": "낚시 (인근)" },
+                        { "icon": "golf_course", "name": "골프 (4km)" },
+                        { "icon": "hiking", "name": "승마 (1km)" },
+                        { "icon": "downhill_skiing", "name": "스키장 (인근)" },
+                        { "icon": "downhill_skiing", "name": "크로스컨트리 스키 (1km)" },
+                        { "icon": "downhill_skiing", "name": "알파인 스키 (인근)" },
+                        { "icon": "sports_tennis", "name": "테니스 (1km)" },
+                        { "icon": "child_care", "name": "어린이 액티비티 (인근)" }
+                    ]
+                },
+                "ja": {
+                    "location": "ブレッケンリッジ, アメリカ",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "リゾートの最高の設備には、食料品店、フィットネスセンター、屋内/屋外プール、レクリエーションルーム、1人用プライベートスパルーム、2つの屋外ジャグジーがあります。リゾートの客室はラグジュアリーに装飾され、スタジオから3ベッドルームヴィラまで様々なサイズをご用意しています。",
+                        "このリゾートはブレッケンリッジの雰囲気を体験するのに最適な場所です。ブレッケンリッジ・スキー場に隣接し、便利なスキーイン/スキーアウトアクセスを提供して、ワールドクラスのスキー体験をお楽しみいただけます。"
+                    ],
+                    "services": [
+                        { "icon": "local_laundry_service", "name": "ランドリー施設" },
+                        { "icon": "hot_tub", "name": "ジャグジー" },
+                        { "icon": "spa", "name": "スパ" },
+                        { "icon": "pool", "name": "プール" },
+                        { "icon": "pool", "name": "屋内プール" },
+                        { "icon": "fitness_center", "name": "フィットネスセンター" },
+                        { "icon": "hot_tub", "name": "スチームルーム" },
+                        { "icon": "sports_soccer", "name": "スポーツフィールド（近隣）" },
+                        { "icon": "kayaking", "name": "ボート（9km）" },
+                        { "icon": "nightlife", "name": "エンターテイメント/ナイトライフ（近隣）" },
+                        { "icon": "phishing", "name": "釣り（近隣）" },
+                        { "icon": "golf_course", "name": "ゴルフ（4km）" },
+                        { "icon": "hiking", "name": "乗馬（1km）" },
+                        { "icon": "downhill_skiing", "name": "スキー場（近隣）" },
+                        { "icon": "downhill_skiing", "name": "クロスカントリースキー（1km）" },
+                        { "icon": "downhill_skiing", "name": "アルペンスキー（近隣）" },
+                        { "icon": "sports_tennis", "name": "テニス（1km）" },
+                        { "icon": "child_care", "name": "子供向けアクティビティ（近隣）" }
+                    ]
+                }
+            },
+            "introImage": "./assets/usa/valdoro-mountain-lodge-hilton-grand-vacations/01.jpg",
+            "servicesGallery": [
+                "./assets/usa/valdoro-mountain-lodge-hilton-grand-vacations/03.jpg",
+                "./assets/usa/valdoro-mountain-lodge-hilton-grand-vacations/04.jpg",
+                "./assets/usa/valdoro-mountain-lodge-hilton-grand-vacations/05.jpg",
+                "./assets/usa/valdoro-mountain-lodge-hilton-grand-vacations/06.jpg",
+                "./assets/usa/valdoro-mountain-lodge-hilton-grand-vacations/07.jpg",
+                "./assets/usa/valdoro-mountain-lodge-hilton-grand-vacations/08.jpg"
+            ]
+        },
+        "hotel6": {
+            "id": "hotel6",
+            "banner": "./assets/usa/kohala-suites-hilton-grand-vacations/banner-06.jpg",
+            "name": "Kohala Suites Hilton Grand Vacations Club",
+            "location": "Waikoloa, Hawaii, USA",
+            "address": "69-550 Waikoloa Beach Dr, Waikoloa, HI 96738, USA",
+            "i18n": {
+                "zh": {
+                    "location": "威可洛亚，夏威夷，美国",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "度假村坐落于夏威夷大岛的柯哈拉海岸。开发有瀑布景观和热带花园小径，让您切身感受独特的岛屿生活方式。度假村距锦标赛级高尔夫球场和Anaaehoomalu Bay的白色沙滩几步之遥。",
+                        "还提供两个室外游泳池和两个锦标赛级网球场。度假村附近还开设有30多家餐馆和酒吧供您消遣娱乐。"
+                    ],
+                    "services": [
+                        { "icon": "local_bar", "name": "池边酒吧" },
+                        { "icon": "spa", "name": "SPA" },
+                        { "icon": "pool", "name": "游泳池" },
+                        { "icon": "fitness_center", "name": "健身中心" },
+                        { "icon": "sports_soccer", "name": "运动场地" },
+                        { "icon": "golf_course", "name": "高尔夫练习场" },
+                        { "icon": "child_care", "name": "儿童活动" },
+                        { "icon": "sports_tennis", "name": "网球场" },
+                        { "icon": "beach_access", "name": "海滩（附近）" },
+                        { "icon": "kayaking", "name": "划船（附近）" },
+                        { "icon": "nightlife", "name": "娱乐/夜生活（附近）" },
+                        { "icon": "phishing", "name": "钓鱼（附近）" },
+                        { "icon": "golf_course", "name": "高尔夫" },
+                        { "icon": "hiking", "name": "骑马（5公里）" },
+                        { "icon": "scuba_diving", "name": "潜水（附近）" },
+                        { "icon": "kitesurfing", "name": "尾波滑水（20公里）" },
+                        { "icon": "kitesurfing", "name": "风帆冲浪（附近）" },
+                        { "icon": "local_laundry_service", "name": "洗衣设施" },
+                        { "icon": "movie", "name": "电影光盘租赁" },
+                        { "icon": "directions_car", "name": "汽车租赁（18公里）" },
+                        { "icon": "shopping_bag", "name": "购物" },
+                        { "icon": "movie", "name": "电影院（20公里）" },
+                        { "icon": "museum", "name": "文化景点（附近）" },
+                        { "icon": "account_balance", "name": "历史遗迹（附近）" }
+                    ]
+                },
+                "en": {
+                    "location": "Waikoloa, Hawaii, USA",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "The resort is located on the Kohala coast of the Big Island of Hawaii. Developed with waterfall views and tropical garden paths, you can experience the unique island lifestyle. The resort is within walking distance of the championship-level golf course and the white sand beach of Anaaeho omalu Bay.",
+                        "Two outdoor swimming pools and two championship-level tennis courts are also available. There are also more than 30 restaurants and bars in the vicinity of the resort for entertainment."
+                    ],
+                    "services": [
+                        { "icon": "local_bar", "name": "Pool Bar" },
+                        { "icon": "spa", "name": "SPA" },
+                        { "icon": "pool", "name": "Swimming Pool" },
+                        { "icon": "fitness_center", "name": "Fitness Center" },
+                        { "icon": "sports_soccer", "name": "Sports Field" },
+                        { "icon": "golf_course", "name": "Golf Driving Range" },
+                        { "icon": "child_care", "name": "Children's Activities" },
+                        { "icon": "sports_tennis", "name": "Tennis Court" },
+                        { "icon": "beach_access", "name": "Beach (Nearby)" },
+                        { "icon": "kayaking", "name": "Boating (Nearby)" },
+                        { "icon": "nightlife", "name": "Entertainment/Nightlife (Nearby)" },
+                        { "icon": "phishing", "name": "Fishing (Nearby)" },
+                        { "icon": "golf_course", "name": "Golf" },
+                        { "icon": "hiking", "name": "Horseback Riding (5km)" },
+                        { "icon": "scuba_diving", "name": "Diving (Nearby)" },
+                        { "icon": "kitesurfing", "name": "Wakeboarding (20km)" },
+                        { "icon": "kitesurfing", "name": "Windsurfing (Nearby)" },
+                        { "icon": "local_laundry_service", "name": "Laundry Facilities" },
+                        { "icon": "movie", "name": "Movie Rental" },
+                        { "icon": "directions_car", "name": "Car Rental (18km)" },
+                        { "icon": "shopping_bag", "name": "Shopping" },
+                        { "icon": "movie", "name": "Cinema (20km)" },
+                        { "icon": "museum", "name": "Cultural Sites (Nearby)" },
+                        { "icon": "account_balance", "name": "Historic Sites (Nearby)" }
+                    ]
+                },
+                "ko": {
+                    "location": "와이콜로아, 하와이, 미국",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "이 리조트는 하와이 빅아일랜드의 코할라 해안에 위치해 있습니다. 폭포 전망과 열대 정원 산책로가 조성되어 있어 독특한 섬 라이프스타일을 경험하실 수 있습니다. 리조트는 챔피언십 골프장과 아나에호오말루 베이의 화이트 샌드 비치까지 도보 거리에 있습니다.",
+                        "2개의 야외 수영장과 2개의 챔피언십 테니스 코트도 이용하실 수 있습니다. 리조트 인근에는 엔터테인먼트를 즐길 수 있는 30개 이상의 레스토랑과 바가 있습니다."
+                    ],
+                    "services": [
+                        { "icon": "local_bar", "name": "수영장 바" },
+                        { "icon": "spa", "name": "스파" },
+                        { "icon": "pool", "name": "수영장" },
+                        { "icon": "fitness_center", "name": "피트니스 센터" },
+                        { "icon": "sports_soccer", "name": "스포츠 필드" },
+                        { "icon": "golf_course", "name": "골프 연습장" },
+                        { "icon": "child_care", "name": "어린이 액티비티" },
+                        { "icon": "sports_tennis", "name": "테니스 코트" },
+                        { "icon": "beach_access", "name": "해변 (인근)" },
+                        { "icon": "kayaking", "name": "보팅 (인근)" },
+                        { "icon": "nightlife", "name": "엔터테인먼트/나이트라이프 (인근)" },
+                        { "icon": "phishing", "name": "낚시 (인근)" },
+                        { "icon": "golf_course", "name": "골프" },
+                        { "icon": "hiking", "name": "승마 (5km)" },
+                        { "icon": "scuba_diving", "name": "다이빙 (인근)" },
+                        { "icon": "kitesurfing", "name": "웨이크보딩 (20km)" },
+                        { "icon": "kitesurfing", "name": "윈드서핑 (인근)" },
+                        { "icon": "local_laundry_service", "name": "세탁 시설" },
+                        { "icon": "movie", "name": "영화 대여" },
+                        { "icon": "directions_car", "name": "렌터카 (18km)" },
+                        { "icon": "shopping_bag", "name": "쇼핑" },
+                        { "icon": "movie", "name": "영화관 (20km)" },
+                        { "icon": "museum", "name": "문화 명소 (인근)" },
+                        { "icon": "account_balance", "name": "역사 유적지 (인근)" }
+                    ]
+                },
+                "ja": {
+                    "location": "ワイコロア, ハワイ, アメリカ",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "このリゾートはハワイ島のコハラ海岸に位置しています。滝の眺めと熱帯庭園の小道が整備されており、独特な島のライフスタイルを体験できます。リゾートはチャンピオンシップゴルフ場とアナエホオマル湾の白砂のビーチまで徒歩圏内です。",
+                        "2つの屋外プールと2つのチャンピオンシップテニスコートもご利用いただけます。リゾート周辺にはエンターテイメントを楽しめる30以上のレストランとバーがあります。"
+                    ],
+                    "services": [
+                        { "icon": "local_bar", "name": "プールサイドバー" },
+                        { "icon": "spa", "name": "スパ" },
+                        { "icon": "pool", "name": "プール" },
+                        { "icon": "fitness_center", "name": "フィットネスセンター" },
+                        { "icon": "sports_soccer", "name": "スポーツフィールド" },
+                        { "icon": "golf_course", "name": "ゴルフ練習場" },
+                        { "icon": "child_care", "name": "子供向けアクティビティ" },
+                        { "icon": "sports_tennis", "name": "テニスコート" },
+                        { "icon": "beach_access", "name": "ビーチ（近隣）" },
+                        { "icon": "kayaking", "name": "ボート（近隣）" },
+                        { "icon": "nightlife", "name": "エンターテイメント/ナイトライフ（近隣）" },
+                        { "icon": "phishing", "name": "釣り（近隣）" },
+                        { "icon": "golf_course", "name": "ゴルフ" },
+                        { "icon": "hiking", "name": "乗馬（5km）" },
+                        { "icon": "scuba_diving", "name": "ダイビング（近隣）" },
+                        { "icon": "kitesurfing", "name": "ウェイクボード（20km）" },
+                        { "icon": "kitesurfing", "name": "ウィンドサーフィン（近隣）" },
+                        { "icon": "local_laundry_service", "name": "ランドリー施設" },
+                        { "icon": "movie", "name": "映画レンタル" },
+                        { "icon": "directions_car", "name": "レンタカー（18km）" },
+                        { "icon": "shopping_bag", "name": "ショッピング" },
+                        { "icon": "movie", "name": "映画館（20km）" },
+                        { "icon": "museum", "name": "文化名所（近隣）" },
+                        { "icon": "account_balance", "name": "歴史的名所（近隣）" }
+                    ]
+                }
+            },
+            "introImage": "./assets/usa/kohala-suites-hilton-grand-vacations/01.jpg",
+            "servicesGallery": [
+                "./assets/usa/kohala-suites-hilton-grand-vacations/03.jpg",
+                "./assets/usa/kohala-suites-hilton-grand-vacations/04.jpg",
+                "./assets/usa/kohala-suites-hilton-grand-vacations/05.jpg",
+                "./assets/usa/kohala-suites-hilton-grand-vacations/06.jpg",
+                "./assets/usa/kohala-suites-hilton-grand-vacations/07.jpg",
+                "./assets/usa/kohala-suites-hilton-grand-vacations/08.jpg"
+            ]
+        },
+        "hotel7": {
+            "id": "hotel7",
+            "banner": "./assets/dameishawan/banner.png",
+            "name": "大梅沙湾游艇会酒店",
+            "location": "Shenzhen, China",
+            "address": "No. 89 Yanmei Road, Dameisha, Yantian District, Shenzhen City",
+            "i18n": {
+                "zh": {
+                    "name": "大梅沙湾游艇会酒店",
+                    "location": "深圳，中国",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "大梅沙湾游艇会度假村位于中国深圳盐田区大梅沙，地处首屈一指的黄金海岸度假区。拥有一线海景和私人海滩，毗邻许愿塔、大梅沙奥特莱斯8号、大梅沙海滨公园及滨海栈道。",
+                        "度假村配备豪华游艇码头、中国独一无二的水上飞机基地，以及海钓、尾波滑水、摩托艇、潜水等全方位水上运动设施。地理位置便利，为品味旅客提供高端海景住宿、餐饮、海上娱乐和商务服务。"
+                    ],
+                    "services": [
+                        { "icon": "restaurant", "name": "餐厅" },
+                        { "icon": "child_care", "name": "儿童游乐场" },
+                        { "icon": "beach_access", "name": "私人海滩" },
+                        { "icon": "phishing", "name": "海钓" },
+                        { "icon": "flight", "name": "水上飞机" },
+                        { "icon": "wb_sunny", "name": "日光浴区" },
+                        { "icon": "hiking", "name": "徒步" },
+                        { "icon": "luggage", "name": "行李寄存" },
+                        { "icon": "directions_boat", "name": "游艇巡航" },
+                        { "icon": "menu_book", "name": "书吧" },
+                        { "icon": "local_cafe", "name": "沙滩咖啡厅" },
+                        { "icon": "hiking", "name": "滨海栈道" }
+                    ]
+                },
+                "en": {
+                    "name": "Dameisha Bay Yacht Club Resort",
+                    "location": "Shenzhen, China",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "Dameisha Bay Yacht Club Resort is located in Dameisha, Yantian District, Shenzhen, China, within the premier Golden Coastal Resort Area. Boasting front-line sea views and a private beach, it is adjacent to the Wish Tower, Dameisha Outlet 8, Dameisha Beach Park and the Coastal Boardwalk.",
+                        "The resort features a luxury yacht marina, China's unique seaplane base, and a full range of water sports including sea fishing, wakeboarding, jet skiing and diving. Conveniently located, it offers upscale sea-view accommodation, dining, marine recreation and business services for discerning travelers."
+                    ],
+                    "services": [
+                        { "icon": "restaurant", "name": "Restaurant" },
+                        { "icon": "child_care", "name": "Children's Playground" },
+                        { "icon": "beach_access", "name": "Private Beach" },
+                        { "icon": "phishing", "name": "Sea Fishing" },
+                        { "icon": "flight", "name": "Seaplane" },
+                        { "icon": "wb_sunny", "name": "Sunbathing Area" },
+                        { "icon": "hiking", "name": "Hiking" },
+                        { "icon": "luggage", "name": "Luggage Storage" },
+                        { "icon": "directions_boat", "name": "Yacht Cruise" },
+                        { "icon": "menu_book", "name": "Book Bar" },
+                        { "icon": "local_cafe", "name": "Beach Café" },
+                        { "icon": "hiking", "name": "Coastal Boardwalk" }
+                    ]
+                },
+                "ko": {
+                    "name": "다메이샤 만 요트클럽 호텔",
+                    "location": "선전, 중국",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "다메이샤 만 요트클럽 리조트는 중국 선전 옌톈구 다메이샤에 위치하며, 최고급 골든 코스탈 리조트 지구 내에 있습니다. 일선 해양 전망과 프라이빗 비치를 자랑하며, 위시타워, 다메이샤 아울렛 8, 다메이샤 비치 파크 및 해안 산책로와 인접해 있습니다.",
+                        "리조트에는 럭셔리 요트 마리나, 중국 유일의 수상비행기 기지, 그리고 바다낚시, 웨이크보딩, 제트스키, 다이빙 등 다양한 수상 스포츠 시설이 있습니다. 편리한 위치에서 고급 해양 뷰 숙박, 다이닝, 해양 레크리에이션 및 비즈니스 서비스를 제공합니다."
+                    ],
+                    "services": [
+                        { "icon": "restaurant", "name": "레스토랑" },
+                        { "icon": "child_care", "name": "어린이 놀이터" },
+                        { "icon": "beach_access", "name": "프라이빗 비치" },
+                        { "icon": "phishing", "name": "바다낚시" },
+                        { "icon": "flight", "name": "수상비행기" },
+                        { "icon": "wb_sunny", "name": "일광욕 구역" },
+                        { "icon": "hiking", "name": "하이킹" },
+                        { "icon": "luggage", "name": "수하물 보관" },
+                        { "icon": "directions_boat", "name": "요트 크루즈" },
+                        { "icon": "menu_book", "name": "북카페" },
+                        { "icon": "local_cafe", "name": "비치 카페" },
+                        { "icon": "hiking", "name": "해안 산책로" }
+                    ]
+                },
+                "ja": {
+                    "name": "大梅沙湾ヨットクラブホテル",
+                    "location": "深セン, 中国",
+                    "description": "",
+                    "introTitle": "",
+                    "introText": [
+                        "大梅沙湾ヨットクラブリゾートは、中国深セン市塩田区大梅沙に位置し、プレミアムなゴールデンコースタルリゾートエリア内にあります。一線の海の眺めとプライベートビーチを誇り、ウィッシュタワー、大梅沙アウトレット8、大梅沙ビーチパーク、海岸遊歩道に隣接しています。",
+                        "リゾートにはラグジュアリーヨットマリーナ、中国唯一の水上飛行機ベース、そして海釣り、ウェイクボード、ジェットスキー、ダイビングなどのフルレンジのマリンスポーツ施設があります。便利なロケーションで、高級オーシャンビュー宿泊、ダイニング、マリンレクリエーション、ビジネスサービスを提供しています。"
+                    ],
+                    "services": [
+                        { "icon": "restaurant", "name": "レストラン" },
+                        { "icon": "child_care", "name": "子供用遊び場" },
+                        { "icon": "beach_access", "name": "プライベートビーチ" },
+                        { "icon": "phishing", "name": "海釣り" },
+                        { "icon": "flight", "name": "水上飛行機" },
+                        { "icon": "wb_sunny", "name": "日焼けエリア" },
+                        { "icon": "hiking", "name": "ハイキング" },
+                        { "icon": "luggage", "name": "荷物預かり" },
+                        { "icon": "directions_boat", "name": "ヨットクルーズ" },
+                        { "icon": "menu_book", "name": "ブックバー" },
+                        { "icon": "local_cafe", "name": "ビーチカフェ" },
+                        { "icon": "hiking", "name": "海岸遊歩道" }
+                    ]
+                }
+            },
+            "introImage": "./assets/dameishawan/01.png",
+            "servicesGallery": [
+                "./assets/dameishawan/03.png",
+                "./assets/dameishawan/04.png",
+                "./assets/dameishawan/05.png",
+                "./assets/dameishawan/06.png",
+                "./assets/dameishawan/07.png",
+                "./assets/dameishawan/08.png",
+                "./assets/dameishawan/09.png",
+                "./assets/dameishawan/10.png"
+            ]
+        }
+    }
+}

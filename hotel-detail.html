@@ -1,0 +1,334 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>酒店详情 - 换享星球</title>
+
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="./js/tailwind.config.js"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="./index.html" class="nav-logo">
+                <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="nav-logo-img">
+            </a>
+            <div class="nav-links">
+                <a href="./index.html" class="nav-link nav-link-secondary" data-i18n="nav.hotelIntro">酒店介绍</a>
+                <a href="./index.html" class="nav-link nav-link-secondary" data-i18n="nav.benefitsIntro">权益介绍</a>
+                <a href="./faq.html" class="nav-link nav-link-secondary" data-i18n="nav.faq">FAQ</a>
+            </div>
+            <div class="nav-right">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="zh">中文</button>
+                    <button class="lang-btn" data-lang="ko">한국어</button>
+                    <button class="lang-btn" data-lang="ja">日本語</button>
+                </div>
+                <a href="./contact.html" class="nav-button" data-i18n="nav.contactUs">联系我们</a>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-content">
+                <a href="./index.html" class="mobile-menu-link" data-i18n="nav.hotelIntro">酒店介绍</a>
+                <a href="./index.html" class="mobile-menu-link" data-i18n="nav.benefitsIntro">权益介绍</a>
+                <a href="./faq.html" class="mobile-menu-link" data-i18n="nav.faq">FAQ</a>
+                <div class="mobile-menu-divider"></div>
+                <div class="mobile-lang-switcher">
+                    <button class="mobile-lang-btn active" data-lang="en">English</button>
+                    <button class="mobile-lang-btn" data-lang="zh">中文</button>
+                    <button class="mobile-lang-btn" data-lang="ko">한국어</button>
+                    <button class="mobile-lang-btn" data-lang="ja">日本語</button>
+                </div>
+                <a href="./contact.html" class="mobile-nav-button" data-i18n="nav.contactUs">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hotel-detail-hero" id="heroSection">
+            <img src="" alt="" class="hotel-hero-image" id="heroBanner">
+            <div class="hotel-hero-overlay"></div>
+            <div class="hotel-hero-content">
+                <span class="hotel-hero-location" id="heroLocation"></span>
+                <h1 class="hotel-hero-title" id="heroTitle"></h1>
+                <p class="hotel-hero-desc" id="heroDesc"></p>
+            </div>
+        </section>
+
+        <section class="hotel-intro-section">
+            <div class="hotel-intro-content">
+                <div class="hotel-intro-text">
+                    <span class="hotel-intro-label" data-i18n="hotelDetail.introLabel">酒店介绍</span>
+                    <h2 class="hotel-intro-title" id="introTitle"></h2>
+                    <div id="introText"></div>
+                    <div class="hotel-map-container">
+                        <h3 class="hotel-map-title">
+                            <span class="material-symbols-outlined">location_on</span>
+                            <span data-i18n="hotelDetail.location">酒店位置</span>
+                        </h3>
+                        <div class="hotel-map" id="hotelMap"></div>
+                    </div>
+                </div>
+                <div class="hotel-intro-image-single">
+                    <img src="" alt="" id="introImage">
+                </div>
+            </div>
+        </section>
+
+        <section class="hotel-services-section">
+            <div class="hotel-services-content">
+                <div class="services-list">
+                    <h2 class="services-title" data-i18n="hotelDetail.servicesTitle">酒店设施与服务</h2>
+                    <p class="services-subtitle" data-i18n="hotelDetail.servicesSubtitle">全方位满足您的度假需求</p>
+                    <div id="servicesList"></div>
+                </div>
+                <div class="services-gallery-wrapper">
+                    <h2 class="gallery-hotel-name" id="servicesHotelName"></h2>
+                    <p class="services-desc" id="servicesDesc" data-i18n="hotelDetail.inPictures"></p>
+                    <div class="services-gallery" id="servicesGallery"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="hotel-back-section">
+            <a href="./index.html#hotels" class="back-button">
+                <span class="material-symbols-outlined back-arrow">arrow_back</span>
+                <span data-i18n="hotelDetail.backBtn">返回酒店列表</span>
+            </a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="footer-logo-img">
+                <p class="footer-brand-description" data-i18n="footer.brandDesc">开启奢华旅行新体验，为您精心甄选全球顶级酒店与度假村。</p>
+                <div class="footer-social-links">
+                    <a href="#" class="footer-social-link">
+                        <span class="material-symbols-outlined">share</span>
+                    </a>
+                    <a href="#" class="footer-social-link">
+                        <span class="material-symbols-outlined">language</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-column-title" data-i18n="footer.quickLinks">快速链接</h4>
+                <a href="./index.html" class="footer-link" data-i18n="nav.hotelIntro">酒店介绍</a>
+                <a href="./index.html" class="footer-link" data-i18n="nav.benefitsIntro">权益介绍</a>
+                <a href="./contact.html" class="footer-link" data-i18n="nav.contactUs">联系我们</a>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-column-title" data-i18n="footer.contact">联系方式</h4>
+                <a href="mailto:dameisha666@gmail.com" class="footer-link">dameisha666@gmail.com</a>
+                <a href="https://wa.me/8613800138000" target="_blank" class="footer-link">WhatsApp</a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p class="footer-copyright-text">© 2024 换享星球. All rights reserved.</p>
+            <a href="#" class="footer-copyright-link" data-i18n="footer.privacy">隐私政策</a>
+        </div>
+    </footer>
+
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
+            <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImg">
+        </div>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">
+            <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
+
+    <script src="./js/i18n.js"></script>
+    <script>
+    (function() {
+        var galleryImages = [];
+        var currentIndex = 0;
+
+        function getHotelId() {
+            var params = new URLSearchParams(window.location.search);
+            return params.get('id') || 'hotel1';
+        }
+
+        function getCurrentLang() {
+            if (typeof I18n !== 'undefined' && I18n.currentLang) {
+                return I18n.currentLang;
+            }
+            return 'zh';
+        }
+
+        function loadHotelDetail() {
+            fetch('./data/hotel-details.json')
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    var hotelId = getHotelId();
+                    var hotel = data.hotels[hotelId];
+                    if (!hotel) {
+                        hotel = data.hotels['hotel1'];
+                    }
+                    renderHotelDetail(hotel);
+                })
+                .catch(function(error) {
+                    console.error('Failed to load hotel detail:', error);
+                });
+        }
+
+        function renderHotelDetail(hotel) {
+            var lang = getCurrentLang();
+            var i18n = hotel.i18n && hotel.i18n[lang] ? hotel.i18n[lang] : hotel.i18n && hotel.i18n['zh'] ? hotel.i18n['zh'] : {};
+
+            document.getElementById('heroBanner').src = hotel.banner;
+            document.getElementById('heroBanner').alt = hotel.name;
+            document.getElementById('heroLocation').textContent = i18n.location || hotel.location;
+            document.getElementById('heroTitle').textContent = i18n.name || hotel.name;
+            document.getElementById('heroDesc').textContent = i18n.description || '';
+            document.getElementById('introTitle').textContent = i18n.introTitle || '';
+
+            var introTextHtml = '';
+            var introTexts = i18n.introText || [];
+            introTexts.forEach(function(p) {
+                introTextHtml += '<p class="hotel-intro-p">' + p + '</p>';
+            });
+            document.getElementById('introText').innerHTML = introTextHtml;
+
+            if (hotel.introImage) {
+                document.getElementById('introImage').src = hotel.introImage;
+            }
+
+            if (hotel.address) {
+                var mapLang = lang === 'zh' ? 'zh-CN' : lang === 'ko' ? 'ko' : lang === 'ja' ? 'ja' : 'en';
+                var mapIframe = '<iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=' + encodeURIComponent(hotel.address) + '&zoom=14&maptype=roadmap&language=' + mapLang + '" width="100%" height="300" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+                document.getElementById('hotelMap').innerHTML = mapIframe;
+            }
+
+            document.getElementById('servicesHotelName').textContent = i18n.name || hotel.name;
+
+            var servicesHtml = '';
+            var services = i18n.services || [];
+            services.forEach(function(service) {
+                servicesHtml += '<div class="service-item">' +
+                    '<div class="service-icon-wrapper">' +
+                    '<span class="material-symbols-outlined service-icon">' + service.icon + '</span>' +
+                    '</div><span class="service-name">' + service.name + '</span></div>';
+            });
+            document.getElementById('servicesList').innerHTML = servicesHtml;
+
+            galleryImages = hotel.servicesGallery || [];
+            var galleryHtml = '';
+            if (galleryImages.length > 0) {
+                galleryImages.forEach(function(img, index) {
+                    galleryHtml += '<img src="' + img + '" alt="" class="gallery-img" data-index="' + index + '">';
+                });
+            }
+            document.getElementById('servicesGallery').innerHTML = galleryHtml;
+
+            initLightbox();
+
+            var siteName = lang === 'zh' ? '换享星球' : lang === 'en' ? 'Huanxiang Planet' : lang === 'ko' ? '환상 행성' : 'ファンタジープラネット';
+            document.title = (i18n.name || hotel.name) + ' - ' + siteName;
+        }
+
+        function initLightbox() {
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImg = document.getElementById('lightboxImg');
+            var lightboxClose = document.getElementById('lightboxClose');
+            var lightboxPrev = document.getElementById('lightboxPrev');
+            var lightboxNext = document.getElementById('lightboxNext');
+            var lightboxCounter = document.getElementById('lightboxCounter');
+            var galleryImgs = document.querySelectorAll('.gallery-img');
+
+            galleryImgs.forEach(function(img) {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function() {
+                    currentIndex = parseInt(this.getAttribute('data-index'));
+                    openLightbox();
+                });
+            });
+
+            function openLightbox() {
+                lightbox.classList.add('active');
+                lightboxImg.src = galleryImages[currentIndex];
+                updateCounter();
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            function showPrev() {
+                currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+                lightboxImg.src = galleryImages[currentIndex];
+                updateCounter();
+            }
+
+            function showNext() {
+                currentIndex = (currentIndex + 1) % galleryImages.length;
+                lightboxImg.src = galleryImages[currentIndex];
+                updateCounter();
+            }
+
+            function updateCounter() {
+                lightboxCounter.textContent = (currentIndex + 1) + ' / ' + galleryImages.length;
+            }
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightboxPrev.addEventListener('click', showPrev);
+            lightboxNext.addEventListener('click', showNext);
+
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (!lightbox.classList.contains('active')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') showPrev();
+                if (e.key === 'ArrowRight') showNext();
+            });
+        }
+
+        function tryLoad() {
+            if (typeof I18n !== 'undefined' && I18n.translations && Object.keys(I18n.translations).length > 0) {
+                loadHotelDetail();
+            } else {
+                setTimeout(tryLoad, 50);
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', tryLoad);
+        } else {
+            tryLoad();
+        }
+
+        document.addEventListener('languageChanged', loadHotelDetail);
+    })();
+    </script>
+</body>
+
+</html>

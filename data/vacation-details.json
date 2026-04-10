@@ -1,0 +1,154 @@
+{
+    "family-trip": {
+        "id": "family-trip",
+        "cover": "./assets/exciting-vacations/family-trip/cover.jpg",
+        "i18n": {
+            "zh": {
+                "title": "家庭出游",
+                "description": "与家人共享温馨时光，创造美好回忆",
+                "introTitle": "家庭出游",
+                "introP1": "带上家人，开启一段温馨难忘的度假之旅。在美丽的海滨度假村，孩子们可以在沙滩上尽情嬉戏，大人们可以享受悠闲的阳光时光。精心设计的家庭套房、丰富的亲子活动、美味的世界级餐饮，让每一位家庭成员都能找到属于自己的快乐。",
+                "introP2": "从私人海滩到无边泳池，从儿童俱乐部到家庭影院，每一个细节都为家庭度假量身打造。在这里，您不仅能享受顶级的度假设施，更能与家人共同创造珍贵的回忆。"
+            },
+            "en": {
+                "title": "Family Trip",
+                "description": "Share warm moments with your family and create beautiful memories",
+                "introTitle": "Family Trip",
+                "introP1": "Bring your family and embark on a warm and unforgettable vacation journey. At beautiful beachfront resorts, children can play freely on the sandy beaches while adults enjoy leisurely sunny moments. Carefully designed family suites, rich parent-child activities, and delicious world-class dining ensure every family member finds their own happiness.",
+                "introP2": "From private beaches to infinity pools, from kids' clubs to family theaters, every detail is tailor-made for family vacations. Here, you can not only enjoy top-tier resort facilities but also create precious memories with your loved ones."
+            },
+            "ko": {
+                "title": "가족 여행",
+                "description": "가족과 함께 따뜻한 시간을 나누며 아름다운 추억을 만드세요",
+                "introTitle": "가족 여행",
+                "introP1": "가족과 함께 따뜻하고 잊지 못할 휴가 여행을 떠나보세요. 아름다운 해변 리조트에서 아이들은 모래사장에서 마음껏 뛰어놀고, 어른들은 여유로운 햇살을 즐길 수 있습니다.",
+                "introP2": "프라이빗 비치부터 무한대 수영장, 키즈 클럽부터 가족 시어터까지 모든 디테일이 가족 휴가를 위해 맞춤 제작되었습니다."
+            },
+            "ja": {
+                "title": "ファミリートリップ",
+                "description": "家族と温かい時間を共有し、美しい思い出を作りましょう",
+                "introTitle": "ファミリートリップ",
+                "introP1": "家族を連れて、温かく忘れられないバケーションの旅に出かけましょう。美しいビーチリゾートで、子供たちは砂浜で自由に遊び、大人はゆったりとした日差しを楽しむことができます。",
+                "introP2": "プライベートビーチから無限プール、キッズクラブからファミリーシアターまで、すべてのディテールがファミリーバケーションのために作られています。"
+            }
+        },
+        "gallery": [
+            "./assets/exciting-vacations/family-trip/1.jpg",
+            "./assets/exciting-vacations/family-trip/2.jpg",
+            "./assets/exciting-vacations/family-trip/3.jpg",
+            "./assets/exciting-vacations/family-trip/4.jpg",
+            "./assets/exciting-vacations/family-trip/5.jpg",
+            "./assets/exciting-vacations/family-trip/6.jpg",
+            "./assets/exciting-vacations/family-trip/7.jpg",
+            "./assets/exciting-vacations/family-trip/8.jpg",
+            "./assets/exciting-vacations/family-trip/9.jpg",
+            "./assets/exciting-vacations/family-trip/10.jpg",
+            "./assets/exciting-vacations/family-trip/11.jpg"
+        ]
+    },
+    "couple-trip": {
+        "id": "couple-trip",
+        "cover": "./assets/exciting-vacations/couple-trip/cover.jpg",
+        "i18n": {
+            "zh": {
+                "title": "情侣出游",
+                "description": "浪漫度假，享受二人世界的甜蜜时光",
+                "introTitle": "情侣出游",
+                "introP1": "与心爱之人共赴一场浪漫之旅，在碧海蓝天间感受爱情的甜蜜。精心布置的蜜月套房、烛光晚餐、双人SPA，每一个瞬间都充满浪漫与惊喜。无论是漫步在私人海滩，还是在无边泳池边欣赏日落，都是属于你们的甜蜜时光。",
+                "introP2": "从精致的法式大餐到私密的游艇出海，从日落鸡尾酒到星空下的电影之夜，每一刻都为情侣量身定制。在这里，远离城市的喧嚣，只留下彼此的陪伴与浪漫。"
+            },
+            "en": {
+                "title": "Couple Trip",
+                "description": "Romantic getaway, enjoy sweet moments together",
+                "introTitle": "Couple Trip",
+                "introP1": "Embark on a romantic journey with your beloved, feeling the sweetness of love between the blue sea and sky. Carefully arranged honeymoon suites, candlelit dinners, and couples' SPA — every moment is filled with romance and surprise. Whether strolling on a private beach or watching the sunset by the infinity pool, these are your sweet moments together.",
+                "introP2": "From exquisite French cuisine to intimate yacht excursions, from sunset cocktails to movie nights under the stars, every moment is tailor-made for couples. Here, away from the city's hustle, only each other's company and romance remain."
+            },
+            "ko": {
+                "title": "커플 여행",
+                "description": "로맨틱한 휴가, 둘만의 달콤한 시간을 즐기세요",
+                "introTitle": "커플 여행",
+                "introP1": "사랑하는 사람과 함께 로맨틱한 여행을 떠나보세요. 푸른 바다와 하늘 사이에서 사랑의 달콤함을 느끼며, 신혼부부 스위트, 촛불 저녁, 커플 SPA 등 모든 순간이 로맨스로 가득합니다.",
+                "introP2": "프라이빗 비치의 산책부터 무한대 수영장의 일몰 감상까지, 모든 것이 커플을 위해 준비되어 있습니다."
+            },
+            "ja": {
+                "title": "カップルトリップ",
+                "description": "ロマンチックなバケーション、二人の甘い時間を楽しんで",
+                "introTitle": "カップルトリップ",
+                "introP1": "愛する人とロマンチックな旅に出かけましょう。青い海と空の間で愛の甘さを感じながら、ハネムーンスイート、キャンドルライトディナー、カップルSPAなど、すべての瞬間がロマンスに満ちています。",
+                "introP2": "プライベートビーチの散歩から無限プールでの夕日鑑賞まで、すべてがカップルのために用意されています。"
+            }
+        },
+        "gallery": [
+            "./assets/exciting-vacations/couple-trip/1.jpg",
+            "./assets/exciting-vacations/couple-trip/2.jpg",
+            "./assets/exciting-vacations/couple-trip/3.jpg",
+            "./assets/exciting-vacations/couple-trip/4.jpg",
+            "./assets/exciting-vacations/couple-trip/5.jpg",
+            "./assets/exciting-vacations/couple-trip/6.jpg",
+            "./assets/exciting-vacations/couple-trip/7.jpg",
+            "./assets/exciting-vacations/couple-trip/8.jpg",
+            "./assets/exciting-vacations/couple-trip/9.jpg",
+            "./assets/exciting-vacations/couple-trip/10.jpg",
+            "./assets/exciting-vacations/couple-trip/11.jpg",
+            "./assets/exciting-vacations/couple-trip/12.jpg",
+            "./assets/exciting-vacations/couple-trip/13.jpg",
+            "./assets/exciting-vacations/couple-trip/14.jpg",
+            "./assets/exciting-vacations/couple-trip/15.jpg",
+            "./assets/exciting-vacations/couple-trip/16.jpg",
+            "./assets/exciting-vacations/couple-trip/17.jpg",
+            "./assets/exciting-vacations/couple-trip/18.jpg",
+            "./assets/exciting-vacations/couple-trip/19.jpg",
+            "./assets/exciting-vacations/couple-trip/20.jpg",
+            "./assets/exciting-vacations/couple-trip/21.jpg",
+            "./assets/exciting-vacations/couple-trip/22.jpg",
+            "./assets/exciting-vacations/couple-trip/23.jpg",
+            "./assets/exciting-vacations/couple-trip/24.jpg"
+        ]
+    },
+    "friends-trip": {
+        "id": "friends-trip",
+        "cover": "./assets/exciting-vacations/friends-trip/cover.jpg",
+        "i18n": {
+            "zh": {
+                "title": "朋友出游",
+                "description": "与好友结伴同行，探索精彩目的地",
+                "introTitle": "朋友出游",
+                "introP1": "与好友结伴同行，一起探索世界的精彩。在充满活力的度假胜地，享受水上运动的刺激、海滩派对的狂欢、美食之旅的惊喜。宽敞的多卧室别墅、私密的泳池、户外BBQ区域，让每一次聚会都充满欢笑与快乐。",
+                "introP2": "从日出瑜伽到深夜畅聊，从深海潜水到丛林探险，与好友一起的每一刻都值得铭记。在这里，友谊在旅途中升华，回忆在欢笑中定格。"
+            },
+            "en": {
+                "title": "Friends Trip",
+                "description": "Travel with friends and explore exciting destinations",
+                "introTitle": "Friends Trip",
+                "introP1": "Travel with friends and explore the wonders of the world together. At vibrant resort destinations, enjoy the thrill of water sports, the excitement of beach parties, and the surprises of culinary journeys. Spacious multi-bedroom villas, private pools, and outdoor BBQ areas ensure every gathering is filled with laughter and joy.",
+                "introP2": "From sunrise yoga to late-night conversations, from deep-sea diving to jungle adventures, every moment with friends is worth remembering. Here, friendships deepen on the journey, and memories are captured in laughter."
+            },
+            "ko": {
+                "title": "친구 여행",
+                "description": "친구들과 함께 여행하며 멋진 목적지를 탐험하세요",
+                "introTitle": "친구 여행",
+                "introP1": "친구들과 함께 세상의 경이로움을 탐험하세요. 활기찬 리조트에서 워터스포츠의 스릴, 비치 파티의 흥분, 미식 여행의 서프라이즈를 즐기세요.",
+                "introP2": "일출 요가부터 심야 대화까지, 스쿠버 다이빙부터 정글 탐험까지, 친구와 함께하는 모든 순간이 기억에 남을 것입니다."
+            },
+            "ja": {
+                "title": "フレンドトリップ",
+                "description": "友達と一緒に旅行して、素晴らしい目的地を探索しましょう",
+                "introTitle": "フレンドトリップ",
+                "introP1": "友達と一緒に世界の素晴らしさを探索しましょう。活気あふれるリゾートで、ウォータースポーツのスリル、ビーチパーティーの興奮、グルメ旅のサプライズを楽しんでください。",
+                "introP2": "日の出ヨガから深夜の語り合いまで、スキューバダイビングからジャングル探検まで、友達とのすべての瞬間が忘れられないものになります。"
+            }
+        },
+        "gallery": [
+            "./assets/exciting-vacations/friends-trip/1.jpg",
+            "./assets/exciting-vacations/friends-trip/2.jpg",
+            "./assets/exciting-vacations/friends-trip/3.jpg",
+            "./assets/exciting-vacations/friends-trip/4.jpg",
+            "./assets/exciting-vacations/friends-trip/5.jpg",
+            "./assets/exciting-vacations/friends-trip/6.jpg",
+            "./assets/exciting-vacations/friends-trip/7.jpg",
+            "./assets/exciting-vacations/friends-trip/8.jpg",
+            "./assets/exciting-vacations/friends-trip/9.jpg"
+        ]
+    }
+}

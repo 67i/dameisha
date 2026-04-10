@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>交换详情 - 换享星球</title>
+
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="./js/tailwind.config.js"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="./index.html" class="nav-logo">
+                <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="nav-logo-img">
+            </a>
+            <div class="nav-links">
+                <a href="./index.html" class="nav-link nav-link-secondary" data-i18n="nav.hotelIntro">酒店介绍</a>
+                <a href="./index.html" class="nav-link nav-link-secondary" data-i18n="nav.benefitsIntro">权益介绍</a>
+                <a href="./faq.html" class="nav-link nav-link-secondary" data-i18n="nav.faq">FAQ</a>
+            </div>
+            <div class="nav-right">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="zh">中文</button>
+                    <button class="lang-btn" data-lang="ko">한국어</button>
+                    <button class="lang-btn" data-lang="ja">日本語</button>
+                </div>
+                <a href="./contact.html" class="nav-button" data-i18n="nav.contactUs">联系我们</a>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-content">
+                <a href="./index.html" class="mobile-menu-link" data-i18n="nav.hotelIntro">酒店介绍</a>
+                <a href="./index.html" class="mobile-menu-link" data-i18n="nav.benefitsIntro">权益介绍</a>
+                <a href="./faq.html" class="mobile-menu-link" data-i18n="nav.faq">FAQ</a>
+                <div class="mobile-menu-divider"></div>
+                <div class="mobile-lang-switcher">
+                    <button class="mobile-lang-btn active" data-lang="en">English</button>
+                    <button class="mobile-lang-btn" data-lang="zh">中文</button>
+                    <button class="mobile-lang-btn" data-lang="ko">한국어</button>
+                    <button class="mobile-lang-btn" data-lang="ja">日本語</button>
+                </div>
+                <a href="./contact.html" class="mobile-nav-button" data-i18n="nav.contactUs">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hotel-detail-hero" id="heroSection">
+            <img src="" alt="" class="hotel-hero-image" id="heroBanner">
+            <div class="hotel-hero-overlay"></div>
+            <div class="hotel-hero-content">
+                <span class="hotel-hero-location" data-i18n="exchangeDetail.label">真实可靠的交换</span>
+                <h1 class="hotel-hero-title" id="heroTitle"></h1>
+                <p class="hotel-hero-desc" id="heroDesc"></p>
+            </div>
+        </section>
+
+        <section class="hotel-intro-section">
+            <div class="hotel-intro-content">
+                <div class="hotel-intro-text">
+                    <span class="hotel-intro-label" data-i18n="exchangeDetail.introLabel">交换介绍</span>
+                    <h2 class="hotel-intro-title" id="introTitle"></h2>
+                    <div id="introText"></div>
+                </div>
+                <div class="hotel-intro-image-single intro-image-clickable">
+                    <img src="" alt="" id="introImage">
+                    <div class="intro-image-zoom-hint">
+                        <span class="material-symbols-outlined">zoom_in</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vacation-gallery-section">
+            <div class="vacation-gallery-content">
+                <div class="vacation-gallery-header">
+                    <span class="vacation-gallery-label" data-i18n="exchangeDetail.galleryLabel">DETAILS</span>
+                    <h2 class="vacation-gallery-title" id="galleryTitle"></h2>
+                </div>
+                <div class="exchange-gallery-grid" id="exchangeGallery"></div>
+            </div>
+        </section>
+
+        <section class="hotel-back-section">
+            <a href="./index.html#promo" class="back-button">
+                <span class="material-symbols-outlined back-arrow">arrow_back</span>
+                <span data-i18n="exchangeDetail.backBtn">返回首页</span>
+            </a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="footer-logo-img">
+                <p class="footer-brand-description" data-i18n="footer.brandDesc">开启奢华旅行新体验，为您精心甄选全球顶级酒店与度假村。</p>
+                <div class="footer-social-links">
+                    <a href="#" class="footer-social-link">
+                        <span class="material-symbols-outlined">share</span>
+                    </a>
+                    <a href="#" class="footer-social-link">
+                        <span class="material-symbols-outlined">language</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-column-title" data-i18n="footer.quickLinks">快速链接</h4>
+                <a href="./index.html" class="footer-link" data-i18n="nav.hotelIntro">酒店介绍</a>
+                <a href="./index.html" class="footer-link" data-i18n="nav.benefitsIntro">权益介绍</a>
+                <a href="./contact.html" class="footer-link" data-i18n="nav.contactUs">联系我们</a>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-column-title" data-i18n="footer.contact">联系方式</h4>
+                <a href="mailto:dameisha666@gmail.com" class="footer-link">dameisha666@gmail.com</a>
+                <a href="https://wa.me/8613800138000" target="_blank" class="footer-link">WhatsApp</a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p class="footer-copyright-text">© 2024 换享星球. All rights reserved.</p>
+            <a href="#" class="footer-copyright-link" data-i18n="footer.privacy">隐私政策</a>
+        </div>
+    </footer>
+
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
+            <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImg">
+        </div>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">
+            <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
+
+    <script src="./js/i18n.js"></script>
+    <script>
+    (function() {
+        var galleryImages = [];
+        var currentIndex = 0;
+
+        function getExchangeType() {
+            var params = new URLSearchParams(window.location.search);
+            return params.get('type') || 'manhattan-club';
+        }
+
+        function getCurrentLang() {
+            if (typeof I18n !== 'undefined' && I18n.currentLang) {
+                return I18n.currentLang;
+            }
+            return 'zh';
+        }
+
+        function loadExchangeDetail() {
+            fetch('./data/exchange-details.json?t=' + Date.now())
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    var type = getExchangeType();
+                    var exchange = data[type];
+                    if (!exchange) {
+                        exchange = data['manhattan-club'];
+                    }
+                    renderExchangeDetail(exchange);
+                })
+                .catch(function(error) {
+                    console.error('Failed to load exchange detail:', error);
+                });
+        }
+
+        function renderExchangeDetail(exchange) {
+            var lang = getCurrentLang();
+            var i18n = exchange.i18n && exchange.i18n[lang] ? exchange.i18n[lang] : exchange.i18n && exchange.i18n['zh'] ? exchange.i18n['zh'] : {};
+
+            document.getElementById('heroBanner').src = exchange.cover;
+            document.getElementById('heroBanner').alt = i18n.title || '';
+            document.getElementById('heroTitle').textContent = i18n.title || '';
+            document.getElementById('heroDesc').textContent = i18n.description || '';
+            document.getElementById('introTitle').textContent = i18n.introTitle || '';
+
+            var introTextHtml = '';
+            if (i18n.introP1) {
+                introTextHtml += '<p class="hotel-intro-p">' + i18n.introP1 + '</p>';
+            }
+            if (i18n.introP2) {
+                introTextHtml += '<p class="hotel-intro-p">' + i18n.introP2 + '</p>';
+            }
+            document.getElementById('introText').innerHTML = introTextHtml;
+
+            if (exchange.gallery && exchange.gallery.length > 0) {
+                document.getElementById('introImage').src = exchange.gallery[0];
+            }
+
+            document.getElementById('galleryTitle').textContent = i18n.title || '';
+
+            galleryImages = exchange.gallery || [];
+            var galleryHtml = '';
+            if (galleryImages.length > 0) {
+                galleryImages.forEach(function(img, index) {
+                    galleryHtml += '<div class="exchange-gallery-item">' +
+                        '<img src="' + img + '" alt="" class="exchange-gallery-img" data-index="' + index + '">' +
+                        '</div>';
+                });
+            }
+            document.getElementById('exchangeGallery').innerHTML = galleryHtml;
+
+            initLightbox();
+
+            var siteName = lang === 'zh' ? '换享星球' : lang === 'en' ? 'Huanxiang Planet' : lang === 'ko' ? '환상 행성' : 'ファンタジープラネット';
+            document.title = (i18n.title || '') + ' - ' + siteName;
+        }
+
+        function initLightbox() {
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImg = document.getElementById('lightboxImg');
+            var lightboxClose = document.getElementById('lightboxClose');
+            var lightboxPrev = document.getElementById('lightboxPrev');
+            var lightboxNext = document.getElementById('lightboxNext');
+            var lightboxCounter = document.getElementById('lightboxCounter');
+            var galleryImgs = document.querySelectorAll('.exchange-gallery-img');
+
+            var introImage = document.getElementById('introImage');
+            if (introImage && galleryImages.length > 0) {
+                introImage.style.cursor = 'pointer';
+                introImage.addEventListener('click', function() {
+                    currentIndex = 0;
+                    openLightbox();
+                });
+            }
+
+            galleryImgs.forEach(function(img) {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function() {
+                    currentIndex = parseInt(this.getAttribute('data-index'));
+                    openLightbox();
+                });
+            });
+
+            function openLightbox() {
+                lightbox.classList.add('active');
+                lightboxImg.src = galleryImages[currentIndex];
+                updateCounter();
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            function showPrev() {
+                currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+                lightboxImg.src = galleryImages[currentIndex];
+                updateCounter();
+            }
+
+            function showNext() {
+                currentIndex = (currentIndex + 1) % galleryImages.length;
+                lightboxImg.src = galleryImages[currentIndex];
+                updateCounter();
+            }
+
+            function updateCounter() {
+                lightboxCounter.textContent = (currentIndex + 1) + ' / ' + galleryImages.length;
+            }
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightboxPrev.addEventListener('click', showPrev);
+            lightboxNext.addEventListener('click', showNext);
+
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (!lightbox.classList.contains('active')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') showPrev();
+                if (e.key === 'ArrowRight') showNext();
+            });
+        }
+
+        function tryLoad() {
+            if (typeof I18n !== 'undefined' && I18n.translations && Object.keys(I18n.translations).length > 0) {
+                loadExchangeDetail();
+            } else {
+                setTimeout(tryLoad, 50);
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', tryLoad);
+        } else {
+            tryLoad();
+        }
+
+        document.addEventListener('languageChanged', loadExchangeDetail);
+    })();
+    </script>
+</body>
+
+</html>

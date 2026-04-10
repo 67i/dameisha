@@ -1,0 +1,120 @@
+{
+    "manhattan-club": {
+        "id": "manhattan-club",
+        "cover": "./assets/exchange-showcase/rci-confirmation-1.png",
+        "i18n": {
+            "zh": {
+                "title": "RCI交换确认书 - 曼哈顿俱乐部",
+                "description": "The Manhattan Club 2026年9月交换确认书",
+                "introTitle": "RCI交换确认书",
+                "introP1": "这是通过RCI全球交换平台成功交换至曼哈顿俱乐部（The Manhattan Club）的官方确认书。确认书详细记录了交换入住的酒店信息、入住时间、房型等关键信息，证明RCI交换系统的真实性和可靠性。",
+                "introP2": "曼哈顿俱乐部位于纽约市中心，毗邻中央公园，是纽约最知名的分时度假酒店之一。通过RCI交换平台，会员可以使用自己的度假权益交换入住这家顶级酒店。"
+            },
+            "en": {
+                "title": "RCI Exchange Confirmation - The Manhattan Club",
+                "description": "The Manhattan Club September 2026 Exchange Confirmation",
+                "introTitle": "RCI Exchange Confirmation",
+                "introP1": "This is the official confirmation letter for a successful exchange to The Manhattan Club through the RCI global exchange platform. The confirmation details the hotel information, check-in dates, room type, and other key information, proving the authenticity and reliability of the RCI exchange system.",
+                "introP2": "The Manhattan Club is located in the heart of New York City, adjacent to Central Park, and is one of the most well-known timeshare hotels in New York. Through the RCI exchange platform, members can use their vacation rights to exchange for a stay at this top-tier hotel."
+            },
+            "ko": {
+                "title": "RCI 교환 확인서 - 맨해튼 클럽",
+                "description": "The Manhattan Club 2026년 9월 교환 확인서",
+                "introTitle": "RCI 교환 확인서",
+                "introP1": "RCI 글로벌 교환 플랫폼을 통해 맨해튼 클럽으로 성공적으로 교환한 공식 확인서입니다.",
+                "introP2": "맨해튼 클럽은 뉴욕 시내 중심부에 위치해 있으며, 센트럴 파크와 인접한 뉴욕에서 가장 유명한 타임셰어 호텔 중 하나입니다."
+            },
+            "ja": {
+                "title": "RCI交換確認書 - マンハッタンクラブ",
+                "description": "The Manhattan Club 2026年9月交換確認書",
+                "introTitle": "RCI交換確認書",
+                "introP1": "RCIグローバル交換プラットフォームを通じてマンハッタンクラブへの交換に成功した公式確認書です。",
+                "introP2": "マンハッタンクラブはニューヨーク市中心部に位置し、セントラルパークに隣接するニューヨークで最も有名なタイムシェアホテルの一つです。"
+            }
+        },
+        "gallery": [
+            "./assets/exchange-showcase/manhattan-club-confirmation/01.png",
+            "./assets/exchange-showcase/manhattan-club-confirmation/02.png",
+            "./assets/exchange-showcase/manhattan-club-confirmation/03.png",
+            "./assets/exchange-showcase/manhattan-club-confirmation/04.png"
+        ]
+    },
+    "elara-hilton": {
+        "id": "elara-hilton",
+        "cover": "./assets/exchange-showcase/rci-confirmation-2.png",
+        "i18n": {
+            "zh": {
+                "title": "RCI交换确认书 - 希尔顿度假俱乐部",
+                "description": "Elara, a Hilton Grand Vacations Club 2026年9月交换确认书",
+                "introTitle": "RCI交换确认书",
+                "introP1": "这是通过RCI全球交换平台成功交换至Elara希尔顿度假俱乐部（Elara, a Hilton Grand Vacations Club）的官方确认书。确认书详细记录了交换入住的酒店信息、入住时间、房型等关键信息。",
+                "introP2": "Elara希尔顿度假俱乐部位于拉斯维加斯大道中心，拥有宽敞的套房和壮丽的城市景观。通过RCI交换平台，会员可以轻松体验这家顶级度假酒店的魅力。"
+            },
+            "en": {
+                "title": "RCI Exchange Confirmation - Hilton Grand Vacations Club",
+                "description": "Elara, a Hilton Grand Vacations Club September 2026 Exchange Confirmation",
+                "introTitle": "RCI Exchange Confirmation",
+                "introP1": "This is the official confirmation letter for a successful exchange to Elara, a Hilton Grand Vacations Club through the RCI global exchange platform. The confirmation details the hotel information, check-in dates, room type, and other key information.",
+                "introP2": "Elara, a Hilton Grand Vacations Club is located in the heart of the Las Vegas Strip, featuring spacious suites and stunning city views. Through the RCI exchange platform, members can easily experience the charm of this top-tier resort hotel."
+            },
+            "ko": {
+                "title": "RCI 교환 확인서 - 힐튼 그랜드 베케이션스 클럽",
+                "description": "Elara, a Hilton Grand Vacations Club 2026년 9월 교환 확인서",
+                "introTitle": "RCI 교환 확인서",
+                "introP1": "RCI 글로벌 교환 플랫폼을 통해 Elara 힐튼 그랜드 베케이션스 클럽으로 성공적으로 교환한 공식 확인서입니다.",
+                "introP2": "Elara 힐튼 그랜드 베케이션스 클럽은 라스베이거스 스트립 중심부에 위치해 있습니다."
+            },
+            "ja": {
+                "title": "RCI交換確認書 - ヒルトン・グランド・バケーションズ・クラブ",
+                "description": "Elara, a Hilton Grand Vacations Club 2026年9月交換確認書",
+                "introTitle": "RCI交換確認書",
+                "introP1": "RCIグローバル交換プラットフォームを通じてElaraヒルトン・グランド・バケーションズ・クラブへの交換に成功した公式確認書です。",
+                "introP2": "Elaraヒルトン・グランド・バケーションズ・クラブはラスベガスストリップの中心に位置しています。"
+            }
+        },
+        "gallery": [
+            "./assets/exchange-showcase/elara-hilton-confirmation/1.png",
+            "./assets/exchange-showcase/elara-hilton-confirmation/2.png",
+            "./assets/exchange-showcase/elara-hilton-confirmation/3.png",
+            "./assets/exchange-showcase/elara-hilton-confirmation/4.png"
+        ]
+    },
+    "member-account": {
+        "id": "member-account",
+        "cover": "./assets/exchange-showcase/rci-member-account.jpg",
+        "i18n": {
+            "zh": {
+                "title": "RCI会员账号展示",
+                "description": "真实有效的RCI会员权益展示",
+                "introTitle": "RCI会员账号",
+                "introP1": "这是RCI会员账号的真实展示页面。通过RCI会员账号，可以查看自己的度假权益、交换记录、可用周数等信息。每一项权益都真实有效，确保会员的度假体验得到保障。",
+                "introP2": "RCI（Resort Condominiums International）是全球最大的分时度假交换平台，拥有超过5000家度假村合作伙伴，覆盖110个国家和地区。通过RCI会员账号，您可以轻松管理和使用自己的度假权益。"
+            },
+            "en": {
+                "title": "RCI Member Account Display",
+                "description": "Authentic and valid RCI membership benefits display",
+                "introTitle": "RCI Member Account",
+                "introP1": "This is an authentic display of the RCI member account page. Through the RCI member account, you can view your vacation rights, exchange records, available weeks, and other information. Every benefit is authentic and valid, ensuring that members' vacation experiences are guaranteed.",
+                "introP2": "RCI (Resort Condominiums International) is the world's largest timeshare exchange platform, with over 5,000 resort partners covering 110 countries and regions. Through your RCI member account, you can easily manage and use your vacation rights."
+            },
+            "ko": {
+                "title": "RCI 회원 계정 표시",
+                "description": "진정하고 유효한 RCI 회원 혜택 표시",
+                "introTitle": "RCI 회원 계정",
+                "introP1": "RCI 회원 계정의 실제 표시 페이지입니다. RCI 회원 계정을 통해 휴가 권리, 교환 기록, 사용 가능한 주 수 등의 정보를 확인할 수 있습니다.",
+                "introP2": "RCI는 110개국 5,000개 이상의 리조트 파트너를 보유한 세계 최대의 타임셰어 교환 플랫폼입니다."
+            },
+            "ja": {
+                "title": "RCI会員アカウント表示",
+                "description": "本物の有効なRCI会員特典表示",
+                "introTitle": "RCI会員アカウント",
+                "introP1": "RCI会員アカウントの実際の表示ページです。RCI会員アカウントを通じて、バケーション権利、交換記録、利用可能な週数などの情報を確認できます。",
+                "introP2": "RCIは110の国と地域に5,000以上のリゾートパートナーを持つ世界最大のタイムシェア交換プラットフォームです。"
+            }
+        },
+        "gallery": [
+            "./assets/exchange-showcase/member-account-detail/1.png",
+            "./assets/exchange-showcase/member-account-detail/2.png"
+        ]
+    }
+}
