@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN" class="scroll-smooth">
 
 <head>
@@ -14,47 +14,8 @@
 
 <body>
 
-    <nav class="nav-container">
-        <div class="nav-content">
-            <a href="./index.html" class="nav-logo">
-                <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="nav-logo-img">
-            </a>
-            <div class="nav-links">
-                <a href="./index.html" class="nav-link nav-link-secondary" data-i18n="nav.hotelIntro">酒店介绍</a>
-                <a href="./index.html" class="nav-link nav-link-secondary" data-i18n="nav.benefitsIntro">权益介绍</a>
-                <a href="./faq.html" class="nav-link nav-link-secondary" data-i18n="nav.faq">FAQ</a>
-            </div>
-            <div class="nav-right">
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </button>
-                <div class="lang-switcher">
-                    <button class="lang-btn active" data-lang="en">EN</button>
-                    <button class="lang-btn" data-lang="zh">中文</button>
-                    <button class="lang-btn" data-lang="ko">한국어</button>
-                    <button class="lang-btn" data-lang="ja">日本語</button>
-                </div>
-                <a href="./contact.html" class="nav-button" data-i18n="nav.contactUs">联系我们</a>
-            </div>
-        </div>
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="mobile-menu-content">
-                <a href="./index.html" class="mobile-menu-link" data-i18n="nav.hotelIntro">酒店介绍</a>
-                <a href="./index.html" class="mobile-menu-link" data-i18n="nav.benefitsIntro">权益介绍</a>
-                <a href="./faq.html" class="mobile-menu-link" data-i18n="nav.faq">FAQ</a>
-                <div class="mobile-menu-divider"></div>
-                <div class="mobile-lang-switcher">
-                    <button class="mobile-lang-btn active" data-lang="en">English</button>
-                    <button class="mobile-lang-btn" data-lang="zh">中文</button>
-                    <button class="mobile-lang-btn" data-lang="ko">한국어</button>
-                    <button class="mobile-lang-btn" data-lang="ja">日本語</button>
-                </div>
-                <a href="./contact.html" class="mobile-nav-button" data-i18n="nav.contactUs">联系我们</a>
-            </div>
-        </div>
-    </nav>
+    <!-- 头部占位符 -->
+    <div id="header-placeholder"></div>
 
     <main>
         <section class="hotel-intro-section">
@@ -90,29 +51,8 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="footer-logo-img">
-                <p class="footer-brand-description" data-i18n="footer.brandDesc">开启奢华旅行新体验，为您精心甄选全球顶级酒店与度假村。</p>
-            </div>
-            <div class="footer-column">
-                <h4 class="footer-column-title" data-i18n="footer.quickLinks">快速链接</h4>
-                <a href="./index.html" class="footer-link" data-i18n="nav.hotelIntro">酒店介绍</a>
-                <a href="./index.html" class="footer-link" data-i18n="nav.benefitsIntro">权益介绍</a>
-                <a href="./contact.html" class="footer-link" data-i18n="nav.contactUs">联系我们</a>
-            </div>
-            <div class="footer-column">
-                <h4 class="footer-column-title" data-i18n="footer.contact">联系方式</h4>
-                <a href="mailto:dameisha666@gmail.com" class="footer-link">dameisha666@gmail.com</a>
-                <a href="https://wa.me/8613800138000" target="_blank" class="footer-link">WhatsApp</a>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <p class="footer-copyright-text">© 2024 换享星球. All rights reserved.</p>
-            <a href="#" class="footer-copyright-link" data-i18n="footer.privacy">隐私政策</a>
-        </div>
-    </footer>
+    <!-- 页脚占位符 -->
+    <div id="footer-placeholder"></div>
 
     <div class="lightbox" id="lightbox">
         <button class="lightbox-close" id="lightboxClose">
@@ -131,6 +71,8 @@
     </div>
 
     <script src="./js/i18n.js"></script>
+    <script src="./js/cookie-consent.js"></script>
+    <script src="./js/common.js"></script>
     <script>
     (function() {
         var galleryImages = [];

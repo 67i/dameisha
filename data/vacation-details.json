@@ -1,6 +1,6 @@
 {
-    "family-trip": {
-        "id": "family-trip",
+    "family-vacation": {
+        "id": "family-vacation",
         "cover": "./assets/exciting-vacations/family-trip/cover.jpg",
         "i18n": {
             "zh": {
@@ -11,9 +11,9 @@
                 "introP2": "从私人海滩到无边泳池，从儿童俱乐部到家庭影院，每一个细节都为家庭度假量身打造。在这里，您不仅能享受顶级的度假设施，更能与家人共同创造珍贵的回忆。"
             },
             "en": {
-                "title": "Family Trip",
+                "title": "Family Vacation",
                 "description": "Share warm moments with your family and create beautiful memories",
-                "introTitle": "Family Trip",
+                "introTitle": "Family Vacation",
                 "introP1": "Bring your family and embark on a warm and unforgettable vacation journey. At beautiful beachfront resorts, children can play freely on the sandy beaches while adults enjoy leisurely sunny moments. Carefully designed family suites, rich parent-child activities, and delicious world-class dining ensure every family member finds their own happiness.",
                 "introP2": "From private beaches to infinity pools, from kids' clubs to family theaters, every detail is tailor-made for family vacations. Here, you can not only enjoy top-tier resort facilities but also create precious memories with your loved ones."
             },
@@ -46,8 +46,8 @@
             "./assets/exciting-vacations/family-trip/11.jpg"
         ]
     },
-    "couple-trip": {
-        "id": "couple-trip",
+    "couple-vacation": {
+        "id": "couple-vacation",
         "cover": "./assets/exciting-vacations/couple-trip/cover.jpg",
         "i18n": {
             "zh": {
@@ -58,9 +58,9 @@
                 "introP2": "从精致的法式大餐到私密的游艇出海，从日落鸡尾酒到星空下的电影之夜，每一刻都为情侣量身定制。在这里，远离城市的喧嚣，只留下彼此的陪伴与浪漫。"
             },
             "en": {
-                "title": "Couple Trip",
+                "title": "Couple Vacation",
                 "description": "Romantic getaway, enjoy sweet moments together",
-                "introTitle": "Couple Trip",
+                "introTitle": "Couple Vacation",
                 "introP1": "Embark on a romantic journey with your beloved, feeling the sweetness of love between the blue sea and sky. Carefully arranged honeymoon suites, candlelit dinners, and couples' SPA — every moment is filled with romance and surprise. Whether strolling on a private beach or watching the sunset by the infinity pool, these are your sweet moments together.",
                 "introP2": "From exquisite French cuisine to intimate yacht excursions, from sunset cocktails to movie nights under the stars, every moment is tailor-made for couples. Here, away from the city's hustle, only each other's company and romance remain."
             },
@@ -106,8 +106,8 @@
             "./assets/exciting-vacations/couple-trip/24.jpg"
         ]
     },
-    "friends-trip": {
-        "id": "friends-trip",
+    "friends-vacation": {
+        "id": "friends-vacation",
         "cover": "./assets/exciting-vacations/friends-trip/cover.jpg",
         "i18n": {
             "zh": {
@@ -118,9 +118,9 @@
                 "introP2": "从日出瑜伽到深夜畅聊，从深海潜水到丛林探险，与好友一起的每一刻都值得铭记。在这里，友谊在旅途中升华，回忆在欢笑中定格。"
             },
             "en": {
-                "title": "Friends Trip",
+                "title": "Friends Vacation",
                 "description": "Travel with friends and explore exciting destinations",
-                "introTitle": "Friends Trip",
+                "introTitle": "Friends Vacation",
                 "introP1": "Travel with friends and explore the wonders of the world together. At vibrant resort destinations, enjoy the thrill of water sports, the excitement of beach parties, and the surprises of culinary journeys. Spacious multi-bedroom villas, private pools, and outdoor BBQ areas ensure every gathering is filled with laughter and joy.",
                 "introP2": "From sunrise yoga to late-night conversations, from deep-sea diving to jungle adventures, every moment with friends is worth remembering. Here, friendships deepen on the journey, and memories are captured in laughter."
             },

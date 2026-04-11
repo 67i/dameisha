@@ -657,10 +657,19 @@ h1, h2, h3, .headline-font {
 .hero-title {
     font-size: 1.875rem;
     color: #ffeb8fa8;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     line-height: 1.2;
     font-weight: 300;
     white-space: normal;
+}
+
+/* Hero 副标题 */
+.hero-heroSubtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    font-style: italic;
 }
 
 /* Hero 标题响应式大小 */
@@ -1506,6 +1515,22 @@ h1, h2, h3, .headline-font {
     margin-bottom: 2rem;
 }
 
+/* 页脚小标题 */
+.footer-header {
+    grid-column: 1 / -1;
+    margin-bottom: 2rem;
+}
+
+.footer-header-title {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: bold;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0;
+}
+
 /* 页脚链接列表 */
 .footer-links {
     list-style: none;
@@ -1557,6 +1582,28 @@ h1, h2, h3, .headline-font {
 .footer-contact-icon {
     font-size: 0.875rem;
     margin-top: 0.125rem;
+}
+
+.footer-whatsapp-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-whatsapp-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.footer-email-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-email-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
 }
 
 /* 页脚版权区域 */
@@ -1711,6 +1758,11 @@ h1, h2, h3, .headline-font {
     
     .hero-title {
         font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .hero-heroSubtitle {
+        font-size: 1rem;
         margin-bottom: 1rem;
     }
     
@@ -1908,6 +1960,11 @@ h1, h2, h3, .headline-font {
         margin-bottom: 0.75rem;
     }
     
+    .footer-header-title {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
     .footer-link {
         font-size: 0.875rem;
     }
@@ -1999,6 +2056,166 @@ h1, h2, h3, .headline-font {
 /* ========================================
    14. 联系我们页面样式
    ======================================== */
+
+/* 酒店详情页样式 */
+
+/* Hero 区域 - 全宽图片 + 渐变遮罩 */
+.hotel-detail-hero {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.hotel-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hotel-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.2) 40%, rgba(15,23,42,0.7));
+}
+
+.hotel-hero-content {
+    position: absolute;
+    bottom: 4rem;
+    left: 0;
+    right: 0;
+    padding: 0 3rem;
+    max-width: 1536px;
+    margin: 0 auto;
+}
+
+.hotel-hero-location {
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 1rem;
+}
+
+/* ========================================
+   15. 隐私政策和服务条款页面
+   ======================================== */
+
+.privacy-section,
+.terms-section {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
+}
+
+.privacy-content,
+.terms-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.privacy-header,
+.terms-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.privacy-title,
+.terms-title {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.privacy-date,
+.terms-date {
+    font-size: 1rem;
+    color: #666;
+    font-style: italic;
+}
+
+.privacy-body,
+.terms-body {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.privacy-section,
+.terms-section {
+    margin-bottom: 2rem;
+}
+
+.privacy-section-title,
+.terms-section-title {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.privacy-section-text,
+.terms-section-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.privacy-section-list,
+.terms-section-list {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.privacy-section-item,
+.terms-section-item {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .privacy-section,
+    .terms-section {
+        padding: 2rem 0;
+    }
+    
+    .privacy-content,
+    .terms-content {
+        padding: 0 1rem;
+    }
+    
+    .privacy-title,
+    .terms-title {
+        font-size: 2rem;
+    }
+    
+    .privacy-body,
+    .terms-body {
+        padding: 1.5rem;
+    }
+    
+    .privacy-section-title,
+    .terms-section-title {
+        font-size: 1.125rem;
+    }
+}
 
 /* 酒店详情页样式 */
 
@@ -2143,6 +2360,7 @@ h1, h2, h3, .headline-font {
 }
 
 .hotel-intro-image-single::after {
+    display: none;
     content: '';
     position: absolute;
     inset: 0;

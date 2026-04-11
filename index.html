@@ -21,53 +21,8 @@
 
 <body>
 
-    <!-- ==================== 导航栏 ==================== -->
-    <nav class="nav-container">
-        <div class="nav-content">
-            <!-- Logo -->
-            <a href="#" class="nav-logo">
-                <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="nav-logo-img">
-            </a>
-            <!-- 导航链接 -->
-            <div class="nav-links">
-                <a href="./hotel-detail.html?id=hotel7" class="nav-link nav-link-active" data-i18n="nav.hotelIntro">酒店介绍</a>
-                <a href="./benefits-detail.html" class="nav-link nav-link-secondary" data-i18n="nav.benefitsIntro">权益介绍</a>
-                <a href="./faq.html" class="nav-link nav-link-secondary" data-i18n="nav.faq">FAQ</a>
-            </div>
-            <!-- 语言切换和联系我们按钮 -->
-            <div class="nav-right">
-                <!-- 移动端汉堡菜单按钮 -->
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </button>
-                <div class="lang-switcher">
-                    <button class="lang-btn active" data-lang="en">EN</button>
-                    <button class="lang-btn" data-lang="zh">中文</button>
-                    <button class="lang-btn" data-lang="ko">한국어</button>
-                    <button class="lang-btn" data-lang="ja">日本語</button>
-                </div>
-                <a href="./contact.html" class="nav-button" data-i18n="nav.contactUs">联系我们</a>
-            </div>
-        </div>
-        <!-- 移动端菜单下拉面板 -->
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="mobile-menu-content">
-                <a href="./hotel-detail.html?id=hotel7" class="mobile-menu-link" data-i18n="nav.hotelIntro">酒店介绍</a>
-                <a href="./benefits-detail.html" class="mobile-menu-link" data-i18n="nav.benefitsIntro">权益介绍</a>
-                <a href="./faq.html" class="mobile-menu-link" data-i18n="nav.faq">FAQ</a>
-                <div class="mobile-menu-divider"></div>
-                <div class="mobile-lang-switcher">
-                    <button class="mobile-lang-btn active" data-lang="en">English</button>
-                    <button class="mobile-lang-btn" data-lang="zh">中文</button>
-                    <button class="mobile-lang-btn" data-lang="ko">한국어</button>
-                    <button class="mobile-lang-btn" data-lang="ja">日本語</button>
-                </div>
-                <a href="./contact.html" class="mobile-nav-button" data-i18n="nav.contactUs">联系我们</a>
-            </div>
-        </div>
-    </nav>
+    <!-- 头部占位符 -->
+    <div id="header-placeholder"></div>
 
     <main>
 
@@ -86,6 +41,9 @@
                     <h1 class="hero-title" data-i18n="hero.title">
                         分时度假权益+赠送RCI会籍 <span class="hero-title-italic"></span>
                     </h1>
+                    <h2 class="hero-heroSubtitle" data-i18n="hero.heroSubtitle">
+                        Travel more, spend less
+                    </h2>
                     <p class="hero-description" data-i18n="hero.description">
                         可在全球110个国家的5000家度假村进行交换
                     </p>
@@ -235,9 +193,9 @@
                 <h2 class="section-title" data-i18n="promo.excitingTitle">激动人心的假期</h2>
                 <div class="promo-grid">
                     <!-- 家庭出游 -->
-                    <a href="./vacation-detail.html?type=family-trip" class="promo-card-new promo-card-link scroll-animate">
+                    <a href="./vacation-detail.html?type=family-vacation" class="promo-card-new promo-card-link scroll-animate">
                         <div class="promo-card-image-wrapper">
-                            <img src="./assets/exciting-vacations/family-trip/cover.jpg" alt="家庭出游" class="promo-card-image">
+                            <img src="./assets/exciting-vacations/family-trip/cover.jpg" alt="" class="promo-card-image" data-i18n-alt="promo.familyTrip">
                             <span class="promo-tag" data-i18n="promo.familyTrip">家庭出游</span>
                         </div>
                         <div class="promo-card-info">
@@ -246,9 +204,9 @@
                         </div>
                     </a>
                     <!-- 情侣出游 -->
-                    <a href="./vacation-detail.html?type=couple-trip" class="promo-card-new promo-card-link scroll-animate">
+                    <a href="./vacation-detail.html?type=couple-vacation" class="promo-card-new promo-card-link scroll-animate">
                         <div class="promo-card-image-wrapper">
-                            <img src="./assets/exciting-vacations/couple-trip/cover.jpg" alt="情侣出游" class="promo-card-image">
+                            <img src="./assets/exciting-vacations/couple-trip/cover.jpg" alt="" class="promo-card-image" data-i18n-alt="promo.coupleTrip">
                             <span class="promo-tag" data-i18n="promo.coupleTrip">情侣出游</span>
                         </div>
                         <div class="promo-card-info">
@@ -257,9 +215,9 @@
                         </div>
                     </a>
                     <!-- 朋友出游 -->
-                    <a href="./vacation-detail.html?type=friends-trip" class="promo-card-new promo-card-link scroll-animate">
+                    <a href="./vacation-detail.html?type=friends-vacation" class="promo-card-new promo-card-link scroll-animate">
                         <div class="promo-card-image-wrapper">
-                            <img src="./assets/exciting-vacations/friends-trip/cover.jpg" alt="朋友出游" class="promo-card-image">
+                            <img src="./assets/exciting-vacations/friends-trip/cover.jpg" alt="" class="promo-card-image" data-i18n-alt="promo.friendsTrip">
                             <span class="promo-tag" data-i18n="promo.friendsTrip">朋友出游</span>
                         </div>
                         <div class="promo-card-info">
@@ -318,66 +276,15 @@
     </main>
 
     <!-- ==================== 页脚 ==================== -->
-    <footer class="footer">
-        <div class="footer-content">
-            <!-- 品牌区域 -->
-            <div class="footer-brand">
-                <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="footer-logo-img">
-                <p class="footer-brand-description" data-i18n="footer.brandDesc">
-                    开启奢华旅行新体验，为您精心甄选全球顶级酒店与度假村。
-                </p>
-            </div>
-            <!-- 探索链接 -->
-            <div>
-                <h5 class="footer-column-title" data-i18n="footer.explore">探索</h5>
-                <ul class="footer-links">
-                    <li class="footer-link-item"><a href="#" class="footer-link" data-i18n="footer.hotels">酒店</a></li>
-                    <li class="footer-link-item"><a href="#" class="footer-link" data-i18n="footer.destinations">目的地</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- 公司链接 -->
-            <div>
-                <h5 class="footer-column-title" data-i18n="footer.company">公司</h5>
-                <ul class="footer-links">
-                    <li class="footer-link-item"><a href="#" class="footer-link" data-i18n="footer.privacy">隐私政策</a>
-                    </li>
-                    <li class="footer-link-item"><a href="#" class="footer-link" data-i18n="footer.terms">服务条款</a></li>
-                </ul>
-            </div>
-            <!-- 联系方式 -->
-            <div>
-                <h5 class="footer-column-title" data-i18n="footer.contact">联系方式</h5>
-                <ul class="footer-links">
-                    <li class="footer-contact-item-top">
-                        <span class="material-symbols-outlined footer-contact-icon">location_on</span>
-                        <span data-i18n="footer.location">中国 · 深圳</span>
-                    </li>
-                    <li class="footer-contact-item">
-                        <span class="material-symbols-outlined footer-contact-icon">mail</span>
-                        <span data-i18n="footer.email">dameisha666@gmail.com</span>
-                    </li>
-                    <li class="footer-contact-item">
-                        <span class="material-symbols-outlined footer-contact-icon">call</span>
-                        <span data-i18n="footer.phone">+86 400-888-8888</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- 版权区域 -->
-        <div class="footer-copyright">
-            <p class="footer-copyright-text" data-i18n="footer.copyright">© 2024 换享星球. All Rights Reserved.</p>
-            <div class="footer-copyright-links">
-                <a href="#" class="footer-copyright-link" data-i18n="footer.sitemap">网站地图</a>
-                <a href="#" class="footer-copyright-link" data-i18n="footer.cookiePolicy">Cookie 政策</a>
-            </div>
-        </div>
-    </footer>
+    <!-- 页脚占位符 -->
+    <div id="footer-placeholder"></div>
 
     <!-- i18n Internationalization -->
     <script src="./js/i18n.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/scroll-animations.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/cookie-consent.js"></script>
 </body>
 
 </html>

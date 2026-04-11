@@ -22,6 +22,10 @@ const I18n = {
         
         this.bindEvents();
         this.initMobileMenu();
+        
+        document.dispatchEvent(new CustomEvent('i18nReady', { 
+            detail: { language: this.currentLang } 
+        }));
     },
     
     async loadTranslations(lang) {
@@ -72,6 +76,15 @@ const I18n = {
                 } else {
                     element.textContent = translation;
                 }
+            }
+        });
+        
+        const altElements = document.querySelectorAll('[data-i18n-alt]');
+        altElements.forEach(element => {
+            const key = element.getAttribute('data-i18n-alt');
+            const translation = this.get(key);
+            if (translation && translation !== key) {
+                element.setAttribute('alt', translation);
             }
         });
         

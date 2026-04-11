@@ -8,6 +8,7 @@
     "hero": {
         "subtitle": "다메이샤 만 요트 클럽 리조트",
         "title": "타임쉐어 휴가 권리 + 무료 RCI 멤버십",
+        "heroSubtitle": "더 많이 여행하고, 더 적게 지출하세요",
         "description": "전 세계 110개국 5,000개 리조트에서 교환 가능",
         "button": "호텔 상세 보기"
     },
@@ -380,8 +381,7 @@
         "gallery3": "DINING",
         "gallery4": "SENSE SPA",
         "backBtn": "호텔 목록으로 돌아가기"
-    }
-    ,
+    },
     "hotel6": {
         "location": "부산 · 한국",
         "title": "파크 하얏 부산",
@@ -511,5 +511,51 @@
         "startJourney": "글로벌 여정을 시작하세요",
         "joinRCI": "RCI 플래티넘 멤버십에 가입하고 전 세계 4,300개 이상의 최고급 리조트에 액세스하세요.",
         "inquireNow": "지금 문의하세요"
+    },
+    "privacy": {
+        "title": "개인정보 보호 정책",
+        "date": "시행일: 2026년 3월 31일",
+        "section1Title": "1. 서론",
+        "section1Text": "Dameisha Bay Yacht Club Resort(이하 \"당 시설\")은 고객의 개인정보의 중요성을 인식하고, 한국의 \"개인정보 보호법\"에 기반하여 다음과 같이 개인정보 보호 정책을 수립합니다.",
+        "section2Title": "2. 수집하는 개인정보",
+        "section2Text": "당 시설은 문의 시 다음과 같은 정보를 수집합니다:",
+        "section2Item1": "성명, 이메일 주소, WhatsApp/전화번호 (+86 138 0013 8000)",
+        "section2Item2": "쿠키 및 IP 주소 등 기술적 데이터",
+        "section3Title": "3. 이용 목적",
+        "section3Text": "수집한 정보는 다음 목적에만 사용됩니다:",
+        "section3Item1": "요트클럽 회원권 및 리조트 혜택에 관한 문의에 대한 답변",
+        "section3Item2": "이메일 또는 WhatsApp을 통한 개별 상담",
+        "section3Item3": "본 웹사이트의 이용 상황 분석 및 서비스 개선",
+        "section4Title": "4. 제3자 제공",
+        "section4Text": "당 시설은 법령에 기초한 경우를 제외하고, 고객의 동의 없이 개인정보를 제3자에게 제공하지 않습니다. 다만, 문의 대응을 위해 WhatsApp(Meta Platforms, Inc.)를 사용하는 경우, 해당 플랫폼 내에서의 데이터 처리는 동사의 규정에 따라 이루어집니다.",
+        "section5Title": "5. 안전 관리 조치",
+        "section5Text": "당 시설은 개인정보의 유출, 손실 방지를 위해 적절한 보안 대책을 취하고 있습니다.",
+        "section6Title": "6. 보유 개인 데이터의 공개·수정·삭제",
+        "section6Text": "고객은 자신의 개인정보에 대한 공개, 수정 또는 삭제를 요청할 권리를 가지고 있습니다. 원하시는 경우, 아래의 문의 창구로 연락해 주세요.",
+        "section6Item1": "연락처 (이메일): dameisha666@gmail.com",
+        "section6Item2": "WhatsApp: +86 138 0013 8000",
+        "section7Title": "7. 문의 창구 (개인정보 보호 관리자)",
+        "section7Text": "Dameisha Bay Yacht Club Resort 개인정보 보호 관리 책임자 (Customer Privacy Officer)\n[주소: 중국 심천시 옌타이구 다메이샤 옌메이로 89번지] (No. 89 Yanmei Road, Dameisha, Yantian District, Shenzhen, China)",
+        "section8Title": "8. 관할 법원",
+        "section8Text": "본 정책과 관련된 모든 분쟁은 중국 심천의 법원을 제1심의 독점적 합의 관할 법원으로 합니다."
+    },
+    "terms": {
+        "title": "이용 약관",
+        "date": "최종 업데이트일: 2026년 3월 31일",
+        "section1Title": "1. 이용 약관의 수락",
+        "section1Text": "dameishabayachtclubresort.com에 접근하여 사용함으로써, 고객은 본 이용 약관에 구속됨에 동의한 것으로 간주됩니다. 동의하지 않는 경우, 즉시 본 사이트의 사용을 중단해 주세요.",
+        "section2Title": "2. 지적 재산권",
+        "section2Text": "모든 콘텐츠(텍스트, 그래픽, 로고, 이미지 등을 포함)는 Dameisha Bay Yacht Club Resort의 독점적 재산입니다. 미승인 사용은 엄격히 금지됩니다.",
+        "section3Title": "3. 구속력 없는 제안 (비계약적 성질)",
+        "section3Text": "본 사이트의 콘텐츠는 단순한 홍보 표시 목적만을 위한 것이며, 휴가 클럽 회원권 판매와 관련된 법적 구속력 있는 제안 또는 계약을 구성하지 않습니다. 최종 조건은 별도의 공식 서명이 있는 구매 계약에 따릅니다.",
+        "section4Title": "4. 보증의 부인",
+        "section4Text": "정보는 \"있는 그대로\" 제공됩니다. 리조트 시설 및 회원 등급은 사전 통지 없이 변경될 수 있습니다. 본 사이트 콘텐츠에 대한 의존은 모두 고객의 책임 하에 이루어져야 합니다.",
+        "section5Title": "5. 책임의 제한",
+        "section5Text": "당 시설은 고객의 본 사이트 사용 또는 제3자 링크(WhatsApp 포함)로부터 발생하는 어떠한 손해에 대해서도 책임을 지지 않습니다.",
+        "section6Title": "6. 준거법 및 관할권",
+        "section6Text": "본 이용 약관은 중화인민공화국의 법률에 준거합니다. 어떠한 분쟁도 중국 심천 법원의 독점 관할에 적용됩니다.",
+        "section7Title": "7. 연락 정보",
+        "section7Item1": "이메일: dameisha666@gmail.com",
+        "section7Item2": "WhatsApp: +86 138 0013 8000"
     }
 }
