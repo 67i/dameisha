@@ -3473,11 +3473,47 @@ h1, h2, h3, .headline-font {
 }
 
 .logic-circle-text-en {
-    display: block;
+    display: none;
     font-size: 0.7rem;
     color: #888;
     margin-top: 0.4rem;
     line-height: 1.45;
+}
+
+html[lang="en"] .logic-circle-text-cn {
+    display: none;
+}
+
+html[lang="en"] .logic-circle-text-en {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0d1c2f;
+    line-height: 1.55;
+}
+
+html[lang="ko"] .logic-circle-text-cn {
+    display: none;
+}
+
+html[lang="ko"] .logic-circle-text-en {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0d1c2f;
+    line-height: 1.55;
+}
+
+html[lang="ja"] .logic-circle-text-cn {
+    display: none;
+}
+
+html[lang="ja"] .logic-circle-text-en {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0d1c2f;
+    line-height: 1.55;
 }
 
 .logic-price-tag {

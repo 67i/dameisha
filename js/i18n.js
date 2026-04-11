@@ -74,7 +74,18 @@ const I18n = {
                         element.value = translation;
                     }
                 } else {
-                    element.textContent = translation;
+                    if (translation.includes('<br>')) {
+                        const safeHtml = translation
+                            .replace(/&/g, '&amp;')
+                            .replace(/</g, '&lt;')
+                            .replace(/>/g, '&gt;')
+                            .replace(/"/g, '&quot;')
+                            .replace(/'/g, '&#039;')
+                            .replace(/&lt;br&gt;/gi, '<br>');
+                        element.innerHTML = safeHtml;
+                    } else {
+                        element.textContent = translation;
+                    }
                 }
             }
         });
