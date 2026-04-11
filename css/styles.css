@@ -2768,12 +2768,12 @@ h1, h2, h3, .headline-font {
     }
 
     .hotel-intro-section {
-        padding: 3rem 0;
+        padding: 2rem 0;
     }
 
     .hotel-intro-content {
         padding: 0 1rem;
-        gap: 2rem;
+        gap: 1.5rem;
         display: flex;
         flex-direction: column;
     }
@@ -2784,15 +2784,28 @@ h1, h2, h3, .headline-font {
 
     .hotel-intro-label {
         order: 1;
+        margin: 0;
+        padding: 0.5rem 0;
+        line-height: 1.5;
+        display: flex;
+        align-items: center;
+        min-height: 2.5rem;
     }
 
     .hotel-intro-title {
         order: 2;
         font-size: 1.5rem;
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+        height: 0;
+        overflow: hidden;
     }
 
     #introText {
         order: 3;
+        margin: 0;
+        padding: 0;
     }
 
     .hotel-intro-image-single {
@@ -2801,11 +2814,22 @@ h1, h2, h3, .headline-font {
 
     .hotel-map-container {
         order: 5;
-        margin-top: 1rem;
+        margin-top: 0.75rem;
     }
 
     .hotel-intro-p {
         font-size: 1rem;
+        margin: 0;
+        padding: 0;
+        line-height: 1.4;
+    }
+
+    .hotel-intro-p:first-child {
+        margin-top: -0.25rem;
+    }
+
+    .hotel-intro-p + .hotel-intro-p {
+        margin-top: 0.25rem;
     }
 
     .hotel-intro-img-sub {

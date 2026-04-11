@@ -14,11 +14,6 @@ const I18n = {
         const savedLang = localStorage.getItem('lang');
         if (savedLang && this.supportedLangs.includes(savedLang)) {
             this.currentLang = savedLang;
-        } else {
-            const browserLang = navigator.language.split('-')[0];
-            if (this.supportedLangs.includes(browserLang)) {
-                this.currentLang = browserLang;
-            }
         }
         
         await this.loadTranslations(this.currentLang);
