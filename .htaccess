@@ -1,0 +1,13 @@
+# 强制 HTTPS + www 跳转主域名（SEO 最优方案）
+RewriteEngine On
+
+# 第一步：把所有 HTTP 访问强制跳转到 HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 第二步：把 www 子域名跳转到主域名
+RewriteCond %{HTTP_HOST} ^www\.dameishabayyachtclubresort\.com$ [NC]
+RewriteRule ^(.*)$ https://dameishabayyachtclubresort.com/$1 [L,R=301]
+
+# 禁止目录浏览，提升网站安全性
+Options -Indexes

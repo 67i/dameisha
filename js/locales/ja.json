@@ -1,4 +1,14 @@
 {
+    "pageTitle": "ファンタジー惑星 - 交換旅行の経験を始めましょう",
+    "benefitsDetailPageTitle": "特典詳細 - ファンタジー惑星",
+    "contactPageTitle": "お問い合わせ - ファンタジー惑星",
+    "exchangeDetailPageTitle": "交換詳細 - ファンタジー惑星",
+    "faqPageTitle": "よくある質問 - ファンタジー惑星",
+    "hotelDetailPageTitle": "ホテル詳細 - ファンタジー惑星",
+    "hotelListPageTitle": "ホテル一覧 - ファンタジー惑星",
+    "privacyPageTitle": "プライバシーポリシー - ダメイシャ・ベイ・ヨットクラブ・リゾート",
+    "termsPageTitle": "利用規約 - ダメイシャ・ベイ・ヨットクラブ・リゾート",
+    "vacationDetailPageTitle": "休暇詳細 - ファンタジー惑星",
     "nav": {
         "hotelIntro": "ホテル紹介",
         "benefitsIntro": "特典紹介",
@@ -8,12 +18,11 @@
     "hero": {
         "subtitle": "ダメイシャ・ベイ・ヨットクラブ・リゾート",
         "title": "タイムシェア休暇権利 + 無料RCIメンバーシップ",
-        "heroSubtitle": "もっと旅して、もっと節約",
         "description": "世界110カ国5,000のリゾートで交換可能",
         "button": "ホテル詳細を見る"
     },
     "benefits": {
-        "price": "$49,800",
+        "price": "$4980",
         "description": "ダメイシャ・ベイ・ヨットクラブ・リゾート5年タイムシェア、年2週間、合計10週間の休暇権利",
         "card1Title": "過去最低価格",
         "card1Desc": "週500ドル未満で、一流の海の景色、プライベートビーチ、香港に隣接する深センのリゾートライフをお楽しみください。",
@@ -81,6 +90,7 @@
         "friendsTripDesc": "友達と一緒に旅行し、素晴らしい目的地を探検しましょう"
     },
     "footer": {
+        "brandName": "ダメイシャ・ベイ・ヨットクラブリゾート",
         "brandDesc": "RCIメンバーシップ特典をアンロックし、RCIグローバルプレミアムリゾートネットワークに無料でアクセス。",
         "explore": "探索",
         "hotels": "ホテル",
@@ -93,7 +103,7 @@
         "location": "中国 · 深セン",
         "email": "dameisha666@gmail.com",
         "phone": "+86 400-888-8888",
-        "copyright": "© 2024 換享星球. All Rights Reserved.",
+        "copyright": "© 2026 換享星球. All Rights Reserved.",
         "sitemap": "サイトマップ",
         "cookiePolicy": "クッキーポリシー"
     },
@@ -442,8 +452,8 @@
         "rciSubtitle": "世界最大級のバケーション交換ネットワークプラットフォーム",
         "rciFooterNote": "累計約1,700万件のバケーション交換完了、年間180万件以上確認、交換成功率98%",
         "partnersLabel": "グローバルパートナーホテルブランド（一部）",
-        "priceBtnAsia": "東南アジア：週SGD 198",
-        "priceBtnGlobal": "米欧豪その他：週SGD 388",
+        "priceBtnAsia": "東南アジア交換費用：SGD 198 (≈¥17,500) 週",
+        "priceBtnGlobal": "米欧豪その他交換費用：SGD 388 (≈¥34,500) 週",
         "themesCaption": "6大テーマ：ゴルフ、スキー、温泉、ダイビング、ファミリー、ビーチ"
     },
     "exchangeDetail": {
@@ -475,7 +485,7 @@
         "timeline1974Title": "RCI設立",
         "timeline1974Desc": "バケーション交換業界のパイオニア",
         "timeline1995Title": "ニューヨーク証券取引所上場",
-        "timeline1995Desc": "ティッカー: TNL、時価総額: 300億人民元",
+        "timeline1995Desc": "ティッカー: TNL、時価総額:  $4.2B",
         "timeline2017Title": "グローバル買収",
         "timeline2017Desc": "豪州DAE、@WORK、英国Love Home Swapを買収",
         "timeline2019Title": "テクノロジー買収",
@@ -485,9 +495,14 @@
         "timeline2024Title": "アコール買収",
         "timeline2024Desc": "4,900万ドルで\"Accor Vacation Club\"を買収",
         "partnersLabel": "グローバルパートナーホテルブランド（一部）",
-        "priceBtnAsia": "東南アジア：週SGD 198",
-        "priceBtnGlobal": "米欧豪その他：週SGD 388",
-        "themesCaption": "6大テーマ：ゴルフ、スキー、温泉、ダイビング、ファミリー、ビーチ",
+        "priceBtnAsia": "東南アジア交換費用：SGD 198 (≈¥17,500) 週",
+        "priceBtnGlobal": "米欧豪その他交換費用：SGD 388 (≈¥34,500) 週",
+        "themeGolf": " Golf",
+        "themeSkiing": "スキー",
+        "themeHotSpring": "温泉",
+        "themeDiving": "ダイビング",
+        "themeFamily": "ファミリー",
+        "themeBeach": "ビーチ",
         "backBtn": "ホームに戻る"
     },
     "faq": {
@@ -520,7 +535,7 @@
         "section1Text": "Dameisha Bay Yacht Club Resort（以下「当施設」）は、お客様の個人情報の重要性を認識し、日本の「個人情報の保護に関する法律」（APPI）に基づき、以下の通りプライバシーポリシーを定めます。",
         "section2Title": "2. 収集する個人情報",
         "section2Text": "当施設は、お問い合わせに際して以下の情報を取得します。",
-        "section2Item1": "氏名、メールアドレス、WhatsApp/電話番号（+86 138 0013 8000）",
+        "section2Item1": "氏名、メールアドレス、WhatsApp/電話番号（+852 53651156）",
         "section2Item2": "CookieおよびIPアドレス等の技術的データ",
         "section3Title": "3. 利用目的",
         "section3Text": "取得した情報は、以下の目的のみに使用します。",
@@ -534,7 +549,7 @@
         "section6Title": "6. 保有個人データの開示・訂正・削除",
         "section6Text": "お客様は、ご自身の個人情報の開示、訂正、または削除を請求する権利を有します。ご希望の場合は、下記のお問い合わせ窓口までご連絡ください。",
         "section6Item1": "連絡先 (Email): dameisha666@gmail.com",
-        "section6Item2": "WhatsApp: +86 138 0013 8000",
+        "section6Item2": "WhatsApp: +852 53651156",
         "section7Title": "7. お問い合わせ窓口 (個人情報保護管理者)",
         "section7Text": "Dameisha Bay Yacht Club Resort 個人情報保護管理責任者（Customer Privacy Officer）\n[住所：中国深圳市塩田区大梅沙塩梅路89号] (No. 89 Yanmei Road, Dameisha, Yantian District, Shenzhen, China)",
         "section8Title": "8. 管轄裁判所",
@@ -557,6 +572,6 @@
         "section6Text": "本利用規約は中華人民共和国の法律に準拠します。いかなる紛争も、中国深センの裁判所の専属管轄に服するものとします。",
         "section7Title": "7. お問い合わせ情報",
         "section7Item1": "Email: dameisha666@gmail.com",
-        "section7Item2": "WhatsApp: +86 138 0013 8000"
+        "section7Item2": "WhatsApp: +852 53651156"
     }
 }

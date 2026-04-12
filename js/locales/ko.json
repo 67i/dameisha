@@ -1,4 +1,14 @@
 {
+    "pageTitle": "환상 행성 - 교환 여행 경험을 시작하세요",
+    "benefitsDetailPageTitle": "혜택 상세 - 환상 행성",
+    "contactPageTitle": "문의하기 - 환상 행성",
+    "exchangeDetailPageTitle": "교환 상세 - 환상 행성",
+    "faqPageTitle": "FAQ - 환상 행성",
+    "hotelDetailPageTitle": "호텔 상세 - 환상 행성",
+    "hotelListPageTitle": "호텔 목록 - 환상 행성",
+    "privacyPageTitle": "개인정보 처리방침 - 다메이샤 만 요트클럽 리조트",
+    "termsPageTitle": "이용약관 - 다메이샤 만 요트클럽 리조트",
+    "vacationDetailPageTitle": "휴가 상세 - 환상 행성",
     "nav": {
         "hotelIntro": "호텔 소개",
         "benefitsIntro": "혜택 소개",
@@ -8,12 +18,11 @@
     "hero": {
         "subtitle": "다메이샤 만 요트 클럽 리조트",
         "title": "타임쉐어 휴가 권리 + 무료 RCI 멤버십",
-        "heroSubtitle": "더 많이 여행하고, 더 적게 지출하세요",
         "description": "전 세계 110개국 5,000개 리조트에서 교환 가능",
         "button": "호텔 상세 보기"
     },
     "benefits": {
-        "price": "$49,800",
+        "price": "$4980",
         "description": "다메이샤 만 요트 클럽 리조트 5년 타임쉐어, 연간 2주, 총 10주 휴가 권리",
         "card1Title": "역대 최저 가격",
         "card1Desc": "주당 $500 미만으로 일급 해변 전망, 전용 해변, 홍콩 인접 - 심천 리조트 라이프를 즐기세요.",
@@ -81,6 +90,7 @@
         "friendsTripDesc": "친구들과 함께 여행하고 멋진 목적지를 탐험"
     },
     "footer": {
+        "brandName": "다메이샤 만 요트클럽 리조트",
         "brandDesc": "RCI 멤버십 혜택을 해제하고, RCI 글로벌 프리미엄 리조트 네트워크에 무료로 접속하세요.",
         "explore": "탐색",
         "hotels": "호텔",
@@ -93,7 +103,7 @@
         "location": "중국 · 심천",
         "email": "dameisha666@gmail.com",
         "phone": "+86 400-888-8888",
-        "copyright": "© 2024 환상 행성. All Rights Reserved.",
+        "copyright": "© 2026 환상 행성. All Rights Reserved.",
         "sitemap": "사이트맵",
         "cookiePolicy": "쿠키 정책"
     },
@@ -441,8 +451,8 @@
         "rciSubtitle": "세계 최대 휴가 교환 네트워크 플랫폼",
         "rciFooterNote": "누적 약 1,700만건 휴가 교환 완료, 연간 180만건 이상 확인, 교환 성공률 98%",
         "partnersLabel": "글로벌 파트너 호텔 브랜드 (일부)",
-        "priceBtnAsia": "동남아시아: 주당 SGD 198",
-        "priceBtnGlobal": "미국/유럽/호주 기타: 주당 SGD 388",
+        "priceBtnAsia": "동남아시아 교환 비용: SGD 198 (≈₩170,000) 주당",
+        "priceBtnGlobal": "미국/유럽/호주 기타: SGD 388 (≈₩335,000) 주당",
         "themesCaption": "6대 테마: 골프, 스키, 온천, 다이빙, 가족, 해변"
     },
     "exchangeDetail": {
@@ -474,7 +484,7 @@
         "timeline1974Title": "RCI 설립",
         "timeline1974Desc": "휴가 교환 산업 개척",
         "timeline1995Title": "뉴욕 증권거래소 상장",
-        "timeline1995Desc": "티커: TNL, 시가총액: 300억 위안",
+        "timeline1995Desc": "티커: TNL, 시가총액: $4.2B",
         "timeline2017Title": "글로벌 인수",
         "timeline2017Desc": "호주 DAE, @WORK, 영국 Love Home Swap 인수",
         "timeline2019Title": "기술 인수",
@@ -484,9 +494,14 @@
         "timeline2024Title": "아코르 인수",
         "timeline2024Desc": "4,900만 달러로 \"Accor Vacation Club\" 인수",
         "partnersLabel": "글로벌 파트너 호텔 브랜드 (일부)",
-        "priceBtnAsia": "동남아시아: 주당 SGD 198",
-        "priceBtnGlobal": "미국/유럽/호주 기타: 주당 SGD 388",
-        "themesCaption": "6대 테마: 골프, 스키, 온천, 다이빙, 가족, 해변",
+        "priceBtnAsia": "동남아시아 교환 비용: SGD 198 (≈₩170,000) 주당",
+        "priceBtnGlobal": "미국/유럽/호주 기타: SGD 388 (≈₩335,000) 주당",
+        "themeGolf": "골프",
+        "themeSkiing": "스키",
+        "themeHotSpring": "온천",
+        "themeDiving": "다이빙",
+        "themeFamily": "가족",
+        "themeBeach": "해변",
         "backBtn": "홈으로 돌아가기"
     },
     "faq": {
@@ -519,7 +534,7 @@
         "section1Text": "Dameisha Bay Yacht Club Resort(이하 \"당 시설\")은 고객의 개인정보의 중요성을 인식하고, 한국의 \"개인정보 보호법\"에 기반하여 다음과 같이 개인정보 보호 정책을 수립합니다.",
         "section2Title": "2. 수집하는 개인정보",
         "section2Text": "당 시설은 문의 시 다음과 같은 정보를 수집합니다:",
-        "section2Item1": "성명, 이메일 주소, WhatsApp/전화번호 (+86 138 0013 8000)",
+        "section2Item1": "성명, 이메일 주소, WhatsApp/전화번호 (+852 53651156)",
         "section2Item2": "쿠키 및 IP 주소 등 기술적 데이터",
         "section3Title": "3. 이용 목적",
         "section3Text": "수집한 정보는 다음 목적에만 사용됩니다:",
@@ -533,7 +548,7 @@
         "section6Title": "6. 보유 개인 데이터의 공개·수정·삭제",
         "section6Text": "고객은 자신의 개인정보에 대한 공개, 수정 또는 삭제를 요청할 권리를 가지고 있습니다. 원하시는 경우, 아래의 문의 창구로 연락해 주세요.",
         "section6Item1": "연락처 (이메일): dameisha666@gmail.com",
-        "section6Item2": "WhatsApp: +86 138 0013 8000",
+        "section6Item2": "WhatsApp: +852 53651156",
         "section7Title": "7. 문의 창구 (개인정보 보호 관리자)",
         "section7Text": "Dameisha Bay Yacht Club Resort 개인정보 보호 관리 책임자 (Customer Privacy Officer)\n[주소: 중국 심천시 옌타이구 다메이샤 옌메이로 89번지] (No. 89 Yanmei Road, Dameisha, Yantian District, Shenzhen, China)",
         "section8Title": "8. 관할 법원",
@@ -556,6 +571,6 @@
         "section6Text": "본 이용 약관은 중화인민공화국의 법률에 준거합니다. 어떠한 분쟁도 중국 심천 법원의 독점 관할에 적용됩니다.",
         "section7Title": "7. 연락 정보",
         "section7Item1": "이메일: dameisha666@gmail.com",
-        "section7Item2": "WhatsApp: +86 138 0013 8000"
+        "section7Item2": "WhatsApp: +852 53651156"
     }
 }

@@ -434,6 +434,8 @@ h1, h2, h3, .headline-font {
     cursor: pointer;
     padding: 0.5rem;
     gap: 5px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* 汉堡菜单线条 */
@@ -1472,6 +1474,13 @@ h1, h2, h3, .headline-font {
     font-size: 0.875rem;
     margin-bottom: 2rem;
     line-height: 1.625;
+}
+
+.footer-brand-name {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
 }
 
 /* 页脚社交链接容器 */
@@ -3976,6 +3985,20 @@ html[lang="ja"] .logic-circle-text-en {
     overflow: hidden;
     border-radius: 2px;
     cursor: pointer;
+    position: relative;
+}
+
+.theme-tag {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    z-index: 10;
 }
 
 .theme-photo-img {

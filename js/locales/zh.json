@@ -1,4 +1,14 @@
 {
+    "pageTitle": "换享星球 - 开启您的交换旅行体验",
+    "benefitsDetailPageTitle": "权益详情 - 换享星球",
+    "contactPageTitle": "联系我们 - 换享星球",
+    "exchangeDetailPageTitle": "交换详情 - 换享星球",
+    "faqPageTitle": "常见问题 - 换享星球",
+    "hotelDetailPageTitle": "酒店详情 - 换享星球",
+    "hotelListPageTitle": "酒店列表 - 换享星球",
+    "privacyPageTitle": "隐私政策 - 大梅沙湾游艇会度假酒店",
+    "termsPageTitle": "服务条款 - 大梅沙湾游艇会度假酒店",
+    "vacationDetailPageTitle": "假期详情 - 换享星球",
     "nav": {
         "hotelIntro": "酒店介绍",
         "benefitsIntro": "权益介绍",
@@ -8,12 +18,11 @@
     "hero": {
         "subtitle": "大梅沙湾游艇会度假酒店",
         "title": "分时度假权益+赠送RCI会籍",
-        "heroSubtitle": "多旅行，少花钱",
         "description": "可在全球110个国家的5000家度假村进行交换",
         "button": "点击查看酒店详情"
     },
     "benefits": {
-        "price": "¥49,800",
+        "price": "$4980",
         "description": "大梅沙湾游艇会度假酒店5年,每年两周分时度假权益,共10周度假权益",
         "card1Title": "历史冰点价格",
         "card1Desc": "一周不到500美金，享受一线海景，私人海滩，毗邻香港的中国科技之都——深圳的度假生活。",
@@ -81,7 +90,7 @@
         "friendsTripDesc": "与好友结伴同行，探索精彩目的地"
     },
     "footer": {
-        "header": "Unlock exclusive RCI membership benefits, with complimentary access to RCI's global resort network.",
+        "brandName": "大梅沙湾游艇会度假酒店",
         "brandDesc": "解锁RCI会员权益，免费接入RCI全球高端度假村网络。",
         "explore": "探索",
         "hotels": "酒店",
@@ -93,7 +102,7 @@
         "quickLinks": "快速链接",
         "location": "中国 · 深圳",
         "email": "dameisha666@gmail.com",
-        "whatsapp": "WhatsApp: +86 138-0013-8000",
+        "whatsapp": "WhatsApp: +852 53651156",
         "copyright": "© 2026 Dameisha Bay Yacht Club Resort. All Rights Reserved.",
         "sitemap": "网站地图",
         "cookiePolicy": "Cookie 政策"
@@ -254,7 +263,7 @@
         "heroTitle": "购买一个度假权",
         "heroSubtitle": "省钱换享全世界",
         "logicTitle": "度假权交易逻辑",
-        "logicDesc": "通过换享星球的全球网络，您的度假权不再受限于单一目的地。我们构建了一个透明、高效的交换生态系统，让您的资产在全球范围内流动。",
+        "logicDesc": "购买大梅沙湾游艇会度假会籍，不仅可尊享本会专属度假权益与体验，还可以选择通过全球领先的度假交换平台RCI，灵活兑换至全球众多高端热门度假目的地，大幅拓宽您的度假选择，让每一次度假更具价值、省心无忧。",
         "flowMainCn": "购买游艇会<br>分时度假权",
         "flowMainEn": "购买大梅沙湾游艇会<br>分时度假权",
         "flowPriceNote": "5年，每年2周，共10周分时度假权",
@@ -273,7 +282,7 @@
         "timeline1974Title": "RCI成立",
         "timeline1974Desc": "首创交换度假概念",
         "timeline1995Title": "纽交所上市",
-        "timeline1995Desc": "代码：TNL，市值：300亿人民币",
+        "timeline1995Desc": "代码：TNL，市值： $4.2B",
         "timeline2017Title": "全球收购",
         "timeline2017Desc": "收购澳大利亚DAE和@WORK，收购英国Love Home Swap",
         "timeline2019Title": "技术收购",
@@ -283,9 +292,14 @@
         "timeline2024Title": "雅高收购",
         "timeline2024Desc": "4900万美金收购\"雅高度假会\"",
         "partnersLabel": "全球合作酒店品牌（部分）",
-        "priceBtnAsia": "东南亚支付198新币每周次",
-        "priceBtnGlobal": "欧美澳其他国家支付388新币每周次",
-        "themesCaption": "6大主题类型酒店：高尔夫、滑雪、温泉、潜水、亲子、沙滩",
+        "priceBtnAsia": "东南亚交换费用：198新币 (≈¥780) 每周",
+        "priceBtnGlobal": "欧美澳等其他地区：388新币 (≈¥1940) 每周",
+        "themeGolf": "高尔夫",
+        "themeSkiing": "滑雪",
+        "themeHotSpring": "温泉",
+        "themeDiving": "潜水",
+        "themeFamily": "亲子",
+        "themeBeach": "沙滩",
         "backBtn": "返回首页"
     },
     "hotel1": {
@@ -510,7 +524,7 @@
         "section1Text": "欢迎访问大梅沙湾游艇会度假酒店（\"我们\"、\"我们的\"或\"我们\"）。本政策概述了我们如何处理您的个人数据，以符合 GDPR（欧盟）和 CCPA（美国）的规定。",
         "section2Title": "2. 我们收集的信息",
         "section2Text": "我们在您联系我们时收集以下信息：",
-        "section2Item1": "自愿提供的数据：您主动联系时提供的姓名、电子邮件地址和 WhatsApp 号码（+86 138 0013 8000）。",
+        "section2Item1": "自愿提供的数据：您主动联系时提供的姓名、电子邮件地址和 WhatsApp 号码（+852 53651156）。",
         "section2Item2": "自动收集的数据：通过 Cookie 收集的 IP 地址、浏览器类型和设备信息，用于网站优化。",
         "section3Title": "3. 我们如何使用您的信息",
         "section3Text": "收集的信息仅用于以下目的：",
@@ -524,11 +538,11 @@
         "section6Title": "6. 您的权利和选择退出",
         "section6Text": "您有权要求披露、更正或删除您的个人信息。如果您希望这样做，请通过以下方式联系我们：",
         "section6Item1": "联系方式（电子邮件）：dameisha666@gmail.com",
-        "section6Item2": "WhatsApp: +86 138 0013 8000",
+        "section6Item2": "WhatsApp: +852 53651156",
         "section7Title": "7. 联系我们",
         "section7Text": "大梅沙湾游艇会度假酒店客户隐私官",
         "section7Item1": "电子邮件：dameisha666@gmail.com",
-        "section7Item2": "WhatsApp：+86 138 0013 8000",
+        "section7Item2": "WhatsApp：+852 53651156",
         "section8Title": "8. 管辖权",
         "section8Text": "与本政策相关的所有争议应提交中国深圳法院作为第一审专属管辖法院。"
     },
@@ -549,6 +563,6 @@
         "section6Text": "这些条款受中华人民共和国法律管辖。任何争议应提交中国深圳法院的专属管辖权。",
         "section7Title": "7. 联系信息",
         "section7Item1": "电子邮件：dameisha666@gmail.com",
-        "section7Item2": "WhatsApp：+86 138 0013 8000"
+        "section7Item2": "WhatsApp：+852 53651156"
     }
 }

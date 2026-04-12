@@ -5,9 +5,9 @@
     'use strict';
 
     var CONFIG = {
-        timeout: 10000,
+        timeout: 3000,
         maxRetries: 2,
-        retryDelay: 1000
+        retryDelay: 800
     };
 
     function fetchWithTimeout(url, timeout) {
@@ -123,14 +123,19 @@
 
     // 初始化移动端菜单
     function initMobileMenu() {
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
+        var mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        var mobileMenu = document.getElementById('mobileMenu');
         
         if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', function() {
+            function toggleMenu(e) {
+                e.preventDefault();
+                e.stopPropagation();
                 mobileMenu.classList.toggle('active');
                 mobileMenuBtn.classList.toggle('active');
-            });
+            }
+            
+            mobileMenuBtn.addEventListener('click', toggleMenu, { passive: false });
+            mobileMenuBtn.addEventListener('touchend', toggleMenu, { passive: false });
         }
     }
 
@@ -169,4 +174,13 @@
         loadHeader();
         loadFooter();
     }
+
+    // 备份机制：延迟初始化移动端菜单（应对网络慢导致header加载延迟）
+    setTimeout(function() {
+        var mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        if (mobileMenuBtn && !mobileMenuBtn._initialized) {
+            mobileMenuBtn._initialized = true;
+            initMobileMenu();
+        }
+    }, 3000);
 })();

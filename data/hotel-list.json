@@ -96,7 +96,7 @@
             "image": "./assets/hotel-list-images/maldives-medhufushi-island-resort.jpg",
             "nameKey": "hotelList.mv1Name",
             "locKey": "hotelList.mv1Location",
-            "detail": "./hotel-detail.html?id=hotel1",
+            "detail": "https://www.booking.com/hotel/mv/medhufushi-island-resort.html",
             "badge": true
         },
         {
@@ -107,7 +107,7 @@
             "image": "./assets/hotel-list-images/maldives-filitheyo-island.jpg",
             "nameKey": "hotelList.mv2Name",
             "locKey": "hotelList.mv2Location",
-            "detail": "./hotel-detail.html?id=hotel2",
+            "detail": "https://www.booking.com/hotel/mv/filitheyo-island-resort.html",
             "badge": true
         },
         {

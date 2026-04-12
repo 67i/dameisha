@@ -73,8 +73,10 @@ const I18n = {
                     } else {
                         element.value = translation;
                     }
+                } else if (element.tagName === 'TITLE') {
+                    document.title = translation;
                 } else {
-                    if (translation.includes('<br>')) {
+                    if (translation && translation.includes('<br>')) {
                         const safeHtml = translation
                             .replace(/&/g, '&amp;')
                             .replace(/</g, '&lt;')

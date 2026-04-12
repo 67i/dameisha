@@ -1,26 +1,35 @@
 {
+    "pageTitle": "Huanxiang Planet - Start Your Exchange Travel Experience",
+    "benefitsDetailPageTitle": "Benefits Details - Huanxiang Planet",
+    "contactPageTitle": "Contact Us - Huanxiang Planet",
+    "exchangeDetailPageTitle": "Exchange Details - Huanxiang Planet",
+    "faqPageTitle": "FAQ - Huanxiang Planet",
+    "hotelDetailPageTitle": "Hotel Details - Huanxiang Planet",
+    "hotelListPageTitle": "Hotel List - Huanxiang Planet",
+    "privacyPageTitle": "Privacy Policy - Dameisha Bay Yacht Club Resort",
+    "termsPageTitle": "Terms of Service - Dameisha Bay Yacht Club Resort",
+    "vacationDetailPageTitle": "Vacation Details - Huanxiang Planet",
     "nav": {
         "hotelIntro": "Hotel Introduction",
         "benefitsIntro": "Benefits Introduction",
         "faq": "FAQ",
-        "contactUs": "Discover Resort Details"
+        "contactUs": "Contact Us"
     },
     "hero": {
         "subtitle": "Dameisha Bay Yacht Club Resort",
-        "title": "Purchase a Vacation Club Membership",
-        "heroSubtitle": "Travel more, spend less",
-        "description": "Dameisha Bay Yacht Club Resort: 5-Year Timeshare Membership. 2 Weeks of Vacation Exchange Rights Annually, 10 Weeks Total.",
-        "button": "View Hotel Details"
+        "title": "Vacation Club Membership + Complimentary RCI Membership",
+        "description": "Exchange access to 5,000 resorts across 110 countries worldwide",
+        "button": "Discover Resort Details"
     },
     "benefits": {
-        "price": "$49,800",
-        "description": "Dameisha Bay Yacht Club Resort 5-year timeshare, 2 weeks per year, total 10 weeks vacation rights",
+        "price": "$4980",
+        "description": "Dameisha Bay Yacht Club Resort 5-year vacation membership, 2 weeks per year, total 10 weeks vacation rights",
         "card1Title": "Historic Low Price",
         "card1Desc": "Experience the luxury of Shenzhen—right next to Hong Kong—for under $500 USD a week. Enjoy private beaches and breathtaking ocean views at a price point that won't last forever.",
         "card2Title": "Affiliated with RCI: 5-Year Membership Included",
         "card2Desc": "The Dameisha Bay Yacht Club Resort is officially part of the RCI network. Purchase our Vacation Club Membership and we'll gift you a complimentary 5-Year RCI Membership.",
         "card3Title": "Your Key to the World: 110+ Countries",
-        "card3Desc": "Members can utilize RCI—the world's largest vacation exchange platform—to seamlessly exchange their stay for accommodations at over 5,000 resort hotels across 110 countries worldwide.",
+        "card3Desc": "Members can utilize RCI—the world's largest vacation exchange platform—to seamlessly exchange their stay for accommodations at over 5,000 resorts and hotels across 110 countries worldwide.",
         "card4Title": "Unbeatable Value",
         "card4Desc": "Enjoy 5 years of global resort stays at a fraction of what major brands charge.",
         "card5Title": "Zero Annual Fees and No Hidden Costs",
@@ -84,8 +93,8 @@
         "friendsTripDesc": "Travel with friends and explore amazing destinations"
     },
     "footer": {
-        "header": "Unlock exclusive RCI membership benefits, with complimentary access to RCI's global resort network.",
-        "brandDesc": "Unlock global travel access with a complimentary RCI membership. Access carefully selected premium hotels and resorts worldwide.",
+        "brandName": "Dameisha Bay Yacht Club Resort",
+        "brandDesc": "Unlock exclusive RCI membership benefits, with complimentary access to RCI's global resort network.",
         "explore": "Explore",
         "hotels": "Hotels",
         "destinations": "Destinations",
@@ -96,7 +105,7 @@
         "quickLinks": "Quick Links",
         "location": "China · Shenzhen",
         "email": "dameisha666@gmail.com",
-        "whatsapp": "WhatsApp: +86 138-0013-8000",
+        "whatsapp": "WhatsApp: +852 53651156",
         "copyright": "© 2026 Dameisha Bay Yacht Club Resort. All Rights Reserved.",
         "sitemap": "Sitemap",
         "cookiePolicy": "Cookie Policy"
@@ -449,8 +458,8 @@
         "heroTitle": "Purchase a Vacation Club Membership",
         "heroSubtitle": "Travel more, spend less",
         "logicTitle": "Vacation Rights Trading Logic",
-        "logicDesc": "Through Huanxiang Planet's global network, your vacation rights are no longer limited to a single destination. We have built a transparent and efficient exchange ecosystem that allows your assets to flow globally.",
-        "flowMainCn": "Purchase Yacht Club<br>Timeshare Rights",
+        "logicDesc": "As a member of Dameisha Bay Yacht Club Resort, you are not only entitled to exclusive vacation privileges here, but also have the option to exchange through RCI, the world’s premier vacation exchange platform, for access to a wide range of sought-after global destinations. This significantly expands your vacation choices, making each vacation more cost-effective and hassle-free.",
+        "flowMainCn": "Purchase Yacht Club<br>Vacation Membership Rights",
         "flowMainEn": "Purchase Dameisha Bay Yacht Club<br>Timeshare Vacation Rights",
         "flowPriceNote": "5 years, 2 weeks per year, total 10 weeks timeshare rights",
         "flowOption1Cn": "Stay at Yacht Club<br>Direct Redemption",
@@ -468,7 +477,7 @@
         "timeline1974Title": "RCI Founded",
         "timeline1974Desc": "Pioneered the vacation exchange industry",
         "timeline1995Title": "NYSE IPO",
-        "timeline1995Desc": "Ticker: TNL, Market Cap: 30 billion RMB",
+        "timeline1995Desc": "Ticker: TNL, Market Cap: $4.2B",
         "timeline2017Title": "Global Acquisitions",
         "timeline2017Desc": "Acquired DAE and @WORK in Australia, Love Home Swap in UK",
         "timeline2019Title": "Tech Acquisition",
@@ -478,9 +487,14 @@
         "timeline2024Title": "Accor Acquisition",
         "timeline2024Desc": "Acquired \"Accor Vacation Club\" for $49M",
         "partnersLabel": "Global Partner Hotel Brands (Partial)",
-        "priceBtnAsia": "Southeast Asia exchange fee: SGD 198 per week",
-        "priceBtnGlobal": "US/EU/AU/Others exchange fee: SGD 388 per week",
-        "themesCaption": "6 Themed Resorts: Golf, Skiing, Hot Springs, Diving, Family, Beach",
+        "priceBtnAsia": "Southeast Asia exchange fee: SGD 198 (≈$156) per week",
+        "priceBtnGlobal": "US/EU/AU/Others exchange fee: SGD 388 (≈$305) per week",
+        "themeGolf": "Golf",
+        "themeSkiing": "Skiing",
+        "themeHotSpring": "Hot Spring",
+        "themeDiving": "Diving",
+        "themeFamily": "Family",
+        "themeBeach": "Beach",
         "backBtn": "Back to Home"
     },
     "faq": {
@@ -513,7 +527,7 @@
         "section1Text": "Welcome to Dameisha Bay Yacht Club Resort (\"we,\" \"our,\" or \"us\"). This policy outlines how we handle your personal data in compliance with GDPR (EU) and CCPA (USA).",
         "section2Title": "2. Information We Collect",
         "section2Text": "We collect the following information when you contact us:",
-        "section2Item1": "Voluntary Data: Name, email address, and WhatsApp number (+86 138 0013 8000) provided when you initiate contact.",
+        "section2Item1": "Voluntary Data: Name, email address, and WhatsApp number (+852 53651156) provided when you initiate contact.",
         "section2Item2": "Automated Data: IP address, browser type, and device information collected via cookies for website optimization.",
         "section3Title": "3. How We Use Your Information",
         "section3Text": "The collected information is used only for the following purposes:",
@@ -527,11 +541,11 @@
         "section6Title": "6. Your Rights & Opt-Out",
         "section6Text": "You have the right to request disclosure, correction, or deletion of your personal information. If you wish to do so, please contact us at the following:",
         "section6Item1": "Contact (Email): dameisha666@gmail.com",
-        "section6Item2": "WhatsApp: +86 138 0013 8000",
+        "section6Item2": "WhatsApp: +852 53651156",
         "section7Title": "7. Contact Us",
         "section7Text": "Dameisha Bay Yacht Club Resort Customer Privacy Officer",
         "section7Item1": "Email: dameisha666@gmail.com",
-        "section7Item2": "WhatsApp: +86 138 0013 8000",
+        "section7Item2": "WhatsApp: +852 53651156",
         "section8Title": "8. Jurisdiction",
         "section8Text": "All disputes related to this policy shall be subject to the exclusive jurisdiction of the courts in Shenzhen, China as the court of first instance."
     },
@@ -552,6 +566,6 @@
         "section6Text": "These Terms are governed by the laws of the People's Republic of China. Any disputes shall be subject to the exclusive jurisdiction of the courts in Shenzhen, China.",
         "section7Title": "7. Contact Information",
         "section7Item1": "Email: dameisha666@gmail.com",
-        "section7Item2": "WhatsApp: +86 138 0013 8000"
+        "section7Item2": "WhatsApp: +852 53651156"
     }
 }
