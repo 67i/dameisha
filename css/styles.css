@@ -29,7 +29,7 @@ html {
 
 /* 页面主体样式 */
 body {
-    font-family: 'Lato', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    font-family: 'Open Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif;
     background-color: #ffffff;
     color: #1a1c1c;
     line-height: 1.6;
@@ -53,95 +53,51 @@ body {
  * 字体文件位于项目根目录的 fonts 文件夹
  */
 
-/* Lato 字体 - 主要正文字体 */
+/* Open Sans 字体 - 主要正文字体 */
 @font-face {
-    font-family: 'Lato';
-    src: url('../fonts/lato/v25/S6u9w4BMUTPHh7USSwiPGQ.woff2') format('woff2');
+    font-family: 'Open Sans';
+    src: url('../fonts/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2') format('woff2');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    unicode-range: U+0000-00FF, U+0131, 0152-0153, 02BB-02BC, 02C6, 02DA, 02DC, 0304, 0308, 0329, 2000-206F, 20AC, 2122, 2191, 2193, 2212, 2215, FEFF, FFFD;
 }
 
 @font-face {
-    font-family: 'Lato';
-    src: url('../fonts/lato/v25/S6uyw4BMUTPHjx4wXg.woff2') format('woff2');
+    font-family: 'Open Sans';
+    src: url('../fonts/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    unicode-range: U+0000-00FF, U+0131, 0152-0153, 02BB-02BC, 02C6, 02DA, 02DC, 0304, 0308, 0329, 2000-206F, 20AC, 2122, 2191, 2193, 2212, 2215, FEFF, FFFD;
 }
 
 @font-face {
-    font-family: 'Lato';
-    src: url('../fonts/lato/v25/S6u9w4BMUTPHh6UVSwiPGQ.woff2') format('woff2');
+    font-family: 'Open Sans';
+    src: url('../fonts/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    unicode-range: U+0000-00FF, U+0131, 0152-0153, 02BB-02BC, 02C6, 02DA, 02DC, 0304, 0308, 0329, 2000-206F, 20AC, 2122, 2191, 2193, 2212, 2215, FEFF, FFFD;
 }
 
+/* Open Sans 额外字重 */
 @font-face {
-    font-family: 'Lato';
-    src: url('../fonts/lato/v25/S6u9w4BMUTPHh50XSwiPGQ.woff2') format('woff2');
-    font-weight: 900;
+    font-family: 'Open Sans';
+    src: url('../fonts/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2') format('woff2');
+    font-weight: 100 900;
     font-style: normal;
     font-display: swap;
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    unicode-range: U+0000-00FF, U+0131, 0152-0153, 02BB-02BC, 02C6, 02DA, 02DC, 0304, 0308, 0329, 2000-206F, 20AC, 2122, 2191, 2193, 2212, 2215, FEFF, FFFD;
 }
 
 @font-face {
-    font-family: 'Lato';
-    src: url('../fonts/lato/v25/S6u8w4BMUTPHjxsAXC-q.woff2') format('woff2');
-    font-weight: 400;
+    font-family: 'Open Sans';
+    src: url('../fonts/opensans/v44/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWuU6F.woff2') format('woff2');
+    font-weight: 100 900;
     font-style: italic;
     font-display: swap;
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-    font-family: 'Lato';
-    src: url('../fonts/lato/v25/S6u-w4BMUTPHjxsIPx-oPCI.woff2') format('woff2');
-    font-weight: 100;
-    font-style: italic;
-    font-display: swap;
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-    font-family: 'Lato';
-    src: url('../fonts/lato/v25/S6u_w4BMUTPHjxsI3wi_Gwft.woff2') format('woff2');
-    font-weight: 900;
-    font-style: italic;
-    font-display: swap;
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-    font-family: 'Lato';
-    src: url('../fonts/lato/v25/S6u_w4BMUTPHjxsI5wq_Gwft.woff2') format('woff2');
-    font-weight: 700;
-    font-style: italic;
-    font-display: swap;
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-    font-family: 'Lato';
-    src: url('../fonts/lato/v25/S6u_w4BMUTPHjxsI9w2_Gwft.woff2') format('woff2');
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-    font-family: 'Lato';
-    src: url('../fonts/lato/v25/S6u8w4BMUTPHh30AXC-q.woff2') format('woff2');
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    unicode-range: U+0000-00FF, U+0131, 0152-0153, 02BB-02BC, 02C6, 02DA, 02DC, 0304, 0308, 0329, 2000-206F, 20AC, 2122, 2191, 2193, 2212, 2215, FEFF, FFFD;
 }
 
 /* Open Sans 字体 - 无衬线字体 */
@@ -161,6 +117,23 @@ body {
     font-style: normal;
     font-display: swap;
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Wensley 字体 - 标题字体 */
+@font-face {
+    font-family: 'Wensley';
+    src: url('../fonts/wensley/Wensley-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Wensley';
+    src: url('../fonts/wensley/Wensley-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }
 
 /* PT Serif 字体 - 衬线字体 */
@@ -338,10 +311,11 @@ h1, h2, h3, .headline-font {
 
 /* 导航链接项 */
 .nav-link {
-    font-family: 'PT Serif', serif;
-    font-size: 1.125rem;
-    font-weight: 600;
-    letter-spacing: -0.025em;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     color: #0f172a;
     transition: color 0.3s ease;
 }
@@ -646,17 +620,21 @@ h1, h2, h3, .headline-font {
 
 /* Hero 副标题 */
 .hero-subtitle {
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Playfair Display', serif;
+
     color: rgba(255, 255, 255, 0.8);
     font-size: 1.75rem;
     text-transform: uppercase;
     letter-spacing: 0.3em;
     margin-bottom: 1.5rem;
     display: block;
+    white-space: nowrap;
 }
 
 /* Hero 主标题 */
 .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
     font-size: 1.875rem;
     color: #ffeb8fa8;
     margin-bottom: 1rem;
@@ -695,10 +673,12 @@ h1, h2, h3, .headline-font {
 
 /* Hero 描述文字 */
 .hero-description {
+    font-family: 'Playfair Display', serif;
     color: rgba(255, 255, 255, 0.8);
     font-size: 1.125rem;
     margin-bottom: 2.5rem;
     max-width: 32rem;
+    white-space: nowrap;
 }
 
 /* Hero 行动按钮 */
@@ -706,21 +686,24 @@ h1, h2, h3, .headline-font {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background-color: #ffffff;
-    color: #0f172a;
+    background-color: transparent;
+    color: #ffffff;
     padding: 0.875rem 1.25rem;
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Playfair Display', serif;
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     border-radius: 0.75rem;
-    transition: background-color 0.5s ease;
+    border: 2px solid #ffffff;
+    transition: all 0.3s ease;
 }
 
 /* Hero 按钮悬停效果 */
 .hero-button:hover {
-    background-color: #efddc0;
+    background-color: #ffffff;
+    color: #0f172a;
 }
+
 
 /* Hero 按钮箭头图标 */
 .hero-button-arrow {
@@ -773,7 +756,8 @@ h1, h2, h3, .headline-font {
 
 /* 权益主标题 */
 .benefits-title {
-    font-size: 2.25rem;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 36px;
     font-weight: 300;
     line-height: 1.25;
     margin-bottom: 1.5rem;
@@ -788,9 +772,12 @@ h1, h2, h3, .headline-font {
 
 /* 权益描述文字 */
 .benefits-description {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    letter-spacing: normal;
     max-width: 42rem;
     margin: 0 auto;
-    font-size: 1.125rem;
     color: #44474c;
 }
 
@@ -867,17 +854,21 @@ h1, h2, h3, .headline-font {
 
 /* 权益卡片标题 */
 .benefit-card-title {
-    font-family: 'PT Serif', serif;
-    font-size: 1.125rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 0.75rem;
     color: #222;
+    line-height: 1.5;
 }
 
 /* 权益卡片描述 */
 .benefit-card-description {
-    font-size: 0.875rem;
-    line-height: 1.6;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: normal;
     color: #555;
 }
 
@@ -893,7 +884,7 @@ h1, h2, h3, .headline-font {
 /* 权益按钮通用样式 */
 .benefits-btn {
     padding: 0.875rem 2rem;
-    font-family: 'Open Sans', sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     font-size: 0.9rem;
     font-weight: 600;
     text-decoration: none;
@@ -945,8 +936,8 @@ h1, h2, h3, .headline-font {
 
 /* 区域标题 */
 .section-title {
-    font-family: 'PT Serif', serif;
-    font-size: 1.875rem;
+    font-family: 'Wensley', sans-serif;
+    font-size: 26px;
     font-weight: 600;
     color: #333;
     margin-bottom: 2.5rem;
@@ -1008,11 +999,13 @@ h1, h2, h3, .headline-font {
 
 /* 酒店名称 */
 .hotel-name {
-    font-size: 0.9375rem;
+    font-family: 'Wensley', sans-serif;
+    font-size: 18px;
     font-weight: 500;
-    color: #222;
-    margin-bottom: 0.25rem;
-    line-height: 1.4;
+    line-height: 20px;
+    color: #1a1c1c;
+    margin-bottom: 0;
+    text-transform: none;
 }
 
 /* 酒店位置 */
@@ -1182,12 +1175,13 @@ h1, h2, h3, .headline-font {
 
 /* 卡片标题 */
 .promo-card-title {
-    font-family: 'PT Serif', serif;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #222;
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
+    font-family: 'Wensley', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #1a1c1c;
+    margin-bottom: 0;
+    text-transform: none;
 }
 
 /* 卡片日期 */
@@ -1477,9 +1471,10 @@ h1, h2, h3, .headline-font {
 }
 
 .footer-brand-name {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
     color: #ffffff;
-    font-size: 1rem;
-    font-weight: 700;
     margin-bottom: 0.5rem;
 }
 
@@ -1515,11 +1510,11 @@ h1, h2, h3, .headline-font {
 
 /* 页脚列标题 */
 .footer-column-title {
-    font-family: sans-serif;
-    font-size: 0.875rem;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
     letter-spacing: 0.025em;
     text-transform: uppercase;
-    font-family: 'Work Sans', sans-serif;
     color: #ffffff;
     margin-bottom: 2rem;
 }
@@ -3357,7 +3352,7 @@ h1, h2, h3, .headline-font {
 }
 
 .benefits-hero-subtitle {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 1.125rem;
     letter-spacing: 0.15em;
     opacity: 0.95;
@@ -3404,7 +3399,7 @@ h1, h2, h3, .headline-font {
 }
 
 .benefits-section-desc {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
     color: #555;
     line-height: 1.8;
@@ -3759,7 +3754,7 @@ html[lang="ja"] .logic-circle-text-en {
 }
 
 .rci-stat-item {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 1.25rem;
     font-weight: 600;
     color: #0d1c2f;
@@ -3772,7 +3767,7 @@ html[lang="ja"] .logic-circle-text-en {
 }
 
 .rci-footer-note {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 0.9rem;
     color: #333;
     text-align: center;
@@ -3805,7 +3800,7 @@ html[lang="ja"] .logic-circle-text-en {
 }
 
 .benefits-history-subtitle {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     color: #666;
     font-size: 1rem;
 }
@@ -4743,7 +4738,7 @@ html[lang="ja"] .logic-circle-text-en {
 }
 
 .faq-hero-subtitle {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 1.125rem;
     color: #444;
     max-width: 42rem;
@@ -4862,7 +4857,7 @@ html[lang="ja"] .logic-circle-text-en {
 }
 
 .faq-answer p {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
     color: #444;
     line-height: 1.6;
@@ -4876,7 +4871,7 @@ html[lang="ja"] .logic-circle-text-en {
 }
 
 .faq-help-text {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 0.875rem;
     color: #666;
     margin-bottom: 0.75rem;
@@ -4885,7 +4880,7 @@ html[lang="ja"] .logic-circle-text-en {
 }
 
 .faq-help-link {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
     color: #0d1c2f;
     text-decoration: none;
@@ -4924,7 +4919,7 @@ html[lang="ja"] .logic-circle-text-en {
 }
 
 .faq-cta-subtitle {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 1.125rem;
     color: rgba(255, 255, 255, 0.9);
     max-width: 32rem;
@@ -4945,7 +4940,7 @@ html[lang="ja"] .logic-circle-text-en {
     background: #ffffff;
     color: #0d1c2f;
     text-decoration: none;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     border-radius: 6px;
