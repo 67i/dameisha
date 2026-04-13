@@ -502,6 +502,7 @@
         "themeDiving": "다이빙",
         "themeFamily": "가족",
         "themeBeach": "해변",
+        "themesCount": "6개의 테마 리조트 및 호텔",
         "backBtn": "홈으로 돌아가기"
     },
     "faq": {
@@ -524,7 +525,7 @@
         "stillHaveQuestions": "아직 질문이 있습니까?",
         "contactAdvisor": "전용 여행 고문에게 문의하세요",
         "startJourney": "글로벌 여정을 시작하세요",
-        "joinRCI": "RCI 플래티넘 멤버십에 가입하고 전 세계 4,300개 이상의 최고급 리조트에 액세스하세요.",
+        "joinRCI": "RCI 플래티넘 멤버십에 가입하고 전 세계 5,000개 이상의 최고급 리조트에 액세스하세요.",
         "inquireNow": "지금 문의하세요"
     },
     "privacy": {

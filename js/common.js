@@ -5,10 +5,13 @@
     'use strict';
 
     var CONFIG = {
-        timeout: 3000,
+        timeout: 5000,
         maxRetries: 2,
-        retryDelay: 800
+        retryDelay: 500
     };
+
+    var headerCache = null;
+    var footerCache = null;
 
     function fetchWithTimeout(url, timeout) {
         return new Promise(function(resolve, reject) {
@@ -73,10 +76,22 @@
 
     function loadHeader() {
         var headerPlaceholder = document.getElementById('header-placeholder');
+        
+        if (headerCache) {
+            if (headerPlaceholder) {
+                headerPlaceholder.innerHTML = headerCache;
+                initMobileMenu();
+                initLangSwitcher();
+                tryApplyTranslations();
+            }
+            return;
+        }
+        
         showLoadingIndicator(headerPlaceholder);
 
         loadWithRetry('./header.html', CONFIG.maxRetries, CONFIG.retryDelay)
             .then(function(html) {
+                headerCache = html;
                 if (headerPlaceholder) {
                     headerPlaceholder.innerHTML = html;
                     initMobileMenu();
@@ -94,10 +109,20 @@
 
     function loadFooter() {
         var footerPlaceholder = document.getElementById('footer-placeholder');
+        
+        if (footerCache) {
+            if (footerPlaceholder) {
+                footerPlaceholder.innerHTML = footerCache;
+                tryApplyTranslations();
+            }
+            return;
+        }
+        
         showLoadingIndicator(footerPlaceholder);
 
         loadWithRetry('./footer.html', CONFIG.maxRetries, CONFIG.retryDelay)
             .then(function(html) {
+                footerCache = html;
                 if (footerPlaceholder) {
                     footerPlaceholder.innerHTML = html;
                     tryApplyTranslations();

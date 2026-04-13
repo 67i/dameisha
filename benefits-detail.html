@@ -13,8 +13,52 @@
 
 <body>
 
-    <!-- 头部占位符 -->
-    <div id="header-placeholder"></div>
+    <!-- 头部 -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="./index.html" class="nav-logo">
+                <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="nav-logo-img">
+            </a>
+            <div class="nav-links">
+                <a href="./hotel-detail.html?id=hotel7" class="nav-link nav-link-secondary"
+                    data-i18n="nav.hotelIntro">Hotel Introduction</a>
+                <a href="./benefits-detail.html" class="nav-link nav-link-secondary"
+                    data-i18n="nav.benefitsIntro">Benefits Introduction</a>
+                <a href="./faq.html" class="nav-link nav-link-secondary" data-i18n="nav.faq">FAQ</a>
+            </div>
+            <div class="nav-right">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="zh">中文</button>
+                    <button class="lang-btn" data-lang="ko">한국어</button>
+                    <button class="lang-btn" data-lang="ja">日本語</button>
+                </div>
+                <a href="./contact.html" class="nav-button" data-i18n="nav.contactUs">Contact Us</a>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-content">
+                <a href="./hotel-detail.html?id=hotel7" class="mobile-menu-link" data-i18n="nav.hotelIntro">Hotel
+                    Introduction</a>
+                <a href="./benefits-detail.html" class="mobile-menu-link" data-i18n="nav.benefitsIntro">Benefits
+                    Introduction</a>
+                <a href="./faq.html" class="mobile-menu-link" data-i18n="nav.faq">FAQ</a>
+                <div class="mobile-menu-divider"></div>
+                <div class="mobile-lang-switcher">
+                    <button class="mobile-lang-btn active" data-lang="en">English</button>
+                    <button class="mobile-lang-btn" data-lang="zh">中文</button>
+                    <button class="mobile-lang-btn" data-lang="ko">한국어</button>
+                    <button class="mobile-lang-btn" data-lang="ja">日本語</button>
+                </div>
+                <a href="./contact.html" class="mobile-nav-button" data-i18n="nav.contactUs">Contact Us</a>
+            </div>
+        </div>
+    </nav>
 
     <main>
         <section class="benefits-hero-section">
@@ -30,19 +74,24 @@
 
         <section class="benefits-logic-section">
             <div class="benefits-logic-content benefits-animate">
-                <h2 class="benefits-section-title benefits-section-title-center" data-i18n="benefitsDetail.logicTitle">度假权交易逻辑</h2>
-                <p class="benefits-section-desc benefits-section-desc-center" data-i18n="benefitsDetail.logicDesc">通过换享星球的全球网络，您的度假权不再受限于单一目的地。我们构建了一个透明、高效的交换生态系统，让您的资产在全球范围内流动。</p>
+                <h2 class="benefits-section-title benefits-section-title-center" data-i18n="benefitsDetail.logicTitle">
+                    度假权交易逻辑</h2>
+                <p class="benefits-section-desc benefits-section-desc-center" data-i18n="benefitsDetail.logicDesc">
+                    通过换享星球的全球网络，您的度假权不再受限于单一目的地。我们构建了一个透明、高效的交换生态系统，让您的资产在全球范围内流动。</p>
                 <div class="logic-flowchart">
                     <div class="logic-step logic-step-main">
                         <div class="logic-circle logic-circle-main">
                             <div class="logic-circle-inner">
-                                <span class="logic-circle-text-cn" data-i18n="benefitsDetail.flowMainCn">购买游艇会<br>分时度假权</span>
-                                <span class="logic-circle-text-en" data-i18n="benefitsDetail.flowMainEn">Purchase Dameisha Bay Yacht Club<br>Timeshare Vacation Rights</span>
+                                <span class="logic-circle-text-cn"
+                                    data-i18n="benefitsDetail.flowMainCn">购买游艇会<br>分时度假权</span>
+                                <span class="logic-circle-text-en" data-i18n="benefitsDetail.flowMainEn">Purchase
+                                    Dameisha Bay Yacht Club<br>Timeshare Vacation Rights</span>
                             </div>
                         </div>
                         <div class="logic-price-tag">
                             <span class="logic-price-value">$ 4980</span>
-                            <span class="logic-price-note" data-i18n="benefitsDetail.flowPriceNote">5年，每年2周，共10周分时度假权</span>
+                            <span class="logic-price-note"
+                                data-i18n="benefitsDetail.flowPriceNote">5年，每年2周，共10周分时度假权</span>
                         </div>
                     </div>
 
@@ -56,21 +105,26 @@
                         <div class="logic-option-col">
                             <div class="logic-circle logic-circle-option">
                                 <div class="logic-circle-inner">
-                                    <span class="logic-circle-text-cn" data-i18n="benefitsDetail.flowOption1Cn">入住游艇会<br>直接行权</span>
-                                    <span class="logic-circle-text-en" data-i18n="benefitsDetail.flowOption1En">Stay at Yacht Club<br>Direct Redemption</span>
+                                    <span class="logic-circle-text-cn"
+                                        data-i18n="benefitsDetail.flowOption1Cn">入住游艇会<br>直接行权</span>
+                                    <span class="logic-circle-text-en" data-i18n="benefitsDetail.flowOption1En">Stay at
+                                        Yacht Club<br>Direct Redemption</span>
                                 </div>
                             </div>
                         </div>
                         <div class="logic-option-col">
                             <div class="logic-circle logic-circle-option">
                                 <div class="logic-circle-inner">
-                                    <span class="logic-circle-text-cn" data-i18n="benefitsDetail.flowOption2Cn">通过RCI<br>交换行权</span>
-                                    <span class="logic-circle-text-en" data-i18n="benefitsDetail.flowOption2En">Exchange via RCI<br>Global Network</span>
+                                    <span class="logic-circle-text-cn"
+                                        data-i18n="benefitsDetail.flowOption2Cn">通过RCI<br>交换行权</span>
+                                    <span class="logic-circle-text-en" data-i18n="benefitsDetail.flowOption2En">Exchange
+                                        via RCI<br>Global Network</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
@@ -79,7 +133,9 @@
                 <div class="rci-world-wrap">
                     <div class="rci-header-box" data-i18n="benefitsDetail.rciTopBar">大梅沙湾游艇会度假酒店</div>
                     <div class="rci-arrow-down">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 16l-5-5h10l-5 5zm0-14L2 11l10 9 10-9z"/></svg>
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 16l-5-5h10l-5 5zm0-14L2 11l10 9 10-9z" />
+                        </svg>
                     </div>
                     <div class="rci-map-area">
                         <img src="./assets/image.png" alt="RCI全球网络" class="rci-world-image">
@@ -91,7 +147,8 @@
                         <span class="rci-stat-item" data-i18n="benefitsDetail.rciStatCountries">110个国家</span>
                         <span class="rci-stat-item" data-i18n="benefitsDetail.rciStatHotels">5000家酒店</span>
                     </div>
-                    <div class="rci-footer-note" data-i18n="benefitsDetail.rciFooterNote">累计完成近1700万次度假交换，每年确认交换超180万次，交换成功率达98%</div>
+                    <div class="rci-footer-note" data-i18n="benefitsDetail.rciFooterNote">
+                        累计完成近1700万次度假交换，每年确认交换超180万次，交换成功率达98%</div>
                 </div>
             </div>
         </section>
@@ -99,8 +156,10 @@
         <section class="benefits-history-section">
             <div class="benefits-history-content">
                 <div class="benefits-history-header benefits-animate">
-                    <h2 class="benefits-section-title benefits-section-title-center" data-i18n="benefitsDetail.historyTitle">半个世纪的辉煌历程</h2>
-                    <p class="benefits-history-subtitle" data-i18n="benefitsDetail.historySubtitle">RCI 1974 - 2024：定义全球高端度假新标准</p>
+                    <h2 class="benefits-section-title benefits-section-title-center"
+                        data-i18n="benefitsDetail.historyTitle">半个世纪的辉煌历程</h2>
+                    <p class="benefits-history-subtitle" data-i18n="benefitsDetail.historySubtitle">RCI 1974 -
+                        2024：定义全球高端度假新标准</p>
                 </div>
                 <div class="benefits-timeline">
                     <div class="benefits-timeline-item">
@@ -114,35 +173,40 @@
                         <div class="benefits-timeline-year">1995</div>
                         <div class="benefits-timeline-content">
                             <h4 class="benefits-timeline-title" data-i18n="benefitsDetail.timeline1995Title">纽交所上市</h4>
-                            <p class="benefits-timeline-desc" data-i18n="benefitsDetail.timeline1995Desc">代码：TNL，市值：300亿人民币</p>
+                            <p class="benefits-timeline-desc" data-i18n="benefitsDetail.timeline1995Desc">
+                                代码：TNL，市值：300亿人民币</p>
                         </div>
                     </div>
                     <div class="benefits-timeline-item">
                         <div class="benefits-timeline-year">2017</div>
                         <div class="benefits-timeline-content">
                             <h4 class="benefits-timeline-title" data-i18n="benefitsDetail.timeline2017Title">全球收购</h4>
-                            <p class="benefits-timeline-desc" data-i18n="benefitsDetail.timeline2017Desc">收购澳大利亚DAE和@WORK，收购英国Love Home Swap</p>
+                            <p class="benefits-timeline-desc" data-i18n="benefitsDetail.timeline2017Desc">
+                                收购澳大利亚DAE和@WORK，收购英国Love Home Swap</p>
                         </div>
                     </div>
                     <div class="benefits-timeline-item">
                         <div class="benefits-timeline-year">2019</div>
                         <div class="benefits-timeline-content">
                             <h4 class="benefits-timeline-title" data-i18n="benefitsDetail.timeline2019Title">技术收购</h4>
-                            <p class="benefits-timeline-desc" data-i18n="benefitsDetail.timeline2019Desc">9200万美金收购技术平台</p>
+                            <p class="benefits-timeline-desc" data-i18n="benefitsDetail.timeline2019Desc">9200万美金收购技术平台
+                            </p>
                         </div>
                     </div>
                     <div class="benefits-timeline-item">
                         <div class="benefits-timeline-year">2021</div>
                         <div class="benefits-timeline-content">
                             <h4 class="benefits-timeline-title" data-i18n="benefitsDetail.timeline2021Title">媒体收购</h4>
-                            <p class="benefits-timeline-desc" data-i18n="benefitsDetail.timeline2021Desc">1亿美金收购"漫旅杂志"</p>
+                            <p class="benefits-timeline-desc" data-i18n="benefitsDetail.timeline2021Desc">1亿美金收购"漫旅杂志"
+                            </p>
                         </div>
                     </div>
                     <div class="benefits-timeline-item">
                         <div class="benefits-timeline-year">2024</div>
                         <div class="benefits-timeline-content">
                             <h4 class="benefits-timeline-title" data-i18n="benefitsDetail.timeline2024Title">雅高收购</h4>
-                            <p class="benefits-timeline-desc" data-i18n="benefitsDetail.timeline2024Desc">4900万美金收购"雅高度假会"</p>
+                            <p class="benefits-timeline-desc" data-i18n="benefitsDetail.timeline2024Desc">
+                                4900万美金收购"雅高度假会"</p>
                         </div>
                     </div>
                 </div>
@@ -157,21 +221,32 @@
                 <div class="brands-grid benefits-animate-scale">
                     <div class="brand-logo-item"><img src="./assets/partner-brands/sheraton.png" alt="Sheraton"></div>
                     <div class="brand-logo-item"><img src="./assets/partner-brands/anantara.png" alt="Anantara"></div>
-                    <div class="brand-logo-item"><img src="./assets/partner-brands/sunset-world.png" alt="Sunset World"></div>
-                    <div class="brand-logo-item"><img src="./assets/partner-brands/ritz-carlton.png" alt="The Ritz-Carlton"></div>
-                    <div class="brand-logo-item"><img src="./assets/partner-brands/park-regis.png" alt="Park Regis"></div>
-                    <div class="brand-logo-item"><img src="./assets/partner-brands/san-antonio.png" alt="San Antonio"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/sunset-world.png" alt="Sunset World">
+                    </div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/ritz-carlton.png"
+                            alt="The Ritz-Carlton"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/park-regis.png" alt="Park Regis">
+                    </div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/san-antonio.png" alt="San Antonio">
+                    </div>
                     <div class="brand-logo-item"><img src="./assets/partner-brands/wyndham.png" alt="Wyndham"></div>
-                    <div class="brand-logo-item"><img src="./assets/partner-brands/shell-vacations-club.png" alt="Shell Vacations Club"></div>
-                    <div class="brand-logo-item"><img src="./assets/partner-brands/crowne-plaza.png" alt="Crowne Plaza"></div>
-                    <div class="brand-logo-item"><img src="./assets/partner-brands/holiday-inn.png" alt="Holiday Inn"></div>
-                    <div class="brand-logo-item"><img src="./assets/partner-brands/shangri-la.png" alt="Shangri-La Circle"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/shell-vacations-club.png"
+                            alt="Shell Vacations Club"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/crowne-plaza.png" alt="Crowne Plaza">
+                    </div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/holiday-inn.png" alt="Holiday Inn">
+                    </div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/shangri-la.png"
+                            alt="Shangri-La Circle"></div>
                     <div class="brand-logo-item"><img src="./assets/partner-brands/marriott.png" alt="Marriott"></div>
                     <div class="brand-logo-item"><img src="./assets/partner-brands/melia.png" alt="Melia"></div>
-                    <div class="brand-logo-item"><img src="./assets/partner-brands/vacation-village.png" alt="Vacation Village"></div>
-                    <div class="brand-logo-item"><img src="./assets/partner-brands/gemunder-keilpark.png" alt="Gemunder Keilpark"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/vacation-village.png"
+                            alt="Vacation Village"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/gemunder-keilpark.png"
+                            alt="Gemunder Keilpark"></div>
                     <div class="brand-logo-item"><img src="./assets/partner-brands/hilton.png" alt="Hilton"></div>
-                    <div class="brand-logo-item"><img src="./assets/partner-brands/intercontinental.png" alt="InterContinental"></div>
+                    <div class="brand-logo-item"><img src="./assets/partner-brands/intercontinental.png"
+                            alt="InterContinental"></div>
                     <div class="brand-logo-item"><img src="./assets/partner-brands/ramada.png" alt="Ramada"></div>
                 </div>
                 <div class="pricing-buttons benefits-animate">
@@ -212,7 +287,11 @@
                     </div>
                 </div>
             </div>
+
+            <p class="themes-count" data-i18n="benefitsDetail.themesCount">6 Theme Resorts and Hotels</p>
         </section>
+
+
 
         <section class="hotel-back-section">
             <a href="./index.html" class="back-button">
@@ -222,8 +301,57 @@
         </section>
     </main>
 
-    <!-- 页脚占位符 -->
-    <div id="footer-placeholder"></div>
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="footer-logo-img">
+                <p class="footer-brand-name" data-i18n="footer.brandName">Dameisha Bay Yacht Club Resort</p>
+                <p class="footer-brand-description" data-i18n="footer.brandDesc">
+                    Unlock RCI membership benefits and access to RCI's global luxury resort network.
+                </p>
+            </div>
+            <div>
+                <h5 class="footer-column-title" data-i18n="footer.explore">Explore</h5>
+                <ul class="footer-links">
+                    <li class="footer-link-item"><a href="./hotel-detail.html?id=hotel7" class="footer-link"
+                            data-i18n="footer.hotels">Hotels</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="footer-column-title" data-i18n="footer.company">Company</h5>
+                <ul class="footer-links">
+                    <li class="footer-link-item"><a href="./privacy.html" class="footer-link"
+                            data-i18n="footer.privacy">Privacy Policy</a></li>
+                    <li class="footer-link-item"><a href="./terms.html" class="footer-link"
+                            data-i18n="footer.terms">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="footer-column-title" data-i18n="footer.contact">Contact</h5>
+                <ul class="footer-links">
+                    <li class="footer-contact-item-top">
+                        <span class="material-symbols-outlined footer-contact-icon">location_on</span>
+                        <span data-i18n="footer.location">China · Shenzhen</span>
+                    </li>
+                    <li class="footer-contact-item">
+                        <span class="material-symbols-outlined footer-contact-icon">mail</span>
+                        <a href="mailto:dameisha666@gmail.com" class="footer-email-link"
+                            data-i18n="footer.email">dameisha666@gmail.com</a>
+                    </li>
+                    <li class="footer-contact-item">
+                        <span class="material-symbols-outlined footer-contact-icon">chat</span>
+                        <a href="https://wa.me/85253651156" target="_blank" class="footer-whatsapp-link"
+                            data-i18n="footer.whatsapp">WhatsApp: +852 53651156</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p class="footer-copyright-text" data-i18n="footer.copyright">© 2026 Dameisha Bay Yacht Club Resort. All
+                Rights Reserved.</p>
+        </div>
+    </footer>
 
     <script src="./js/i18n.js"></script>
     <script src="./js/scroll-animations.js"></script>
