@@ -1,40 +1,59 @@
-/**
+﻿/**
  * 换享星球 - 主样式表
  * Main Stylesheet for Huanxiang Planet Website
  * 
- * 目录：
+ * 目录�?
  * 1. 基础样式重置与全局设置
  * 2. 字体配置（本地字体）
- * 3. 导航栏样式
+ * 3. 导航栏样�?
  * 4. Hero 区域样式（视频背景）
  * 5. 权益卡片样式
  * 6. 酒店卡片样式
- * 7. 目的地网格样式
+ * 7. 目的地网格样�?
  * 8. 特惠卡片样式
  * 9. 合作伙伴样式
  * 10. 页脚样式
  * 11. 动画效果
  * 12. 响应式适配
- * 13. 工具类
+ * 13. 工具�?
  */
 
 /* ========================================
    1. 基础样式重置与全局设置
    ======================================== */
 
-/* 根元素平滑滚动 */
+/* 根元素平滑滚�?*/
 html {
     scroll-behavior: smooth;
 }
 
 /* 页面主体样式 */
+:root {
+    --off-black: #544e42;
+    --teal: #116c6e;
+    --green: #8b9f8b;
+    --dim-grey: #6e6e6e;
+    --off-white: #fbf6f0;
+    --sand-white: #f5efe8;
+    --slate-grey: #698189;
+    --black-2: #232323;
+    --untitled-ui-gray900: #101828;
+    --untitled-ui-gray600: #475467;
+    --untitled-ui-gray500: #667085;
+    --untitled-ui-gray300: #d0d5dd;
+    --untitled-ui-gray100: #f2f4f7;
+    --untitled-ui-white: #ffffff;
+    --green-18: rgba(139, 159, 139, 0.18);
+}
+
 body {
-    font-family: 'Open Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    font-family: 'Lato new', 'PingFang SC', 'Microsoft YaHei', sans-serif;
     background-color: #ffffff;
-    color: #1a1c1c;
-    line-height: 1.6;
+    color: var(--off-black);
+    line-height: 1.5;
     overflow-wrap: break-word;
     word-break: break-word;
+    font-weight: 300;
 }
 
 /* 文字选中样式 */
@@ -49,77 +68,68 @@ body {
 
 /* 
  * 本地字体定义
- * 使用 @font-face 加载本地字体文件，避免依赖外部 CDN
- * 字体文件位于项目根目录的 fonts 文件夹
+ * 使用 @font-face 加载本地字体文件，避免依赖外�?CDN
+ * 字体文件位于项目根目录的 fonts 文件�?
  */
 
-/* Open Sans 字体 - 主要正文字体 */
+/* Lato new 字体 - 主要正文字体 */
 @font-face {
-    font-family: 'Open Sans';
-    src: url('../fonts/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2') format('woff2');
+    font-family: 'Lato new';
+    src: url('../fonts/latonew/Lato-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
-    unicode-range: U+0000-00FF, U+0131, 0152-0153, 02BB-02BC, 02C6, 02DA, 02DC, 0304, 0308, 0329, 2000-206F, 20AC, 2122, 2191, 2193, 2212, 2215, FEFF, FFFD;
 }
 
 @font-face {
-    font-family: 'Open Sans';
-    src: url('../fonts/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2') format('woff2');
+    font-family: 'Lato new';
+    src: url('../fonts/latonew/Lato-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
-    unicode-range: U+0000-00FF, U+0131, 0152-0153, 02BB-02BC, 02C6, 02DA, 02DC, 0304, 0308, 0329, 2000-206F, 20AC, 2122, 2191, 2193, 2212, 2215, FEFF, FFFD;
 }
 
 @font-face {
-    font-family: 'Open Sans';
-    src: url('../fonts/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2') format('woff2');
+    font-family: 'Lato new';
+    src: url('../fonts/latonew/Lato-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
-    unicode-range: U+0000-00FF, U+0131, 0152-0153, 02BB-02BC, 02C6, 02DA, 02DC, 0304, 0308, 0329, 2000-206F, 20AC, 2122, 2191, 2193, 2212, 2215, FEFF, FFFD;
-}
-
-/* Open Sans 额外字重 */
-@font-face {
-    font-family: 'Open Sans';
-    src: url('../fonts/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2') format('woff2');
-    font-weight: 100 900;
-    font-style: normal;
-    font-display: swap;
-    unicode-range: U+0000-00FF, U+0131, 0152-0153, 02BB-02BC, 02C6, 02DA, 02DC, 0304, 0308, 0329, 2000-206F, 20AC, 2122, 2191, 2193, 2212, 2215, FEFF, FFFD;
 }
 
 @font-face {
-    font-family: 'Open Sans';
-    src: url('../fonts/opensans/v44/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWuU6F.woff2') format('woff2');
-    font-weight: 100 900;
+    font-family: 'Lato new';
+    src: url('../fonts/latonew/Lato-Italic.ttf') format('truetype');
+    font-weight: 400;
     font-style: italic;
     font-display: swap;
-    unicode-range: U+0000-00FF, U+0131, 0152-0153, 02BB-02BC, 02C6, 02DA, 02DC, 0304, 0308, 0329, 2000-206F, 20AC, 2122, 2191, 2193, 2212, 2215, FEFF, FFFD;
 }
 
-/* Open Sans 字体 - 无衬线字体 */
 @font-face {
-    font-family: 'Open Sans';
-    src: url('../fonts/opensans/v44/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWuU6F.woff2') format('woff2');
-    font-weight: 300 800;
+    font-family: 'Lato new';
+    src: url('../fonts/latonew/Lato-LightItalic.ttf') format('truetype');
+    font-weight: 300;
     font-style: italic;
     font-display: swap;
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-    font-family: 'Open Sans';
-    src: url('../fonts/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2') format('woff2');
-    font-weight: 300 800;
-    font-style: normal;
+    font-family: 'Lato new';
+    src: url('../fonts/latonew/Lato-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
     font-display: swap;
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 /* Wensley 字体 - 标题字体 */
+@font-face {
+    font-family: 'Wensley';
+    src: url('../fonts/wensley/Wensley-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
 @font-face {
     font-family: 'Wensley';
     src: url('../fonts/wensley/Wensley-Regular.ttf') format('truetype');
@@ -133,6 +143,23 @@ body {
     src: url('../fonts/wensley/Wensley-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
+    font-display: swap;
+}
+
+/* Playfair Display 字体 - 衬线展示字体 */
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('../fonts/playfairdisplay/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+    font-weight: 400 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('../fonts/playfairdisplay/PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: 400 900;
+    font-style: italic;
     font-display: swap;
 }
 
@@ -226,12 +253,11 @@ body {
 
 /* 标题字体 - 衬线字体 */
 h1, h2, h3, .headline-font {
-    font-family: 'PT Serif', 'Playfair Display', 'PingFang SC', serif;
+    font-family: 'Wensley', 'PT Serif', 'PingFang SC', sans-serif;
 }
 
-/* 标签字体 - 无衬线字体 */
 .label-font {
-    font-family: 'Open Sans', 'Montserrat', 'PingFang SC', sans-serif;
+    font-family: 'Lato new', 'PingFang SC', sans-serif;
 }
 
 /* Material Symbols 图标配置 */
@@ -240,10 +266,10 @@ h1, h2, h3, .headline-font {
 }
 
 /* ========================================
-   3. 导航栏样式
+   3. 导航栏样�?
    ======================================== */
 
-/* 导航栏容器 */
+/* 导航栏容�?*/
 .nav-container {
     width: 100%;
     background-color: #ffffff;
@@ -251,7 +277,7 @@ h1, h2, h3, .headline-font {
     z-index: 50;
 }
 
-/* 导航栏内容区域 */
+/* 导航栏内容区�?*/
 .nav-content {
     display: flex;
     justify-content: space-between;
@@ -261,7 +287,7 @@ h1, h2, h3, .headline-font {
     position: relative;
 }
 
-/* 桌面端导航栏内边距 */
+/* 桌面端导航栏内边�?*/
 @media (min-width: 768px) {
     .nav-content {
         padding: 1.5rem 2.5rem;
@@ -290,7 +316,7 @@ h1, h2, h3, .headline-font {
     font-size: 1.5rem;
     font-weight: 600;
     letter-spacing: 0.1em;
-    color: #0f172a;
+    color: var(--off-black);
 }
 
 /* 导航链接容器 */
@@ -302,66 +328,72 @@ h1, h2, h3, .headline-font {
     justify-content: center;
 }
 
-/* 桌面端显示导航链接 */
+/* 桌面端显示导航链�?*/
 @media (min-width: 768px) {
     .nav-links {
         display: flex;
     }
 }
 
-/* 导航链接项 */
+/* 导航链接�?*/
 .nav-link {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
-    font-weight: 400;
+    font-family: 'Wensley', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #0f172a;
+    letter-spacing: 2px;
+    color: #544e42;
     transition: color 0.3s ease;
 }
 
-/* 导航链接激活状态 */
+/* 导航链接激活状�?*/
 .nav-link-active {
-    color: #0f172a;
+    color: var(--off-black);
 }
 
-/* 导航链接悬停状态 */
+/* 导航链接悬停状�?*/
 .nav-link:hover {
-    color: #0f172a;
+    color: var(--off-black);
 }
 
-/* 导航链接次要状态 */
+/* 导航链接次要状�?*/
 .nav-link-secondary {
-    color: #0f172a;
+    color: var(--off-black);
 }
 
 /* 联系我们按钮 */
 .nav-button {
-    background-color: #0f1f30;
-    color: #ffffff;
-    padding: 0.75rem 1.5rem;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 0.875rem;
+    background-color: #000000;
+    color: var(--untitled-ui-white);
+    padding: 0.625rem 1.125rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
     font-weight: 600;
+    line-height: 1.5;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     border-radius: 0.5rem;
+    border: 1px solid #000000;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
 }
 
-/* 按钮悬停效果 */
 .nav-button:hover {
-    transform: scale(0.95);
+    opacity: 0.9;
 }
 
-/* 导航栏右侧区域 */
+/* 导航栏右侧区�?*/
 .nav-right {
     display: flex;
     align-items: center;
     gap: 1.5rem;
 }
 
-/* 语言切换器 */
+/* 语言切换�?*/
 .lang-switcher {
     display: flex;
     align-items: center;
@@ -389,13 +421,13 @@ h1, h2, h3, .headline-font {
     color: #333;
 }
 
-/* 语言按钮激活状态 */
+/* 语言按钮激活状�?*/
 .lang-switcher .lang-btn.active {
     background-color: #0f1f30;
     color: #ffffff;
 }
 
-/* 移动端汉堡菜单按钮 */
+/* 移动端汉堡菜单按�?*/
 .mobile-menu-btn {
     display: none;
     flex-direction: column;
@@ -417,27 +449,27 @@ h1, h2, h3, .headline-font {
     display: block;
     width: 1.5rem;
     height: 2px;
-    background-color: #0f172a;
+    background-color: var(--off-black);
     border-radius: 2px;
     transition: all 0.3s ease;
 }
 
-/* 汉堡菜单激活状态 - 第一条线 */
+/* 汉堡菜单激活状�?- 第一条线 */
 .mobile-menu-btn.active .hamburger-line:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
 }
 
-/* 汉堡菜单激活状态 - 第二条线 */
+/* 汉堡菜单激活状�?- 第二条线 */
 .mobile-menu-btn.active .hamburger-line:nth-child(2) {
     opacity: 0;
 }
 
-/* 汉堡菜单激活状态 - 第三条线 */
+/* 汉堡菜单激活状�?- 第三条线 */
 .mobile-menu-btn.active .hamburger-line:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
 }
 
-/* 移动端菜单面板 */
+/* 移动端菜单面�?*/
 .mobile-menu {
     display: none;
     position: absolute;
@@ -459,7 +491,7 @@ h1, h2, h3, .headline-font {
     pointer-events: auto;
 }
 
-/* 移动端菜单内容 */
+/* 移动端菜单内�?*/
 .mobile-menu-content {
     padding: 1.5rem;
     display: flex;
@@ -467,14 +499,14 @@ h1, h2, h3, .headline-font {
     gap: 0.5rem;
 }
 
-/* 移动端菜单链接 */
+/* 移动端菜单链�?*/
 .mobile-menu-link {
     display: block;
     padding: 1rem 0;
     font-family: 'PT Serif', serif;
     font-size: 1.125rem;
     font-weight: 600;
-    color: #0f172a;
+    color: var(--off-black);
     border-bottom: 1px solid #f0f0f0;
     transition: color 0.2s ease;
 }
@@ -490,7 +522,7 @@ h1, h2, h3, .headline-font {
     margin: 0.5rem 0;
 }
 
-/* 移动端语言切换器 */
+/* 移动端语言切换�?*/
 .mobile-lang-switcher {
     display: flex;
     flex-wrap: wrap;
@@ -522,14 +554,14 @@ h1, h2, h3, .headline-font {
     color: #ffffff;
 }
 
-/* 移动端联系我们按钮 */
+/* 移动端联系我们按�?*/
 .mobile-nav-button {
     width: 100%;
     margin-top: 0.5rem;
     padding: 1rem;
     background-color: #0f1f30;
     color: #ffffff;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 0.875rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -562,7 +594,7 @@ h1, h2, h3, .headline-font {
     overflow: hidden;
 }
 
-/* 桌面端 Hero 区域内边距 */
+/* 桌面�?Hero 区域内边�?*/
 @media (min-width: 768px) {
     .hero-section {
         padding: 2.5rem;
@@ -581,7 +613,7 @@ h1, h2, h3, .headline-font {
     z-index: 0;
 }
 
-/* 桌面端视频容器边距 */
+/* 桌面端视频容器边�?*/
 @media (min-width: 768px) {
     .hero-video-container {
         left: 2.5rem;
@@ -618,32 +650,32 @@ h1, h2, h3, .headline-font {
     align-items: center;
 }
 
-/* Hero 副标题 */
+/* Hero 副标�?*/
 .hero-subtitle {
-    font-family: 'Playfair Display', serif;
-
+    font-family: 'Wensley', sans-serif;
     color: rgba(255, 255, 255, 0.8);
-    font-size: 1.75rem;
+    font-size: 20px;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.3em;
+    letter-spacing: 2px;
     margin-bottom: 1.5rem;
     display: block;
     white-space: nowrap;
 }
 
-/* Hero 主标题 */
+/* Hero 主标�?*/
 .hero-title {
     font-family: 'Playfair Display', serif;
     font-style: italic;
-    font-size: 1.875rem;
+    font-size: 2.25rem;
     color: #ffeb8fa8;
     margin-bottom: 1rem;
     line-height: 1.2;
-    font-weight: 300;
+    font-weight: 400;
     white-space: normal;
 }
 
-/* Hero 副标题 */
+/* Hero 副标�?*/
 .hero-heroSubtitle {
     font-size: 1.25rem;
     color: rgba(255, 255, 255, 0.9);
@@ -652,10 +684,10 @@ h1, h2, h3, .headline-font {
     font-style: italic;
 }
 
-/* Hero 标题响应式大小 */
+/* Hero 标题响应式大�?*/
 @media (min-width: 768px) {
     .hero-title {
-        font-size: 3rem;
+        font-size: 3.25rem;
         white-space: nowrap;
     }
 }
@@ -673,9 +705,13 @@ h1, h2, h3, .headline-font {
 
 /* Hero 描述文字 */
 .hero-description {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Wensley', sans-serif;
     color: rgba(255, 255, 255, 0.8);
-    font-size: 1.125rem;
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.5;
     margin-bottom: 2.5rem;
     max-width: 32rem;
     white-space: nowrap;
@@ -689,8 +725,10 @@ h1, h2, h3, .headline-font {
     background-color: transparent;
     color: #ffffff;
     padding: 0.875rem 1.25rem;
-    font-family: 'Playfair Display', serif;
-    font-size: 0.875rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     border-radius: 0.75rem;
@@ -701,7 +739,7 @@ h1, h2, h3, .headline-font {
 /* Hero 按钮悬停效果 */
 .hero-button:hover {
     background-color: #ffffff;
-    color: #0f172a;
+    color: var(--off-black);
 }
 
 
@@ -710,12 +748,12 @@ h1, h2, h3, .headline-font {
     transition: transform 0.3s ease;
 }
 
-/* Hero 按钮悬停时箭头移动 */
+/* Hero 按钮悬停时箭头移�?*/
 .hero-button:hover .hero-button-arrow {
     transform: translateX(0.25rem);
 }
 
-/* Hero 滚动指示器 */
+/* Hero 滚动指示�?*/
 .hero-scroll-indicator {
     position: absolute;
     bottom: 3.5rem;
@@ -725,7 +763,7 @@ h1, h2, h3, .headline-font {
     animation: bounce 1s infinite;
 }
 
-/* 滚动指示器图标 */
+/* 滚动指示器图�?*/
 .hero-scroll-indicator .material-symbols-outlined {
     color: rgba(255, 255, 255, 0.6);
     font-size: 1.875rem;
@@ -754,31 +792,33 @@ h1, h2, h3, .headline-font {
     margin-bottom: 4rem;
 }
 
-/* 权益主标题 */
+/* 权益主标�?*/
 .benefits-title {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 36px;
-    font-weight: 300;
-    line-height: 1.25;
+    font-family: 'Wensley', sans-serif;
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--untitled-ui-gray900);
     margin-bottom: 1.5rem;
 }
 
-/* 桌面端权益标题大小 */
+/* 桌面端权益标题大�?*/
 @media (min-width: 768px) {
     .benefits-title {
-        font-size: 3rem;
+        font-size: 3.25rem;
     }
 }
 
 /* 权益描述文字 */
 .benefits-description {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 1.125rem;
     line-height: 1.5;
     letter-spacing: normal;
     max-width: 42rem;
     margin: 0 auto;
-    color: #44474c;
+    color: var(--off-black);
+    font-weight: 300;
 }
 
 /* 权益卡片网格 */
@@ -821,8 +861,8 @@ h1, h2, h3, .headline-font {
 
 /* 权益图标容器 */
 .benefit-icon-wrapper {
-    width: 4rem;
-    height: 4rem;
+    width: 5rem;
+    height: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -833,43 +873,43 @@ h1, h2, h3, .headline-font {
     transform: translateX(-50%);
 }
 
-/* 权益卡片悬停时图标放大 */
+/* 权益卡片悬停时图标放�?*/
 .benefit-card:hover .benefit-icon-wrapper {
     transform: translateX(-50%) scale(1.05);
 }
 
 /* 权益图标 */
 .benefit-icon {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
     color: #333;
 }
 
-/* 权益卡片 SVG 图标 */
 .benefit-icon-svg {
-    width: 3rem;
-    height: 3rem;
+    width: 4rem;
+    height: 4rem;
     fill: currentColor;
     color: #333;
 }
 
 /* 权益卡片标题 */
 .benefit-card-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Wensley', sans-serif;
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 0.75rem;
-    color: #222;
+    color: var(--off-black);
     line-height: 1.5;
+    letter-spacing: normal;
 }
 
 /* 权益卡片描述 */
 .benefit-card-description {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 1rem;
     font-weight: 300;
     line-height: 1.5;
     letter-spacing: normal;
-    color: #555;
+    color: var(--off-black);
 }
 
 /* 权益按钮容器 */
@@ -883,42 +923,46 @@ h1, h2, h3, .headline-font {
 
 /* 权益按钮通用样式 */
 .benefits-btn {
-    padding: 0.875rem 2rem;
+    padding: 0.625rem 1.125rem;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 600;
+    line-height: 1.5;
     text-decoration: none;
-    border-radius: 0.75rem;
+    border-radius: 0.5rem;
     transition: all 0.3s ease;
-    border: none;
     cursor: pointer;
     min-width: 180px;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    white-space: nowrap;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
 }
 
-/* 权益详情按钮 - 浅蓝色 */
 .benefits-btn-primary {
-    background-color: #dbeafe;
-    color: #1e40af;
+    border: 1px solid var(--teal);
+    background-color: var(--teal);
+    color: var(--untitled-ui-white);
 }
 
 .benefits-btn-primary:hover {
-    background-color: #bfdbfe;
+    opacity: 0.9;
 }
 
-/* 查看酒店按钮 - 浅灰色 */
 .benefits-btn-secondary {
-    background-color: #f3f4f6;
-    color: #374151;
+    border: 1px solid var(--untitled-ui-gray300);
+    background-color: var(--green-18);
+    color: var(--untitled-ui-gray600);
 }
 
 .benefits-btn-secondary:hover {
-    background-color: #e5e7eb;
+    opacity: 0.9;
 }
 
 /* ========================================
-   6. 美国可交换酒店列表
+   6. 美国可交换酒店列�?
    ======================================== */
 
 /* 酒店区域容器 */
@@ -938,9 +982,10 @@ h1, h2, h3, .headline-font {
 .section-title {
     font-family: 'Wensley', sans-serif;
     font-size: 26px;
-    font-weight: 600;
-    color: #333;
+    font-weight: 700;
+    color: var(--off-black);
     margin-bottom: 2.5rem;
+    line-height: 100%;
 }
 
 /* 酒店卡片网格 */
@@ -1000,38 +1045,43 @@ h1, h2, h3, .headline-font {
 /* 酒店名称 */
 .hotel-name {
     font-family: 'Wensley', sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 20px;
-    color: #1a1c1c;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: var(--off-black);
+    margin-top: 10px;
     margin-bottom: 0;
     text-transform: none;
 }
 
-/* 酒店位置 */
 .hotel-location {
-    font-size: 0.8125rem;
-    color: #888;
+    font-family: 'Lato new', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--dim-grey);
+    line-height: 170%;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* ========================================
-   7. 全球推荐目的地
+   7. 全球推荐目的�?
    ======================================== */
 
-/* 目的地区域容器 */
+/* 目的地区域容�?*/
 .destinations-section {
     padding: 4rem 0;
     background-color: #ffffff;
 }
 
-/* 目的地内容区域 */
+/* 目的地内容区�?*/
 .destinations-content {
     padding: 0 3rem;
     max-width: 1536px;
     margin: 0 auto;
 }
 
-/* 目的地卡片网格 - 4列布局 */
+/* 目的地卡片网�?- 4列布局 */
 .destinations-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1045,7 +1095,7 @@ h1, h2, h3, .headline-font {
     }
 }
 
-/* 目的地卡片 */
+/* 目的地卡�?*/
 .destination-card {
     position: relative;
     aspect-ratio: 3 / 4;
@@ -1053,7 +1103,7 @@ h1, h2, h3, .headline-font {
     cursor: pointer;
 }
 
-/* 目的地图片 */
+/* 目的地图�?*/
 .destination-image {
     width: 100%;
     height: 100%;
@@ -1062,12 +1112,12 @@ h1, h2, h3, .headline-font {
     transition: transform 0.5s ease;
 }
 
-/* 悬停时图片放大 */
+/* 悬停时图片放�?*/
 .destination-card:hover .destination-image {
     transform: scale(1.08);
 }
 
-/* 覆盖在图片上的文字 */
+/* 覆盖在图片上的文�?*/
 .destination-overlay-text {
     position: absolute;
     top: 1rem;
@@ -1084,7 +1134,7 @@ h1, h2, h3, .headline-font {
 }
 
 /* ========================================
-   8. 激动人心的假期 & 真实可靠的交换
+   8. 激动人心的假期 & 真实可靠的交�?
    ======================================== */
 
 /* 促销区域容器 */
@@ -1168,26 +1218,35 @@ h1, h2, h3, .headline-font {
 
 /* 卡片副标题（酒店名） */
 .promo-card-subtitle {
-    font-size: 0.8125rem;
-    color: #888;
+    font-family: 'Lato new', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--dim-grey);
     margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 100%;
 }
 
 /* 卡片标题 */
 .promo-card-title {
     font-family: 'Wensley', sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 20px;
-    color: #1a1c1c;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: var(--off-black);
+    margin-top: 10px;
     margin-bottom: 0;
     text-transform: none;
 }
 
 /* 卡片日期 */
 .promo-card-date {
-    font-size: 0.8125rem;
-    color: #666;
+    font-family: 'Lato new', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--off-black);
+    line-height: 170%;
 }
 
 /* 特惠区域容器 */
@@ -1211,7 +1270,7 @@ h1, h2, h3, .headline-font {
     margin-bottom: 4rem;
 }
 
-/* 特惠主标题 */
+/* 特惠主标�?*/
 .promotions-title {
     font-size: 2.25rem;
     font-weight: 300;
@@ -1276,7 +1335,7 @@ h1, h2, h3, .headline-font {
     transition: transform 0.5s ease;
 }
 
-/* 特惠卡片悬停时图片放大 */
+/* 特惠卡片悬停时图片放�?*/
 .promo-card:hover .promo-image {
     transform: scale(1.05);
 }
@@ -1349,7 +1408,7 @@ h1, h2, h3, .headline-font {
     margin-bottom: 4rem;
 }
 
-/* 合作伙伴主标题 */
+/* 合作伙伴主标�?*/
 .partners-title {
     font-size: 1.875rem;
     font-weight: 300;
@@ -1408,7 +1467,7 @@ h1, h2, h3, .headline-font {
     transition: color 0.3s ease;
 }
 
-/* 合作伙伴卡片悬停时名称变色 */
+/* 合作伙伴卡片悬停时名称变�?*/
 .partner-card:hover .partner-name {
     color: #695d45;
 }
@@ -1425,7 +1484,7 @@ h1, h2, h3, .headline-font {
 
 /* 页脚容器 */
 .footer {
-    background-color: #0f172a;
+    background-color: #ffffff;
     width: 100%;
     padding-top: 5rem;
     padding-bottom: 2.5rem;
@@ -1459,26 +1518,25 @@ h1, h2, h3, .headline-font {
     width: auto;
     max-width: 200px;
     margin-bottom: 1rem;
-    filter: brightness(0) invert(1);
 }
 
 /* 页脚品牌描述 */
 .footer-brand-description {
-    color: #94a3b8;
+    color: var(--dim-grey);
     font-size: 0.875rem;
     margin-bottom: 2rem;
     line-height: 1.625;
 }
 
 .footer-brand-name {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    color: #ffffff;
+    font-family: 'Wensley', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--off-black);
     margin-bottom: 0.5rem;
+    text-transform: none;
 }
 
-/* 页脚社交链接容器 */
 .footer-social-links {
     display: flex;
     gap: 1rem;
@@ -1491,16 +1549,15 @@ h1, h2, h3, .headline-font {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #334155;
-    color: #94a3b8;
+    border: 1px solid #d0d5dd;
+    color: var(--off-black);
     transition: all 0.3s ease;
     border-radius: 50%;
 }
 
-/* 页脚社交链接悬停效果 */
 .footer-social-link:hover {
-    color: #ffffff;
-    border-color: #ffffff;
+    color: var(--off-black);
+    border-color: var(--off-black);
 }
 
 /* 页脚社交链接图标 */
@@ -1508,18 +1565,18 @@ h1, h2, h3, .headline-font {
     font-size: 1.125rem;
 }
 
-/* 页脚列标题 */
+/* 页脚列标�?*/
 .footer-column-title {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 0.025em;
-    text-transform: uppercase;
-    color: #ffffff;
+    font-family: 'Wensley', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: normal;
+    text-transform: none;
+    color: var(--off-black);
     margin-bottom: 2rem;
 }
 
-/* 页脚小标题 */
+/* 页脚小标�?*/
 .footer-header {
     grid-column: 1 / -1;
     margin-bottom: 2rem;
@@ -1542,32 +1599,34 @@ h1, h2, h3, .headline-font {
     margin: 0;
 }
 
-/* 页脚链接项 */
+/* 页脚链接�?*/
 .footer-link-item {
     margin-bottom: 1rem;
 }
 
 /* 页脚链接 */
 .footer-link {
-    color: #94a3b8;
-    font-size: 0.875rem;
-    font-family: 'Work Sans', sans-serif;
-    transition: color 0.3s ease;
+    color: var(--off-black);
+    font-size: 14px;
+    font-family: 'Lato new', sans-serif;
+    font-weight: 300;
+    transition: all 0.25s ease;
 }
 
 /* 页脚链接悬停效果 */
 .footer-link:hover {
-    color: #ffffff;
+    color: var(--off-black);
 }
 
-/* 页脚联系信息项 */
+/* 页脚联系信息�?*/
 .footer-contact-item {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    color: #94a3b8;
-    font-size: 0.875rem;
-    font-family: 'Work Sans', sans-serif;
+    color: var(--off-black);
+    font-size: 14px;
+    font-family: 'Lato new', sans-serif;
+    font-weight: 300;
     margin-bottom: 1rem;
 }
 
@@ -1576,9 +1635,10 @@ h1, h2, h3, .headline-font {
     display: flex;
     align-items: flex-start;
     gap: 0.75rem;
-    color: #94a3b8;
-    font-size: 0.875rem;
-    font-family: 'Work Sans', sans-serif;
+    color: var(--off-black);
+    font-size: 14px;
+    font-family: 'Lato new', sans-serif;
+    font-weight: 300;
     margin-bottom: 1rem;
 }
 
@@ -1589,24 +1649,24 @@ h1, h2, h3, .headline-font {
 }
 
 .footer-whatsapp-link {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(84, 78, 66, 0.8);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-whatsapp-link:hover {
-    color: #ffffff;
+    color: var(--off-black);
     text-decoration: underline;
 }
 
 .footer-email-link {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(84, 78, 66, 0.8);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-email-link:hover {
-    color: #ffffff;
+    color: var(--off-black);
     text-decoration: underline;
 }
 
@@ -1617,7 +1677,7 @@ h1, h2, h3, .headline-font {
     margin: 0 auto;
     margin-top: 5rem;
     padding-top: 2rem;
-    border-top: 1px solid #1e293b;
+    border-top: 1px solid #d0d5dd;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1634,12 +1694,11 @@ h1, h2, h3, .headline-font {
 
 /* 版权文字 */
 .footer-copyright-text {
-    font-family: sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 0.75rem;
     letter-spacing: 0.025em;
     text-transform: uppercase;
-    font-family: 'Work Sans', sans-serif;
-    color: #64748b;
+    color: var(--dim-grey);
 }
 
 /* 版权链接容器 */
@@ -1651,21 +1710,21 @@ h1, h2, h3, .headline-font {
 /* 版权链接 */
 .footer-copyright-link {
     font-size: 0.75rem;
-    font-family: 'Work Sans', sans-serif;
-    color: #64748b;
+    font-family: 'Lato new', sans-serif;
+    color: var(--dim-grey);
     transition: color 0.3s ease;
 }
 
 /* 版权链接悬停效果 */
 .footer-copyright-link:hover {
-    color: #ffffff;
+    color: var(--off-black);
 }
 
 /* ========================================
    11. 动画效果
    ======================================== */
 
-/* 弹跳动画 - 用于滚动指示器 */
+/* 弹跳动画 - 用于滚动指示�?*/
 @keyframes bounce {
     0%, 100% {
         transform: translateY(0) translateX(-50%);
@@ -1687,7 +1746,7 @@ h1, h2, h3, .headline-font {
     }
 }
 
-/* 淡入动画类 */
+/* 淡入动画�?*/
 .animate-fade-in {
     animation: fadeIn 0.6s ease-out forwards;
 }
@@ -1716,25 +1775,25 @@ h1, h2, h3, .headline-font {
         display: none !important;
     }
     
-    /* 移动端 nav-right 样式 */
+    /* 移动�?nav-right 样式 */
     .nav-right {
         display: flex;
         align-items: center;
         gap: 0.5rem;
     }
     
-    /* 移动端隐藏语言切换和联系我们按钮 */
+    /* 移动端隐藏语言切换和联系我们按�?*/
     .nav-right .lang-switcher,
     .nav-right .nav-button {
         display: none;
     }
     
-    /* 移动端显示汉堡菜单按钮 */
+    /* 移动端显示汉堡菜单按�?*/
     .mobile-menu-btn {
         display: flex;
     }
     
-    /* 移动端显示菜单面板 */
+    /* 移动端显示菜单面�?*/
     .mobile-menu {
         display: block;
     }
@@ -1960,9 +2019,14 @@ h1, h2, h3, .headline-font {
     }
     
     .footer-column-title {
-        font-size: 1rem;
-        margin-bottom: 0.75rem;
-    }
+    font-family: 'Wensley', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: normal;
+    text-transform: none;
+    color: var(--off-black);
+    margin-bottom: 2rem;
+}
     
     .footer-header-title {
         font-size: 1rem;
@@ -1981,12 +2045,19 @@ h1, h2, h3, .headline-font {
     }
     
     .footer-copyright-text {
-        font-size: 0.75rem;
-    }
+    font-family: 'Lato new', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    color: var(--dim-grey);
+}
     
     .footer-copyright-link {
-        font-size: 0.75rem;
-    }
+    font-size: 0.75rem;
+    font-family: 'Lato new', sans-serif;
+    color: var(--dim-grey);
+    transition: color 0.3s ease;
+}
 }
 
 /* 平板端适配 (768px - 1024px) */
@@ -2018,8 +2089,79 @@ h1, h2, h3, .headline-font {
     }
 }
 
+@media (max-width: 991px) {
+    .hero-title {
+        font-size: 2.25rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.875rem;
+    }
+
+    .benefits-title {
+        font-size: 1.75rem;
+        line-height: 1.4;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .hotel-name,
+    .promo-card-title {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 479px) {
+    .hero-section {
+        min-height: 500px;
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+    }
+
+    .hero-description {
+        font-size: 0.875rem;
+    }
+
+    .hero-button {
+        padding: 0.5rem 0.875rem;
+        font-size: 0.875rem;
+    }
+
+    .benefits-title {
+        font-size: 1.5rem;
+    }
+
+    .benefit-card-title {
+        font-size: 1.125rem;
+    }
+
+    .section-title {
+        font-size: 1.25rem;
+    }
+
+    .hotel-name,
+    .promo-card-title {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .nav-logo img,
+    .nav-logo-img {
+        height: 2rem;
+    }
+}
+
 /* ========================================
-   13. 工具类
+   13. 工具�?
    ======================================== */
 
 /* 两行文本截断 */
@@ -2052,7 +2194,7 @@ h1, h2, h3, .headline-font {
     transform: scale(1.05);
 }
 
-/* 渐变遮罩层 */
+/* 渐变遮罩�?*/
 .gradient-overlay {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent, transparent);
 }
@@ -2061,7 +2203,7 @@ h1, h2, h3, .headline-font {
    14. 联系我们页面样式
    ======================================== */
 
-/* 酒店详情页样式 */
+/* 酒店详情页样�?*/
 
 /* Hero 区域 - 全宽图片 + 渐变遮罩 */
 .hotel-detail-hero {
@@ -2097,7 +2239,7 @@ h1, h2, h3, .headline-font {
 
 .hotel-hero-location {
     display: inline-block;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 0.75rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
@@ -2106,7 +2248,7 @@ h1, h2, h3, .headline-font {
 }
 
 /* ========================================
-   15. 隐私政策和服务条款页面
+   15. 隐私政策和服务条款页�?
    ======================================== */
 
 .privacy-section,
@@ -2193,7 +2335,7 @@ h1, h2, h3, .headline-font {
     margin-bottom: 0.5rem;
 }
 
-/* 响应式设计 */
+/* 响应式设�?*/
 @media (max-width: 768px) {
     .privacy-section,
     .terms-section {
@@ -2221,7 +2363,7 @@ h1, h2, h3, .headline-font {
     }
 }
 
-/* 酒店详情页样式 */
+/* 酒店详情页样�?*/
 
 /* Hero 区域 - 全宽图片 + 渐变遮罩 */
 .hotel-detail-hero {
@@ -2257,7 +2399,7 @@ h1, h2, h3, .headline-font {
 
 .hotel-hero-location {
     display: inline-block;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 0.75rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
@@ -2317,7 +2459,7 @@ h1, h2, h3, .headline-font {
 
 .hotel-intro-label {
     display: inline-block;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 1.5rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -2569,7 +2711,7 @@ h1, h2, h3, .headline-font {
     color: rgba(255,255,255,0.8);
 }
 
-/* 酒店设施与服务 */
+/* 酒店设施与服�?*/
 .hotel-services-section {
     padding: 6rem 0;
     background-color: #ffffff;
@@ -2603,7 +2745,7 @@ h1, h2, h3, .headline-font {
 
 .services-title {
     display: inline-block;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 1.5rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -2650,7 +2792,7 @@ h1, h2, h3, .headline-font {
 
 .gallery-hotel-name {
     display: inline-block;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 1.5rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -2853,7 +2995,7 @@ h1, h2, h3, .headline-font {
 
 .gallery-label {
     display: block;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 0.65rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
@@ -2920,7 +3062,7 @@ h1, h2, h3, .headline-font {
 }
 
 .gallery-overlay span {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 0.75rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -2941,7 +3083,7 @@ h1, h2, h3, .headline-font {
     padding: 1rem 2.5rem;
     background-color: #f5f5f5;
     color: #333;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 0.9rem;
     font-weight: 500;
     text-decoration: none;
@@ -3176,7 +3318,7 @@ h1, h2, h3, .headline-font {
 
 .vacation-gallery-label {
     display: block;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 0.65rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
@@ -3294,7 +3436,7 @@ h1, h2, h3, .headline-font {
 }
 
 /* ========================================
-   15. 权益详情页样式
+   15. 权益详情页样�?
    ======================================== */
 
 .benefits-hero-section {
@@ -3352,7 +3494,7 @@ h1, h2, h3, .headline-font {
 }
 
 .benefits-hero-subtitle {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 1.125rem;
     letter-spacing: 0.15em;
     opacity: 0.95;
@@ -3399,7 +3541,7 @@ h1, h2, h3, .headline-font {
 }
 
 .benefits-section-desc {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 1rem;
     color: #555;
     line-height: 1.8;
@@ -3413,7 +3555,7 @@ h1, h2, h3, .headline-font {
     margin-bottom: 3rem;
 }
 
-/* ====== 交易逻辑流程图 ====== */
+/* ====== 交易逻辑流程�?====== */
 .benefits-logic-section {
     padding: 6rem 0;
     background-color: #f5f6fa;
@@ -3613,7 +3755,7 @@ html[lang="ja"] .logic-circle-text-en {
     transform: translateX(-50%);
 }
 
-/* ====== RCI全球网络图 ====== */
+/* ====== RCI全球网络�?====== */
 .benefits-rci-section {
     padding: 6rem 0;
     background: linear-gradient(180deg, #f5f6fa 0%, #e8ecf4 100%);
@@ -3754,7 +3896,7 @@ html[lang="ja"] .logic-circle-text-en {
 }
 
 .rci-stat-item {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 1.25rem;
     font-weight: 600;
     color: #0d1c2f;
@@ -3767,7 +3909,7 @@ html[lang="ja"] .logic-circle-text-en {
 }
 
 .rci-footer-note {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 0.9rem;
     color: #333;
     text-align: center;
@@ -3781,7 +3923,7 @@ html[lang="ja"] .logic-circle-text-en {
     }
 }
 
-/* ====== 历史时间线 ====== */
+/* ====== 历史时间�?====== */
 .benefits-history-section {
     padding: 6rem 0;
     background-color: #f8f9ff;
@@ -3800,7 +3942,7 @@ html[lang="ja"] .logic-circle-text-en {
 }
 
 .benefits-history-subtitle {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     color: #666;
     font-size: 1rem;
 }
@@ -4217,7 +4359,7 @@ html[lang="ja"] .logic-circle-text-en {
     }
 
     .rci-logo-center {
-        font-size: 3rem;
+        font-size: 3.25rem;
     }
 
     .rci-stat-item {
@@ -4343,7 +4485,7 @@ html[lang="ja"] .logic-circle-text-en {
 }
 
 /* ========================================
-   16. 酒店列表页样式
+   16. 酒店列表页样�?
    ======================================== */
 
 .hotel-list-hero {
@@ -4384,7 +4526,7 @@ html[lang="ja"] .logic-circle-text-en {
 }
 
 .hotel-list-hero-subtitle {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 0.75rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
@@ -4444,7 +4586,7 @@ html[lang="ja"] .logic-circle-text-en {
     background-color: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(8px);
     padding: 0.375rem 1rem;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 0.625rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -4470,7 +4612,7 @@ html[lang="ja"] .logic-circle-text-en {
 }
 
 .hotel-list-card-location {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 0.8125rem;
     color: #586062;
 }
@@ -4481,7 +4623,7 @@ html[lang="ja"] .logic-circle-text-en {
 }
 
 .hotel-list-card-detail {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 0.6875rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -4576,11 +4718,11 @@ html[lang="ja"] .logic-circle-text-en {
     font-family: 'PT Serif', serif;
     font-size: 2.5rem;
     font-weight: 600;
-    color: #0f172a;
+    color: var(--off-black);
     margin-bottom: 0.75rem;
 }
 
-/* 联系页面副标题 */
+/* 联系页面副标�?*/
 .contact-subtitle {
     font-size: 1rem;
     color: #64748b;
@@ -4654,11 +4796,11 @@ html[lang="ja"] .logic-circle-text-en {
     font-family: 'PT Serif', serif;
     font-size: 1.125rem;
     font-weight: 600;
-    color: #0f172a;
+    color: var(--off-black);
     margin-bottom: 0.25rem;
 }
 
-/* 联系值 */
+/* 联系�?*/
 .contact-value {
     font-size: 0.875rem;
     color: #64748b;
@@ -4724,7 +4866,7 @@ html[lang="ja"] .logic-circle-text-en {
 
 .faq-hero-title {
     font-family: 'PT Serif', serif;
-    font-size: 3rem;
+    font-size: 3.25rem;
     font-weight: 600;
     color: #0d1c2f;
     margin-bottom: 1.5rem;
@@ -4738,7 +4880,7 @@ html[lang="ja"] .logic-circle-text-en {
 }
 
 .faq-hero-subtitle {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 1.125rem;
     color: #444;
     max-width: 42rem;
@@ -4857,7 +4999,7 @@ html[lang="ja"] .logic-circle-text-en {
 }
 
 .faq-answer p {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 1rem;
     color: #444;
     line-height: 1.6;
@@ -4871,7 +5013,7 @@ html[lang="ja"] .logic-circle-text-en {
 }
 
 .faq-help-text {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 0.875rem;
     color: #666;
     margin-bottom: 0.75rem;
@@ -4880,7 +5022,7 @@ html[lang="ja"] .logic-circle-text-en {
 }
 
 .faq-help-link {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 1rem;
     color: #0d1c2f;
     text-decoration: none;
@@ -4914,12 +5056,12 @@ html[lang="ja"] .logic-circle-text-en {
 
 @media (min-width: 768px) {
     .faq-cta-title {
-        font-size: 3rem;
+        font-size: 3.25rem;
     }
 }
 
 .faq-cta-subtitle {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 1.125rem;
     color: rgba(255, 255, 255, 0.9);
     max-width: 32rem;
@@ -4940,7 +5082,7 @@ html[lang="ja"] .logic-circle-text-en {
     background: #ffffff;
     color: #0d1c2f;
     text-decoration: none;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato new', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     border-radius: 6px;
