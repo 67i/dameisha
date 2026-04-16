@@ -1,33 +1,30 @@
-﻿/**
- * 换享星球 - 主样式表
+/**
+ * Huanxiang Planet -
  * Main Stylesheet for Huanxiang Planet Website
  * 
- * 目录�?
- * 1. 基础样式重置与全局设置
- * 2. 字体配置（本地字体）
- * 3. 导航栏样�?
- * 4. Hero 区域样式（视频背景）
- * 5. 权益卡片样式
- * 6. 酒店卡片样式
- * 7. 目的地网格样�?
- * 8. 特惠卡片样式
- * 9. 合作伙伴样式
- * 10. 页脚样式
- * 11. 动画效果
- * 12. 响应式适配
- * 13. 工具�?
+ * Directory
+ * 1. Base Styles & Global Reset
+ * 2. Font Configuration 3. Navigation Bar Style
+ * 4. Hero Section
+ * 5. 
+ * 6. 
+ * 7. Destination Grid Style
+ * 8. Promo Card Styles
+ * 9. Partner Styles
+ * 10. Footer Styles
+ * 11. Animations
+ * 12. Responsive Design 13. Tools
  */
 
 /* ========================================
-   1. 基础样式重置与全局设置
+   1. Base Styles & Global Reset
    ======================================== */
 
-/* 根元素平滑滚�?*/
+/* Root Element Smooth Scroll*/
 html {
     scroll-behavior: smooth;
 }
 
-/* 页面主体样式 */
 :root {
     --off-black: #544e42;
     --teal: #116c6e;
@@ -56,23 +53,22 @@ body {
     font-weight: 300;
 }
 
-/* 文字选中样式 */
 ::selection {
     background-color: #efddc0;
     color: #231a08;
 }
 
 /* ========================================
-   2. 字体配置（本地字体）
+   2. Font Configuration (Local Fonts)
    ======================================== */
 
-/* 
- * 本地字体定义
- * 使用 @font-face 加载本地字体文件，避免依赖外�?CDN
- * 字体文件位于项目根目录的 fonts 文件�?
+/*
+ * Font Face Configuration
+ * Using local font files to avoid external CDN dependency
+ * Font files are located in the fonts directory
  */
 
-/* Lato new 字体 - 主要正文字体 */
+/* Lato new Font */
 @font-face {
     font-family: 'Lato new';
     src: url('../fonts/latonew/Lato-Light.ttf') format('truetype');
@@ -121,7 +117,7 @@ body {
     font-display: swap;
 }
 
-/* Wensley 字体 - 标题字体 */
+/* Wensley Font */
 @font-face {
     font-family: 'Wensley';
     src: url('../fonts/wensley/Wensley-Light.ttf') format('truetype');
@@ -146,10 +142,10 @@ body {
     font-display: swap;
 }
 
-/* Playfair Display 字体 - 衬线展示字体 */
+/* Playfair Display Font */
 @font-face {
     font-family: 'Playfair Display';
-    src: url('../fonts/playfairdisplay/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+    src: url('../fonts/playfairdisplay/PlayfairDisplay.ttf') format('truetype');
     font-weight: 400 900;
     font-style: normal;
     font-display: swap;
@@ -157,7 +153,7 @@ body {
 
 @font-face {
     font-family: 'Playfairdisplay Variablefont Wght';
-    src: url('../fonts/playfairdisplay/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+    src: url('../fonts/playfairdisplay/PlayfairDisplay.ttf') format('truetype');
     font-weight: 400 900;
     font-style: normal;
     font-display: swap;
@@ -165,13 +161,38 @@ body {
 
 @font-face {
     font-family: 'Playfair Display';
-    src: url('../fonts/playfairdisplay/PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
-    font-weight: 400 900;
+    src: url('../fonts/playfairdisplay/PlayfairDisplay-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('../fonts/playfairdisplay/PlayfairDisplay.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('../fonts/playfairdisplay/PlayfairDisplay.ttf') format('truetype');
+    font-weight: 400;
     font-style: italic;
     font-display: swap;
 }
 
-/* PT Serif 字体 - 衬线字体 */
+/* Inter Font */
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter_18pt-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* PT Serif Font */
 @font-face {
     font-family: 'PT Serif';
     src: url('../fonts/ptserif/v19/EJRVQgYoZZY2vCFuvAFWzr8.woff2') format('woff2');
@@ -208,7 +229,7 @@ body {
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* Work Sans 字体 */
+/* Work Sans Font */
 @font-face {
     font-family: 'Work Sans';
     src: url('../fonts/worksans/WorkSans-VariableFont.woff2') format('woff2');
@@ -217,7 +238,7 @@ body {
     font-display: swap;
 }
 
-/* Noto Serif 字体 */
+/* Noto Serif Font */
 @font-face {
     font-family: 'Noto Serif';
     src: url('../fonts/notoserif/NotoSerif-Regular.woff2') format('woff2');
@@ -234,7 +255,7 @@ body {
     font-display: swap;
 }
 
-/* Material Symbols Outlined 图标字体 */
+/* Material Symbols Outlined Font */
 @font-face {
     font-family: 'Material Symbols Outlined';
     src: url('../fonts/materialsymbols/MaterialSymbolsOutlined.woff2') format('woff2');
@@ -259,25 +280,34 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* 标题字体 - 衬线字体 */
-h1, h2, h3, .headline-font {
-    font-family: 'Wensley', 'PT Serif', 'PingFang SC', sans-serif;
+
+
+h1 {
+    font-family: 'Playfair Display', sans-serif;
+    font-weight: 900;
+}
+
+@media (min-width: 768px) {
+    h1 {
+        margin-top: 300rem;
+        margin-bottom: 300rem;
+    }
 }
 
 .label-font {
     font-family: 'Lato new', 'PingFang SC', sans-serif;
 }
 
-/* Material Symbols 图标配置 */
+/* Material Symbols Font */
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
 }
 
 /* ========================================
-   3. 导航栏样�?
+   3. Navigation Bar Style
    ======================================== */
 
-/* 导航栏容�?*/
+/* Navigation Bar Container */
 .nav-container {
     width: 100%;
     background-color: #ffffff;
@@ -285,7 +315,7 @@ h1, h2, h3, .headline-font {
     z-index: 50;
 }
 
-/* 导航栏内容区�?*/
+/* Navigation Bar Content Area */
 .nav-content {
     display: flex;
     justify-content: space-between;
@@ -295,21 +325,21 @@ h1, h2, h3, .headline-font {
     position: relative;
 }
 
-/* 桌面端导航栏内边�?*/
+/* Navigation Bar Padding */
 @media (min-width: 768px) {
     .nav-content {
         padding: 1.5rem 2.5rem;
     }
 }
 
-/* Logo 链接容器 */
+/* Logo Styles */
 .nav-logo {
     display: flex;
     align-items: center;
     gap: 0.75rem;
 }
 
-/* Logo 图片 */
+/* Logo Styles */
 .nav-logo img,
 .nav-logo-img {
     height: 3rem;
@@ -318,7 +348,7 @@ h1, h2, h3, .headline-font {
     object-fit: contain;
 }
 
-/* Logo 文字 */
+/* Logo Styles */
 .nav-logo-text {
     font-family: 'PT Serif', serif;
     font-size: 1.5rem;
@@ -327,7 +357,7 @@ h1, h2, h3, .headline-font {
     color: var(--off-black);
 }
 
-/* 导航链接容器 */
+/* Navigation Links */
 .nav-links {
     display: none;
     gap: 2.5rem;
@@ -336,14 +366,14 @@ h1, h2, h3, .headline-font {
     justify-content: center;
 }
 
-/* 桌面端显示导航链�?*/
+/* Navigation Links*/
 @media (min-width: 768px) {
     .nav-links {
         display: flex;
     }
 }
 
-/* 导航链接�?*/
+/* Navigation Links*/
 .nav-link {
     font-family: 'Wensley', sans-serif;
     font-size: 20px;
@@ -354,22 +384,22 @@ h1, h2, h3, .headline-font {
     transition: color 0.3s ease;
 }
 
-/* 导航链接激活状�?*/
+/* Navigation Links*/
 .nav-link-active {
     color: var(--off-black);
 }
 
-/* 导航链接悬停状�?*/
+/* Navigation Links*/
 .nav-link:hover {
     color: var(--off-black);
 }
 
-/* 导航链接次要状�?*/
+/* Navigation Links*/
 .nav-link-secondary {
     color: var(--off-black);
 }
 
-/* 联系我们按钮 */
+/* Contact Us Button */
 .nav-button {
     background-color: #000000;
     color: var(--untitled-ui-white);
@@ -394,14 +424,14 @@ h1, h2, h3, .headline-font {
     opacity: 0.9;
 }
 
-/* 导航栏右侧区�?*/
+/* Nav Right Section */
 .nav-right {
     display: flex;
     align-items: center;
     gap: 1.5rem;
 }
 
-/* 语言切换�?*/
+/* Language Switcher */
 .lang-switcher {
     display: flex;
     align-items: center;
@@ -411,7 +441,6 @@ h1, h2, h3, .headline-font {
     border-radius: 0.375rem;
 }
 
-/* 语言按钮 */
 .lang-btn {
     padding: 0.375rem 0.75rem;
     font-size: 0.75rem;
@@ -424,18 +453,17 @@ h1, h2, h3, .headline-font {
     transition: all 0.2s ease;
 }
 
-/* 语言按钮悬停 */
 .lang-btn:hover {
     color: #333;
 }
 
-/* 语言按钮激活状�?*/
+/* .lang-switcher Styles */
 .lang-switcher .lang-btn.active {
     background-color: #0f1f30;
     color: #ffffff;
 }
 
-/* 移动端汉堡菜单按�?*/
+/* Mobile Hamburger Menu Button */
 .mobile-menu-btn {
     display: none;
     flex-direction: column;
@@ -452,7 +480,6 @@ h1, h2, h3, .headline-font {
     -webkit-tap-highlight-color: transparent;
 }
 
-/* 汉堡菜单线条 */
 .hamburger-line {
     display: block;
     width: 1.5rem;
@@ -462,22 +489,22 @@ h1, h2, h3, .headline-font {
     transition: all 0.3s ease;
 }
 
-/* 汉堡菜单激活状�?- 第一条线 */
+/* -  */
 .mobile-menu-btn.active .hamburger-line:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
 }
 
-/* 汉堡菜单激活状�?- 第二条线 */
+/* -  */
 .mobile-menu-btn.active .hamburger-line:nth-child(2) {
     opacity: 0;
 }
 
-/* 汉堡菜单激活状�?- 第三条线 */
+/* -  */
 .mobile-menu-btn.active .hamburger-line:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
 }
 
-/* 移动端菜单面�?*/
+/* Mobile Menu Surface */
 .mobile-menu {
     display: none;
     position: absolute;
@@ -499,7 +526,7 @@ h1, h2, h3, .headline-font {
     pointer-events: auto;
 }
 
-/* 移动端菜单内�?*/
+/* Mobile Menu Content */
 .mobile-menu-content {
     padding: 1.5rem;
     display: flex;
@@ -507,7 +534,7 @@ h1, h2, h3, .headline-font {
     gap: 0.5rem;
 }
 
-/* 移动端菜单链�?*/
+/* Mobile Menu Links */
 .mobile-menu-link {
     display: block;
     padding: 1rem 0;
@@ -523,14 +550,14 @@ h1, h2, h3, .headline-font {
     color: #0f1f30;
 }
 
-/* 移动端菜单分隔线 */
+/* Mobile */
 .mobile-menu-divider {
     height: 1px;
     background-color: #e5e5e5;
     margin: 0.5rem 0;
 }
 
-/* 移动端语言切换�?*/
+/* Mobile Language Switcher */
 .mobile-lang-switcher {
     display: flex;
     flex-wrap: wrap;
@@ -538,7 +565,7 @@ h1, h2, h3, .headline-font {
     padding: 0.5rem 0;
 }
 
-/* 移动端语言按钮 */
+/* Mobile */
 .mobile-lang-btn {
     flex: 1;
     min-width: calc(50% - 0.25rem);
@@ -562,7 +589,7 @@ h1, h2, h3, .headline-font {
     color: #ffffff;
 }
 
-/* 移动端联系我们按�?*/
+/* MobileContact Us Button*/
 .mobile-nav-button {
     width: 100%;
     margin-top: 0.5rem;
@@ -588,10 +615,10 @@ h1, h2, h3, .headline-font {
 }
 
 /* ========================================
-   4. Hero 区域样式（视频背景）
+   4. Hero Section
    ======================================== */
 
-/* Hero 区域容器 */
+/* Hero Section */
 .hero-section {
     position: relative;
     height: 100vh;
@@ -602,14 +629,13 @@ h1, h2, h3, .headline-font {
     overflow: hidden;
 }
 
-/* 桌面�?Hero 区域内边�?*/
+/* Hero Section*/
 @media (min-width: 768px) {
     .hero-section {
         padding: 2.5rem;
     }
 }
 
-/* 视频容器 */
 .hero-video-container {
     position: absolute;
     top: 0;
@@ -621,7 +647,7 @@ h1, h2, h3, .headline-font {
     z-index: 0;
 }
 
-/* 桌面端视频容器边�?*/
+/* Video Container Margin*/
 @media (min-width: 768px) {
     .hero-video-container {
         left: 2.5rem;
@@ -629,14 +655,13 @@ h1, h2, h3, .headline-font {
     }
 }
 
-/* 视频元素 */
 .hero-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-/* Hero 内容区域 */
+/* Hero  */
 .hero-content {
     position: relative;
     z-index: 10;
@@ -650,7 +675,7 @@ h1, h2, h3, .headline-font {
     text-align: center;
 }
 
-/* Hero 文本容器 */
+/* Hero  */
 .hero-text-wrapper {
     max-width: 42rem;
     display: flex;
@@ -658,24 +683,26 @@ h1, h2, h3, .headline-font {
     align-items: center;
 }
 
-/* Hero 副标�?*/
+/* Hero Subtitle*/
 .hero-subtitle {
-    font-family: 'Helvetica Now', 'Helvetica', sans-serif;
+    font-family: 'Inter', 'Helvetica Now', 'Helvetica', sans-serif;
     color: #ffffff;
     font-size: 20px;
-    font-weight: 800;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 1.5rem;
     display: block;
     white-space: nowrap;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
-/* Hero 主标�?*/
+/* Hero Title*/
 .hero-title {
-    font-family: 'Playfairdisplay Variablefont Wght', sans-serif;
+    font-family: 'Playfair Display', 'Playfairdisplay Variablefont Wght', sans-serif;
     font-size: 2.25rem;
     color: #ebe0bb;
+    margin-top: 1rem;
     margin-bottom: 1rem;
     line-height: 1.2;
     font-weight: 400;
@@ -686,7 +713,7 @@ h1, h2, h3, .headline-font {
     color: #ffffff;
 }
 
-/* Hero 副标�?*/
+/* Hero Subtitle*/
 .hero-heroSubtitle {
     font-size: 1.25rem;
     color: rgba(255, 255, 255, 0.9);
@@ -695,7 +722,7 @@ h1, h2, h3, .headline-font {
     font-style: italic;
 }
 
-/* Hero 标题响应式大�?*/
+/* Hero Title Responsive Large*/
 @media (min-width: 768px) {
     .hero-title {
         font-size: 3.25rem;
@@ -709,28 +736,28 @@ h1, h2, h3, .headline-font {
     }
 }
 
-/* Hero 标题斜体部分 */
+/* Hero Italic */
 .hero-title-italic {
     font-style: italic;
 }
 
-/* Hero 描述文字 */
+/* Hero Description */
 .hero-description {
-    font-family: 'Helvetica Now', 'Helvetica', sans-serif;
+    font-family: 'Inter', 'Helvetica Now', 'Helvetica', sans-serif;
     color: #ffffff;
     font-size: 20px;
-    font-weight: 800;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 2px;
     line-height: 1.5;
-    margin-bottom: 2.5rem;
     white-space: nowrap;
     display: inline-block;
     text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
-
-/* Hero 行动按钮 */
+/* Hero  */
 .hero-content .hero-button,
 section.hero-section div.hero-content a.hero-button,
 a.hero-button {
@@ -752,7 +779,13 @@ a.hero-button {
     transition: all 0.3s ease;
 }
 
-/* Hero 按钮悬停效果 */
+@media (min-width: 768px) {
+    .hero-button {
+        margin-top: 1rem;
+    }
+}
+
+/* Hero  */
 .hero-content .hero-button:hover,
 section.hero-section div.hero-content a.hero-button:hover,
 a.hero-button:hover {
@@ -760,18 +793,17 @@ a.hero-button:hover {
     color: var(--off-black) !important;
 }
 
-
-/* Hero 按钮箭头图标 */
+/* Hero Button Arrow Icon */
 .hero-button-arrow {
     transition: transform 0.3s ease;
 }
 
-/* Hero 按钮悬停时箭头移�?*/
+/* Hero */
 .hero-button:hover .hero-button-arrow {
     transform: translateX(0.25rem);
 }
 
-/* Hero 滚动指示�?*/
+/* Hero */
 .hero-scroll-indicator {
     position: absolute;
     bottom: 3.5rem;
@@ -781,53 +813,49 @@ a.hero-button:hover {
     animation: bounce 1s infinite;
 }
 
-/* 滚动指示器图�?*/
+/* .hero-scroll-indicator Styles */
 .hero-scroll-indicator .material-symbols-outlined {
     color: rgba(255, 255, 255, 0.6);
     font-size: 1.875rem;
 }
 
 /* ========================================
-   5. 权益卡片样式
+   5. 
    ======================================== */
 
-/* 权益区域容器 */
 .benefits-section {
     padding: 6rem 0;
     background-color: #ffffff;
 }
 
-/* 权益内容区域 */
 .benefits-content {
     padding: 0 3rem;
     max-width: 1536px;
     margin: 0 auto;
 }
 
-/* 权益标题区域 */
 .benefits-header {
     text-align: center;
     margin-bottom: 4rem;
 }
 
-/* 权益主标�?*/
+/* Benefits Main Title*/
 .benefits-title {
     font-family: 'Lato new', sans-serif;
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: 400;
     line-height: 1.5;
     color: var(--off-black);
     margin-bottom: 1.5rem;
 }
 
-/* 桌面端权益标题大�?*/
+/* Benefits Title Responsive */
 @media (min-width: 768px) {
     .benefits-title {
         font-size: 3.25rem;
     }
 }
 
-/* 权益描述文字 */
 .benefits-description {
     font-family: 'Lato new', sans-serif;
     font-size: 1.125rem;
@@ -836,10 +864,9 @@ a.hero-button:hover {
     max-width: 42rem;
     margin: 0 auto;
     color: var(--off-black);
-    font-weight: 300;
+    font-weight: 400;
 }
 
-/* 权益卡片网格 */
 .benefits-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -847,21 +874,18 @@ a.hero-button:hover {
     padding-top: 3rem;
 }
 
-/* 平板端两列布局 */
 @media (min-width: 768px) {
     .benefits-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* 桌面端三列布局 */
 @media (min-width: 1024px) {
     .benefits-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* 权益卡片 */
 .benefit-card {
     background-color: #e8e8e8;
     padding: 2rem 1.5rem;
@@ -872,12 +896,10 @@ a.hero-button:hover {
     position: relative;
 }
 
-/* 权益卡片悬停效果 */
 .benefit-card:hover {
     background-color: #ddd;
 }
 
-/* 权益图标容器 */
 .benefit-icon-wrapper {
     width: 5rem;
     height: 5rem;
@@ -891,12 +913,11 @@ a.hero-button:hover {
     transform: translateX(-50%);
 }
 
-/* 权益卡片悬停时图标放�?*/
+/* Benefit Card */
 .benefit-card:hover .benefit-icon-wrapper {
     transform: translateX(-50%) scale(1.05);
 }
 
-/* 权益图标 */
 .benefit-icon {
     font-size: 4.5rem;
     color: #333;
@@ -909,7 +930,6 @@ a.hero-button:hover {
     color: #333;
 }
 
-/* 权益卡片标题 */
 .benefit-card-title {
     font-family: 'Wensley', sans-serif;
     font-size: 1.25rem;
@@ -920,7 +940,6 @@ a.hero-button:hover {
     letter-spacing: normal;
 }
 
-/* 权益卡片描述 */
 .benefit-card-description {
     font-family: 'Lato new', sans-serif;
     font-size: 1rem;
@@ -930,7 +949,6 @@ a.hero-button:hover {
     color: var(--off-black);
 }
 
-/* 权益按钮容器 */
 .benefits-buttons {
     display: flex;
     justify-content: center;
@@ -939,7 +957,6 @@ a.hero-button:hover {
     flex-wrap: wrap;
 }
 
-/* 权益按钮通用样式 */
 .benefits-btn {
     padding: 0.625rem 1.125rem;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -980,23 +997,20 @@ a.hero-button:hover {
 }
 
 /* ========================================
-   6. 美国可交换酒店列�?
+   6. 
    ======================================== */
 
-/* 酒店区域容器 */
 .hotels-section {
     padding: 4rem 0;
     background-color: #ffffff;
 }
 
-/* 酒店内容区域 */
 .hotels-content {
     padding: 0 3rem;
     max-width: 1536px;
     margin: 0 auto;
 }
 
-/* 区域标题 */
 .section-title {
     font-family: 'Wensley', sans-serif;
     font-size: 26px;
@@ -1006,7 +1020,6 @@ a.hero-button:hover {
     line-height: 100%;
 }
 
-/* 酒店卡片网格 */
 .hotels-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1020,7 +1033,6 @@ a.hero-button:hover {
     }
 }
 
-/* 酒店卡片 */
 .hotel-card {
     background-color: #f0f0f0;
     overflow: hidden;
@@ -1031,7 +1043,6 @@ a.hero-button:hover {
     background-color: #e5e5e5;
 }
 
-/* 酒店图片 */
 .hotel-image {
     width: 100%;
     aspect-ratio: 16/10;
@@ -1039,7 +1050,6 @@ a.hero-button:hover {
     display: block;
 }
 
-/* 酒店信息区域 */
 .hotel-info {
     display: flex;
     align-items: flex-start;
@@ -1047,7 +1057,6 @@ a.hero-button:hover {
     padding: 1.25rem;
 }
 
-/* 酒店图标 */
 .hotel-icon {
     font-size: 1.5rem;
     color: #666;
@@ -1055,12 +1064,10 @@ a.hero-button:hover {
     margin-top: 0.125rem;
 }
 
-/* 酒店详情 */
 .hotel-details {
     flex: 1;
 }
 
-/* 酒店名称 */
 .hotel-name {
     font-family: 'Wensley', sans-serif;
     font-size: 20px;
@@ -1083,23 +1090,23 @@ a.hero-button:hover {
 }
 
 /* ========================================
-   7. 全球推荐目的�?
+   7. 
    ======================================== */
 
-/* 目的地区域容�?*/
+/* Destination Area Container*/
 .destinations-section {
     padding: 4rem 0;
     background-color: #ffffff;
 }
 
-/* 目的地内容区�?*/
+/* Destination Content Area*/
 .destinations-content {
     padding: 0 3rem;
     max-width: 1536px;
     margin: 0 auto;
 }
 
-/* 目的地卡片网�?- 4列布局 */
+/* Destination Card Grid- 4 */
 .destinations-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1113,7 +1120,7 @@ a.hero-button:hover {
     }
 }
 
-/* 目的地卡�?*/
+/* Destination Card*/
 .destination-card {
     position: relative;
     aspect-ratio: 3 / 4;
@@ -1121,7 +1128,7 @@ a.hero-button:hover {
     cursor: pointer;
 }
 
-/* 目的地图�?*/
+/* Destination Image*/
 .destination-image {
     width: 100%;
     height: 100%;
@@ -1130,12 +1137,12 @@ a.hero-button:hover {
     transition: transform 0.5s ease;
 }
 
-/* 悬停时图片放�?*/
+/* Destination Card */
 .destination-card:hover .destination-image {
     transform: scale(1.08);
 }
 
-/* 覆盖在图片上的文�?*/
+/* Overlay On Image*/
 .destination-overlay-text {
     position: absolute;
     top: 1rem;
@@ -1152,23 +1159,21 @@ a.hero-button:hover {
 }
 
 /* ========================================
-   8. 激动人心的假期 & 真实可靠的交�?
+   8.  & 
    ======================================== */
 
-/* 促销区域容器 */
 .promo-section {
     padding: 4rem 0;
     background-color: #ffffff;
 }
 
-/* 促销内容区域 */
 .promo-content {
     padding: 0 3rem;
     max-width: 1536px;
     margin: 0 auto;
 }
 
-/* 促销卡片网格 - 3列布局 */
+/*  - 3 */
 .promo-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -1182,7 +1187,6 @@ a.hero-button:hover {
     }
 }
 
-/* 新促销卡片 */
 .promo-card-new {
     background-color: #f5f5f5;
     overflow: hidden;
@@ -1201,13 +1205,11 @@ a.hero-button:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* 卡片图片容器 */
 .promo-card-image-wrapper {
     position: relative;
     overflow: hidden;
 }
 
-/* 卡片图片 */
 .promo-card-image {
     width: 100%;
     aspect-ratio: 16 / 10;
@@ -1216,7 +1218,6 @@ a.hero-button:hover {
     object-position: center;
 }
 
-/* 免费住宿标签 */
 .promo-tag {
     position: absolute;
     top: 0.75rem;
@@ -1229,12 +1230,10 @@ a.hero-button:hover {
     border-radius: 0.25rem;
 }
 
-/* 卡片信息区域 */
 .promo-card-info {
     padding: 1.25rem;
 }
 
-/* 卡片副标题（酒店名） */
 .promo-card-subtitle {
     font-family: 'Lato new', sans-serif;
     font-size: 12px;
@@ -1246,7 +1245,6 @@ a.hero-button:hover {
     line-height: 100%;
 }
 
-/* 卡片标题 */
 .promo-card-title {
     font-family: 'Wensley', sans-serif;
     font-size: 20px;
@@ -1258,7 +1256,6 @@ a.hero-button:hover {
     text-transform: none;
 }
 
-/* 卡片日期 */
 .promo-card-date {
     font-family: 'Lato new', sans-serif;
     font-size: 15px;
@@ -1267,20 +1264,17 @@ a.hero-button:hover {
     line-height: 170%;
 }
 
-/* 特惠区域容器 */
 .promotions-section {
     padding: 6rem 0;
     background-color: #ffffff;
 }
 
-/* 特惠内容区域 */
 .promotions-content {
     padding: 0 3rem;
     max-width: 1536px;
     margin: 0 auto;
 }
 
-/* 特惠标题区域 */
 .promotions-header {
     display: flex;
     justify-content: space-between;
@@ -1288,13 +1282,12 @@ a.hero-button:hover {
     margin-bottom: 4rem;
 }
 
-/* 特惠主标�?*/
+/* Promo Main Title*/
 .promotions-title {
     font-size: 2.25rem;
     font-weight: 300;
 }
 
-/* 限时优惠标签 */
 .promotions-badge {
     color: #d5c4a8;
     background-color: #0f1f30;
@@ -1306,28 +1299,24 @@ a.hero-button:hover {
     border-radius: 0.25rem;
 }
 
-/* 特惠卡片网格 */
 .promotions-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
 }
 
-/* 平板端两列布局 */
 @media (min-width: 768px) {
     .promotions-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* 桌面端四列布局 */
 @media (min-width: 1024px) {
     .promotions-grid {
         grid-template-columns: repeat(4, 1fr);
     }
 }
 
-/* 特惠卡片 */
 .promo-card {
     background-color: #f9fafb;
     padding: 1.5rem;
@@ -1337,7 +1326,6 @@ a.hero-button:hover {
     border-radius: 0.5rem;
 }
 
-/* 特惠图片容器 */
 .promo-image-wrapper {
     position: relative;
     overflow: hidden;
@@ -1345,7 +1333,6 @@ a.hero-button:hover {
     border-radius: 0.5rem;
 }
 
-/* 特惠图片 */
 .promo-image {
     width: 100%;
     height: 100%;
@@ -1353,12 +1340,11 @@ a.hero-button:hover {
     transition: transform 0.5s ease;
 }
 
-/* 特惠卡片悬停时图片放�?*/
+/* Promo Card */
 .promo-card:hover .promo-image {
     transform: scale(1.05);
 }
 
-/* 特惠标签 */
 .promo-tag {
     position: absolute;
     top: 1rem;
@@ -1373,19 +1359,16 @@ a.hero-button:hover {
     border-radius: 0.25rem;
 }
 
-/* 特惠酒店名称 */
 .promo-hotel-name {
     font-size: 1.25rem;
     font-weight: 300;
 }
 
-/* 特惠描述 */
 .promo-description {
     font-size: 0.875rem;
     color: #44474c;
 }
 
-/* 特惠详情链接 */
 .promo-link {
     font-size: 0.75rem;
     font-family: 'Work Sans', sans-serif;
@@ -1396,16 +1379,14 @@ a.hero-button:hover {
     display: inline-block;
 }
 
-/* 特惠链接悬停效果 */
 .promo-link:hover {
     text-decoration: underline;
 }
 
 /* ========================================
-   9. 合作伙伴样式
+   9. 
    ======================================== */
 
-/* 合作伙伴区域容器 */
 .partners-section {
     padding: 6rem 0;
     background-color: #ffffff;
@@ -1413,55 +1394,48 @@ a.hero-button:hover {
     border-bottom: 1px solid #f3f4f6;
 }
 
-/* 合作伙伴内容区域 */
 .partners-content {
     padding: 0 3rem;
     max-width: 1536px;
     margin: 0 auto;
 }
 
-/* 合作伙伴标题区域 */
 .partners-header {
     text-align: center;
     margin-bottom: 4rem;
 }
 
-/* 合作伙伴主标�?*/
+/* Partners Main Title*/
 .partners-title {
     font-size: 1.875rem;
     font-weight: 300;
     margin-bottom: 1rem;
 }
 
-/* 合作伙伴描述 */
 .partners-description {
     max-width: 42rem;
     margin: 0 auto;
     color: #44474c;
 }
 
-/* 合作伙伴网格 */
 .partners-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
 }
 
-/* 平板端三列布局 */
 @media (min-width: 768px) {
     .partners-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* 桌面端四列布局 */
 @media (min-width: 1024px) {
     .partners-grid {
         grid-template-columns: repeat(4, 1fr);
     }
 }
 
-/* 合作伙伴卡片 */
 .partner-card {
     background-color: #f9fafb;
     padding: 1.5rem;
@@ -1471,12 +1445,10 @@ a.hero-button:hover {
     cursor: pointer;
 }
 
-/* 合作伙伴卡片悬停效果 */
 .partner-card:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* 合作伙伴名称 */
 .partner-name {
     font-family: 'Noto Serif', serif;
     font-weight: 700;
@@ -1485,22 +1457,20 @@ a.hero-button:hover {
     transition: color 0.3s ease;
 }
 
-/* 合作伙伴卡片悬停时名称变�?*/
+/* .partner-card Styles */
 .partner-card:hover .partner-name {
     color: #695d45;
 }
 
-/* 合作伙伴描述 */
 .partner-description {
     font-size: 0.75rem;
     color: #44474c;
 }
 
 /* ========================================
-   10. 页脚样式
+   10. 
    ======================================== */
 
-/* 页脚容器 */
 .footer {
     background-color: #ffffff;
     width: 100%;
@@ -1508,7 +1478,6 @@ a.hero-button:hover {
     padding-bottom: 2.5rem;
 }
 
-/* 页脚内容区域 */
 .footer-content {
     display: grid;
     grid-template-columns: 1fr;
@@ -1518,19 +1487,17 @@ a.hero-button:hover {
     margin: 0 auto;
 }
 
-/* 平板端四列布局 */
 @media (min-width: 768px) {
     .footer-content {
         grid-template-columns: repeat(4, 1fr);
     }
 }
 
-/* 页脚品牌区域 */
 .footer-brand {
     grid-column: span 1;
 }
 
-/* 页脚 Logo */
+/*  Logo */
 .footer-logo-img {
     height: 3rem;
     width: auto;
@@ -1538,7 +1505,6 @@ a.hero-button:hover {
     margin-bottom: 1rem;
 }
 
-/* 页脚品牌描述 */
 .footer-brand-description {
     color: var(--dim-grey);
     font-size: 0.875rem;
@@ -1560,7 +1526,6 @@ a.hero-button:hover {
     gap: 1rem;
 }
 
-/* 页脚社交链接 */
 .footer-social-link {
     width: 2.5rem;
     height: 2.5rem;
@@ -1578,12 +1543,11 @@ a.hero-button:hover {
     border-color: var(--off-black);
 }
 
-/* 页脚社交链接图标 */
 .footer-social-link .material-symbols-outlined {
     font-size: 1.125rem;
 }
 
-/* 页脚列标�?*/
+/* Footer Column Title*/
 .footer-column-title {
     font-family: 'Wensley', sans-serif;
     font-size: 16px;
@@ -1594,7 +1558,7 @@ a.hero-button:hover {
     margin-bottom: 2rem;
 }
 
-/* 页脚小标�?*/
+/* Footer Subtitle*/
 .footer-header {
     grid-column: 1 / -1;
     margin-bottom: 2rem;
@@ -1610,19 +1574,19 @@ a.hero-button:hover {
     margin: 0;
 }
 
-/* 页脚链接列表 */
+/* Footer Link */
 .footer-links {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-/* 页脚链接�?*/
+/* Footer Link*/
 .footer-link-item {
     margin-bottom: 1rem;
 }
 
-/* 页脚链接 */
+/* Footer Link */
 .footer-link {
     color: var(--off-black);
     font-size: 14px;
@@ -1631,12 +1595,12 @@ a.hero-button:hover {
     transition: all 0.25s ease;
 }
 
-/* 页脚链接悬停效果 */
+/* Footer Link */
 .footer-link:hover {
     color: var(--off-black);
 }
 
-/* 页脚联系信息�?*/
+/* Footer Contact Info*/
 .footer-contact-item {
     display: flex;
     align-items: center;
@@ -1648,7 +1612,7 @@ a.hero-button:hover {
     margin-bottom: 1rem;
 }
 
-/* 页脚联系信息项（带顶部对齐） */
+/* Footer Contact Info */
 .footer-contact-item-top {
     display: flex;
     align-items: flex-start;
@@ -1660,7 +1624,7 @@ a.hero-button:hover {
     margin-bottom: 1rem;
 }
 
-/* 页脚联系信息图标 */
+/* Footer Contact Info */
 .footer-contact-icon {
     font-size: 0.875rem;
     margin-top: 0.125rem;
@@ -1688,7 +1652,6 @@ a.hero-button:hover {
     text-decoration: underline;
 }
 
-/* 页脚版权区域 */
 .footer-copyright {
     padding: 0 3rem;
     max-width: 1536px;
@@ -1703,14 +1666,12 @@ a.hero-button:hover {
     gap: 1rem;
 }
 
-/* 桌面端版权区域横向布局 */
 @media (min-width: 768px) {
     .footer-copyright {
         flex-direction: row;
     }
 }
 
-/* 版权文字 */
 .footer-copyright-text {
     font-family: 'Lato new', sans-serif;
     font-size: 0.75rem;
@@ -1719,13 +1680,11 @@ a.hero-button:hover {
     color: var(--dim-grey);
 }
 
-/* 版权链接容器 */
 .footer-copyright-links {
     display: flex;
     gap: 2rem;
 }
 
-/* 版权链接 */
 .footer-copyright-link {
     font-size: 0.75rem;
     font-family: 'Lato new', sans-serif;
@@ -1733,16 +1692,15 @@ a.hero-button:hover {
     transition: color 0.3s ease;
 }
 
-/* 版权链接悬停效果 */
 .footer-copyright-link:hover {
     color: var(--off-black);
 }
 
 /* ========================================
-   11. 动画效果
+   11. 
    ======================================== */
 
-/* 弹跳动画 - 用于滚动指示�?*/
+/* Bounce Animation - */
 @keyframes bounce {
     0%, 100% {
         transform: translateY(0) translateX(-50%);
@@ -1752,7 +1710,7 @@ a.hero-button:hover {
     }
 }
 
-/* 淡入动画 */
+/* Fade In Animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -1764,17 +1722,17 @@ a.hero-button:hover {
     }
 }
 
-/* 淡入动画�?*/
+/* Fade In Animation*/
 .animate-fade-in {
     animation: fadeIn 0.6s ease-out forwards;
 }
 
 /* ========================================
-   12. 移动端响应式适配
+   12. Mobile
    ======================================== */
 
 @media (max-width: 767px) {
-    /* 导航栏移动端适配 */
+    /* Mobile */
     .nav-content {
         padding: 1rem 1.25rem;
     }
@@ -1788,35 +1746,35 @@ a.hero-button:hover {
         font-size: 1.125rem;
     }
     
-    /* 移动端隐藏桌面端导航链接 */
+    /* MobileNavigation Links */
     .nav-links {
         display: none !important;
     }
     
-    /* 移动�?nav-right 样式 */
+    /* nav-right  */
     .nav-right {
         display: flex;
         align-items: center;
         gap: 0.5rem;
     }
     
-    /* 移动端隐藏语言切换和联系我们按�?*/
+    /* MobileLanguage SwitcherContact Us Button*/
     .nav-right .lang-switcher,
     .nav-right .nav-button {
         display: none;
     }
     
-    /* 移动端显示汉堡菜单按�?*/
+    /* Mobile Hamburger Menu Button */
     .mobile-menu-btn {
         display: flex;
     }
     
-    /* 移动端显示菜单面�?*/
+    /* Mobile Menu Surface */
     .mobile-menu {
         display: block;
     }
     
-    /* Hero区域移动端适配 */
+    /* HeroMobile */
     .hero-section {
         min-height: 600px;
         padding: 1rem;
@@ -1834,25 +1792,30 @@ a.hero-button:hover {
     .hero-subtitle {
         font-size: 1rem;
         letter-spacing: 0.15em;
-        margin-bottom: 1rem;
-        margin-top: 0;
+        margin-top: 5rem;
+        margin-bottom: 0;
+        text-align: center;
     }
     
     .hero-title {
         font-size: 1.5rem;
-        margin-bottom: 0.75rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
         line-height: 1.2 !important;
-        letter-spacing: 0.2em;
+        letter-spacing: 0.1em;
+        text-align: center;
     }
     
     .hero-heroSubtitle {
         font-size: 1rem;
-        margin-bottom: 1rem;
+        margin-bottom: 0;
     }
     
     .hero-description {
         font-size: 0.75rem;
-        margin-bottom: 1.5rem;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 0;
     }
     
     .hero-content .hero-button {
@@ -1862,10 +1825,11 @@ a.hero-button:hover {
         color: #ffffff;
         border: 2px solid #ffffff;
         box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
-        margin-top: 10rem;
+        margin-top: 5rem;
+        margin-bottom: 0;
     }
     
-    /* 权益区域移动端适配 */
+    /* Mobile */
     .benefits-section {
         padding: 3rem 0;
     }
@@ -1880,7 +1844,7 @@ a.hero-button:hover {
     
     .benefits-description {
         font-size: 1.25rem;
-        font-weight: 700;
+        font-weight: 400;
     }
     
     .benefits-grid {
@@ -1927,7 +1891,7 @@ a.hero-button:hover {
         font-size: 0.8125rem;
     }
     
-    /* 酒店列表移动端适配 */
+    /* Mobile */
     .hotels-section {
         padding: 3rem 0;
     }
@@ -1961,7 +1925,7 @@ a.hero-button:hover {
         font-size: 0.65rem;
     }
     
-    /* 目的地列表移动端适配 */
+    /* Mobile */
     .destinations-section {
         padding: 3rem 0;
     }
@@ -1980,7 +1944,7 @@ a.hero-button:hover {
         left: 0.75rem;
     }
     
-    /* 促销卡片移动端适配 */
+    /* Mobile */
     .promo-section {
         padding: 3rem 0;
     }
@@ -2016,7 +1980,7 @@ a.hero-button:hover {
         font-size: 0.75rem;
     }
     
-    /* 页脚移动端适配 */
+    /* Mobile */
     .footer {
         padding: 3rem 0 0;
     }
@@ -2086,7 +2050,7 @@ a.hero-button:hover {
 }
 }
 
-/* 平板端适配 (768px - 1024px) */
+/*  (768px - 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
     .nav-right {
         gap: 1rem;
@@ -2100,7 +2064,7 @@ a.hero-button:hover {
     .hero-title {
         font-size: 2rem;
         line-height: 1.2 !important;
-        letter-spacing: 0.2em;
+        letter-spacing: 0.1em;
     }
     
     .benefits-grid {
@@ -2121,7 +2085,7 @@ a.hero-button:hover {
     .hero-title {
         font-size: 2.25rem;
         line-height: 1.2 !important;
-        letter-spacing: 0.2em;
+        letter-spacing: 0.1em;
     }
 
     .hero-subtitle {
@@ -2153,27 +2117,28 @@ a.hero-button:hover {
 
     .hero-title {
         font-size: 2.25rem;
-        margin-bottom: 1.5rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
         line-height: 1.2 !important;
-        letter-spacing: 0.2em;
+        letter-spacing: 0.1em;
     }
 
     .hero-subtitle {
         font-size: 0.75rem;
         letter-spacing: 0.1em;
         color: #ffffff;
-        margin-bottom: 1rem;
-        margin-top: 0;
+        margin-bottom: 0;
+        margin-top: 10rem;
         display: block;
     }
-
+    
     .hero-description {
         font-size: 0.75rem;
         white-space: normal;
         width: 100%;
         text-align: center;
         color: #ffffff;
-        margin-bottom: 1.5rem;
+        margin-bottom: 0;
     }
     
     .hero-text-wrapper {
@@ -2186,7 +2151,7 @@ a.hero-button:hover {
         color: #ffffff;
         border: 2px solid #ffffff;
         box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
-        margin-top: 10rem;
+        margin-top: 5rem;
     }
 
     .benefits-title {
@@ -2195,11 +2160,7 @@ a.hero-button:hover {
 
     .benefits-description {
         font-size: 1.25rem;
-        font-weight: 700;
-    }
-
-    .benefit-card-title {
-        font-size: 1.125rem;
+        font-weight: 400;
     }
 
     .benefit-icon-wrapper {
@@ -2238,10 +2199,9 @@ a.hero-button:hover {
 }
 
 /* ========================================
-   13. 工具�?
+   13. Tools
    ======================================== */
 
-/* 两行文本截断 */
 .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -2249,7 +2209,6 @@ a.hero-button:hover {
     overflow: hidden;
 }
 
-/* 三行文本截断 */
 .line-clamp-3 {
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -2257,12 +2216,10 @@ a.hero-button:hover {
     overflow: hidden;
 }
 
-/* 图片悬停缩放容器 */
 .img-hover-zoom {
     overflow: hidden;
 }
 
-/* 图片悬停缩放效果 */
 .img-hover-zoom img {
     transition: transform 0.7s ease;
 }
@@ -2271,18 +2228,18 @@ a.hero-button:hover {
     transform: scale(1.05);
 }
 
-/* 渐变遮罩�?*/
+/* .gradient-overlay Styles */
 .gradient-overlay {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent, transparent);
 }
 
 /* ========================================
-   14. 联系我们页面样式
+   14. Contact
    ======================================== */
 
-/* 酒店详情页样�?*/
+/* Hotel Detail Page Style*/
 
-/* Hero 区域 - 全宽图片 + 渐变遮罩 */
+/* Hero Section -  +  */
 .hotel-detail-hero {
     position: relative;
     width: 100%;
@@ -2325,7 +2282,7 @@ a.hero-button:hover {
 }
 
 /* ========================================
-   15. 隐私政策和服务条款页�?
+   15. 
    ======================================== */
 
 .privacy-section,
@@ -2412,7 +2369,7 @@ a.hero-button:hover {
     margin-bottom: 0.5rem;
 }
 
-/* 响应式设�?*/
+/* Privacy/Terms Responsive */
 @media (max-width: 768px) {
     .privacy-section,
     .terms-section {
@@ -2440,9 +2397,9 @@ a.hero-button:hover {
     }
 }
 
-/* 酒店详情页样�?*/
+/* Hotel Detail Page Style*/
 
-/* Hero 区域 - 全宽图片 + 渐变遮罩 */
+/* Hero Section -  +  */
 .hotel-detail-hero {
     position: relative;
     width: 100%;
@@ -2507,7 +2464,6 @@ a.hero-button:hover {
     line-height: 1.6;
 }
 
-/* 酒店介绍区域 */
 .hotel-intro-section {
     padding: 6rem 0;
     background-color: #ffffff;
@@ -2686,7 +2642,6 @@ a.hero-button:hover {
     border: 8px solid #ffffff;
 }
 
-/* 酒店权益特色区域 */
 .hotel-features-section {
     padding: 6rem 0;
     background-color: #f7f3f0;
@@ -2788,7 +2743,7 @@ a.hero-button:hover {
     color: rgba(255,255,255,0.8);
 }
 
-/* 酒店设施与服�?*/
+/* Hotel Facilities And Services*/
 .hotel-services-section {
     padding: 6rem 0;
     background-color: #ffffff;
@@ -3051,7 +3006,6 @@ a.hero-button:hover {
     border-radius: 1rem;
 }
 
-/* 图片画廊 */
 .gallery-section {
     padding: 6rem 0;
     background-color: #1c1b1a;
@@ -3146,7 +3100,6 @@ a.hero-button:hover {
     color: #ffffff;
 }
 
-/* 返回按钮 */
 .hotel-back-section {
     padding: 4rem 0;
     background-color: #ffffff;
@@ -3184,7 +3137,7 @@ a.hero-button:hover {
     transform: translateX(-4px);
 }
 
-/* 酒店详情页移动端适配 */
+/* Mobile */
 @media (max-width: 767px) {
     .hotel-detail-hero {
         height: 55vh;
@@ -3513,7 +3466,7 @@ a.hero-button:hover {
 }
 
 /* ========================================
-   15. 权益详情页样�?
+   15. Benefits Detail Page Style
    ======================================== */
 
 .benefits-hero-section {
@@ -3632,7 +3585,7 @@ a.hero-button:hover {
     margin-bottom: 3rem;
 }
 
-/* ====== 交易逻辑流程�?====== */
+/* ====== Transaction Logic Flow====== */
 .benefits-logic-section {
     padding: 6rem 0;
     background-color: #f5f6fa;
@@ -3832,7 +3785,7 @@ html[lang="ja"] .logic-circle-text-en {
     transform: translateX(-50%);
 }
 
-/* ====== RCI全球网络�?====== */
+/* ====== RCI Global Network====== */
 .benefits-rci-section {
     padding: 6rem 0;
     background: linear-gradient(180deg, #f5f6fa 0%, #e8ecf4 100%);
@@ -4060,7 +4013,7 @@ html[lang="ja"] .logic-circle-text-en {
     }
 }
 
-/* ====== 历史时间�?====== */
+/* ====== ====== */
 .benefits-history-section {
     padding: 6rem 0;
     background-color: #f8f9ff;
@@ -4130,7 +4083,7 @@ html[lang="ja"] .logic-circle-text-en {
     line-height: 1.5;
 }
 
-/* ====== 品牌矩阵 ====== */
+/* ======  ====== */
 .benefits-partners-section {
     padding: 6rem 0;
     background-color: #0d1c2f;
@@ -4223,7 +4176,7 @@ html[lang="ja"] .logic-circle-text-en {
     box-shadow: 0 8px 24px rgba(201, 169, 110, 0.4);
 }
 
-/* ====== 六大主题画廊 ====== */
+/* ======  ====== */
 .benefits-themes-section {
     padding: 6rem 0;
     background-color: #fafafc;
@@ -4307,7 +4260,7 @@ html[lang="ja"] .logic-circle-text-en {
     letter-spacing: 0.03em;
 }
 
-/* ====== 通用滚动动画 ====== */
+/* ======  ====== */
 .scroll-animate {
     opacity: 0;
     transform: translateY(30px);
@@ -4359,7 +4312,7 @@ html[lang="ja"] .logic-circle-text-en {
 .scroll-animate-delay-5 { transition-delay: 0.5s; }
 .scroll-animate-delay-6 { transition-delay: 0.6s; }
 
-/* ====== 动画 ====== */
+/* ======  ====== */
 .benefits-animate {
     opacity: 0;
     transform: translateY(30px);
@@ -4400,7 +4353,7 @@ html[lang="ja"] .logic-circle-text-en {
 .benefits-timeline-item:nth-child(5) { transition-delay: 0.3s; }
 .benefits-timeline-item:nth-child(6) { transition-delay: 0.35s; }
 
-/* ====== 移动端适配 ====== */
+/* ====== Mobile ====== */
 @media (max-width: 767px) {
     .benefits-hero-section {
         height: 55vh;
@@ -4622,7 +4575,7 @@ html[lang="ja"] .logic-circle-text-en {
 }
 
 /* ========================================
-   16. 酒店列表页样�?
+   16. Hotel List Page Style
    ======================================== */
 
 .hotel-list-hero {
@@ -4827,7 +4780,7 @@ html[lang="ja"] .logic-circle-text-en {
     }
 }
 
-/* 联系页面主体 */
+/* Contact */
 .contact-page {
     min-height: calc(100vh - 200px);
     display: flex;
@@ -4837,20 +4790,20 @@ html[lang="ja"] .logic-circle-text-en {
     background-color: #ffffff;
 }
 
-/* 联系页面容器 */
+/* Contact */
 .contact-container {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
 }
 
-/* 联系页面头部 */
+/* Contact */
 .contact-header {
     text-align: center;
     margin-bottom: 3rem;
 }
 
-/* 联系页面标题 */
+/* Contact */
 .contact-title {
     font-family: 'PT Serif', serif;
     font-size: 2.5rem;
@@ -4859,20 +4812,20 @@ html[lang="ja"] .logic-circle-text-en {
     margin-bottom: 0.75rem;
 }
 
-/* 联系页面副标�?*/
+/* Contact Page Subtitle*/
 .contact-subtitle {
     font-size: 1rem;
     color: #64748b;
 }
 
-/* 联系卡片容器 */
+/* Contact */
 .contact-cards {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-/* 联系卡片 */
+/* Contact */
 .contact-card {
     display: flex;
     align-items: center;
@@ -4891,7 +4844,7 @@ html[lang="ja"] .logic-circle-text-en {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* 联系图标 */
+/* Contact */
 .contact-icon {
     width: 3.5rem;
     height: 3.5rem;
@@ -4911,24 +4864,23 @@ html[lang="ja"] .logic-circle-text-en {
     font-size: 2rem;
 }
 
-/* WhatsApp 图标样式 */
+/* WhatsApp  */
 .whatsapp-icon {
     background-color: #25D366;
     color: #ffffff;
 }
 
-/* 邮箱图标样式 */
 .email-icon {
     background-color: #0f1f30;
     color: #ffffff;
 }
 
-/* 联系信息 */
+/* Contact */
 .contact-info {
     flex: 1;
 }
 
-/* 联系标签 */
+/* Contact */
 .contact-label {
     font-family: 'PT Serif', serif;
     font-size: 1.125rem;
@@ -4937,13 +4889,13 @@ html[lang="ja"] .logic-circle-text-en {
     margin-bottom: 0.25rem;
 }
 
-/* 联系�?*/
+/* Contact*/
 .contact-value {
     font-size: 0.875rem;
     color: #64748b;
 }
 
-/* 联系箭头 */
+/* Contact */
 .contact-arrow {
     color: #94a3b8;
     font-size: 1.25rem;
@@ -4955,7 +4907,7 @@ html[lang="ja"] .logic-circle-text-en {
     color: #0f1f30;
 }
 
-/* 联系页面底部 */
+/* Contact */
 .contact-footer {
     text-align: center;
     margin-top: 3rem;
@@ -4966,7 +4918,7 @@ html[lang="ja"] .logic-circle-text-en {
     color: #94a3b8;
 }
 
-/* 联系页面移动端适配 */
+/* ContactMobile */
 @media (max-width: 767px) {
     .contact-page {
         padding: 2rem 1rem;
@@ -4994,7 +4946,7 @@ html[lang="ja"] .logic-circle-text-en {
     }
 }
 
-/* ====== FAQ页面样式 ====== */
+/* ====== FAQ ====== */
 .faq-hero-section {
     padding: 8rem 2rem 6rem;
     text-align: center;
@@ -5233,7 +5185,7 @@ html[lang="ja"] .logic-circle-text-en {
     box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
 }
 
-/* ====== FAQ移动端适配 ====== */
+/* ====== FAQMobile ====== */
 @media (max-width: 767px) {
     .faq-hero-section {
         padding: 6rem 1rem 4rem;
@@ -5268,3 +5220,4 @@ html[lang="ja"] .logic-circle-text-en {
         font-size: 2rem;
     }
 }
+
