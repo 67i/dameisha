@@ -17,7 +17,7 @@
     },
     "hero": {
         "subtitle": "Dameisha Bay Yacht Club Resort",
-        "title": "Vacation Club Membership + Complimentary RCI Membership",
+        "title": "<span class=\"hero-title-white\">Vacation Club Membership</span> + Complimentary RCI Membership",
         "description": "Exchange access to 5,000 resorts across 110 countries worldwide",
         "button": "Discover Resort Details"
     },
@@ -70,6 +70,14 @@
         "reliableTitle": "Reliable Exchanges",
         "exchangeConfirm": "Exchange Confirmation",
         "memberAccount": "Member Account",
+        "goldCrown": "Gold Crown Partner",
+        "goldCrownSubtitle": "Dameisha Bay Yacht Club Resort",
+        "goldCrownTitle": "RCI Authorized Gold Crown Partner Hotel",
+        "goldCrownDate": "2026 RCI Official Authorization",
+        "exchangeSample": "Exchange Sample",
+        "exchangeSampleSubtitle": "RCI Exchange Confirmation",
+        "exchangeSampleTitle": "RCI Exchange Confirmation - Sample",
+        "exchangeSampleDate": "Real Exchange Confirmation Cases",
         "card1Subtitle": "The Manhattan Club",
         "card1Title": "RCI Exchange Confirmation - The Manhattan Club",
         "card1Date": "September 2026 Exchange",

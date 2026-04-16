@@ -220,6 +220,13 @@
             }
             document.getElementById('exchangeGallery').innerHTML = galleryHtml;
 
+            var gallerySection = document.querySelector('.vacation-gallery-section');
+            if (exchange.hideGallery || galleryImages.length === 0) {
+                gallerySection.style.display = 'none';
+            } else {
+                gallerySection.style.display = '';
+            }
+
             initLightbox();
 
             var siteName = lang === 'zh' ? '换享星球' : lang === 'en' ? 'Huanxiang Planet' : lang === 'ko' ? '환상 행성' : 'ファンタジープラネット';

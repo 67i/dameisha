@@ -1,4 +1,86 @@
 {
+    "gold-crown": {
+        "id": "gold-crown",
+        "cover": "./assets/exchange-showcase/gold-crown.jpg",
+        "hideGallery": true,
+        "i18n": {
+            "zh": {
+                "title": "RCI授权深圳大梅沙湾游艇 - 金冠级合作酒店",
+                "description": "2026年RCI正式授权深圳大梅沙湾游艇成为全球网络金冠级合作酒店",
+                "introTitle": "RCI授权金冠级合作酒店",
+                "introP1": "2026年，RCI正式授权深圳大梅沙湾游艇俱乐部度假村（Shenzhen Dameisha Bay Yacht Club & Resort）成为其全球网络中的金冠级合作酒店。这是RCI对酒店品质和服务的高度认可，标志着大梅沙湾游艇俱乐部正式跻身全球顶级度假村行列。",
+                "introP2": "金冠级（Gold Crown）是RCI对其合作酒店的最高评级，代表着卓越的设施、优质的服务和非凡的度假体验。作为金冠级合作伙伴，大梅沙湾游艇俱乐部将为会员提供世界一流的度假服务。"
+            },
+            "en": {
+                "title": "RCI Authorized Gold Crown Partner Hotel",
+                "description": "In 2026, RCI officially authorized Shenzhen Dameisha Bay Yacht Club & Resort as a Gold Crown-level Partner Hotel",
+                "introTitle": "RCI Authorized Gold Crown Partner Hotel",
+                "introP1": "In 2026, RCI officially authorized Shenzhen Dameisha Bay Yacht Club & Resort as a Gold Crown-level Partner Hotel in its global network. This represents RCI's highest recognition of the hotel's quality and service, marking Dameisha Bay Yacht Club's entry into the ranks of the world's top resorts.",
+                "introP2": "Gold Crown is RCI's highest rating for its partner hotels, representing excellent facilities, quality service, and extraordinary vacation experiences. As a Gold Crown partner, Dameisha Bay Yacht Club will provide members with world-class vacation services."
+            },
+            "ko": {
+                "title": "RCI 공인 골드 크라운 파트너 호텔",
+                "description": "2026년 RCI가 공식적으로 선전 다메이샤 만 요트 클럽을 골드 크라운 레벨 파트너 호텔로 승인",
+                "introTitle": "RCI 공인 골드 크라운 파트너 호텔",
+                "introP1": "2026년, RCI는 공식적으로 선전 다메이샤 만 요트 클럽 & 리조트를 글로벌 네트워크의 골드 크라운 레벨 파트너 호텔로 승인했습니다.",
+                "introP2": "골드 크라운은 RCI가 파트너 호텔에 부여하는 최고 등급으로, 우수한 시설과 양질의 서비스, 특별한 휴가 경험을 의미합니다."
+            },
+            "ja": {
+                "title": "RCI認定ゴールドクラウンパートナーホテル",
+                "description": "2026年、RCIが正式に深圳大梅沙湾ヨットクラブをゴールドクラウンパートナーホテルとして認定",
+                "introTitle": "RCI認定ゴールドクラウンパートナーホテル",
+                "introP1": "2026年、RCIは正式に深圳大梅沙湾ヨットクラブ＆リゾートをグローバルネットワークのゴールドクラウンパートナーホテルとして認定しました。",
+                "introP2": "ゴールドクラウンはRCIがパートナーホテルに与える最高評価であり、優れた施設、質の高いサービス、特別なバケーション体験を表しています。"
+            }
+        },
+        "gallery": [
+            "./assets/exchange-showcase/gold-crown/1.jpg"
+        ]
+    },
+    "exchange-sample": {
+        "id": "exchange-sample",
+        "cover": "./assets/exchange-showcase/exchange-sample.jpg",
+        "i18n": {
+            "zh": {
+                "title": "RCI交换确认函-案例",
+                "description": "真实的RCI交换确认函案例展示",
+                "introTitle": "RCI交换确认函案例",
+                "introP1": "以下是真实的RCI交换确认函案例，展示了通过RCI平台成功交换入住全球顶级度假酒店的完整流程和确认文件。这些确认函详细记录了交换入住的酒店信息、入住时间、房型等关键信息。",
+                "introP2": "通过这些真实的案例，您可以了解RCI交换系统的运作方式，以及会员如何使用自己的度假权益交换入住世界各地的顶级度假村和酒店。"
+            },
+            "en": {
+                "title": "RCI Exchange Confirmation - Sample",
+                "description": "Real RCI Exchange Confirmation Cases",
+                "introTitle": "RCI Exchange Confirmation Cases",
+                "introP1": "The following are real RCI exchange confirmation cases, showing the complete process and confirmation documents for successfully exchanging stays at top global resort hotels through the RCI platform. These confirmations detail hotel information, check-in dates, room types, and other key information.",
+                "introP2": "Through these real cases, you can understand how the RCI exchange system works and how members use their vacation rights to exchange for stays at top resorts and hotels around the world."
+            },
+            "ko": {
+                "title": "RCI 교환 확인서 - 사례",
+                "description": "실제 RCI 교환 확인서 사례",
+                "introTitle": "RCI 교환 확인서 사례",
+                "introP1": "다음은 RCI 플랫폼을 통해 글로벌 최고급 리조트 호텔에 성공적으로 교환한 실제 사례와 확인 문서입니다.",
+                "introP2": "이러한 실제 사례를 통해 RCI 교환 시스템의 작동 방식과 회원이 자신의 휴가 권리를 사용하여 전 세계 최고급 리조트와 호텔에 교환하는 방법을 이해할 수 있습니다."
+            },
+            "ja": {
+                "title": "RCI交換確認書 - 事例",
+                "description": "実際のRCI交換確認書の事例",
+                "introTitle": "RCI交換確認書の事例",
+                "introP1": "以下は、RCIプラットフォームを通じて世界的なトップクラスのリゾートホテルへの滞在を成功裏に交換した実際の事例と確認書類です。",
+                "introP2": "これらの実際の事例を通じて、RCI交換システムの仕組みと、会員が自分のバケーション権利を使用して世界中のトップリゾートやホテルに交換する方法を理解できます。"
+            }
+        },
+        "gallery": [
+            "./assets/exchange-showcase/manhattan-club-confirmation/01.png",
+            "./assets/exchange-showcase/manhattan-club-confirmation/02.png",
+            "./assets/exchange-showcase/manhattan-club-confirmation/03.png",
+            "./assets/exchange-showcase/manhattan-club-confirmation/04.png",
+            "./assets/exchange-showcase/elara-hilton-confirmation/1.png",
+            "./assets/exchange-showcase/elara-hilton-confirmation/2.png",
+            "./assets/exchange-showcase/elara-hilton-confirmation/3.png",
+            "./assets/exchange-showcase/elara-hilton-confirmation/4.png"
+        ]
+    },
     "manhattan-club": {
         "id": "manhattan-club",
         "cover": "./assets/exchange-showcase/rci-confirmation-1.png",

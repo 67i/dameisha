@@ -132,6 +132,14 @@
             <div class="benefits-rci-content benefits-animate">
                 <div class="rci-world-wrap">
                     <div class="rci-header-box" data-i18n="benefitsDetail.rciTopBar">大梅沙湾游艇会度假酒店</div>
+                    <div class="hotel-theme-gallery">
+                        <div class="hotel-theme-item">
+                            <img src="./assets/hotel-themes/hotel-theme-01.png" alt="Hotel Theme 1" class="hotel-theme-img" onclick="openImageModal(this)">
+                        </div>
+                        <div class="hotel-theme-item">
+                            <img src="./assets/hotel-themes/hotel-theme-02.jpg" alt="Hotel Theme 2" class="hotel-theme-img" onclick="openImageModal(this)">
+                        </div>
+                    </div>
                     <div class="rci-arrow-down">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 16l-5-5h10l-5 5zm0-14L2 11l10 9 10-9z" />
@@ -357,6 +365,28 @@
     <script src="./js/scroll-animations.js"></script>
     <script src="./js/cookie-consent.js"></script>
     <script src="./js/common.js"></script>
+    <script>
+    function openImageModal(img) {
+        var overlay = document.createElement('div');
+        overlay.className = 'image-modal-overlay';
+        overlay.onclick = function() { overlay.remove(); };
+        var modalImg = document.createElement('img');
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        overlay.appendChild(modalImg);
+        document.body.appendChild(overlay);
+    }
+
+    function openImageModalByUrl(url) {
+        var overlay = document.createElement('div');
+        overlay.className = 'image-modal-overlay';
+        overlay.onclick = function() { overlay.remove(); };
+        var modalImg = document.createElement('img');
+        modalImg.src = url;
+        overlay.appendChild(modalImg);
+        document.body.appendChild(overlay);
+    }
+    </script>
 </body>
 
 </html>

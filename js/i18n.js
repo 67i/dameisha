@@ -65,6 +65,7 @@ const I18n = {
         elements.forEach(element => {
             const key = element.getAttribute('data-i18n');
             const translation = this.get(key);
+            const allowHtml = element.hasAttribute('data-i18n-html');
             
             if (translation && translation !== key) {
                 if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
@@ -76,14 +77,24 @@ const I18n = {
                 } else if (element.tagName === 'TITLE') {
                     document.title = translation;
                 } else {
-                    if (translation && translation.includes('<br>')) {
-                        const safeHtml = translation
-                            .replace(/&/g, '&amp;')
-                            .replace(/</g, '&lt;')
-                            .replace(/>/g, '&gt;')
-                            .replace(/"/g, '&quot;')
-                            .replace(/'/g, '&#039;')
-                            .replace(/&lt;br&gt;/gi, '<br>');
+                    if (allowHtml || (translation && translation.includes('<br>'))) {
+                        let safeHtml = translation;
+                        if (allowHtml) {
+                            safeHtml = translation
+                                .replace(/&amp;/g, '&')
+                                .replace(/&lt;/g, '<')
+                                .replace(/&gt;/g, '>')
+                                .replace(/&quot;/g, '"')
+                                .replace(/&#039;/g, "'");
+                        } else {
+                            safeHtml = translation
+                                .replace(/&/g, '&amp;')
+                                .replace(/</g, '&lt;')
+                                .replace(/>/g, '&gt;')
+                                .replace(/"/g, '&quot;')
+                                .replace(/'/g, '&#039;')
+                                .replace(/&lt;br&gt;/gi, '<br>');
+                        }
                         element.innerHTML = safeHtml;
                     } else {
                         element.textContent = translation;

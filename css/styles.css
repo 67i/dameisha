@@ -156,6 +156,14 @@ body {
 }
 
 @font-face {
+    font-family: 'Playfairdisplay Variablefont Wght';
+    src: url('../fonts/playfairdisplay/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+    font-weight: 400 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
     font-family: 'Playfair Display';
     src: url('../fonts/playfairdisplay/PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
     font-weight: 400 900;
@@ -652,8 +660,8 @@ h1, h2, h3, .headline-font {
 
 /* Hero 副标�?*/
 .hero-subtitle {
-    font-family: 'Wensley', sans-serif;
-    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Helvetica Now', 'Helvetica', sans-serif;
+    color: #ffffff;
     font-size: 20px;
     font-weight: 800;
     text-transform: uppercase;
@@ -665,14 +673,17 @@ h1, h2, h3, .headline-font {
 
 /* Hero 主标�?*/
 .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
+    font-family: 'Playfairdisplay Variablefont Wght', sans-serif;
     font-size: 2.25rem;
-    color: #ffeb8fa8;
+    color: #ebe0bb;
     margin-bottom: 1rem;
     line-height: 1.2;
     font-weight: 400;
     white-space: normal;
+}
+
+.hero-title .hero-title-white {
+    color: #ffffff;
 }
 
 /* Hero 副标�?*/
@@ -705,41 +716,48 @@ h1, h2, h3, .headline-font {
 
 /* Hero 描述文字 */
 .hero-description {
-    font-family: 'Wensley', sans-serif;
-    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Helvetica Now', 'Helvetica', sans-serif;
+    color: #ffffff;
     font-size: 20px;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 2px;
     line-height: 1.5;
     margin-bottom: 2.5rem;
-    max-width: 32rem;
     white-space: nowrap;
+    display: inline-block;
+    text-align: center;
 }
 
+
 /* Hero 行动按钮 */
-.hero-button {
+.hero-content .hero-button,
+section.hero-section div.hero-content a.hero-button,
+a.hero-button {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background-color: transparent;
-    color: #ffffff;
-    padding: 0.875rem 1.25rem;
+    background-color: transparent !important;
+    color: #ffffff !important;
+    padding: 0.75rem 1rem;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    font-size: 1rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     line-height: 1.5;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    border-radius: 0.75rem;
-    border: 2px solid #ffffff;
+    border-radius: 0.5rem;
+    border: 2px solid #ffffff !important;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
     transition: all 0.3s ease;
 }
 
 /* Hero 按钮悬停效果 */
-.hero-button:hover {
-    background-color: #ffffff;
-    color: var(--off-black);
+.hero-content .hero-button:hover,
+section.hero-section div.hero-content a.hero-button:hover,
+a.hero-button:hover {
+    background-color: #ffffff !important;
+    color: var(--off-black) !important;
 }
 
 
@@ -794,11 +812,11 @@ h1, h2, h3, .headline-font {
 
 /* 权益主标�?*/
 .benefits-title {
-    font-family: 'Wensley', sans-serif;
-    font-size: 2.25rem;
-    font-weight: 600;
-    line-height: 1.3;
-    color: var(--untitled-ui-gray900);
+    font-family: 'Lato new', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--off-black);
     margin-bottom: 1.5rem;
 }
 
@@ -1056,7 +1074,7 @@ h1, h2, h3, .headline-font {
 
 .hotel-location {
     font-family: 'Lato new', sans-serif;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 300;
     color: var(--dim-grey);
     line-height: 170%;
@@ -1817,11 +1835,14 @@ h1, h2, h3, .headline-font {
         font-size: 1rem;
         letter-spacing: 0.15em;
         margin-bottom: 1rem;
+        margin-top: 0;
     }
     
     .hero-title {
         font-size: 1.5rem;
         margin-bottom: 0.75rem;
+        line-height: 1.2 !important;
+        letter-spacing: 0.2em;
     }
     
     .hero-heroSubtitle {
@@ -1830,14 +1851,18 @@ h1, h2, h3, .headline-font {
     }
     
     .hero-description {
-        font-size: 0.875rem;
+        font-size: 0.75rem;
         margin-bottom: 1.5rem;
     }
     
-    .hero-button {
+    .hero-content .hero-button {
         padding: 0.75rem 1rem;
         font-size: 0.8125rem;
         gap: 0.375rem;
+        color: #ffffff;
+        border: 2px solid #ffffff;
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
+        margin-top: 10rem;
     }
     
     /* 权益区域移动端适配 */
@@ -1850,11 +1875,12 @@ h1, h2, h3, .headline-font {
     }
     
     .benefits-title {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
     
     .benefits-description {
-        font-size: 0.875rem;
+        font-size: 1.25rem;
+        font-weight: 700;
     }
     
     .benefits-grid {
@@ -1932,7 +1958,7 @@ h1, h2, h3, .headline-font {
     }
     
     .hotel-location {
-        font-size: 0.75rem;
+        font-size: 0.65rem;
     }
     
     /* 目的地列表移动端适配 */
@@ -2073,6 +2099,8 @@ h1, h2, h3, .headline-font {
     
     .hero-title {
         font-size: 2rem;
+        line-height: 1.2 !important;
+        letter-spacing: 0.2em;
     }
     
     .benefits-grid {
@@ -2092,10 +2120,13 @@ h1, h2, h3, .headline-font {
 @media (max-width: 991px) {
     .hero-title {
         font-size: 2.25rem;
+        line-height: 1.2 !important;
+        letter-spacing: 0.2em;
     }
 
     .hero-subtitle {
         font-size: 0.875rem;
+        margin-top: 0;
     }
 
     .benefits-title {
@@ -2116,32 +2147,78 @@ h1, h2, h3, .headline-font {
 @media (max-width: 479px) {
     .hero-section {
         min-height: 500px;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
     }
 
     .hero-title {
-        font-size: 1.75rem;
+        font-size: 2.25rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.2 !important;
+        letter-spacing: 0.2em;
     }
 
     .hero-subtitle {
         font-size: 0.75rem;
         letter-spacing: 0.1em;
+        color: #ffffff;
+        margin-bottom: 1rem;
+        margin-top: 0;
+        display: block;
     }
 
     .hero-description {
-        font-size: 0.875rem;
+        font-size: 0.75rem;
+        white-space: normal;
+        width: 100%;
+        text-align: center;
+        color: #ffffff;
+        margin-bottom: 1.5rem;
     }
-
-    .hero-button {
+    
+    .hero-text-wrapper {
+        max-width: 100%;
+    }
+    
+    .hero-content .hero-button {
         padding: 0.5rem 0.875rem;
         font-size: 0.875rem;
+        color: #ffffff;
+        border: 2px solid #ffffff;
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
+        margin-top: 10rem;
     }
 
     .benefits-title {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
+    }
+
+    .benefits-description {
+        font-size: 1.25rem;
+        font-weight: 700;
     }
 
     .benefit-card-title {
         font-size: 1.125rem;
+    }
+
+    .benefit-icon-wrapper {
+        width: 4rem;
+        height: 4rem;
+        top: -1.5rem;
+    }
+
+    .benefit-icon {
+        font-size: 3rem;
+    }
+
+    .benefit-icon-svg {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .benefit-card {
+        margin-bottom: 1.5rem;
     }
 
     .section-title {
@@ -3809,6 +3886,66 @@ html[lang="ja"] .logic-circle-text-en {
     border-radius: 6px;
     margin-bottom: 1.5rem;
     text-align: center;
+}
+
+.hotel-theme-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.hotel-theme-item {
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    height: 300px;
+}
+
+.hotel-theme-img {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+    object-fit: cover !important;
+    object-position: center;
+    transition: transform 0.3s ease;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.hotel-theme-item:hover .hotel-theme-img {
+    transform: scale(1.02);
+}
+
+@media (min-width: 768px) {
+    .hotel-theme-gallery {
+        flex-direction: row;
+        gap: 1.5rem;
+        align-items: stretch;
+    }
+
+    .hotel-theme-item {
+        width: 50%;
+        height: 450px;
+    }
+}
+
+.image-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+.image-modal-overlay img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 8px;
+    object-fit: contain;
 }
 
 @media (min-width: 768px) {

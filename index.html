@@ -6,21 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="pageTitle">Huanxiang Planet - Start Your Exchange Travel Experience</title>
 
-    <!-- IP Geolocation Check - Block China -->
-    <script>
-    (function() {
-        fetch('https://ipapi.co/json/')
-            .then(response => response.json())
-            .then(data => {
-                if (data.country_code === 'CN') {
-                    document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;font-family:Arial;text-align:center;padding:20px;"><div><h1>Access Denied</h1><p>Sorry, this service is not available in your region.</p></div></div>';
-                    throw new Error('Blocked');
-                }
-            })
-            .catch(function() {});
-    })();
-    </script>
-
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
@@ -88,15 +73,11 @@
             </div>
             <!-- Hero 内容 -->
             <div class="hero-content">
-                <div class="hero-text-wrapper">
                     <span class="hero-subtitle" data-i18n="hero.subtitle">Dameisha Bay Yacht Club Resort</span>
-                    <h1 class="hero-title" data-i18n="hero.title">Vacation Club Membership + Complimentary RCI Membership</h1>
+                    <h1 class="hero-title" data-i18n="hero.title" data-i18n-html="">Vacation Club Membership + Complimentary RCI Membership</h1>
                     <p class="hero-description" data-i18n="hero.description">Exchange access to 5,000 resorts across 110 countries worldwide</p>
-                    <a href="./hotel-detail.html?id=hotel7" class="hero-button" data-i18n="hero.button">Discover Resort Details</a>
-                    </a>
+                    <a href="./hotel-detail.html?id=hotel7" class="hero-button" data-i18n="hero.button" style="border: 2px solid #ffffff; color: #ffffff; border-radius: 6px; padding: 12px 28px;">Discover Resort Details</a>
                 </div>
-                
-            </div>
             <!-- 滚动指示器 -->
             <div class="hero-scroll-indicator">
                 <span class="material-symbols-outlined">keyboard_arrow_down</span>
@@ -276,31 +257,19 @@
         <section class="promo-section"><div class="promo-content scroll-animate">
                 <h2 class="section-title" data-i18n="promo.reliableTitle">Reliable Exchanges</h2>
                 <div class="promo-grid">
-                    <!-- 交换卡片1 - RCI交换确认信 -->
-                    <a href="./exchange-detail.html?type=manhattan-club" class="promo-card-new promo-card-link scroll-animate">
+                    <!-- 交换卡片1 - RCI授权金冠级合作酒店 -->
+                    <a href="./exchange-detail.html?type=gold-crown" class="promo-card-new promo-card-link scroll-animate">
                         <div class="promo-card-image-wrapper">
-                            <img src="./assets/exchange-showcase/rci-confirmation-1.png" alt="RCI Exchange Confirmation" class="promo-card-image">
-                            <span class="promo-tag" data-i18n="promo.exchangeConfirm">Exchange Confirmation</span>
+                            <img src="./assets/exchange-showcase/gold-crown.jpg" alt="RCI Gold Crown" class="promo-card-image">
+                            <span class="promo-tag" data-i18n="promo.goldCrown">Gold Crown Partner</span>
                         </div>
                         <div class="promo-card-info">
-                            <p class="promo-card-subtitle" data-i18n="promo.card1Subtitle">The Manhattan Club</p>
-                            <h3 class="promo-card-title" data-i18n="promo.card1Title">RCI Exchange Confirmation - The Manhattan Club</h3>
-                            <p class="promo-card-date" data-i18n="promo.card1Date">September 2026 Exchange</p>
+                            <p class="promo-card-subtitle" data-i18n="promo.goldCrownSubtitle">Dameisha Bay Yacht Club Resort</p>
+                            <h3 class="promo-card-title" data-i18n="promo.goldCrownTitle">RCI Authorized Gold Crown Partner Hotel</h3>
+                            <p class="promo-card-date" data-i18n="promo.goldCrownDate">2026 RCI Official Authorization</p>
                         </div>
                     </a>
-                    <!-- 交换卡片2 - RCI交换确认信 -->
-                    <a href="./exchange-detail.html?type=elara-hilton" class="promo-card-new promo-card-link scroll-animate">
-                        <div class="promo-card-image-wrapper">
-                            <img src="./assets/exchange-showcase/rci-confirmation-2.png" alt="RCI Exchange Confirmation" class="promo-card-image">
-                            <span class="promo-tag" data-i18n="promo.exchangeConfirm">Exchange Confirmation</span>
-                        </div>
-                        <div class="promo-card-info">
-                            <p class="promo-card-subtitle" data-i18n="promo.card2Subtitle">Elara, a Hilton Grand Vacations Club</p>
-                            <h3 class="promo-card-title" data-i18n="promo.card2Title">RCI Exchange Confirmation - Hilton Grand Vacations Club</h3>
-                            <p class="promo-card-date" data-i18n="promo.card2Date">September 2026 Exchange</p>
-                        </div>
-                    </a>
-                    <!-- 交换卡片3 - RCI会员账号 -->
+                    <!-- 交换卡片2 - RCI会员账号 -->
                     <a href="./exchange-detail.html?type=member-account" class="promo-card-new promo-card-link scroll-animate">
                         <div class="promo-card-image-wrapper">
                             <img src="./assets/exchange-showcase/rci-member-account.jpg" alt="RCI Member Account" class="promo-card-image">
@@ -310,6 +279,18 @@
                             <p class="promo-card-subtitle" data-i18n="promo.card3Subtitle">RCI Membership</p>
                             <h3 class="promo-card-title" data-i18n="promo.card3Title">RCI Member Account Display</h3>
                             <p class="promo-card-date" data-i18n="promo.card3Date">Authentic and valid RCI membership benefits</p>
+                        </div>
+                    </a>
+                    <!-- 交换卡片3 - RCI交换确认函案例 -->
+                    <a href="./exchange-detail.html?type=exchange-sample" class="promo-card-new promo-card-link scroll-animate">
+                        <div class="promo-card-image-wrapper">
+                            <img src="./assets/exchange-showcase/exchange-sample.jpg" alt="RCI Exchange Sample" class="promo-card-image">
+                            <span class="promo-tag" data-i18n="promo.exchangeSample">Exchange Sample</span>
+                        </div>
+                        <div class="promo-card-info">
+                            <p class="promo-card-subtitle" data-i18n="promo.exchangeSampleSubtitle">RCI Exchange Confirmation</p>
+                            <h3 class="promo-card-title" data-i18n="promo.exchangeSampleTitle">RCI Exchange Confirmation - Sample</h3>
+                            <p class="promo-card-date" data-i18n="promo.exchangeSampleDate">Real Exchange Confirmation Cases</p>
                         </div>
                     </a>
                 </div>
