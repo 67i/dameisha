@@ -703,6 +703,25 @@ h1 {
     color: #ffffff;
 }
 
+.hero-title-plus {
+    display: inline;
+}
+
+.hero-title-break {
+    display: block;
+    margin-top: 0.25rem;
+}
+
+@media (min-width: 768px) {
+    .hero-title-plus {
+        display: inline;
+    }
+    .hero-title-break {
+        display: inline;
+        margin-top: 0;
+    }
+}
+
 /* Hero Subtitle*/
 .hero-heroSubtitle {
     font-size: 1.25rem;
