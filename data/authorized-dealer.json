@@ -1,9 +1,9 @@
 {
     "affiliate-resort": {
         "id": "affiliate-resort",
-        "cover": "./assets/authorized-dealer/banner.png",
+        "cover": "./assets/authorized-dealer/affiliate-resort.png",
         "gallery": [
-            "./assets/authorized-dealer/banner.png"
+            "./assets/authorized-dealer/affiliate-resort.png"
         ],
         "i18n": {
             "zh": {
@@ -30,9 +30,9 @@
     },
     "marketing-agent": {
         "id": "marketing-agent",
-        "cover": "./assets/authorized-dealer/cover.jpg",
+        "cover": "./assets/authorized-dealer/marketing-agent.jpg",
         "gallery": [
-            "./assets/authorized-dealer/cover.jpg"
+            "./assets/authorized-dealer/marketing-agent.jpg"
         ],
         "i18n": {
             "zh": {

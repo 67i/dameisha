@@ -67,17 +67,6 @@
             </div>
         </section>
 
-        <!-- 画廊 -->
-        <section class="vacation-gallery-section">
-            <div class="vacation-gallery-content">
-                <div class="vacation-gallery-header">
-                    <span class="vacation-gallery-label" data-i18n="authorizedDealer.galleryLabel">详情</span>
-                    <h2 class="vacation-gallery-title" id="galleryTitle"></h2>
-                </div>
-                <div class="exchange-gallery-grid" id="exchangeGallery"></div>
-            </div>
-        </section>
-
         <!-- 返回按钮 -->
         <section class="hotel-back-section">
             <a href="./index.html#promo" class="back-button">
@@ -193,25 +182,6 @@
             }
             document.getElementById('introImage').alt = i18n.title || '';
             document.getElementById('introText').innerHTML = '<p>' + (i18n.description || '') + '</p>';
-
-            document.getElementById('galleryTitle').textContent = i18n.title || '';
-
-            var galleryImages = dealer.gallery || [];
-            var galleryHtml = '';
-            if (galleryImages.length > 0) {
-                galleryImages.forEach(function(img, index) {
-                    galleryHtml += '<div class="exchange-gallery-item">' +
-                        '<img src="' + img + '" alt="" class="exchange-gallery-img" data-index="' + index + '">' +
-                        '</div>';
-                });
-            }
-            document.getElementById('exchangeGallery').innerHTML = galleryHtml;
-
-            var allImages = galleryImages.slice();
-            if (dealer.cover && !allImages.includes(dealer.cover)) {
-                allImages.unshift(dealer.cover);
-            }
-            Lightbox.init(allImages, '.exchange-gallery-img', { introImageId: 'introImage' });
 
             var siteName = lang === 'zh' ? '换享星球' : lang === 'en' ? 'Huanxiang Planet' : lang === 'ko' ? '환상 행성' : 'ファンタジープラネット';
             document.title = (i18n.title || '') + ' - ' + siteName;
