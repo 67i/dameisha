@@ -1,0 +1,89 @@
+{
+    "affiliate-resort": {
+        "id": "affiliate-resort",
+        "cover": "./assets/authorized-dealer/banner.png",
+        "gallery": [
+            "./assets/authorized-dealer/banner.png"
+        ],
+        "i18n": {
+            "zh": {
+                "title": "RCI 全球加盟酒店认证",
+                "description": "深圳大梅沙湾游艇会度假酒店于2026年4月15日正式加入RCI全球旅行网络，成为官方认证加盟合作酒店。我们的会员可畅享全球超5000家高端度假村的交换权益，解锁全球奢享度假体验。",
+                "galleryTitle": "认证详情"
+            },
+            "en": {
+                "title": "RCI Global Affiliate Resort Certification",
+                "description": "Shenzhen Dameisha Bay Yacht Club & Resort is officially certified as an affiliate partner of RCI, joining the world's leading vacation exchange network on April 15, 2026. This certification grants our members exclusive access to over 5,000 premium resorts across 110+ countries, delivering seamless luxury vacation exchange benefits and unmatched global travel flexibility.",
+                "galleryTitle": "Certification Details"
+            },
+            "ko": {
+                "title": "RCI 글로벌加盟호텔 인증",
+                "description": "심천대매사베이요트클럽리조트는 2026년 4월 15일 공식적으로 RCI 글로벌 여행 네트워크에 합류하여 공식 인증 받은加盟파트너호텔이 되었습니다. 회원은 전 세계 5,000개 이상의 고급 리조트 교환 권한을 즐기고 글로벌 럭셔리 베케이션 경험을解锁할 수 있습니다.",
+                "galleryTitle": "인증 상세"
+            },
+            "ja": {
+                "title": "RCI グローバル加盟ホテル認証",
+                "description": "深セン大梅沙湾ヨットクラブ＆リゾートは2026年4月15日にRCIグローバル旅行ネットワークに正式に加入し、公式認定加盟パートナーンホテルとなりました。会員は全世界5,000件以上の高級リゾートの交換権利を楽しみ、グローバルな奢侈なバケーション体験をことができます。",
+                "galleryTitle": "認定詳細"
+            }
+        }
+    },
+    "marketing-agent": {
+        "id": "marketing-agent",
+        "cover": "./assets/authorized-dealer/cover.jpg",
+        "gallery": [
+            "./assets/authorized-dealer/cover.jpg"
+        ],
+        "i18n": {
+            "zh": {
+                "title": "RCI 授权交换星球销售代理权",
+                "description": "交换星球（深圳）文旅有限公司获RCI官方授权，代表RCI加盟度假村「深圳大梅沙湾游艇会度假酒店」行销推广该度假村的度假权益会籍。会员注册成为RCI会员后，可享有RCI全球网络内完整的度假权益交换权利。本认证有效期至2026年12月31日。",
+                "galleryTitle": "授权详情"
+            },
+            "en": {
+                "title": "RCI Membership Authorized Marketing Agent",
+                "description": "Exchange Planet (Shenzhen) Cultural & Tourism Co., Ltd. is officially authorized by RCI to represent Shenzhen Dameisha Bay Yacht Club & Resort, an RCI-affiliated resort, to market and promote the resort's vacation ownership membership. Upon registration as an RCI member, this membership entitles the holder to full vacation exchange rights within RCI's global network. This certification is valid through December 31, 2026.",
+                "galleryTitle": "Authorization Details"
+            },
+            "ko": {
+                "title": "RCI授权환승星球판매대리권",
+                "description": "환승심천문화여행유한회사는 RCI의 공식 승인을 받아 RCI加盟리조트「심천대매사베이요트클럽리조트」의 베케이션 권익 회원을 마케팅하고 홍보합니다. 회원이 RCI 회원으로 등록하면 RCI 글로벌 네트워크 내에서 완전한 베케이션 교환 권리를 보유하게 됩니다. 본 인증 유효기간은 2026년 12월 31일까지입니다.",
+                "galleryTitle": "승인 상세"
+            },
+            "ja": {
+                "title": "RCI授权交換トラベル星球販売代理権",
+                "description": "交換トラベル（深セン）文化旅行有限公司はRCIの公式承認を受け、RCI加盟リゾート「深セン大梅沙湾ヨットクラブ＆リラックス」のバケーション権利会員のマーケティングおよびプロモーションを行います。RCI会員として登録すると、この会員はRCIグローバルネットワーク内での完全なバケーション交換権利を有します。本認定有効期間は2026年12月31日までです。",
+                "galleryTitle": "授權詳細"
+            }
+        }
+    },
+    "overseas-reseller": {
+        "id": "overseas-reseller",
+        "cover": "./assets/authorized-dealer/cover.jpg",
+        "gallery": [
+            "./assets/authorized-dealer/cover.jpg"
+        ],
+        "i18n": {
+            "zh": {
+                "title": "交换星球授权海外特约经销商",
+                "description": "作为交换星球官方授权的海外特约经销商，我们是全球客户获取交换星球RCI度假权益会籍产品的官方渠道。",
+                "galleryTitle": "经销商详情"
+            },
+            "en": {
+                "title": "Swap Planet Authorized Overseas Reseller",
+                "description": "As Exchange Planet's authorized overseas reseller, we are the official channel for global clients to access Exchange Planet's RCI vacation ownership membership products.",
+                "galleryTitle": "Reseller Details"
+            },
+            "ko": {
+                "title": "환승星球授权해외특별딜러",
+                "description": "환승星球 공식 승인を受けた 해외특별딜러로서, 우리는 글로벌 고객이 환승星球의 RCI 베케이션 권익 회원 제품을是利用할 수 있는 공식 채널입니다.",
+                "galleryTitle": "딜러 상세"
+            },
+            "ja": {
+                "title": "交換トラベル授權海外特別ディーラー",
+                "description": "交換トラベル公式認定の海外特別ディーラーとして、私たちはグローバルお客様が交換ライブラーのRCIバケーション権利会員製品を利用できる公式チャンネルです。",
+                "galleryTitle": "ディーラー詳細"
+            }
+        }
+    }
+}

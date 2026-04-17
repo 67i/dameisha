@@ -78,6 +78,19 @@
         "exchangeSampleSubtitle": "RCI Exchange Confirmation",
         "exchangeSampleTitle": "RCI 교환 확인서 - 사례",
         "exchangeSampleDate": "실제 교환 확인서 사례",
+        "authorizedPartnersTitle": "공식 파트너 및 딜러",
+        "authorizedTag1": "공식",
+        "authorizedTag2": "공식",
+        "authorizedTag3": "공식",
+        "authorizedSubtitle1": "RCI Global Affiliate Resort Certification",
+        "authorizedTitle1": "RCI 글로벌加盟호텔 인증",
+        "authorizedDate1": "공식 RCI 인증",
+        "authorizedSubtitle2": "RCI Membership Authorized Marketing Agent",
+        "authorizedTitle2": "RCI 공식 판매 대리권",
+        "authorizedDate2": "공식 RCI 승인",
+        "authorizedSubtitle3": "Swap Planet Authorized Overseas Reseller",
+        "authorizedTitle3": "환승지구 공식 해외 특별딜러",
+        "authorizedDate3": "공식 딜러 인증",
         "card1Subtitle": "The Manhattan Club",
         "card1Title": "RCI 교환 확인서 - 맨해튼 클럽",
         "card1Date": "2026년 9월 교환",
@@ -585,6 +598,11 @@
         "section7Text": "Dameisha Bay Yacht Club Resort 개인정보 보호 관리 책임자 (Customer Privacy Officer)\n[주소: 중국 심천시 옌타이구 다메이샤 옌메이로 89번지] (No. 89 Yanmei Road, Dameisha, Yantian District, Shenzhen, China)",
         "section8Title": "8. 관할 법원",
         "section8Text": "본 정책과 관련된 모든 분쟁은 중국 심천의 법원을 제1심의 독점적 합의 관할 법원으로 합니다."
+    },
+    "authorizedDealer": {
+        "label": "공식 승인",
+        "heroTitle": "RCI 글로벌 공식 호텔 인증",
+        "galleryLabel": "상세 정보"
     },
     "terms": {
         "title": "이용 약관",

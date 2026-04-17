@@ -78,6 +78,19 @@
         "exchangeSampleSubtitle": "RCI Exchange Confirmation",
         "exchangeSampleTitle": "RCI Exchange Confirmation - Sample",
         "exchangeSampleDate": "Real Exchange Confirmation Cases",
+        "authorizedPartnersTitle": "Authorized Partners & Resellers",
+        "authorizedTag1": "Authorized",
+        "authorizedTag2": "Authorized",
+        "authorizedTag3": "Authorized",
+        "authorizedSubtitle1": "RCI Global Affiliate Resort Certification",
+        "authorizedTitle1": "RCI Global Affiliate Resort Certification",
+        "authorizedDate1": "Official RCI Certification",
+        "authorizedSubtitle2": "RCI Membership Authorized Marketing Agent",
+        "authorizedTitle2": "RCI Membership Authorized Marketing Agent",
+        "authorizedDate2": "Official RCI Authorization",
+        "authorizedSubtitle3": "Swap Planet Authorized Overseas Reseller",
+        "authorizedTitle3": "Swap Planet Authorized Overseas Reseller",
+        "authorizedDate3": "Official Reseller Certification",
         "card1Subtitle": "The Manhattan Club",
         "card1Title": "RCI Exchange Confirmation - The Manhattan Club",
         "card1Date": "September 2026 Exchange",
@@ -577,6 +590,11 @@
         "section7Item2": "WhatsApp: +852 53651156",
         "section8Title": "8. Jurisdiction",
         "section8Text": "All disputes related to this policy shall be subject to the exclusive jurisdiction of the courts in Shenzhen, China as the court of first instance."
+    },
+    "authorizedDealer": {
+        "label": "Authorized",
+        "heroTitle": "RCI Global Affiliate Resort Certification",
+        "galleryLabel": "Details"
     },
     "terms": {
         "title": "TERMS OF SERVICE",

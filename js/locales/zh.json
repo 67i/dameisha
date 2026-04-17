@@ -78,6 +78,19 @@
         "exchangeSampleSubtitle": "RCI Exchange Confirmation",
         "exchangeSampleTitle": "RCI交换确认函-案例",
         "exchangeSampleDate": "真实的交换确认函案例",
+        "authorizedPartnersTitle": "官方授权合作",
+        "authorizedTag1": "Authorized",
+        "authorizedTag2": "Authorized",
+        "authorizedTag3": "Authorized",
+        "authorizedSubtitle1": "RCI Global Affiliate Resort Certification",
+        "authorizedTitle1": "RCI 全球加盟酒店认证",
+        "authorizedDate1": "Official RCI Certification",
+        "authorizedSubtitle2": "RCI Membership Authorized Marketing Agent",
+        "authorizedTitle2": "RCI 授权交换星球销售代理权",
+        "authorizedDate2": "Official RCI Authorization",
+        "authorizedSubtitle3": "Swap Planet Authorized Overseas Reseller",
+        "authorizedTitle3": "交换星球授权海外特约经销商",
+        "authorizedDate3": "Official Reseller Certification",
         "card1Subtitle": "The Manhattan Club",
         "card1Title": "RCI交换确认书 - 曼哈顿俱乐部",
         "card1Date": "2026年9月交换",
@@ -577,6 +590,11 @@
         "section7Item2": "WhatsApp：+852 53651156",
         "section8Title": "8. 管辖权",
         "section8Text": "与本政策相关的所有争议应提交中国深圳法院作为第一审专属管辖法院。"
+    },
+    "authorizedDealer": {
+        "label": "官方授权",
+        "heroTitle": "RCI 全球加盟酒店认证",
+        "galleryLabel": "详情"
     },
     "terms": {
         "title": "服务条款",

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="authorizedDealerPageTitle">官方授权 - 换享星球</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="./js/tailwind.config.js"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+
+    <!-- 头部 -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="./index.html" class="nav-logo">
+                <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="nav-logo-img">
+            </a>
+            <div class="nav-links">
+                <a href="./hotel-detail.html?id=hotel7" class="nav-link nav-link-secondary" data-i18n="nav.hotelIntro">Hotel Introduction</a>
+                <a href="./benefits-detail.html" class="nav-link nav-link-secondary" data-i18n="nav.benefitsIntro">Benefits Introduction</a>
+                <a href="./faq.html" class="nav-link nav-link-secondary" data-i18n="nav.faq">FAQ</a>
+            </div>
+            <div class="nav-right">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 移动端菜单 -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <img src="./assets/logo.png" alt="Logo" class="mobile-menu-logo">
+        </div>
+        <a href="./hotel-detail.html?id=hotel7" class="mobile-menu-link" data-i18n="nav.hotelIntro">Hotel Introduction</a>
+        <a href="./benefits-detail.html" class="mobile-menu-link" data-i18n="nav.benefitsIntro">Benefits Introduction</a>
+        <a href="./faq.html" class="mobile-menu-link" data-i18n="nav.faq">FAQ</a>
+    </div>
+
+    <main>
+        <!-- 详情页头部 -->
+        <section class="exchange-detail-hero">
+            <img src="" alt="" id="heroBanner" class="exchange-detail-hero-img">
+            <div class="exchange-detail-hero-overlay"></div>
+            <div class="exchange-detail-hero-content">
+                <div class="exchange-detail-label" data-i18n="authorizedDealer.label">官方授权</div>
+                <h1 class="exchange-detail-title" id="heroTitle" data-i18n="authorizedDealer.heroTitle">RCI Global Affiliate Resort Certification</h1>
+                <p class="exchange-detail-desc" id="heroDesc"></p>
+            </div>
+        </section>
+
+        <!-- 主体内容 -->
+        <section class="vacation-gallery-section">
+            <div class="vacation-gallery-content">
+                <div class="vacation-gallery-header benefits-animate">
+                    <span class="vacation-gallery-label" data-i18n="authorizedDealer.galleryLabel">DETAILS</span>
+                    <h2 class="vacation-gallery-title" id="galleryTitle" data-i18n="authorizedDealer.galleryTitle">认证详情</h2>
+                </div>
+                <div class="exchange-gallery-grid" id="exchangeGallery"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="footer-logo-img">
+                <p class="footer-brand-name" data-i18n="footer.brandName">Dameisha Bay Yacht Club Resort</p>
+            </div>
+            <div class="footer-copyright">
+                <p class="footer-copyright-text">&copy; 2026 Dameisha Bay Yacht Club Resort. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
+            <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImg">
+        </div>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">
+            <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
+
+    <script src="./js/i18n.js"></script>
+    <script src="./js/lightbox.js"></script>
+    <script src="./js/cookie-consent.js"></script>
+    <script>
+    (function() {
+        function getDealerType() {
+            var params = new URLSearchParams(window.location.search);
+            return params.get('type') || 'affiliate-resort';
+        }
+
+        function getCurrentLang() {
+            if (typeof I18n !== 'undefined' && I18n.currentLang) {
+                return I18n.currentLang;
+            }
+            return 'zh';
+        }
+
+        function loadDealerDetail() {
+            fetch('./data/authorized-dealer.json?t=' + Date.now())
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    var type = getDealerType();
+                    var dealer = data[type];
+                    if (!dealer) {
+                        dealer = data['affiliate-resort'];
+                    }
+                    renderDealerDetail(dealer);
+                })
+                .catch(function() {
+                });
+        }
+
+        function renderDealerDetail(dealer) {
+            var lang = getCurrentLang();
+            var i18n = dealer.i18n && dealer.i18n[lang] ? dealer.i18n[lang] : dealer.i18n && dealer.i18n['zh'] ? dealer.i18n['zh'] : {};
+
+            if (dealer.cover) {
+                document.getElementById('heroBanner').src = dealer.cover;
+            }
+            document.getElementById('heroBanner').alt = i18n.title || '';
+            document.getElementById('heroTitle').textContent = i18n.title || '';
+            document.getElementById('heroDesc').textContent = i18n.description || '';
+
+            document.getElementById('galleryTitle').textContent = i18n.title || '';
+
+            var galleryImages = dealer.gallery || [];
+            var galleryHtml = '';
+            if (galleryImages.length > 0) {
+                galleryImages.forEach(function(img, index) {
+                    galleryHtml += '<div class="exchange-gallery-item">' +
+                        '<img src="' + img + '" alt="" class="exchange-gallery-img" data-index="' + index + '">' +
+                        '</div>';
+                });
+            }
+            document.getElementById('exchangeGallery').innerHTML = galleryHtml;
+
+            Lightbox.init(galleryImages, '.exchange-gallery-img');
+
+            var siteName = lang === 'zh' ? '换享星球' : lang === 'en' ? 'Huanxiang Planet' : lang === 'ko' ? '환상 행성' : 'ファンタジープラネット';
+            document.title = (i18n.title || '') + ' - ' + siteName;
+        }
+
+        function tryLoad() {
+            if (typeof I18n !== 'undefined' && I18n.translations && Object.keys(I18n.translations).length > 0) {
+                loadDealerDetail();
+            } else {
+                setTimeout(tryLoad, 50);
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', tryLoad);
+        } else {
+            tryLoad();
+        }
+
+        document.addEventListener('languageChanged', loadDealerDetail);
+    })();
+    </script>
+    <script src="./js/common.js"></script>
+</body>
+
+</html>
