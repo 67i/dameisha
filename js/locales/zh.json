@@ -594,7 +594,8 @@
     "authorizedDealer": {
         "label": "官方授权",
         "heroTitle": "RCI 全球加盟酒店认证",
-        "galleryLabel": "详情"
+        "galleryLabel": "详情",
+        "backBtn": "返回首页"
     },
     "terms": {
         "title": "服务条款",

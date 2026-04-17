@@ -36,37 +36,55 @@
 
     <!-- 移动端菜单 -->
     <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-header">
-            <img src="./assets/logo.png" alt="Logo" class="mobile-menu-logo">
+        <div class="mobile-menu-content">
+            <a href="./hotel-detail.html?id=hotel7" class="mobile-menu-link" data-i18n="nav.hotelIntro">Hotel Introduction</a>
+            <a href="./benefits-detail.html" class="mobile-menu-link" data-i18n="nav.benefitsIntro">Benefits Introduction</a>
+            <a href="./faq.html" class="mobile-menu-link" data-i18n="nav.faq">FAQ</a>
+            <div class="mobile-menu-divider"></div>
+            <div class="mobile-lang-switcher">
+                <button class="mobile-lang-btn active" data-lang="en">English</button>
+                <button class="mobile-lang-btn" data-lang="zh">中文</button>
+                <button class="mobile-lang-btn" data-lang="ko">한국어</button>
+                <button class="mobile-lang-btn" data-lang="ja">日本語</button>
+            </div>
         </div>
-        <a href="./hotel-detail.html?id=hotel7" class="mobile-menu-link" data-i18n="nav.hotelIntro">Hotel Introduction</a>
-        <a href="./benefits-detail.html" class="mobile-menu-link" data-i18n="nav.benefitsIntro">Benefits Introduction</a>
-        <a href="./faq.html" class="mobile-menu-link" data-i18n="nav.faq">FAQ</a>
     </div>
 
     <main>
-        <!-- 详情页头部 -->
-        <section class="exchange-detail-hero">
-            <img src="" alt="" id="heroBanner" class="exchange-detail-hero-img">
-            <div class="exchange-detail-hero-overlay"></div>
-            <div class="exchange-detail-hero-content">
-                <div class="exchange-detail-label" data-i18n="authorizedDealer.label">官方授权</div>
-                <h1 class="exchange-detail-title" id="heroTitle" data-i18n="authorizedDealer.heroTitle">RCI Global Affiliate Resort Certification</h1>
-                <p class="exchange-detail-desc" id="heroDesc"></p>
+        <!-- 左侧文字介绍，右侧图片 -->
+        <section class="hotel-intro-section">
+            <div class="hotel-intro-content">
+                <div class="hotel-intro-text">
+                    <span class="hotel-intro-label" data-i18n="authorizedDealer.label">官方授权</span>
+                    <div id="introText"></div>
+                </div>
+                <div class="hotel-intro-image-single intro-image-clickable no-overlay">
+                    <img src="" alt="" id="introImage">
+                    <div class="intro-image-zoom-hint">
+                        <span class="material-symbols-outlined">zoom_in</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- 主体内容 -->
+        <!-- 画廊 -->
         <section class="vacation-gallery-section">
             <div class="vacation-gallery-content">
-                <div class="vacation-gallery-header benefits-animate">
-                    <span class="vacation-gallery-label" data-i18n="authorizedDealer.galleryLabel">DETAILS</span>
-                    <h2 class="vacation-gallery-title" id="galleryTitle" data-i18n="authorizedDealer.galleryTitle">认证详情</h2>
+                <div class="vacation-gallery-header">
+                    <span class="vacation-gallery-label" data-i18n="authorizedDealer.galleryLabel">详情</span>
+                    <h2 class="vacation-gallery-title" id="galleryTitle"></h2>
                 </div>
                 <div class="exchange-gallery-grid" id="exchangeGallery"></div>
             </div>
         </section>
 
+        <!-- 返回按钮 -->
+        <section class="hotel-back-section">
+            <a href="./index.html#promo" class="back-button">
+                <span class="material-symbols-outlined back-arrow">arrow_back</span>
+                <span data-i18n="authorizedDealer.backBtn">返回首页</span>
+            </a>
+        </section>
     </main>
 
     <!-- 页脚 -->
@@ -75,10 +93,43 @@
             <div class="footer-brand">
                 <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="footer-logo-img">
                 <p class="footer-brand-name" data-i18n="footer.brandName">Dameisha Bay Yacht Club Resort</p>
+                <p class="footer-brand-description" data-i18n="footer.brandDesc">
+                    Unlock RCI membership benefits and access to RCI's global luxury resort network.
+                </p>
             </div>
-            <div class="footer-copyright">
-                <p class="footer-copyright-text">&copy; 2026 Dameisha Bay Yacht Club Resort. All rights reserved.</p>
+            <div>
+                <h5 class="footer-column-title" data-i18n="footer.explore">Explore</h5>
+                <ul class="footer-links">
+                    <li class="footer-link-item"><a href="./hotel-detail.html?id=hotel7" class="footer-link" data-i18n="footer.hotels">Hotels</a></li>
+                </ul>
             </div>
+            <div>
+                <h5 class="footer-column-title" data-i18n="footer.company">Company</h5>
+                <ul class="footer-links">
+                    <li class="footer-link-item"><a href="./privacy.html" class="footer-link" data-i18n="footer.privacy">Privacy Policy</a></li>
+                    <li class="footer-link-item"><a href="./terms.html" class="footer-link" data-i18n="footer.terms">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="footer-column-title" data-i18n="footer.contact">Contact</h5>
+                <ul class="footer-links">
+                    <li class="footer-contact-item-top">
+                        <span class="material-symbols-outlined footer-contact-icon">location_on</span>
+                        <span data-i18n="footer.location">China · Shenzhen</span>
+                    </li>
+                    <li class="footer-contact-item">
+                        <span class="material-symbols-outlined footer-contact-icon">mail</span>
+                        <a href="mailto:dameisha666@gmail.com" class="footer-email-link" data-i18n="footer.email">dameisha666@gmail.com</a>
+                    </li>
+                    <li class="footer-contact-item">
+                        <span class="material-symbols-outlined footer-contact-icon">chat</span>
+                        <a href="https://wa.me/85253651156" target="_blank" class="footer-whatsapp-link" data-i18n="footer.whatsapp">WhatsApp: +852 53651156</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p class="footer-copyright-text" data-i18n="footer.copyright">© 2026 Dameisha Bay Yacht Club Resort. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -138,11 +189,10 @@
             var i18n = dealer.i18n && dealer.i18n[lang] ? dealer.i18n[lang] : dealer.i18n && dealer.i18n['zh'] ? dealer.i18n['zh'] : {};
 
             if (dealer.cover) {
-                document.getElementById('heroBanner').src = dealer.cover;
+                document.getElementById('introImage').src = dealer.cover;
             }
-            document.getElementById('heroBanner').alt = i18n.title || '';
-            document.getElementById('heroTitle').textContent = i18n.title || '';
-            document.getElementById('heroDesc').textContent = i18n.description || '';
+            document.getElementById('introImage').alt = i18n.title || '';
+            document.getElementById('introText').innerHTML = '<p>' + (i18n.description || '') + '</p>';
 
             document.getElementById('galleryTitle').textContent = i18n.title || '';
 
@@ -157,7 +207,11 @@
             }
             document.getElementById('exchangeGallery').innerHTML = galleryHtml;
 
-            Lightbox.init(galleryImages, '.exchange-gallery-img');
+            var allImages = galleryImages.slice();
+            if (dealer.cover && !allImages.includes(dealer.cover)) {
+                allImages.unshift(dealer.cover);
+            }
+            Lightbox.init(allImages, '.exchange-gallery-img', { introImageId: 'introImage' });
 
             var siteName = lang === 'zh' ? '换享星球' : lang === 'en' ? 'Huanxiang Planet' : lang === 'ko' ? '환상 행성' : 'ファンタジープラネット';
             document.title = (i18n.title || '') + ' - ' + siteName;

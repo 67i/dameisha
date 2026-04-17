@@ -602,7 +602,8 @@
     "authorizedDealer": {
         "label": "공식 승인",
         "heroTitle": "RCI 글로벌 공식 호텔 인증",
-        "galleryLabel": "상세 정보"
+        "galleryLabel": "상세 정보",
+        "backBtn": "홈으로 돌아가기"
     },
     "terms": {
         "title": "이용 약관",

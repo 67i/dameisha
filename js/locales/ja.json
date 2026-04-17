@@ -125,7 +125,8 @@
     "authorizedDealer": {
         "label": "公式認定",
         "heroTitle": "RCI グローバル加盟ホテル認定",
-        "galleryLabel": "詳細"
+        "galleryLabel": "詳細",
+        "backBtn": "ホームに戻る"
     },
     "terms": {
         "title": "利用規約",

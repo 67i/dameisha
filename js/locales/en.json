@@ -594,7 +594,8 @@
     "authorizedDealer": {
         "label": "Authorized",
         "heroTitle": "RCI Global Affiliate Resort Certification",
-        "galleryLabel": "Details"
+        "galleryLabel": "Details",
+        "backBtn": "Back to Home"
     },
     "terms": {
         "title": "TERMS OF SERVICE",
