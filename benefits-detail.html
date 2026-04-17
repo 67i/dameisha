@@ -134,7 +134,7 @@
                     <div class="rci-header-box" data-i18n="benefitsDetail.rciTopBar">大梅沙湾游艇会度假酒店</div>
                     <div class="hotel-theme-gallery">
                         <div class="hotel-theme-item">
-                            <img src="./assets/hotel-themes/hotel-theme-01.png" alt="Hotel Theme 1" class="hotel-theme-img" onclick="openImageModal(this)">
+                            <img src="./assets/hotel-themes/hotel-theme-01.jpg" alt="Hotel Theme 1" class="hotel-theme-img" onclick="openImageModal(this)">
                         </div>
                         <div class="hotel-theme-item">
                             <img src="./assets/hotel-themes/hotel-theme-02.jpg" alt="Hotel Theme 2" class="hotel-theme-img" onclick="openImageModal(this)">
@@ -157,6 +157,80 @@
                     </div>
                     <div class="rci-footer-note" data-i18n="benefitsDetail.rciFooterNote">
                         累计完成近1700万次度假交换，每年确认交换超180万次，交换成功率达98%</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing-comparison-section">
+            <div class="pricing-comparison-wrap benefits-animate">
+                <h3 class="pricing-comparison-title" data-i18n="benefitsDetail.pricingTitle">以中国运营成本优势支撑的冰点定价，通过RCI网络实现价值跃迁</h3>
+                <div class="pricing-table-scroll">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th data-i18n="benefitsDetail.pricingColCost">成本项</th>
+                                <th data-i18n="benefitsDetail.pricingColOur">本权益产品(5年计划)</th>
+                                <th data-i18n="benefitsDetail.pricingColDirect">美国直售权益(按5年折算)</th>
+                                <th data-i18n="benefitsDetail.pricingColResale">美国二手权益(按5年折算)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-i18n="benefitsDetail.pricingRowWeeks">权益周数</td>
+                                <td data-i18n="benefitsDetail.pricingWeeksOur">2周/年</td>
+                                <td data-i18n="benefitsDetail.pricingWeeksDirect">1周/年</td>
+                                <td data-i18n="benefitsDetail.pricingWeeksResale">1周/年</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="benefitsDetail.pricingRowPurchase">首次购入</td>
+                                <td>$4,980</td>
+                                <td>$25,000</td>
+                                <td>$5,000</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="benefitsDetail.pricingRowAnnual">年维护费</td>
+                                <td>$0</td>
+                                <td>$1,800</td>
+                                <td>$1,800</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="benefitsDetail.pricingRowMember">RCI会员年费</td>
+                                <td>$0</td>
+                                <td>$150</td>
+                                <td>$150</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="benefitsDetail.pricingRowExchange">RCI交换力</td>
+                                <td data-i18n="benefitsDetail.pricingExchangeOur">26个换力/年</td>
+                                <td data-i18n="benefitsDetail.pricingExchangeDirect">13个换力/年</td>
+                                <td data-i18n="benefitsDetail.pricingExchangeResale">13个换力/年</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="benefitsDetail.pricingRowFee">RCI交换费</td>
+                                <td data-i18n="benefitsDetail.pricingFeeOur">$299/周次</td>
+                                <td data-i18n="benefitsDetail.pricingFeeDirect">$299/周次</td>
+                                <td data-i18n="benefitsDetail.pricingFeeResale">$299/周次</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="benefitsDetail.pricingRowTotal">5年总支出</td>
+                                <td>$7,970</td>
+                                <td>$36,245</td>
+                                <td>$16,245</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="benefitsDetail.pricingRowAnnualCost">每年实际成本</td>
+                                <td>$1,594</td>
+                                <td>$7,249</td>
+                                <td>$3,249</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="benefitsDetail.pricingRowPerNight">每晚成本</td>
+                                <td>$113</td>
+                                <td>$1,035</td>
+                                <td>$464</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
@@ -366,23 +440,13 @@
     <script src="./js/cookie-consent.js"></script>
     <script src="./js/common.js"></script>
     <script>
-    function openImageModal(img) {
+    function openImageModal(imgOrUrl) {
         var overlay = document.createElement('div');
         overlay.className = 'image-modal-overlay';
         overlay.onclick = function() { overlay.remove(); };
         var modalImg = document.createElement('img');
-        modalImg.src = img.src;
-        modalImg.alt = img.alt;
-        overlay.appendChild(modalImg);
-        document.body.appendChild(overlay);
-    }
-
-    function openImageModalByUrl(url) {
-        var overlay = document.createElement('div');
-        overlay.className = 'image-modal-overlay';
-        overlay.onclick = function() { overlay.remove(); };
-        var modalImg = document.createElement('img');
-        modalImg.src = url;
+        modalImg.src = typeof imgOrUrl === 'string' ? imgOrUrl : imgOrUrl.src;
+        modalImg.alt = typeof imgOrUrl === 'string' ? '' : (imgOrUrl.alt || '');
         overlay.appendChild(modalImg);
         document.body.appendChild(overlay);
     }

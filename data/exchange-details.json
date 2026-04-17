@@ -195,6 +195,7 @@
             }
         },
         "gallery": [
+            "./assets/exchange-showcase/member-account-detail/3.jpg",
             "./assets/exchange-showcase/member-account-detail/1.png",
             "./assets/exchange-showcase/member-account-detail/2.png"
         ]

@@ -20,9 +20,6 @@ const I18n = {
         this.applyTranslations();
         this.updateLangButtons();
         
-        this.bindEvents();
-        this.initMobileMenu();
-        
         document.dispatchEvent(new CustomEvent('i18nReady', { 
             detail: { language: this.currentLang } 
         }));
@@ -36,7 +33,6 @@ const I18n = {
             }
             this.translations = await response.json();
         } catch (error) {
-            console.error('Error loading translations:', error);
             if (lang !== 'en') {
                 await this.loadTranslations('en');
             }
@@ -51,7 +47,6 @@ const I18n = {
             if (value && typeof value === 'object' && k in value) {
                 value = value[k];
             } else {
-                console.warn(`Translation key not found: ${key}`);
                 return key;
             }
         }
@@ -144,49 +139,6 @@ const I18n = {
         });
     },
     
-    bindEvents() {
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const lang = btn.getAttribute('data-lang');
-                this.switchLanguage(lang);
-            });
-        });
-        
-        document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const lang = btn.getAttribute('data-lang');
-                this.switchLanguage(lang);
-            });
-        });
-    },
-    
-    initMobileMenu() {
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        
-        if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenuBtn.classList.toggle('active');
-                mobileMenu.classList.toggle('active');
-            });
-            
-            document.addEventListener('click', (e) => {
-                if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-                    mobileMenuBtn.classList.remove('active');
-                    mobileMenu.classList.remove('active');
-                }
-            });
-            
-            mobileMenu.querySelectorAll('.mobile-menu-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenuBtn.classList.remove('active');
-                    mobileMenu.classList.remove('active');
-                });
-            });
-        }
-    }
 };
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -30,8 +30,8 @@
         "card2Desc": "大梅沙游艇会度假酒店正式加盟RCI，购买该度假酒店分时度假权，赠送5年RCI的会籍权。",
         "card3Title": "换住100+国家,5000+酒店",
         "card3Desc": "会员可通过RCI（全球最大分时度假互换平台），丝滑换住全球110个国家的5000多家度假酒店。",
-        "card4Title": "价值无可匹敌",
-        "card4Desc": "尊享5年全球度假村入住权益，费用仅为国际主流品牌的零头。",
+        "card4Title": "全球度假网络的低成本钥匙",
+        "card4Desc": "依托于中国运营成本优势，体验超值的低成本高品质看世界的机会",
         "card5Title": "无年费等任何其他隐形费用",
         "card5Desc": "本产品仅需一次性投入且无年费。度假时按RCI平台标准支付周次交换服务费，即可全球畅游。",
         "card6Title": "可分享，可转让，可继承",
@@ -92,7 +92,7 @@
         "familyTripDesc": "与家人创造难忘的回忆",
         "coupleTrip": "甜蜜度假",
         "coupleTripTitle": "甜蜜度假",
-        "coupleTripDesc": "浪漫 getaway，享受二人甜蜜时光",
+        "coupleTripDesc": "浪漫旅行，享受二人甜蜜时光",
         "friendsTrip": "好友欢聚度假",
         "friendsTripTitle": "好友欢聚度假",
         "friendsTripDesc": "与好友结伴同行，探索精彩目的地"
@@ -158,7 +158,7 @@
         "gallery2": "GUEST ROOM",
         "gallery3": "INFINITY POOL",
         "gallery4": "OCEAN VIEW",
-        "backBtn": "返回酒店列表"
+        "backBtn": "返回首页"
     },
     "hotelList": {
         "heroTitle": "全球可交换酒店",
@@ -246,7 +246,7 @@
         "servicesTitle": "酒店设施与服务",
         "servicesSubtitle": "全方位满足您的度假需求",
         "inPictures": "图片展示",
-        "backBtn": "返回酒店列表"
+        "backBtn": "返回首页"
     },
     "vacationDetail": {
         "label": "激动人心的假期",
@@ -309,7 +309,30 @@
         "themeFamily": "亲子",
         "themeBeach": "沙滩",
         "themesCount": "6个主题度假酒店",
-        "backBtn": "返回首页"
+        "backBtn": "返回首页",
+        "pricingTitle": "以中国运营成本优势支撑的冰点定价，通过RCI网络实现价值跃迁",
+        "pricingColCost": "成本项",
+        "pricingColOur": "本权益产品(5年计划)",
+        "pricingColDirect": "美国直售权益(按5年折算)",
+        "pricingColResale": "美国二手权益(按5年折算)",
+        "pricingRowWeeks": "权益周数",
+        "pricingWeeksOur": "2周/年",
+        "pricingWeeksDirect": "1周/年",
+        "pricingWeeksResale": "1周/年",
+        "pricingRowPurchase": "首次购入",
+        "pricingRowAnnual": "年维护费",
+        "pricingRowMember": "RCI会员年费",
+        "pricingRowExchange": "RCI交换力",
+        "pricingExchangeOur": "26个换力/年",
+        "pricingExchangeDirect": "13个换力/年",
+        "pricingExchangeResale": "13个换力/年",
+        "pricingRowFee": "RCI交换费",
+        "pricingFeeOur": "$299/周次",
+        "pricingFeeDirect": "$299/周次",
+        "pricingFeeResale": "$299/周次",
+        "pricingRowTotal": "5年总支出",
+        "pricingRowAnnualCost": "每年实际成本",
+        "pricingRowPerNight": "每晚成本"
     },
     "hotel1": {
         "location": "卡波圣卢卡斯 · 墨西哥",
@@ -341,7 +364,7 @@
         "gallery2": "GUEST ROOM",
         "gallery3": "OCEAN VIEW",
         "gallery4": "DINING",
-        "backBtn": "返回酒店列表"
+        "backBtn": "返回首页"
     },
     "hotel2": {
         "location": "维也纳 · 奥地利",
@@ -373,7 +396,7 @@
         "gallery2": "GUEST ROOM",
         "gallery3": "DINING",
         "gallery4": "ROYAL SUITE",
-        "backBtn": "返回酒店列表"
+        "backBtn": "返回首页"
     },
     "hotel3": {
         "location": "伦敦 · 英国",
@@ -405,7 +428,7 @@
         "gallery2": "GUEST ROOM",
         "gallery3": "HYDE PARK VIEW",
         "gallery4": "DINING",
-        "backBtn": "返回酒店列表"
+        "backBtn": "返回首页"
     },
     "hotel4": {
         "location": "迪拜 · 阿联酋",
@@ -437,7 +460,7 @@
         "gallery2": "INFINITY POOL",
         "gallery3": "PRIVATE BEACH",
         "gallery4": "ARABIAN GULF VIEW",
-        "backBtn": "返回酒店列表"
+        "backBtn": "返回首页"
     },
     "hotel5": {
         "location": "马德里 · 西班牙",
@@ -469,7 +492,7 @@
         "gallery2": "GUEST ROOM",
         "gallery3": "DINING",
         "gallery4": "SENSE SPA",
-        "backBtn": "返回酒店列表"
+        "backBtn": "返回首页"
     },
     "hotel6": {
         "location": "釜山 · 韩国",
@@ -501,7 +524,7 @@
         "gallery2": "INFINITY POOL",
         "gallery3": "HAEUNDAE VIEW",
         "gallery4": "DINING",
-        "backBtn": "返回酒店列表"
+        "backBtn": "返回首页"
     },
     "faq": {
         "title": "常见问题",
@@ -515,7 +538,7 @@
         "q4": "交换成功率是多少？",
         "a4": "交换遵循 RCI 的官方规则。铂金会员享有更高优先级，规则与全球会员一致。历史数据显示成功率约为 98%。",
         "q5": "付款后激活需要多长时间？",
-        "a5": "收到付款并核实您的信息后，您拥有15 天冷静期，期间可以随时全额退款，过了冷静期后，我们将立即为您开通 RCI 会员特权，激活流程通常在 7 天内完成。",
+        "a5": "收到付款并核实您的信息后，您拥有7天冷静期，期间可以随时全额退款，过了冷静期后，我们将立即为您开通 RCI 会员特权，激活流程通常在 7 天内完成。",
         "q6": "谁有资格购买此会员资格？",
         "a6": "此项优惠面向全球国际用户。没有国家或地区限制，包括海外华人和全球客户。",
         "q7": "我如何验证此产品的真实性？",

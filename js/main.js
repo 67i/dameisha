@@ -94,17 +94,6 @@ function scrollToElement(elementId) {
 /**
  * Toggle dark mode
  */
-function toggleDarkMode() {
-    document.documentElement.classList.toggle('dark');
-    const isDark = document.documentElement.classList.contains('dark');
-    localStorage.setItem('darkMode', isDark);
-}
-
-
-
-/**
- * Load US Hotels from JSON
- */
 function loadUSHotels() {
     function tryLoad() {
         if (typeof I18n !== 'undefined' && I18n.translations && Object.keys(I18n.translations).length > 0) {
@@ -115,8 +104,7 @@ function loadUSHotels() {
                 .then(function(data) {
                     renderHotels(data.hotels);
                 })
-                .catch(function(error) {
-                    console.error('Failed to load hotels data:', error);
+                .catch(function() {
                 });
         } else {
             setTimeout(tryLoad, 50);
@@ -183,14 +171,4 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', tryUpdateRCILink);
 } else {
     tryUpdateRCILink();
-}
-
-/**
- * Check and apply saved dark mode preference
- */
-function checkDarkModePreference() {
-    const savedDarkMode = localStorage.getItem('darkMode');
-    if (savedDarkMode === 'true') {
-        document.documentElement.classList.add('dark');
-    }
 }

@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -104,7 +104,7 @@
         <section class="hotel-back-section">
             <a href="./index.html#hotels" class="back-button">
                 <span class="material-symbols-outlined back-arrow">arrow_back</span>
-                <span data-i18n="hotelDetail.backBtn">返回酒店列表</span>
+                <span data-i18n="hotelDetail.backBtn">返回首页</span>
             </a>
         </section>
     </main>
@@ -172,13 +172,11 @@
     </div>
 
     <script src="./js/i18n.js"></script>
+    <script src="./js/lightbox.js"></script>
     <script src="./js/cookie-consent.js"></script>
     <script src="./js/common.js"></script>
     <script>
     (function() {
-        var galleryImages = [];
-        var currentIndex = 0;
-
         function getHotelId() {
             var params = new URLSearchParams(window.location.search);
             return params.get('id') || 'hotel1';
@@ -204,8 +202,7 @@
                     }
                     renderHotelDetail(hotel);
                 })
-                .catch(function(error) {
-                    console.error('Failed to load hotel detail:', error);
+                .catch(function() {
                 });
         }
 
@@ -248,7 +245,7 @@
             });
             document.getElementById('servicesList').innerHTML = servicesHtml;
 
-            galleryImages = hotel.servicesGallery || [];
+            var galleryImages = hotel.servicesGallery || [];
             var galleryHtml = '';
             if (galleryImages.length > 0) {
                 galleryImages.forEach(function(img, index) {
@@ -257,73 +254,10 @@
             }
             document.getElementById('servicesGallery').innerHTML = galleryHtml;
 
-            initLightbox();
+            Lightbox.init(galleryImages, '.gallery-img');
 
             var siteName = lang === 'zh' ? '换享星球' : lang === 'en' ? 'Huanxiang Planet' : lang === 'ko' ? '환상 행성' : 'ファンタジープラネット';
             document.title = (i18n.name || hotel.name) + ' - ' + siteName;
-        }
-
-        function initLightbox() {
-            var lightbox = document.getElementById('lightbox');
-            var lightboxImg = document.getElementById('lightboxImg');
-            var lightboxClose = document.getElementById('lightboxClose');
-            var lightboxPrev = document.getElementById('lightboxPrev');
-            var lightboxNext = document.getElementById('lightboxNext');
-            var lightboxCounter = document.getElementById('lightboxCounter');
-            var galleryImgs = document.querySelectorAll('.gallery-img');
-
-            galleryImgs.forEach(function(img) {
-                img.style.cursor = 'pointer';
-                img.addEventListener('click', function() {
-                    currentIndex = parseInt(this.getAttribute('data-index'));
-                    openLightbox();
-                });
-            });
-
-            function openLightbox() {
-                lightbox.classList.add('active');
-                lightboxImg.src = galleryImages[currentIndex];
-                updateCounter();
-                document.body.style.overflow = 'hidden';
-            }
-
-            function closeLightbox() {
-                lightbox.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-
-            function showPrev() {
-                currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-                lightboxImg.src = galleryImages[currentIndex];
-                updateCounter();
-            }
-
-            function showNext() {
-                currentIndex = (currentIndex + 1) % galleryImages.length;
-                lightboxImg.src = galleryImages[currentIndex];
-                updateCounter();
-            }
-
-            function updateCounter() {
-                lightboxCounter.textContent = (currentIndex + 1) + ' / ' + galleryImages.length;
-            }
-
-            lightboxClose.addEventListener('click', closeLightbox);
-            lightboxPrev.addEventListener('click', showPrev);
-            lightboxNext.addEventListener('click', showNext);
-
-            lightbox.addEventListener('click', function(e) {
-                if (e.target === lightbox) {
-                    closeLightbox();
-                }
-            });
-
-            document.addEventListener('keydown', function(e) {
-                if (!lightbox.classList.contains('active')) return;
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowLeft') showPrev();
-                if (e.key === 'ArrowRight') showNext();
-            });
         }
 
         function tryLoad() {

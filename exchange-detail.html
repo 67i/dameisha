@@ -153,13 +153,11 @@
     </div>
 
     <script src="./js/i18n.js"></script>
+    <script src="./js/lightbox.js"></script>
     <script src="./js/cookie-consent.js"></script>
     <script src="./js/common.js"></script>
     <script>
     (function() {
-        var galleryImages = [];
-        var currentIndex = 0;
-
         function getExchangeType() {
             var params = new URLSearchParams(window.location.search);
             return params.get('type') || 'manhattan-club';
@@ -185,8 +183,7 @@
                     }
                     renderExchangeDetail(exchange);
                 })
-                .catch(function(error) {
-                    console.error('Failed to load exchange detail:', error);
+                .catch(function() {
                 });
         }
 
@@ -209,10 +206,11 @@
 
             document.getElementById('galleryTitle').textContent = i18n.title || '';
 
-            galleryImages = exchange.gallery || [];
+            var galleryImages = exchange.gallery || [];
             var galleryHtml = '';
             if (galleryImages.length > 0) {
                 galleryImages.forEach(function(img, index) {
+                    if (index === 0) return;
                     galleryHtml += '<div class="exchange-gallery-item">' +
                         '<img src="' + img + '" alt="" class="exchange-gallery-img" data-index="' + index + '">' +
                         '</div>';
@@ -227,82 +225,10 @@
                 gallerySection.style.display = '';
             }
 
-            initLightbox();
+            Lightbox.init(galleryImages, '.exchange-gallery-img', { introImageId: 'introImage' });
 
             var siteName = lang === 'zh' ? '换享星球' : lang === 'en' ? 'Huanxiang Planet' : lang === 'ko' ? '환상 행성' : 'ファンタジープラネット';
             document.title = (i18n.title || '') + ' - ' + siteName;
-        }
-
-        function initLightbox() {
-            var lightbox = document.getElementById('lightbox');
-            var lightboxImg = document.getElementById('lightboxImg');
-            var lightboxClose = document.getElementById('lightboxClose');
-            var lightboxPrev = document.getElementById('lightboxPrev');
-            var lightboxNext = document.getElementById('lightboxNext');
-            var lightboxCounter = document.getElementById('lightboxCounter');
-            var galleryImgs = document.querySelectorAll('.exchange-gallery-img');
-
-            var introImage = document.getElementById('introImage');
-            if (introImage && galleryImages.length > 0) {
-                introImage.style.cursor = 'pointer';
-                introImage.addEventListener('click', function() {
-                    currentIndex = 0;
-                    openLightbox();
-                });
-            }
-
-            galleryImgs.forEach(function(img) {
-                img.style.cursor = 'pointer';
-                img.addEventListener('click', function() {
-                    currentIndex = parseInt(this.getAttribute('data-index'));
-                    openLightbox();
-                });
-            });
-
-            function openLightbox() {
-                lightbox.classList.add('active');
-                lightboxImg.src = galleryImages[currentIndex];
-                updateCounter();
-                document.body.style.overflow = 'hidden';
-            }
-
-            function closeLightbox() {
-                lightbox.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-
-            function showPrev() {
-                currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-                lightboxImg.src = galleryImages[currentIndex];
-                updateCounter();
-            }
-
-            function showNext() {
-                currentIndex = (currentIndex + 1) % galleryImages.length;
-                lightboxImg.src = galleryImages[currentIndex];
-                updateCounter();
-            }
-
-            function updateCounter() {
-                lightboxCounter.textContent = (currentIndex + 1) + ' / ' + galleryImages.length;
-            }
-
-            lightboxClose.addEventListener('click', closeLightbox);
-            lightboxPrev.addEventListener('click', showPrev);
-            lightboxNext.addEventListener('click', showNext);
-
-            lightbox.addEventListener('click', function(e) {
-                if (e.target === lightbox) {
-                    closeLightbox();
-                }
-            });
-
-            document.addEventListener('keydown', function(e) {
-                if (!lightbox.classList.contains('active')) return;
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowLeft') showPrev();
-                if (e.key === 'ArrowRight') showNext();
-            });
         }
 
         function tryLoad() {

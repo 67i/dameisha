@@ -30,8 +30,8 @@
         "card2Desc": "다메이샤 요트 클럽 리조트가 공식적으로 RCI에 가입, 타임쉐어 구매 시 5년 RCI 멤버십 무료 증정.",
         "card3Title": "100개국 이상, 5,000개 이상 호텔 교환",
         "card3Desc": "회원은 RCI(세계 최대 타임쉐어 교환 플랫폼)를 통해 110개국 5,000개 이상 리조트로 원활하게 교환 가능.",
-        "card4Title": "가격에 비해 가치가 부족함이 없다",
-        "card4Desc": "5년 글로벌 리조트 이용 권한을 국제 주요 브랜드의 일부 비용으로 즐기세요.",
+        "card4Title": "글로벌 휴양 네트워크의 저비용 열쇠",
+        "card4Desc": "중국의 운영 효율성을 기반으로, 저비용 고품질의 세계 여행 기회를 경험하세요.",
         "card5Title": "연회비 없음, 숨은 비용 없음",
         "card5Desc": "이 제품은 한 번만 투자하면 연회비가 없습니다. 휴가 시 RCI 플랫폼 기준에 따라 주별 교환 서비스 비용을 지불하고 전 세계를 여행하세요.",
         "card6Title": "공유 가능, 양도 가능, 상속 가능",
@@ -158,7 +158,7 @@
         "gallery2": "GUEST ROOM",
         "gallery3": "INFINITY POOL",
         "gallery4": "OCEAN VIEW",
-        "backBtn": "호텔 목록으로 돌아가기"
+        "backBtn": "홈으로 돌아가기"
     },
     "hotelList": {
         "heroTitle": "글로벌 교환 가능 호텔",
@@ -270,7 +270,7 @@
         "gallery2": "GUEST ROOM",
         "gallery3": "OCEAN VIEW",
         "gallery4": "DINING",
-        "backBtn": "호텔 목록으로 돌아가기"
+        "backBtn": "홈으로 돌아가기"
     },
     "hotel2": {
         "location": "비엔나 · 오스트리아",
@@ -302,7 +302,7 @@
         "gallery2": "GUEST ROOM",
         "gallery3": "DINING",
         "gallery4": "ROYAL SUITE",
-        "backBtn": "호텔 목록으로 돌아가기"
+        "backBtn": "홈으로 돌아가기"
     },
     "hotel3": {
         "location": "런던 · 영국",
@@ -334,7 +334,7 @@
         "gallery2": "GUEST ROOM",
         "gallery3": "HYDE PARK VIEW",
         "gallery4": "DINING",
-        "backBtn": "호텔 목록으로 돌아가기"
+        "backBtn": "홈으로 돌아가기"
     },
     "hotel4": {
         "location": "두바이 · UAE",
@@ -366,7 +366,7 @@
         "gallery2": "INFINITY POOL",
         "gallery3": "PRIVATE BEACH",
         "gallery4": "ARABIAN GULF VIEW",
-        "backBtn": "호텔 목록으로 돌아가기"
+        "backBtn": "홈으로 돌아가기"
     },
     "hotel5": {
         "location": "마드리드 · 스페인",
@@ -398,7 +398,7 @@
         "gallery2": "GUEST ROOM",
         "gallery3": "DINING",
         "gallery4": "SENSE SPA",
-        "backBtn": "호텔 목록으로 돌아가기"
+        "backBtn": "홈으로 돌아가기"
     },
     "hotel6": {
         "location": "부산 · 한국",
@@ -430,7 +430,7 @@
         "gallery2": "INFINITY POOL",
         "gallery3": "HAEUNDAE VIEW",
         "gallery4": "DINING",
-        "backBtn": "호텔 목록으로 돌아가기"
+        "backBtn": "홈으로 돌아가기"
     },
     "hotelDetail": {
         "introLabel": "호텔 소개",
@@ -438,7 +438,7 @@
         "servicesTitle": "호텔 편의시설 및 서비스",
         "servicesSubtitle": "휴가 필요를 충족시키는 종합 시설",
         "inPictures": "사진으로 보기",
-        "backBtn": "호텔 목록으로 돌아가기"
+        "backBtn": "홈으로 돌아가기"
     },
     "vacationDetail": {
         "label": "멋진 휴가",
@@ -511,7 +511,30 @@
         "themeFamily": "가족",
         "themeBeach": "해변",
         "themesCount": "6개의 테마 리조트 및 호텔",
-        "backBtn": "홈으로 돌아가기"
+        "backBtn": "홈으로 돌아가기",
+        "pricingTitle": "중국의 운영 비용 우위로 뒷받침되는 최저가, RCI 네트워크를 통해 가치의 도약을 실현합니다.",
+        "pricingColCost": "비용 항목",
+        "pricingColOur": "당사 권익 상품(5년 플랜)",
+        "pricingColDirect": "미국 직판 권익(5년 기준 환산)",
+        "pricingColResale": "미국 중고 권익(5년 기준 환산)",
+        "pricingRowWeeks": "권익 주수",
+        "pricingWeeksOur": "2주/년",
+        "pricingWeeksDirect": "1주/년",
+        "pricingWeeksResale": "1주/년",
+        "pricingRowPurchase": "최초 구매",
+        "pricingRowAnnual": "연간 유지비",
+        "pricingRowMember": "RCI 회원 연회비",
+        "pricingRowExchange": "RCI 교환 능력",
+        "pricingExchangeOur": "26 교환 능력/년",
+        "pricingExchangeDirect": "13 교환 능력/년",
+        "pricingExchangeResale": "13 교환 능력/년",
+        "pricingRowFee": "RCI 교환 수수료",
+        "pricingFeeOur": "$299/주",
+        "pricingFeeDirect": "$299/주",
+        "pricingFeeResale": "$299/주",
+        "pricingRowTotal": "5년 총 지출",
+        "pricingRowAnnualCost": "실제 연간 비용",
+        "pricingRowPerNight": "1박당 비용"
     },
     "faq": {
         "title": "자주 묻는 질문",
@@ -525,7 +548,7 @@
         "q4": "교환 성공률은 얼마입니까?",
         "a4": "교환은 RCI의 공식 규칙을 따릅니다. 플래티넘 회원은 더 높은 우선순위를 누리며 규칙은 글로벌 회원과 일치합니다. 역사적 데이터에 따르면 성공률은 약 98%입니다.",
         "q5": "결제 후 활성화에 얼마나 걸립니까?",
-        "a5": "결제를 받고 정보를 확인한 후 RCI 멤버십 혜택은 일반적으로 7영업일 이내에 활성화됩니다.",
+        "a5": "결제 수령 및 정보 확인 후 7일간 Cooling-off 기간이 주어지며, 이 기간 동안에는 언제든지 전액 환불이 가능합니다. Cooling-off 기간이 지나면 즉시 RCI 멤버십 특권을 활성화해드리며, 활성화 절차는 일반적으로 7일 이내에 완료됩니다.",
         "q6": "이 멤버십을 구매할 수 있는 자격은 누구입니까?",
         "a6": "이 제안은 글로벌 국제 사용자에게 열려 있습니다. 해외 중국인과 글로벌 고객을 포함하여 국가 또는 지역 제한이 없습니다.",
         "q7": "이 제품의 진위를 어떻게 확인할 수 있습니까?",

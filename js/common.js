@@ -48,7 +48,6 @@
                     .then(resolve)
                     .catch(function(error) {
                         if (attempts < maxRetries) {
-                            console.warn('Load failed, retrying (' + attempts + '/' + maxRetries + '):', url);
                             setTimeout(attempt, retryDelay);
                         } else {
                             reject(error);
@@ -99,8 +98,7 @@
                     tryApplyTranslations();
                 }
             })
-            .catch(function(error) {
-                console.error('Failed to load header after retries:', error);
+            .catch(function() {
                 if (headerPlaceholder) {
                     headerPlaceholder.innerHTML = getHeaderFallback();
                 }
@@ -128,8 +126,7 @@
                     tryApplyTranslations();
                 }
             })
-            .catch(function(error) {
-                console.error('Failed to load footer after retries:', error);
+            .catch(function() {
                 if (footerPlaceholder) {
                     footerPlaceholder.innerHTML = getFooterFallback();
                 }
@@ -161,6 +158,20 @@
             
             mobileMenuBtn.addEventListener('click', toggleMenu, { passive: false });
             mobileMenuBtn.addEventListener('touchend', toggleMenu, { passive: false });
+
+            document.addEventListener('click', function(e) {
+                if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                    mobileMenu.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                }
+            });
+
+            mobileMenu.querySelectorAll('.mobile-menu-link').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                });
+            });
         }
     }
 
@@ -189,18 +200,33 @@
         }
     }
 
-    // 页面加载完成后加载头部和脚部
+    function initInlineHeader() {
+        var mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        var langBtns = document.querySelectorAll('.lang-btn, .mobile-lang-btn');
+        
+        if (mobileMenuBtn && !mobileMenuBtn._initialized) {
+            mobileMenuBtn._initialized = true;
+            initMobileMenu();
+        }
+        
+        if (langBtns.length > 0 && !langBtns[0]._langInitialized) {
+            langBtns.forEach(function(btn) { btn._langInitialized = true; });
+            initLangSwitcher();
+        }
+    }
+
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function() {
             loadHeader();
             loadFooter();
+            initInlineHeader();
         });
     } else {
         loadHeader();
         loadFooter();
+        initInlineHeader();
     }
 
-    // 备份机制：延迟初始化移动端菜单（应对网络慢导致header加载延迟）
     setTimeout(function() {
         var mobileMenuBtn = document.getElementById('mobileMenuBtn');
         if (mobileMenuBtn && !mobileMenuBtn._initialized) {

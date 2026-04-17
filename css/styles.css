@@ -41,6 +41,31 @@ html {
     --untitled-ui-gray100: #f2f4f7;
     --untitled-ui-white: #ffffff;
     --green-18: rgba(139, 159, 139, 0.18);
+    --navy: #0d1c2f;
+    --navy-light: #0f1f30;
+    --navy-mid: #1a2d42;
+    --navy-gradient: linear-gradient(135deg, #0d1c2f, #16304d);
+    --resort-green: #00453e;
+    --resort-green-light: rgba(0, 69, 62, 0.05);
+    --resort-green-glow: rgba(0, 69, 62, 0.25);
+    --gold: #c9a96e;
+    --gold-light: #d4b87e;
+    --gold-dark: #b8934d;
+    --selection-bg: #efddc0;
+    --selection-text: #231a08;
+    --text-primary: #1c1b1a;
+    --text-secondary: #586062;
+    --text-muted: #44474c;
+    --bg-light: #f5f5f5;
+    --bg-warm: #f7f3f0;
+    --bg-cool: #f5f6fa;
+    --border-light: #e5e7eb;
+    --border-subtle: rgba(190, 201, 198, 0.2);
+    --content-max-width: 1536px;
+    --section-padding: 6rem 0;
+    --section-padding-mobile: 3rem 0;
+    --content-padding: 0 3rem;
+    --content-padding-mobile: 0 1rem;
 }
 
 body {
@@ -146,23 +171,7 @@ body {
 @font-face {
     font-family: 'Playfair Display';
     src: url('../fonts/playfairdisplay/PlayfairDisplay.ttf') format('truetype');
-    font-weight: 400 900;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Playfairdisplay Variablefont Wght';
-    src: url('../fonts/playfairdisplay/PlayfairDisplay.ttf') format('truetype');
-    font-weight: 400 900;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Playfair Display';
-    src: url('../fonts/playfairdisplay/PlayfairDisplay-Black.ttf') format('truetype');
-    font-weight: 900;
+    font-weight: 100 900;
     font-style: normal;
     font-display: swap;
 }
@@ -170,15 +179,7 @@ body {
 @font-face {
     font-family: 'Playfair Display';
     src: url('../fonts/playfairdisplay/PlayfairDisplay.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Playfair Display';
-    src: url('../fonts/playfairdisplay/PlayfairDisplay.ttf') format('truetype');
-    font-weight: 400;
+    font-weight: 100 900;
     font-style: italic;
     font-display: swap;
 }
@@ -278,6 +279,7 @@ body {
     direction: ltr;
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
 }
 
 
@@ -287,20 +289,8 @@ h1 {
     font-weight: 900;
 }
 
-@media (min-width: 768px) {
-    h1 {
-        margin-top: 300rem;
-        margin-bottom: 300rem;
-    }
-}
-
 .label-font {
     font-family: 'Lato new', 'PingFang SC', sans-serif;
-}
-
-/* Material Symbols Font */
-.material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
 }
 
 /* ========================================
@@ -1345,20 +1335,6 @@ a.hero-button:hover {
     transform: scale(1.05);
 }
 
-.promo-tag {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background-color: #efddc0;
-    color: #231a08;
-    padding: 0.25rem 0.75rem;
-    font-size: 0.625rem;
-    font-family: 'Work Sans', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    border-radius: 0.25rem;
-}
-
 .promo-hotel-name {
     font-size: 1.25rem;
     font-weight: 300;
@@ -2008,16 +1984,6 @@ a.hero-button:hover {
         justify-content: center;
     }
     
-    .footer-column-title {
-    font-family: 'Wensley', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: normal;
-    text-transform: none;
-    color: var(--off-black);
-    margin-bottom: 2rem;
-}
-    
     .footer-header-title {
         font-size: 1rem;
         margin-bottom: 1rem;
@@ -2033,21 +1999,6 @@ a.hero-button:hover {
         text-align: center;
         padding: 1.5rem 1rem;
     }
-    
-    .footer-copyright-text {
-    font-family: 'Lato new', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.025em;
-    text-transform: uppercase;
-    color: var(--dim-grey);
-}
-    
-    .footer-copyright-link {
-    font-size: 0.75rem;
-    font-family: 'Lato new', sans-serif;
-    color: var(--dim-grey);
-    transition: color 0.3s ease;
-}
 }
 
 /*  (768px - 1024px) */
@@ -2395,50 +2346,6 @@ a.hero-button:hover {
     .terms-section-title {
         font-size: 1.125rem;
     }
-}
-
-/* Hotel Detail Page Style*/
-
-/* Hero Section -  +  */
-.hotel-detail-hero {
-    position: relative;
-    width: 100%;
-    height: 70vh;
-    min-height: 500px;
-    overflow: hidden;
-}
-
-.hotel-hero-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.hotel-hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.2) 40%, rgba(15,23,42,0.7));
-}
-
-.hotel-hero-content {
-    position: absolute;
-    bottom: 4rem;
-    left: 0;
-    right: 0;
-    padding: 0 3rem;
-    max-width: 1536px;
-    margin: 0 auto;
-}
-
-.hotel-hero-location {
-    display: inline-block;
-    font-family: 'Lato new', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.9);
-    margin-bottom: 1rem;
 }
 
 .hotel-hero-title {
@@ -3412,7 +3319,7 @@ a.hero-button:hover {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -3545,11 +3452,6 @@ a.hero-button:hover {
 .benefits-hero-scroll .material-symbols-outlined {
     font-size: 2.5rem;
     animation: bounce 1s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(10px); }
 }
 
 .benefits-section-title {
@@ -3798,6 +3700,9 @@ html[lang="ja"] .logic-circle-text-en {
 }
 
 .rci-world-wrap {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -3818,15 +3723,7 @@ html[lang="ja"] .logic-circle-text-en {
 .rci-arrow-down {
     color: #0d1c2f;
     padding: 0.5rem 0;
-}
-
-.rci-world-wrap {
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-bottom: 1.5rem;
 }
 
 .rci-header-box {
@@ -3908,11 +3805,6 @@ html[lang="ja"] .logic-circle-text-en {
     }
 }
 
-.rci-arrow-down {
-    color: #0d1c2f;
-    margin-bottom: 1.5rem;
-}
-
 .rci-arrow-down svg {
     width: 48px;
     height: 48px;
@@ -3959,6 +3851,114 @@ html[lang="ja"] .logic-circle-text-en {
 @media (min-width: 768px) {
     .rci-logo-center {
         font-size: 8rem;
+    }
+}
+
+.pricing-comparison-section {
+    padding: 3rem 0;
+    background: linear-gradient(180deg, #e8ecf4 0%, #f5f6fa 100%);
+}
+
+.pricing-comparison-wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.pricing-comparison-title {
+    font-family: 'Wensley', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #071123;
+    text-align: center;
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+}
+
+@media (min-width: 768px) {
+    .pricing-comparison-title {
+        font-size: 1.65rem;
+    }
+}
+
+.pricing-table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+}
+
+@media (max-width: 767px) {
+    .pricing-table {
+        min-width: 600px;
+    }
+}
+
+.pricing-table-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.pricing-table-scroll::-webkit-scrollbar-thumb {
+    background: #c9a96e;
+    border-radius: 3px;
+}
+
+.pricing-table {
+    width: 100%;
+    min-width: 100%;
+    border-collapse: separate;
+    border-spacing: 6px;
+    font-family: 'Lato new', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.pricing-table thead th {
+    background-color: #e8e8e8;
+    color: #071123;
+    font-weight: 700;
+    padding: 0.95rem 1.15rem;
+    text-align: center;
+    white-space: nowrap;
+    border: none;
+    border-radius: 4px;
+}
+
+.pricing-table thead th:first-child {
+    text-align: left;
+    background-color: #071123;
+    color: #ffffff;
+}
+
+.pricing-table tbody td {
+    background-color: #e8e8e8;
+    color: #1c1b1a;
+    padding: 0.85rem 1.15rem;
+    text-align: center;
+    white-space: nowrap;
+    border: none;
+    border-radius: 4px;
+    vertical-align: middle;
+    font-weight: 700;
+}
+
+.pricing-table tbody td:first-child {
+    background-color: #071123;
+    color: #ffffff;
+    text-align: left;
+    font-weight: 700;
+}
+
+@media (min-width: 768px) {
+    .pricing-table {
+        font-size: 0.95rem;
+    }
+
+    .pricing-table thead th,
+    .pricing-table tbody td {
+        padding: 1rem 1.4rem;
     }
 }
 
@@ -4060,6 +4060,14 @@ html[lang="ja"] .logic-circle-text-en {
     padding: 2rem 1.25rem;
     background-color: #eff3ff;
     border-radius: 8px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.benefits-timeline-item.benefits-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .benefits-timeline-year {
@@ -4333,17 +4341,6 @@ html[lang="ja"] .logic-circle-text-en {
 .benefits-animate-scale.benefits-visible {
     opacity: 1;
     transform: scale(1);
-}
-
-.benefits-timeline-item {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.benefits-timeline-item.benefits-visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .benefits-timeline-item:nth-child(1) { transition-delay: 0.1s; }
