@@ -11,12 +11,7 @@ const I18n = {
     supportedLangs: ['en', 'zh', 'ko', 'ja'],
     
     async init() {
-        const savedLang = localStorage.getItem('lang');
-        if (savedLang && this.supportedLangs.includes(savedLang)) {
-            this.currentLang = savedLang;
-        }
-        
-        await this.loadTranslations(this.currentLang);
+        await this.loadTranslations('en');
         this.applyTranslations();
         this.updateLangButtons();
         

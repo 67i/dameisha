@@ -537,7 +537,8 @@
         "pricingFeeResale": "$299 per Week",
         "pricingRowTotal": "Total Expenditure (5 Years)",
         "pricingRowAnnualCost": "Actual Annual Cost",
-        "pricingRowPerNight": "Cost Per Night"
+        "pricingRowPerNight": "Cost Per Night",
+        "scrollHint": "Swipe"
     },
     "faq": {
         "title": "Frequently Asked Questions",

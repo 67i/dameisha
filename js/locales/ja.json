@@ -49,8 +49,9 @@
         "diving": "潜水度假",
         "family": "家庭度假",
         "beach": "海滩度假",
-        "themesCount": "6个主题度假酒店",
-        "backBtn": "ホームに戻る"
+        "themesCount": "6つのテーマリゾort",
+        "backBtn": "ホームに戻る",
+        "scrollHint": "スワイプ"
     },
     "promo": {
         "reliableTitle": "Real Exchange Cases",

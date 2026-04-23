@@ -345,7 +345,8 @@
         "pricingFeeResale": "$299/周次",
         "pricingRowTotal": "5年总支出",
         "pricingRowAnnualCost": "每年实际成本",
-        "pricingRowPerNight": "每晚成本"
+        "pricingRowPerNight": "每晚成本",
+        "scrollHint": "左滑"
     },
     "hotel1": {
         "location": "卡波圣卢卡斯 · 墨西哥",

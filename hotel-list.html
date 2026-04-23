@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="hotelListPageTitle">酒店列表 - 换享星球</title>
+    <title data-i18n="hotelListPageTitle">Hotel List - Huanxiang Planet</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script src="./js/tailwind.config.js"></script>
     <link rel="stylesheet" href="./css/styles.css">
@@ -59,8 +59,8 @@
         <section class="hotel-list-hero">
             <div class="hotel-list-hero-bg"></div>
             <div class="hotel-list-hero-content scroll-animate">
-                <h1 class="hotel-list-hero-title" data-i18n="hotelList.heroTitle">全球可交换酒店</h1>
-                <p class="hotel-list-hero-subtitle" data-i18n="hotelList.heroSubtitle">RCI 全球 110 国 5000+ 度假村，开启您的交换之旅</p>
+                <h1 class="hotel-list-hero-title" data-i18n="hotelList.heroTitle">Global Exchange Hotels</h1>
+                <p class="hotel-list-hero-subtitle" data-i18n="hotelList.heroSubtitle">RCI 110 Countries 5,000+ Resorts Worldwide</p>
             </div>
         </section>
 
@@ -72,7 +72,7 @@
         </div>
 
         <section class="hotel-list-back">
-            <a href="./index.html#destinations" class="back-button"><span class="material-symbols-outlined back-arrow">arrow_back</span><span data-i18n="hotelList.backBtn">返回首页</span></a>
+            <a href="./index.html#destinations" class="back-button"><span class="material-symbols-outlined back-arrow">arrow_back</span><span data-i18n="hotelList.backBtn">Back to Home</span></a>
         </section>
     </main>
 
@@ -176,7 +176,7 @@
 
             var html = '';
             hotels.forEach(function(hotel) {
-                var badgeHtml = hotel.badge ? '<span class="hotel-list-card-badge" data-i18n="hotelList.badgePartner">RCI 合作</span>' : '';
+                var badgeHtml = hotel.badge ? '<span class="hotel-list-card-badge" data-i18n="hotelList.badgePartner">RCI Partner</span>' : '';
                 var isExternal = hotel.detail && (hotel.detail.indexOf('http://') === 0 || hotel.detail.indexOf('https://') === 0);
                 var targetAttr = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
                 html += '<a href="' + hotel.detail + '" class="hotel-list-card"' + targetAttr + '>' +
@@ -190,7 +190,7 @@
                     '<p class="hotel-list-card-location" data-i18n="' + hotel.locKey + '"></p>' +
                     '</div></div>' +
                     '<div class="hotel-list-card-footer">' +
-                    '<span class="hotel-list-card-detail" data-i18n="hotelList.viewDetails">查看详情</span>' +
+                    '<span class="hotel-list-card-detail" data-i18n="hotelList.viewDetails">View Details</span>' +
                     '</div></div></a>';
             });
 

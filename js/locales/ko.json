@@ -546,8 +546,9 @@
         "pricingFeeDirect": "$299/주",
         "pricingFeeResale": "$299/주",
         "pricingRowTotal": "5년 총 지출",
-        "pricingRowAnnualCost": "실제 연간 비용",
-        "pricingRowPerNight": "1박당 비용"
+        "pricingRowAnnualCost": "연간 실제 비용",
+        "pricingRowPerNight": "1박당 비용",
+        "scrollHint": "스와이프"
     },
     "faq": {
         "title": "자주 묻는 질문",

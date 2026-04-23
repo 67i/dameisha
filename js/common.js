@@ -213,6 +213,136 @@
             langBtns.forEach(function(btn) { btn._langInitialized = true; });
             initLangSwitcher();
         }
+
+        if (typeof I18n !== 'undefined' && I18n.translations && Object.keys(I18n.translations).length > 0) {
+            initTableScrollHint();
+        } else {
+            document.addEventListener('i18nReady', initTableScrollHint);
+        }
+    }
+
+    var scrollHintInitialized = false;
+    function initTableScrollHint() {
+        if (scrollHintInitialized) return;
+        
+        var isMobile = window.matchMedia('(max-width: 767px)').matches;
+        if (!isMobile) return;
+
+        var scrollContainers = document.querySelectorAll('.pricing-table-scroll');
+        if (scrollContainers.length === 0) return;
+
+        scrollHintInitialized = true;
+
+        var svgIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-2-2 2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2 2 2 0 0 0-2 2v6"/><path d="M10 10.5V6a2 2 0 0 0-2-2 2 2 0 0 0-2 2v8"/></svg>';
+
+        function getScrollHintText() {
+            if (typeof I18n !== 'undefined' && I18n.get) {
+                var text = I18n.get('benefitsDetail.scrollHint');
+                return (text && text !== 'benefitsDetail.scrollHint') ? text : 'Swipe';
+            }
+            return 'Swipe';
+        }
+
+        function updateScrollHintText() {
+            scrollContainers.forEach(function(container) {
+                var indicator = container.querySelector('.scroll-indicator');
+                if (indicator) {
+                    var span = indicator.querySelector('span');
+                    if (span) {
+                        span.textContent = getScrollHintText();
+                    }
+                }
+            });
+        }
+
+        scrollContainers.forEach(function(container) {
+            var indicator = document.createElement('div');
+            indicator.className = 'scroll-indicator';
+            indicator.innerHTML = svgIcon + '<span>' + getScrollHintText() + '</span>';
+            container.appendChild(indicator);
+
+            function checkScrollable() {
+                var canScroll = container.scrollWidth > container.clientWidth;
+                if (canScroll) {
+                    container.classList.add('scroll-hint');
+                } else {
+                    container.classList.remove('scroll-hint');
+                }
+            }
+
+            checkScrollable();
+            window.addEventListener('resize', checkScrollable);
+
+            container.addEventListener('scroll', function() {
+                var maxScroll = container.scrollWidth - container.clientWidth;
+                var currentScroll = container.scrollLeft;
+
+                if (maxScroll <= 0) {
+                    indicator.style.opacity = '0';
+                    return;
+                }
+
+                var scrollRatio = Math.min(currentScroll / maxScroll, 1);
+                
+                if (scrollRatio <= 0.01) {
+                    indicator.style.opacity = '0.7';
+                } else {
+                    var hintOpacity = 0.7 * (1 - scrollRatio / 0.3);
+                    hintOpacity = Math.max(0, Math.min(0.7, hintOpacity));
+                    indicator.style.opacity = hintOpacity;
+                }
+
+                if (currentScroll >= maxScroll - 5) {
+                    container.classList.remove('scroll-hint');
+                    indicator.style.opacity = '0';
+                } else if (currentScroll > 0) {
+                    container.classList.add('scroll-hint');
+                }
+            });
+
+            var startX = 0;
+            var startScrollLeft = 0;
+            var isDragging = false;
+
+            container.addEventListener('touchstart', function(e) {
+                startX = e.touches[0].clientX;
+                startScrollLeft = container.scrollLeft;
+                isDragging = true;
+            }, { passive: true });
+
+            container.addEventListener('touchmove', function(e) {
+                if (!isDragging) return;
+                var currentX = e.touches[0].clientX;
+                var diffX = startX - currentX;
+                var maxScroll = container.scrollWidth - container.clientWidth;
+
+                if (diffX > 0) {
+                    var scrollRatio = Math.min((startScrollLeft + diffX) / maxScroll, 1);
+                    if (scrollRatio <= 0.01) {
+                        indicator.style.opacity = '0.7';
+                    } else {
+                        var hintOpacity = 0.7 * (1 - scrollRatio / 0.3);
+                        hintOpacity = Math.max(0, Math.min(0.7, hintOpacity));
+                        indicator.style.opacity = hintOpacity;
+                    }
+                } else {
+                    indicator.style.opacity = '0.7';
+                }
+            }, { passive: true });
+        });
+
+        if (typeof I18n !== 'undefined') {
+            document.addEventListener('i18nReady', updateScrollHintText);
+            document.addEventListener('languageChanged', updateScrollHintText);
+            if (I18n.switchLanguage) {
+                var originalSwitch = I18n.switchLanguage;
+                I18n.switchLanguage = function() {
+                    var result = originalSwitch.apply(this, arguments);
+                    setTimeout(updateScrollHintText, 100);
+                    return result;
+                };
+            }
+        }
     }
 
     if (document.readyState === 'loading') {
