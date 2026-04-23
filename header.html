@@ -1,42 +1,42 @@
 <!-- 公共头部 -->
-<nav class="nav-container">
+<nav class="nav-container" role="navigation" aria-label="Main navigation">
     <div class="nav-content">
-        <a href="./index.html" class="nav-logo">
+        <a href="#/home" class="nav-logo" aria-label="Home - Dameisha Bay Yacht Club Resort">
             <img src="./assets/logo.png" alt="Dameisha Bay Yacht Club Resort" class="nav-logo-img">
         </a>
-        <div class="nav-links">
-            <a href="./hotel-detail.html?id=hotel7" class="nav-link nav-link-secondary" data-i18n="nav.hotelIntro">Hotel Introduction</a>
-            <a href="./benefits-detail.html" class="nav-link nav-link-secondary" data-i18n="nav.benefitsIntro">Benefits Introduction</a>
-            <a href="./faq.html" class="nav-link nav-link-secondary" data-i18n="nav.faq">FAQ</a>
+        <div class="nav-links" role="menubar">
+            <a href="#/hotel-detail?id=hotel7" class="nav-link nav-link-secondary" role="menuitem" data-i18n="nav.hotelIntro">Hotel Introduction</a>
+            <a href="#/benefits-detail" class="nav-link nav-link-secondary" role="menuitem" data-i18n="nav.benefitsIntro">Benefits Introduction</a>
+            <a href="#/faq" class="nav-link nav-link-secondary" role="menuitem" data-i18n="nav.faq">FAQ</a>
         </div>
         <div class="nav-right">
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
             </button>
-            <div class="lang-switcher">
-                <button class="lang-btn active" data-lang="en">EN</button>
-                <button class="lang-btn" data-lang="zh">中文</button>
-                <button class="lang-btn" data-lang="ko">한국어</button>
-                <button class="lang-btn" data-lang="ja">日本語</button>
+            <div class="lang-switcher" role="group" aria-label="Language selector">
+                <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="zh" aria-label="Chinese">中文</button>
+                <button class="lang-btn" data-lang="ko" aria-label="Korean">한국어</button>
+                <button class="lang-btn" data-lang="ja" aria-label="Japanese">日本語</button>
             </div>
-            <a href="./contact.html" class="nav-button" data-i18n="nav.contactUs">Contact Us</a>
+            <a href="#/contact" class="nav-button" data-i18n="nav.contactUs">Contact Us</a>
         </div>
     </div>
-    <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu" id="mobileMenu" role="menu" aria-label="Mobile navigation">
         <div class="mobile-menu-content">
-            <a href="./hotel-detail.html?id=hotel7" class="mobile-menu-link" data-i18n="nav.hotelIntro">Hotel Introduction</a>
-            <a href="./benefits-detail.html" class="mobile-menu-link" data-i18n="nav.benefitsIntro">Benefits Introduction</a>
-            <a href="./faq.html" class="mobile-menu-link" data-i18n="nav.faq">FAQ</a>
-            <div class="mobile-menu-divider"></div>
-            <div class="mobile-lang-switcher">
-                <button class="mobile-lang-btn active" data-lang="en">English</button>
-                <button class="mobile-lang-btn" data-lang="zh">中文</button>
-                <button class="mobile-lang-btn" data-lang="ko">한국어</button>
-                <button class="mobile-lang-btn" data-lang="ja">日本語</button>
+            <a href="#/hotel-detail?id=hotel7" class="mobile-menu-link" role="menuitem" data-i18n="nav.hotelIntro">Hotel Introduction</a>
+            <a href="#/benefits-detail" class="mobile-menu-link" role="menuitem" data-i18n="nav.benefitsIntro">Benefits Introduction</a>
+            <a href="#/faq" class="mobile-menu-link" role="menuitem" data-i18n="nav.faq">FAQ</a>
+            <div class="mobile-menu-divider" role="separator"></div>
+            <div class="mobile-lang-switcher" role="group" aria-label="Language selector">
+                <button class="mobile-lang-btn active" data-lang="en" aria-label="English">English</button>
+                <button class="mobile-lang-btn" data-lang="zh" aria-label="Chinese">中文</button>
+                <button class="mobile-lang-btn" data-lang="ko" aria-label="Korean">한국어</button>
+                <button class="mobile-lang-btn" data-lang="ja" aria-label="Japanese">日本語</button>
             </div>
-            <a href="./contact.html" class="mobile-nav-button" data-i18n="nav.contactUs">Contact Us</a>
+            <a href="#/contact" class="mobile-nav-button" data-i18n="nav.contactUs">Contact Us</a>
         </div>
     </div>
 </nav>

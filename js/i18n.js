@@ -11,7 +11,10 @@ const I18n = {
     supportedLangs: ['en', 'zh', 'ko', 'ja'],
     
     async init() {
-        await this.loadTranslations('en');
+        const savedLang = localStorage.getItem('lang');
+        const initialLang = this.supportedLangs.includes(savedLang) ? savedLang : 'en';
+        this.currentLang = initialLang;
+        await this.loadTranslations(initialLang);
         this.applyTranslations();
         this.updateLangButtons();
         
@@ -65,7 +68,10 @@ const I18n = {
                         element.value = translation;
                     }
                 } else if (element.tagName === 'TITLE') {
-                    document.title = translation;
+                    // Skip title translation in SPA mode - router manages document.title
+                    if (!document.getElementById('app-content')) {
+                        document.title = translation;
+                    }
                 } else {
                     if (allowHtml || (translation && translation.includes('<br>'))) {
                         let safeHtml = translation;

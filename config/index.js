@@ -1,10 +1,18 @@
- /**
+/**
  * QX Travel Configuration File
  * Centralized configuration for API endpoints, CDN URLs, and environment settings
  */
 
-const CONFIG = {
-    environment: 'development',
+function detectEnvironment() {
+    var host = window.location.hostname;
+    if (host === 'localhost' || host === '127.0.0.1' || host.indexOf('192.168.') === 0) {
+        return 'development';
+    }
+    return 'production';
+}
+
+var CONFIG = {
+    environment: detectEnvironment(),
 
     cdn: {
         tailwind: 'https://cdn.tailwindcss.com?plugins=forms,container-queries',
@@ -20,20 +28,22 @@ const CONFIG = {
 
     api: {
         baseUrl: '',
-        timeout: 30000
+        timeout: 30000,
+        googleMapsKey: window.__GOOGLE_MAPS_KEY__ || '',
+        useEmbedApi: false
     },
 
     images: {
-        basePath: './assets/images/'
+        basePath: './assets/'
     }
 };
 
 function getFontUrl(fontName) {
-    return `${CONFIG.cdn.googleFonts}?family=${CONFIG.fonts[fontName]}&display=swap`;
+    return CONFIG.cdn.googleFonts + '?family=' + CONFIG.fonts[fontName] + '&display=swap';
 }
 
 function getImagePath(filename) {
-    return `${CONFIG.images.basePath}${filename}`;
+    return CONFIG.images.basePath + filename;
 }
 
 function setEnvironment(env) {
@@ -45,5 +55,5 @@ function getEnvironment() {
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { CONFIG, getFontUrl, getImagePath, setEnvironment, getEnvironment };
+    module.exports = { CONFIG: CONFIG, getFontUrl: getFontUrl, getImagePath: getImagePath, setEnvironment: setEnvironment, getEnvironment: getEnvironment };
 }

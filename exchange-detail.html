@@ -1,7 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
 <head>
+    <script src="./js/redirect-to-spa.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="exchangeDetailPageTitle">交换详情 - 换享星球</title>
@@ -126,7 +127,7 @@
                     </li>
                     <li class="footer-contact-item">
                         <span class="material-symbols-outlined footer-contact-icon">chat</span>
-                        <a href="https://wa.me/85253651156" target="_blank" class="footer-whatsapp-link" data-i18n="footer.whatsapp">WhatsApp: +852 53651156</a>
+                        <a href="https://wa.me/85253651156" target="_blank" rel="noopener noreferrer" class="footer-whatsapp-link" data-i18n="footer.whatsapp">WhatsApp: +852 53651156</a>
                     </li>
                 </ul>
             </div>
@@ -167,7 +168,7 @@
             if (typeof I18n !== 'undefined' && I18n.currentLang) {
                 return I18n.currentLang;
             }
-            return 'zh';
+            return 'en';
         }
 
         function loadExchangeDetail() {
@@ -231,18 +232,10 @@
             document.title = (i18n.title || '') + ' - ' + siteName;
         }
 
-        function tryLoad() {
-            if (typeof I18n !== 'undefined' && I18n.translations && Object.keys(I18n.translations).length > 0) {
-                loadExchangeDetail();
-            } else {
-                setTimeout(tryLoad, 50);
-            }
-        }
-
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', tryLoad);
+            document.addEventListener('DOMContentLoaded', function() { waitForI18n(loadExchangeDetail); });
         } else {
-            tryLoad();
+            waitForI18n(loadExchangeDetail);
         }
 
         document.addEventListener('languageChanged', loadExchangeDetail);

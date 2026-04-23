@@ -1,112 +1,30 @@
-/**
- * QX Travel - Main JavaScript
- * Core functionality for the QX Travel website
- */
-
 document.addEventListener('DOMContentLoaded', function() {
     initNavigation();
-    initScrollEffects();
-    initImageLazyLoading();
-    loadUSHotels();
 });
 
-/**
- * Initialize navigation functionality
- */
 function initNavigation() {
-    const nav = document.querySelector('nav');
-    let lastScrollY = window.scrollY;
-
+    var nav = document.querySelector('nav');
+    if (!nav) return;
     window.addEventListener('scroll', function() {
-        const currentScrollY = window.scrollY;
-
-        if (currentScrollY > 100) {
+        if (window.scrollY > 100) {
             nav.classList.add('shadow-lg');
         } else {
             nav.classList.remove('shadow-lg');
         }
-
-        lastScrollY = currentScrollY;
     });
 }
 
-/**
- * Initialize scroll-based animations and effects
- */
-function initScrollEffects() {
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-fade-in');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    animatedElements.forEach(function(el) {
-        observer.observe(el);
-    });
-}
-
-/**
- * Initialize lazy loading for images
- */
-function initImageLazyLoading() {
-    const images = document.querySelectorAll('img[data-src]');
-
-    const imageObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-
-    images.forEach(function(img) {
-        imageObserver.observe(img);
-    });
-}
-
-/**
- * Smooth scroll to element
- * @param {string} elementId - Target element ID
- */
-function scrollToElement(elementId) {
-    const element = document.getElementById(elementId);
-    if (element) {
-        element.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-    }
-}
-
-/**
- * Toggle dark mode
- */
 function loadUSHotels() {
+    var maxAttempts = 100;
+    var attempts = 0;
     function tryLoad() {
+        attempts++;
         if (typeof I18n !== 'undefined' && I18n.translations && Object.keys(I18n.translations).length > 0) {
             fetch('./data/us-hotels.json?t=' + Date.now())
-                .then(function(response) {
-                    return response.json();
-                })
-                .then(function(data) {
-                    renderHotels(data.hotels);
-                })
-                .catch(function() {
-                });
-        } else {
+                .then(function(response) { return response.json(); })
+                .then(function(data) { renderHotels(data.hotels); })
+                .catch(function(err) { console.error('Failed to load US hotels:', err); });
+        } else if (attempts < maxAttempts) {
             setTimeout(tryLoad, 50);
         }
     }
@@ -116,35 +34,22 @@ function loadUSHotels() {
 function renderHotels(hotels) {
     var grid = document.getElementById('hotelsGrid');
     if (!grid) return;
-
     var html = '';
     hotels.forEach(function(hotel) {
-        html += '<a href="' + hotel.detailUrl + '" class="hotel-card" style="text-decoration: none; color: inherit;">' +
-            '<img src="' + hotel.image + '" alt="" class="hotel-image">' +
-            '<div class="hotel-info">' +
-            '<div class="hotel-details">' +
-            '<h3 class="hotel-name" data-i18n="' + hotel.nameKey + '">' + hotel.name + '</h3>' +
-            '<p class="hotel-location" data-i18n="' + hotel.locationKey + '">' + hotel.location + '</p>' +
+        var detailHref = hotel.detailUrl;
+        if (detailHref && detailHref.indexOf('./hotel-detail.html') === 0) {
+            detailHref = detailHref.replace('./hotel-detail.html?id=', '#/hotel-detail?id=');
+        }
+        html += '<a href="' + safeHtml(detailHref) + '" class="hotel-card" style="text-decoration: none; color: inherit;">' +
+            '<img src="' + safeHtml(hotel.image) + '" alt="" class="hotel-image">' +
+            '<div class="hotel-info"><div class="hotel-details">' +
+            '<h3 class="hotel-name" data-i18n="' + safeHtml(hotel.nameKey) + '">' + safeHtml(hotel.name) + '</h3>' +
+            '<p class="hotel-location" data-i18n="' + safeHtml(hotel.locationKey) + '">' + safeHtml(hotel.location) + '</p>' +
             '</div></div></a>';
     });
-
     grid.innerHTML = html;
-
-    if (typeof I18n !== 'undefined' && I18n.applyTranslations) {
-        I18n.applyTranslations();
-    }
+    if (typeof I18n !== 'undefined' && I18n.applyTranslations) I18n.applyTranslations();
 }
-
-document.addEventListener('languageChanged', function() {
-    fetch('./data/us-hotels.json?t=' + Date.now())
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
-            renderHotels(data.hotels);
-        });
-    updateRCILink();
-});
 
 function updateRCILink() {
     var btn = document.getElementById('rciLinkBtn');
@@ -160,15 +65,15 @@ function updateRCILink() {
 }
 
 function tryUpdateRCILink() {
-    if (typeof I18n !== 'undefined' && I18n.translations && Object.keys(I18n.translations).length > 0) {
-        updateRCILink();
-    } else {
-        setTimeout(tryUpdateRCILink, 50);
+    var maxAttempts = 100;
+    var attempts = 0;
+    function tryUpdate() {
+        attempts++;
+        if (typeof I18n !== 'undefined' && I18n.translations && Object.keys(I18n.translations).length > 0) {
+            updateRCILink();
+        } else if (attempts < maxAttempts) {
+            setTimeout(tryUpdate, 50);
+        }
     }
-}
-
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', tryUpdateRCILink);
-} else {
-    tryUpdateRCILink();
+    tryUpdate();
 }

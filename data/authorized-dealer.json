@@ -59,9 +59,9 @@
     },
     "overseas-reseller": {
         "id": "overseas-reseller",
-        "cover": "./assets/authorized-dealer/cover.jpg",
+        "cover": "./assets/authorized-dealer/affiliate-resort.png",
         "gallery": [
-            "./assets/authorized-dealer/cover.jpg"
+            "./assets/authorized-dealer/affiliate-resort.png"
         ],
         "i18n": {
             "zh": {

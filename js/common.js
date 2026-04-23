@@ -1,6 +1,3 @@
-// 公共头部和脚部加载脚本
-// 动态加载header.html和footer.html到所有页面
-
 (function() {
     'use strict';
 
@@ -12,6 +9,13 @@
 
     var headerCache = null;
     var footerCache = null;
+
+    function escapeHtml(str) {
+        if (typeof str !== 'string') return '';
+        var div = document.createElement('div');
+        div.appendChild(document.createTextNode(str));
+        return div.innerHTML;
+    }
 
     function fetchWithTimeout(url, timeout) {
         return new Promise(function(resolve, reject) {
@@ -66,16 +70,16 @@
     }
 
     function getHeaderFallback() {
-        return '<nav class="nav-container"><div class="nav-content"><a href="./index.html" class="nav-logo">Home</a></div></nav>';
+        return '<nav class="nav-container" role="navigation" aria-label="Main navigation"><div class="nav-content"><a href="./index.html" class="nav-logo">Home</a></div></nav>';
     }
 
     function getFooterFallback() {
-        return '<footer class="footer"><div class="footer-copyright"><p>© 2026 Dameisha Bay Yacht Club Resort. All Rights Reserved.</p></div></footer>';
+        return '<footer class="footer" role="contentinfo"><div class="footer-copyright"><p>&copy; 2026 Dameisha Bay Yacht Club Resort. All Rights Reserved.</p></div></footer>';
     }
 
     function loadHeader() {
         var headerPlaceholder = document.getElementById('header-placeholder');
-        
+
         if (headerCache) {
             if (headerPlaceholder) {
                 headerPlaceholder.innerHTML = headerCache;
@@ -85,7 +89,7 @@
             }
             return;
         }
-        
+
         showLoadingIndicator(headerPlaceholder);
 
         loadWithRetry('./header.html', CONFIG.maxRetries, CONFIG.retryDelay)
@@ -96,6 +100,7 @@
                     initMobileMenu();
                     initLangSwitcher();
                     tryApplyTranslations();
+                    if (typeof convertLinksToRouter === 'function') convertLinksToRouter();
                 }
             })
             .catch(function() {
@@ -107,7 +112,7 @@
 
     function loadFooter() {
         var footerPlaceholder = document.getElementById('footer-placeholder');
-        
+
         if (footerCache) {
             if (footerPlaceholder) {
                 footerPlaceholder.innerHTML = footerCache;
@@ -115,7 +120,7 @@
             }
             return;
         }
-        
+
         showLoadingIndicator(footerPlaceholder);
 
         loadWithRetry('./footer.html', CONFIG.maxRetries, CONFIG.retryDelay)
@@ -124,6 +129,7 @@
                 if (footerPlaceholder) {
                     footerPlaceholder.innerHTML = html;
                     tryApplyTranslations();
+                    if (typeof convertLinksToRouter === 'function') convertLinksToRouter();
                 }
             })
             .catch(function() {
@@ -143,19 +149,21 @@
         tryApplyTranslations();
     });
 
-    // 初始化移动端菜单
     function initMobileMenu() {
         var mobileMenuBtn = document.getElementById('mobileMenuBtn');
         var mobileMenu = document.getElementById('mobileMenu');
-        
-        if (mobileMenuBtn && mobileMenu) {
+
+        if (mobileMenuBtn && mobileMenu && !mobileMenuBtn._menuListenersAdded) {
+            mobileMenuBtn._menuListenersAdded = true;
+
             function toggleMenu(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                mobileMenu.classList.toggle('active');
+                var isActive = mobileMenu.classList.toggle('active');
                 mobileMenuBtn.classList.toggle('active');
+                mobileMenuBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
             }
-            
+
             mobileMenuBtn.addEventListener('click', toggleMenu, { passive: false });
             mobileMenuBtn.addEventListener('touchend', toggleMenu, { passive: false });
 
@@ -163,6 +171,7 @@
                 if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
                     mobileMenu.classList.remove('active');
                     mobileMenuBtn.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
                 }
             });
 
@@ -170,31 +179,29 @@
                 link.addEventListener('click', function() {
                     mobileMenu.classList.remove('active');
                     mobileMenuBtn.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
                 });
             });
         }
     }
 
-    // 初始化语言切换器
     function initLangSwitcher() {
-        const langBtns = document.querySelectorAll('.lang-btn, .mobile-lang-btn');
+        var langBtns = document.querySelectorAll('.lang-btn, .mobile-lang-btn');
 
-        langBtns.forEach(btn => {
+        langBtns.forEach(function(btn) {
             btn.addEventListener('click', function() {
-                const lang = this.getAttribute('data-lang');
+                var lang = this.getAttribute('data-lang');
                 if (typeof I18n !== 'undefined' && I18n.switchLanguage) {
                     I18n.switchLanguage(lang);
                 }
 
-                // 更新按钮状态
-                document.querySelectorAll('.lang-btn, .mobile-lang-btn').forEach(b => {
+                document.querySelectorAll('.lang-btn, .mobile-lang-btn').forEach(function(b) {
                     b.classList.remove('active');
                 });
                 this.classList.add('active');
             });
         });
 
-        // Update button states to match current language after header loads
         if (typeof I18n !== 'undefined' && I18n.updateLangButtons) {
             I18n.updateLangButtons();
         }
@@ -203,12 +210,12 @@
     function initInlineHeader() {
         var mobileMenuBtn = document.getElementById('mobileMenuBtn');
         var langBtns = document.querySelectorAll('.lang-btn, .mobile-lang-btn');
-        
+
         if (mobileMenuBtn && !mobileMenuBtn._initialized) {
             mobileMenuBtn._initialized = true;
             initMobileMenu();
         }
-        
+
         if (langBtns.length > 0 && !langBtns[0]._langInitialized) {
             langBtns.forEach(function(btn) { btn._langInitialized = true; });
             initLangSwitcher();
@@ -221,17 +228,12 @@
         }
     }
 
-    var scrollHintInitialized = false;
     function initTableScrollHint() {
-        if (scrollHintInitialized) return;
-        
         var isMobile = window.matchMedia('(max-width: 767px)').matches;
         if (!isMobile) return;
 
         var scrollContainers = document.querySelectorAll('.pricing-table-scroll');
         if (scrollContainers.length === 0) return;
-
-        scrollHintInitialized = true;
 
         var svgIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-2-2 2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2 2 2 0 0 0-2 2v6"/><path d="M10 10.5V6a2 2 0 0 0-2-2 2 2 0 0 0-2 2v8"/></svg>';
 
@@ -256,9 +258,12 @@
         }
 
         scrollContainers.forEach(function(container) {
+            if (container._scrollHintInitialized) return;
+            container._scrollHintInitialized = true;
+
             var indicator = document.createElement('div');
             indicator.className = 'scroll-indicator';
-            indicator.innerHTML = svgIcon + '<span>' + getScrollHintText() + '</span>';
+            indicator.innerHTML = svgIcon + '<span>' + escapeHtml(getScrollHintText()) + '</span>';
             container.appendChild(indicator);
 
             function checkScrollable() {
@@ -283,7 +288,7 @@
                 }
 
                 var scrollRatio = Math.min(currentScroll / maxScroll, 1);
-                
+
                 if (scrollRatio <= 0.01) {
                     indicator.style.opacity = '0.7';
                 } else {
@@ -300,34 +305,10 @@
                 }
             });
 
-            var startX = 0;
-            var startScrollLeft = 0;
-            var isDragging = false;
-
             container.addEventListener('touchstart', function(e) {
-                startX = e.touches[0].clientX;
-                startScrollLeft = container.scrollLeft;
-                isDragging = true;
             }, { passive: true });
 
             container.addEventListener('touchmove', function(e) {
-                if (!isDragging) return;
-                var currentX = e.touches[0].clientX;
-                var diffX = startX - currentX;
-                var maxScroll = container.scrollWidth - container.clientWidth;
-
-                if (diffX > 0) {
-                    var scrollRatio = Math.min((startScrollLeft + diffX) / maxScroll, 1);
-                    if (scrollRatio <= 0.01) {
-                        indicator.style.opacity = '0.7';
-                    } else {
-                        var hintOpacity = 0.7 * (1 - scrollRatio / 0.3);
-                        hintOpacity = Math.max(0, Math.min(0.7, hintOpacity));
-                        indicator.style.opacity = hintOpacity;
-                    }
-                } else {
-                    indicator.style.opacity = '0.7';
-                }
             }, { passive: true });
         });
 
@@ -364,4 +345,28 @@
             initMobileMenu();
         }
     }, 3000);
+
+    window.reinitTableScrollHint = initTableScrollHint;
+    window.escapeHtml = escapeHtml;
 })();
+
+function getCurrentLang() {
+    if (typeof I18n !== 'undefined' && I18n.currentLang) {
+        return I18n.currentLang;
+    }
+    return 'en';
+}
+
+function waitForI18n(callback) {
+    var maxAttempts = 100;
+    var attempts = 0;
+    function check() {
+        attempts++;
+        if (typeof I18n !== 'undefined' && I18n.translations && Object.keys(I18n.translations).length > 0) {
+            callback();
+        } else if (attempts < maxAttempts) {
+            setTimeout(check, 50);
+        }
+    }
+    check();
+}

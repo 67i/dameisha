@@ -3,17 +3,24 @@
  * Main Stylesheet for Huanxiang Planet Website
  * 
  * Directory
- * 1. Base Styles & Global Reset
- * 2. Font Configuration 3. Navigation Bar Style
- * 4. Hero Section
- * 5. 
- * 6. 
- * 7. Destination Grid Style
- * 8. Promo Card Styles
- * 9. Partner Styles
- * 10. Footer Styles
+ * 1.  Base Styles & Global Reset
+ * 2.  Font Configuration
+ * 3.  Navigation Bar
+ * 4.  Hero Section
+ * 5.  Benefits Section (Home)
+ * 6.  Hotels Section (Home)
+ * 7.  Destination Grid
+ * 8.  Promo Card Section
+ * 9.  Partners Section
+ * 10. Footer
  * 11. Animations
- * 12. Responsive Design 13. Tools
+ * 12. Home Page Mobile Responsive
+ * 13. Utility Classes
+ * 14. Hotel Detail / Vacation Detail / Exchange Detail Pages
+ * 15. Privacy & Terms Pages
+ * 16. Benefits Detail Page
+ * 17. Hotel List Page
+ * 18. FAQ Page
  */
 
 /* ========================================
@@ -84,7 +91,7 @@ body {
 }
 
 /* ========================================
-   2. Font Configuration (Local Fonts)
+   2. Font Configuration
    ======================================== */
 
 /*
@@ -173,14 +180,6 @@ body {
     src: url('../fonts/playfairdisplay/PlayfairDisplay.ttf') format('truetype');
     font-weight: 100 900;
     font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Playfair Display';
-    src: url('../fonts/playfairdisplay/PlayfairDisplay.ttf') format('truetype');
-    font-weight: 100 900;
-    font-style: italic;
     font-display: swap;
 }
 
@@ -294,7 +293,7 @@ h1 {
 }
 
 /* ========================================
-   3. Navigation Bar Style
+   3. Navigation Bar
    ======================================== */
 
 /* Navigation Bar Container */
@@ -829,7 +828,7 @@ a.hero-button:hover {
 }
 
 /* ========================================
-   5. 
+   5. Benefits Section (Home)
    ======================================== */
 
 .benefits-section {
@@ -1006,7 +1005,7 @@ a.hero-button:hover {
 }
 
 /* ========================================
-   6. 
+   6. Hotels Section (Home)
    ======================================== */
 
 .hotels-section {
@@ -1099,7 +1098,7 @@ a.hero-button:hover {
 }
 
 /* ========================================
-   7. 
+   7. Destination Grid
    ======================================== */
 
 /* Destination Area Container*/
@@ -1168,7 +1167,7 @@ a.hero-button:hover {
 }
 
 /* ========================================
-   8.  & 
+   8. Promo Card Section
    ======================================== */
 
 .promo-section {
@@ -1379,7 +1378,7 @@ a.hero-button:hover {
 }
 
 /* ========================================
-   9. 
+   9. Partners Section
    ======================================== */
 
 .partners-section {
@@ -1397,7 +1396,7 @@ a.hero-button:hover {
 
 .partners-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 
 /* Partners Main Title*/
@@ -1463,7 +1462,7 @@ a.hero-button:hover {
 }
 
 /* ========================================
-   10. 
+   10. Footer
    ======================================== */
 
 .footer {
@@ -1692,7 +1691,7 @@ a.hero-button:hover {
 }
 
 /* ========================================
-   11. 
+   11. Animations
    ======================================== */
 
 /* Bounce Animation - */
@@ -1723,7 +1722,7 @@ a.hero-button:hover {
 }
 
 /* ========================================
-   12. Mobile
+   12. Home Page Mobile Responsive
    ======================================== */
 
 @media (max-width: 767px) {
@@ -2169,7 +2168,7 @@ a.hero-button:hover {
 }
 
 /* ========================================
-   13. Tools
+   13. Utility Classes
    ======================================== */
 
 .line-clamp-2 {
@@ -2204,7 +2203,7 @@ a.hero-button:hover {
 }
 
 /* ========================================
-   14. Contact
+   14. Hotel Detail / Vacation Detail / Exchange Detail Pages
    ======================================== */
 
 /* Hotel Detail Page Style*/
@@ -2252,7 +2251,7 @@ a.hero-button:hover {
 }
 
 /* ========================================
-   15. 
+   15. Privacy & Terms Pages
    ======================================== */
 
 .privacy-section,
@@ -4639,7 +4638,7 @@ html[lang="ja"] .logic-circle-text-en {
 }
 
 /* ========================================
-   16. Hotel List Page Style
+   17. Hotel List Page
    ======================================== */
 
 .hotel-list-hero {
@@ -5010,7 +5009,7 @@ html[lang="ja"] .logic-circle-text-en {
     }
 }
 
-/* ====== FAQ ====== */
+/* ====== 18. FAQ Page ====== */
 .faq-hero-section {
     padding: 8rem 2rem 6rem;
     text-align: center;
@@ -5249,7 +5248,7 @@ html[lang="ja"] .logic-circle-text-en {
     box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
 }
 
-/* ====== FAQMobile ====== */
+/* ====== 18.1 FAQ Mobile ====== */
 @media (max-width: 767px) {
     .faq-hero-section {
         padding: 6rem 1rem 4rem;
