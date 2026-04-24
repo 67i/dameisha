@@ -1004,6 +1004,18 @@ a.hero-button:hover {
     opacity: 0.9;
 }
 
+.benefits-btn-shop {
+    border: 1px solid var(--gold);
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: #ffffff;
+}
+
+.benefits-btn-shop:hover {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(201, 169, 110, 0.3);
+}
+
 /* ========================================
    6. Hotels Section (Home)
    ======================================== */
@@ -5281,6 +5293,840 @@ html[lang="ja"] .logic-circle-text-en {
     
     .faq-cta-title {
         font-size: 2rem;
+    }
+}
+
+/* ========================================
+   19. Shop / Purchase Flow Page Style
+   ======================================== */
+
+.shop-page {
+    padding: 4rem 0;
+    background-color: #ffffff;
+    min-height: 80vh;
+}
+
+.shop-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.shop-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+    gap: 0;
+}
+
+.shop-progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+}
+
+.shop-progress-step.active {
+    opacity: 1;
+}
+
+.shop-progress-step.completed {
+    opacity: 0.7;
+}
+
+.shop-progress-dot {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background-color: #e5e7eb;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lato new', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.shop-progress-step.active .shop-progress-dot {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(201, 169, 110, 0.3);
+}
+
+.shop-progress-step.completed .shop-progress-dot {
+    background-color: var(--resort-green);
+    color: #fff;
+}
+
+.shop-progress-step span {
+    font-family: 'Lato new', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--off-black);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.shop-progress-line {
+    flex: 1;
+    height: 2px;
+    background-color: #e5e7eb;
+    margin: 0 0.75rem;
+    margin-bottom: 1.5rem;
+    max-width: 80px;
+}
+
+.shop-product-card {
+    background: linear-gradient(135deg, #0d1c2f, #16304d);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+.shop-product-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: #0d1c2f;
+    padding: 0.375rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 9999px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.shop-product-title {
+    font-family: 'PT Serif', serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+.shop-product-desc {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.shop-product-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.shop-price-value {
+    font-family: 'PT Serif', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--gold-light);
+}
+
+.shop-price-period {
+    font-size: 0.875rem;
+    opacity: 0.7;
+}
+
+.shop-product-trust {
+    display: flex;
+    gap: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.shop-product-trust span {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.8125rem;
+    opacity: 0.7;
+}
+
+.shop-product-trust .material-symbols-outlined {
+    font-size: 1rem;
+}
+
+.shop-card {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.shop-card-title {
+    font-family: 'PT Serif', serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #0d1c2f;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.shop-btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    background: none;
+    border: none;
+    color: #666;
+    font-family: 'Lato new', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 1rem;
+    transition: color 0.2s ease;
+}
+
+.shop-btn-back:hover {
+    color: #0d1c2f;
+}
+
+.shop-btn-back .material-symbols-outlined {
+    font-size: 1.125rem;
+}
+
+.shop-card-subtitle {
+    font-size: 0.9375rem;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.shop-login-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.shop-login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    background-color: #fff;
+    font-family: 'Lato new', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.shop-login-btn:hover {
+    background-color: #f9fafb;
+    border-color: #d0d5dd;
+}
+
+.shop-login-btn-email {
+    background-color: #0d1c2f;
+    color: #fff;
+    border-color: #0d1c2f;
+}
+
+.shop-login-btn-email:hover {
+    background-color: #16304d;
+}
+
+.shop-login-btn .material-symbols-outlined {
+    font-size: 1.25rem;
+}
+
+.shop-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.5rem 0;
+}
+
+.shop-divider::before,
+.shop-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: #e5e7eb;
+}
+
+.shop-divider span {
+    font-size: 0.8125rem;
+    color: #999;
+}
+
+.shop-terms-check {
+    margin-top: 1rem;
+}
+
+.shop-checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    font-size: 0.8125rem;
+    color: #666;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.shop-checkbox-label input[type="checkbox"] {
+    margin-top: 0.125rem;
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+    accent-color: var(--gold);
+}
+
+.shop-error {
+    color: #dc2626;
+    font-size: 0.8125rem;
+    margin-top: 0.5rem;
+}
+
+.shop-success {
+    color: var(--resort-green);
+    font-size: 0.8125rem;
+    margin-top: 0.5rem;
+}
+
+.shop-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.shop-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
+.shop-form-group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.shop-form-hint {
+    font-weight: 400;
+    color: #999;
+}
+
+.shop-form-required,
+.shop-required {
+    color: #dc2626;
+}
+
+.shop-form-group input {
+    padding: 0.875rem 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    font-family: 'Lato new', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #333;
+    transition: border-color 0.2s ease;
+    outline: none;
+}
+
+.shop-form-group input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.1);
+}
+
+.shop-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.shop-invite-row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.shop-invite-row input {
+    flex: 1;
+    padding: 0.875rem 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    font-family: 'Lato new', sans-serif;
+    font-size: 0.9375rem;
+    color: #333;
+    outline: none;
+}
+
+.shop-phone-row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.shop-country-code {
+    padding: 0.875rem 0.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    font-family: 'Lato new', sans-serif;
+    font-size: 0.875rem;
+    color: #333;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+    min-width: 100px;
+}
+
+.shop-country-code optgroup {
+    font-family: 'Lato new', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #666;
+    background-color: #f9f9f9;
+    padding: 0.25rem 0.5rem;
+}
+
+.shop-country-code option {
+    padding: 0.5rem 0.5rem;
+    font-size: 0.875rem;
+    color: #333;
+}
+
+.shop-country-code:focus {
+    border-color: var(--gold);
+}
+
+.shop-invite-row input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.1);
+}
+
+.shop-btn-verify {
+    padding: 0.875rem 1.25rem;
+    background-color: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    font-family: 'Lato new', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.shop-btn-verify:hover {
+    background-color: #e5e7eb;
+}
+
+.shop-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    background-color: rgba(201, 169, 110, 0.08);
+    border: 1px solid rgba(201, 169, 110, 0.15);
+    border-radius: 0.75rem;
+    padding: 1rem 1.25rem;
+    font-size: 0.8125rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.shop-notice .material-symbols-outlined {
+    color: var(--gold);
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 0.0625rem;
+}
+
+.shop-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: #fff;
+    border: none;
+    border-radius: 0.75rem;
+    font-family: 'Lato new', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(201, 169, 110, 0.3);
+}
+
+.shop-btn-primary:hover:not(:disabled) {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(201, 169, 110, 0.4);
+}
+
+.shop-btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.shop-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    background-color: transparent;
+    color: #333;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    font-family: 'Lato new', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.shop-btn-outline:hover {
+    background-color: #f9fafb;
+}
+
+.shop-checkout-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.shop-checkout-price {
+    font-family: 'PT Serif', serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--gold-dark);
+}
+
+.shop-checkout-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.shop-payment-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.shop-payment-label .material-symbols-outlined {
+    font-size: 1.25rem;
+    color: var(--gold);
+}
+
+.shop-payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.shop-payment-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    font-size: 0.875rem;
+    color: #333;
+    cursor: pointer;
+}
+
+.shop-payment-option:not(:last-child) {
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 1rem;
+}
+
+.shop-payment-option .material-symbols-outlined {
+    font-size: 1.25rem;
+    color: var(--gold);
+}
+
+.shop-payment-badges {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.75rem;
+    color: #999;
+}
+
+.shop-payment-badges span {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.shop-payment-badges .material-symbols-outlined {
+    font-size: 0.875rem;
+}
+
+.shop-checkout-confirm {
+    background-color: #f9fafb;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+}
+
+.shop-secure-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--resort-green);
+    margin-bottom: 1rem;
+}
+
+.shop-secure-badge .material-symbols-outlined {
+    font-size: 1.125rem;
+}
+
+.shop-checkout-confirm .shop-checkbox-label {
+    margin-bottom: 1.25rem;
+}
+
+.shop-success-card {
+    text-align: center;
+}
+
+.shop-success-icon {
+    width: 4rem;
+    height: 4rem;
+    background-color: rgba(0, 69, 62, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.shop-success-icon .material-symbols-outlined {
+    font-size: 2.25rem;
+    color: var(--resort-green);
+}
+
+.shop-success-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.shop-btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background-color: #25D366;
+    color: #fff;
+    border: none;
+    border-radius: 0.75rem;
+    font-family: 'Lato new', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.shop-btn-whatsapp:hover {
+    background-color: #1da851;
+    transform: translateY(-1px);
+}
+
+.shop-success-contact {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    font-size: 0.8125rem;
+    color: #999;
+}
+
+.shop-success-contact span {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+}
+
+.shop-success-contact .material-symbols-outlined {
+    font-size: 1rem;
+}
+
+.shop-3ds-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.shop-3ds-content {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 2rem;
+    max-width: 28rem;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.shop-3ds-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'PT Serif', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #0d1c2f;
+    margin-bottom: 0.5rem;
+}
+
+.shop-3ds-title .material-symbols-outlined {
+    color: var(--gold);
+}
+
+.shop-3ds-subtitle {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.shop-3ds-qr {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1rem;
+    background: repeating-linear-gradient(45deg, #111 0px, #111 6px, #fff 6px, #fff 12px);
+    border-radius: 0.5rem;
+}
+
+.shop-3ds-hint {
+    text-align: center;
+    font-size: 0.8125rem;
+    color: #999;
+    margin-bottom: 1rem;
+}
+
+.shop-3ds-code-input {
+    margin: 0.75rem 0;
+}
+
+.shop-3ds-code-input input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    font-family: 'Lato new', sans-serif;
+    font-size: 0.9375rem;
+    text-align: center;
+    letter-spacing: 0.5em;
+    outline: none;
+}
+
+.shop-3ds-code-input input:focus {
+    border-color: var(--gold);
+}
+
+.shop-3ds-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+}
+
+.shop-3ds-actions .shop-btn-outline,
+.shop-3ds-actions .shop-btn-primary {
+    flex: 1;
+}
+
+@media (max-width: 767px) {
+    .shop-page {
+        padding: 2rem 0;
+    }
+
+    .shop-container {
+        padding: 0 1rem;
+    }
+
+    .shop-progress-step span {
+        font-size: 0.625rem;
+    }
+
+    .shop-progress-dot {
+        width: 1.75rem;
+        height: 1.75rem;
+        font-size: 0.75rem;
+    }
+
+    .shop-product-card {
+        padding: 1.5rem;
+    }
+
+    .shop-product-title {
+        font-size: 1.375rem;
+    }
+
+    .shop-price-value {
+        font-size: 2rem;
+    }
+
+    .shop-card {
+        padding: 1.5rem;
+    }
+
+    .shop-card-title {
+        font-size: 1.375rem;
+    }
+
+    .shop-form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .shop-checkout-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .shop-checkout-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .shop-success-actions {
+        flex-direction: column;
+    }
+
+    .shop-success-contact {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .shop-product-trust {
+        flex-direction: column;
+        gap: 0.5rem;
     }
 }
 

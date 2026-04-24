@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>RCI · 会员预售系统 · 升级版</title>
+  <!-- Tailwind + Inter 字体 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    .card-shadow { box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.02); }
+    .transition-smooth { transition: all 0.2s ease; }
+    .qr-mock { background: repeating-linear-gradient(45deg, #111 0px, #111 6px, #fff 6px, #fff 12px); width: 120px; height: 120px; }
+    [x-cloak] { display: none !important; }
+    /* 树状结构 */
+    .tree, .tree ul { list-style: none; padding-left: 1.2rem; }
+    .tree li { position: relative; padding-left: 1.2rem; }
+    .tree li::before { content: "├─"; position: absolute; left: 0; color: #9ca3af; }
+    .tree li:last-child::before { content: "└─"; }
+  </style>
+</head>
+<body class="bg-white text-gray-800 antialiased" x-data="app()" x-init="init()">
+
+<div class="min-h-screen flex flex-col">
+  <!-- 导航栏 (极简) -->
+  <header class="border-b border-gray-100 bg-white/80 backdrop-blur-sm sticky top-0 z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+      <div class="flex items-center gap-2">
+        <i class="fas fa-crown text-2xl text-indigo-600"></i>
+        <span class="font-semibold text-xl tracking-tight">RCI<span class="text-indigo-600 ml-0.5">·</span>ELITE</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <template x-if="!isLoggedIn">
+          <button @click="currentPage = 'login'" class="text-sm font-medium text-gray-700 hover:text-indigo-600">
+            登录
+          </button>
+        </template>
+        <template x-if="isLoggedIn">
+          <div class="flex items-center gap-4">
+            <button @click="currentPage = 'dashboard'" class="text-sm font-medium text-gray-700 hover:text-indigo-600">
+              <i class="far fa-user-circle mr-1"></i>个人中心
+            </button>
+            <span class="text-xs bg-gray-100 px-3 py-1.5 rounded-full" x-text="userDisplayEmail"></span>
+          </div>
+        </template>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+    
+    <!-- ========= 首页 ========= -->
+    <div x-show="currentPage === 'home'" x-cloak class="space-y-10">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-block px-3 py-1 bg-indigo-50 text-indigo-700 text-xs font-medium rounded-full mb-5">限时 · 邀请制</div>
+          <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 leading-tight">5年期 RCI 全球<br>度假会籍</h1>
+          <p class="text-xl text-gray-500 mt-4">私人俱乐部 · 无限交换权益 · 家族传承</p>
+          <div class="mt-8 flex items-center gap-4">
+            <span class="text-4xl font-light text-gray-900">$4,980</span>
+            <span class="text-gray-400 text-sm">/ 5年 · 全包</span>
+          </div>
+          <button @click="handleBuyNow" class="mt-8 bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-8 py-4 rounded-xl text-lg shadow-md transition-smooth flex items-center gap-2">
+            立即购买 (4980 / 5年期) <i class="fas fa-arrow-right text-sm"></i>
+          </button>
+          <div class="mt-6 flex gap-6 text-xs text-gray-400">
+            <span><i class="fas fa-lock mr-1"></i>256-bit SSL</span>
+            <span><i class="fas fa-shield-alt mr-1"></i>7天冷静期</span>
+          </div>
+        </div>
+        <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-3xl card-shadow border border-gray-100">
+          <img src="https://placehold.co/600x400/e2e8f0/1e293b?text=RCI+Elite+Collection" alt="lifestyle" class="rounded-2xl w-full object-cover opacity-90">
+        </div>
+      </div>
+      <!-- 信任标识栏 + 顾问入口 -->
+      <div class="grid grid-cols-4 gap-4 text-center border-t border-gray-100 pt-10">
+        <div><i class="fas fa-shield text-indigo-400 text-xl"></i><p class="text-xs font-medium mt-1">AIG 承保</p></div>
+        <div><i class="fas fa-globe text-indigo-400 text-xl"></i><p class="text-xs font-medium mt-1">100+ 国家</p></div>
+        <div><i class="fas fa-headset text-indigo-400 text-xl"></i><p class="text-xs font-medium mt-1">专属顾问</p></div>
+        <div class="flex items-center justify-center gap-2"><i class="fab fa-whatsapp text-emerald-600 text-xl"></i><span class="text-xs">+1 (888) 123-4567</span></div>
+      </div>
+    </div>
+
+    <!-- ========= 登录/注册页 ========= -->
+    <div x-show="currentPage === 'login'" x-cloak class="max-w-md mx-auto">
+      <div class="bg-white rounded-3xl card-shadow border border-gray-100 p-8">
+        <h2 class="text-2xl font-semibold mb-2">欢迎回来</h2>
+        <p class="text-gray-500 text-sm mb-8">选择一种方式继续，即表示同意协议</p>
+        <div class="space-y-3">
+          <button @click="mockLogin('google')" class="w-full border border-gray-200 rounded-xl py-3.5 flex items-center justify-center gap-3 hover:bg-gray-50"><i class="fab fa-google text-lg"></i><span>使用 Google 继续</span></button>
+          <button @click="mockLogin('apple')" class="w-full border border-gray-200 rounded-xl py-3.5 flex items-center justify-center gap-3 hover:bg-gray-50"><i class="fab fa-apple text-lg"></i><span>使用 Apple 继续</span></button>
+          <div class="relative my-4"><hr class="border-gray-100"><span class="absolute left-1/2 -translate-x-1/2 -top-3 bg-white px-3 text-xs text-gray-400">或</span></div>
+          <button @click="mockLogin('email')" class="w-full bg-gray-900 text-white rounded-xl py-3.5 flex items-center justify-center gap-2 hover:bg-gray-800"><i class="far fa-envelope"></i><span>电子邮箱登录</span></button>
+        </div>
+        <div class="mt-8 flex items-start gap-2">
+          <input type="checkbox" id="agreeTerms" x-model="termsAgreed" class="mt-1 rounded border-gray-300">
+          <label for="agreeTerms" class="text-xs text-gray-500">我已阅读并同意《服务条款》与《隐私政策》</label>
+        </div>
+        <p x-show="!termsAgreed && loginAttempted" class="text-red-500 text-xs mt-2">请先同意条款</p>
+      </div>
+    </div>
+
+    <!-- ========= 建立会员档案页 ========= -->
+    <div x-show="currentPage === 'profile'" x-cloak class="max-w-3xl mx-auto">
+      <div class="bg-white rounded-3xl card-shadow border border-gray-100 p-6 md:p-8">
+        <h2 class="text-2xl font-semibold mb-1">建立您的会员档案</h2>
+        <p class="text-gray-500 text-sm mb-6">为了生成具有法律效力的《RCI 会员预售协议》，请填写真实信息。支付后，此协议将作为您的购买凭证。</p>
+        <form @submit.prevent="submitProfile" class="space-y-5">
+          <div><label class="block text-sm font-medium mb-1">真实姓名 <span class="text-gray-400">(与证件一致)</span></label><input type="text" x-model="profile.name" required class="w-full border border-gray-200 rounded-xl p-3.5"></div>
+          <div><label class="block text-sm font-medium mb-1">护照/身份证号</label><input type="text" x-model="profile.idNumber" required class="w-full border border-gray-200 rounded-xl p-3.5"></div>
+          <div class="grid grid-cols-2 gap-4">
+            <div><label class="block text-sm font-medium mb-1">手机号码</label><input type="tel" x-model="profile.phone" class="w-full border border-gray-200 rounded-xl p-3.5"></div>
+            <div><label class="block text-sm font-medium mb-1">电子邮箱</label><input type="email" x-model="profile.email" class="w-full border border-gray-200 rounded-xl p-3.5"></div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">代理商邀请码 <span class="text-red-400">*</span></label>
+            <div class="flex gap-2"><input type="text" x-model="profile.inviteCode" @input="inviteError=''" placeholder="AGENT123" class="flex-1 border border-gray-200 rounded-xl p-3.5 uppercase"><button type="button" @click="validateInviteCode" class="px-4 bg-gray-100 rounded-xl text-sm font-medium">校验</button></div>
+            <p x-show="inviteError" class="text-red-500 text-xs mt-1" x-text="inviteError"></p>
+            <p x-show="inviteValid" class="text-green-600 text-xs mt-1"><i class="fas fa-check-circle"></i> 邀请码有效 · 上级代理: <span x-text="inviteParent"></span></p>
+          </div>
+          <div class="bg-indigo-50/50 border border-indigo-100 rounded-xl p-4 flex items-start gap-3">
+            <i class="fas fa-lock text-indigo-500 mt-0.5"></i>
+            <div class="text-sm text-indigo-900">您的信息已通过 256-bit SSL 加密安全存储。您享有 7 天冷静期保障，支付后 7 天内可申请全额退款，请放心购买。</div>
+          </div>
+          <button type="submit" :disabled="!inviteValid" class="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-300 text-white font-medium py-4 rounded-xl transition-smooth mt-4">确认信息并前往支付</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ========= 支付收银台页 ========= -->
+    <div x-show="currentPage === 'checkout'" x-cloak class="max-w-4xl mx-auto">
+      <div class="bg-white rounded-3xl card-shadow border border-gray-100 p-6 md:p-8">
+        <div class="flex justify-between items-start"><h2 class="text-2xl font-semibold">收银台 · 安全支付</h2><div class="text-right"><span class="text-3xl font-light">$4,980</span></div></div>
+        <div class="mt-6 grid md:grid-cols-2 gap-8">
+          <div>
+            <p class="text-sm font-medium mb-3 flex items-center gap-2"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968843.png" class="w-5 h-5" alt="airwallex"> Airwallex 全球收单</p>
+            <div class="border border-gray-200 rounded-2xl p-5 space-y-3">
+              <label class="flex items-center gap-3 border-b pb-3"><input type="radio" name="payment" checked> <i class="fas fa-wallet"></i> 电子钱包 (Alipay+ / WeChat Pay / KakaoPay)</label>
+              <label class="flex items-center gap-3"><input type="radio" name="payment"> <i class="fas fa-university"></i> 本地银行转账 (SEPA / ACH / FPS)</label>
+            </div>
+            <div class="mt-4 flex items-center gap-3 text-xs text-gray-400"><span><i class="fab fa-cc-visa"></i> Verified by Visa</span><span><i class="fab fa-cc-mastercard"></i> Mastercard SecureCode</span><span><i class="fas fa-lock"></i> 256-bit SSL</span></div>
+          </div>
+          <div class="bg-gray-50 rounded-2xl p-5">
+            <div class="flex items-center gap-2 text-sm font-medium mb-3"><i class="fas fa-shield-alt text-indigo-600"></i> 3D Secure 验证保障</div>
+            <div class="flex items-start gap-2 mb-6"><input type="checkbox" id="agreePurchase" x-model="purchaseAgreed"><label for="agreePurchase" class="text-xs text-gray-600">我已阅读并同意《RCI 会员购买协议》（含 7 天冷静期退款条款）</label></div>
+            <button @click="initiatePayment" :disabled="!purchaseAgreed || isPaying" class="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-300 text-white font-medium py-4 rounded-xl flex justify-center items-center gap-2">
+              <span x-show="!isPaying">前往支付</span><span x-show="isPaying"><i class="fas fa-spinner fa-spin"></i> 正在连接银行安全网关...</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========= 支付成功页 (新) ========= -->
+    <div x-show="currentPage === 'paymentSuccess'" x-cloak class="max-w-2xl mx-auto text-center">
+      <div class="bg-white rounded-3xl card-shadow border border-gray-100 p-8 md:p-10">
+        <div class="w-16 h-16 bg-green-100 rounded-full mx-auto flex items-center justify-center text-green-600 text-3xl mb-4"><i class="fas fa-check-circle"></i></div>
+        <h2 class="text-2xl font-semibold mb-3">恭喜您成功购入大梅沙游艇酒店会员权益</h2>
+        <p class="text-gray-600 text-sm leading-relaxed max-w-lg mx-auto">7天冷静期内您可以随时申请全额退款，7天冷静期结束您的专属顾问将为您申请办理RCI会员，预计7天内正式开通，我们会以邮件、WhatsApp等方式同步通知您，请注意查收。有任何问题请随时联系您的WhatsApp专属顾问。</p>
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <a href="#" @click.prevent="currentPage='dashboard'" class="bg-indigo-600 text-white px-6 py-3 rounded-xl text-sm font-medium">前往个人中心</a>
+          <a href="#" @click.prevent="openWhatsApp" class="border border-emerald-200 text-emerald-700 px-6 py-3 rounded-xl text-sm font-medium flex items-center gap-2"><i class="fab fa-whatsapp"></i> 联系专属顾问</a>
+        </div>
+        <div class="mt-6 text-xs text-gray-400 flex justify-center gap-4"><span><i class="far fa-envelope"></i> concierge@rci-elite.com</span><span><i class="fab fa-whatsapp"></i> +1 (888) 123-4567</span></div>
+      </div>
+    </div>
+
+    <!-- ========= 个人中心 (全新订单列表版) ========= -->
+    <div x-show="currentPage === 'dashboard'" x-cloak>
+      <!-- 用户信息卡片 -->
+      <div class="grid md:grid-cols-4 gap-6 mb-8">
+        <div class="md:col-span-1 bg-white rounded-2xl card-shadow border p-5 flex flex-col items-center text-center">
+          <div class="w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-700 text-3xl"><i class="fas fa-user-circle"></i></div>
+          <h3 class="font-semibold text-lg mt-3" x-text="profile.name || 'Michael Chen'"></h3>
+          <p class="text-xs text-gray-400" x-text="profile.email || 'michael@rci.com'"></p>
+          <div class="w-full mt-4 space-y-1 text-sm text-left">
+            <div class="flex items-center gap-2"><i class="fas fa-phone-alt text-gray-400 w-5"></i><span x-text="profile.phone || '+1 (555) 987-6543'"></span></div>
+            <div class="flex items-center gap-2"><i class="far fa-envelope text-gray-400 w-5"></i><span x-text="profile.email || 'michael@rci.com'"></span></div>
+          </div>
+          <hr class="my-4 w-full">
+          <div class="text-xs text-gray-500 flex flex-col gap-1 w-full">
+            <a href="#" @click.prevent="openWhatsApp" class="flex items-center gap-2 hover:text-emerald-600"><i class="fab fa-whatsapp"></i> WhatsApp 顾问</a>
+            <a href="#" @click.prevent="alert('专属顾问邮箱: concierge@rci-elite.com')" class="flex items-center gap-2 hover:text-indigo-600"><i class="far fa-envelope"></i> 邮件顾问</a>
+          </div>
+        </div>
+        <!-- 订单列表区域 -->
+        <div class="md:col-span-3 bg-white rounded-2xl card-shadow border p-5">
+          <div class="flex justify-between items-center mb-4"><h3 class="font-medium text-lg">我的订单</h3><span class="text-xs bg-gray-100 px-3 py-1 rounded-full">共 <span x-text="userOrders.length"></span> 笔</span></div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead class="border-b text-gray-500 text-xs">
+                <tr><th class="py-2 text-left">购买人</th><th class="py-2 text-left">邮箱/手机</th><th class="py-2 text-left">证件号</th><th class="py-2 text-left">订单号</th><th class="py-2 text-left">时间</th><th class="py-2 text-left">金额</th><th class="py-2 text-left">状态</th><th></th></tr>
+              </thead>
+              <tbody>
+                <template x-for="order in userOrders" :key="order.id">
+                  <tr class="border-b border-gray-50">
+                    <td class="py-3" x-text="order.buyerName"></td>
+                    <td class="py-3"><span x-text="order.email"></span><br><span class="text-xs text-gray-400" x-text="order.phone"></span></td>
+                    <td class="py-3 font-mono text-xs" x-text="order.idNumber"></td>
+                    <td class="py-3 font-mono text-xs" x-text="order.orderNo"></td>
+                    <td class="py-3 text-xs" x-text="order.orderDate"></td>
+                    <td class="py-3">$4,980</td>
+                    <td class="py-3"><span class="px-2 py-1 rounded-full text-xs" :class="statusClass(order.status)" x-text="order.status"></span></td>
+                    <td class="py-3"><button @click="viewOrderDetail(order)" class="text-indigo-600 text-xs border border-indigo-200 px-3 py-1 rounded-full hover:bg-indigo-50">查看详情</button></td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </div>
+          <div class="mt-4 text-xs text-gray-400 flex items-center gap-4"><i class="fab fa-whatsapp"></i> 专属顾问: +1 (888) 123-4567  ·  concierge@rci-elite.com</div>
+        </div>
+      </div>
+      
+      <!-- 订单详情模态 (查看详情) -->
+      <div x-show="selectedOrder" class="fixed inset-0 bg-black/30 flex items-center justify-center z-50 p-4" @click.self="selectedOrder=null" x-cloak>
+        <div class="bg-white max-w-2xl w-full rounded-2xl p-6 max-h-[90vh] overflow-y-auto">
+          <div class="flex justify-between"><h4 class="font-semibold text-lg">订单详情 · <span x-text="selectedOrder?.orderNo"></span></h4><button @click="selectedOrder=null"><i class="fas fa-times"></i></button></div>
+          <div class="grid grid-cols-2 gap-4 mt-4 text-sm">
+            <div><span class="text-gray-400">购买人</span><p x-text="selectedOrder?.buyerName"></p></div>
+            <div><span class="text-gray-400">证件号</span><p x-text="selectedOrder?.idNumber"></p></div>
+            <div><span class="text-gray-400">邮箱</span><p x-text="selectedOrder?.email"></p></div>
+            <div><span class="text-gray-400">手机</span><p x-text="selectedOrder?.phone"></p></div>
+          </div>
+          <!-- 动态状态卡片 (三个状态) -->
+          <div class="mt-6 p-4 bg-gray-50 rounded-xl">
+            <template x-if="selectedOrder?.status === '冷静期中'">
+              <div><p class="text-amber-600 text-sm flex items-center gap-1"><i class="far fa-clock"></i> 冷静期中 (剩余 <span x-text="selectedOrder.coolingDays||5"></span> 天)</p><button @click="applyRefundForOrder(selectedOrder)" class="mt-3 border border-red-200 text-red-600 px-4 py-2 rounded-lg text-sm">申请退款</button></div>
+            </template>
+            <template x-if="selectedOrder?.status === '会员激活中'">
+              <div><p class="text-blue-600 text-sm"><i class="fas fa-sync fa-spin"></i> 正在为您申请 RCI 权益（预计 7-14 天）</p></div>
+            </template>
+            <template x-if="selectedOrder?.status === '已完成'">
+              <div><p class="text-green-700 text-sm"><i class="fas fa-check-circle"></i> 会员权益已生效（5年期）</p><p class="text-xs text-gray-500 mt-1">生效: <span x-text="selectedOrder.effective||'2026-06-01'"></span> · 到期: <span x-text="selectedOrder.expiry||'2031-06-01'"></span></p></div>
+            </template>
+            <template x-if="selectedOrder?.status === '已退款'">
+              <div><p class="text-gray-500"><i class="fas fa-undo-alt"></i> 订单已关闭，款项原路退回</p></div>
+            </template>
+          </div>
+          <!-- 文件下载 -->
+          <div class="mt-4 flex flex-wrap gap-3">
+            <a href="#" @click.prevent="downloadMock('预售协议', selectedOrder)" class="text-indigo-600 text-sm border px-4 py-2 rounded-lg"><i class="far fa-file-pdf mr-1"></i>RCI会员预售协议</a>
+            <template x-if="selectedOrder?.status === '已完成'">
+              <a href="#" @click.prevent="downloadMock('权益确认函', selectedOrder)" class="text-indigo-600 text-sm border px-4 py-2 rounded-lg"><i class="far fa-file-pdf mr-1"></i>权益确认函</a>
+            </template>
+          </div>
+          <div class="mt-4 text-xs text-gray-400 border-t pt-3 flex items-center gap-3"><i class="fab fa-whatsapp"></i> 需要帮助？联系专属顾问</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========= 模拟后台 ========= -->
+    <div x-show="currentPage === 'admin'" x-cloak>
+      <div class="mb-6 flex justify-between"><h2 class="text-2xl font-semibold">管理控制台</h2><button @click="currentPage='home'" class="text-sm text-gray-500">← 返回前台</button></div>
+      <div class="grid grid-cols-3 gap-4 mb-8"><div class="bg-white p-5 rounded-xl border"><p class="text-gray-400 text-sm">今日销售额</p><p class="text-2xl font-light">$14,940</p></div><div class="bg-white p-5 rounded-xl border"><p class="text-gray-400 text-sm">待激活订单</p><p class="text-2xl font-light" x-text="pendingActivationCount"></p></div><div class="bg-white p-5 rounded-xl border"><p class="text-gray-400 text-sm">退款申请</p><p class="text-2xl font-light">1</p></div></div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-xl border p-4"><h3 class="font-medium mb-3">订单管理</h3><div class="space-y-2 text-sm"><template x-for="order in adminOrders" :key="order.id"><div class="flex justify-between items-center border-b pb-2"><div><span x-text="order.id"></span> - <span x-text="order.name"></span><span class="text-gray-400 ml-2 text-xs" x-text="order.inviteCode"></span></div><div class="flex gap-2"><span class="text-xs bg-gray-100 px-2 py-1 rounded" x-text="order.status"></span><button @click="viewOrderDetail(order)" class="text-indigo-600 text-xs">详情</button><button x-show="order.status==='会员激活中'" @click="manualActivate(order)" class="text-xs bg-indigo-50 px-2 rounded">激活</button></div></div></template></div></div>
+        <div class="bg-white rounded-xl border p-4"><h3 class="font-medium mb-3">代理商层级</h3><div class="text-sm"><ul class="tree"><li>🌐 MASTER (订单:23)</li><ul><li>├─ AGENT_A (订单:8)<ul><li>└─ AGENT_B (订单:2)</li></ul></li></ul></ul><div class="mt-4"><select class="border p-2 text-sm rounded w-full"><option>AGENT_A</option></select><input placeholder="新邀请码" class="border p-2 w-full mt-2 rounded text-sm"><button class="mt-2 bg-gray-900 text-white px-3 py-1.5 rounded text-xs">生成代理</button></div></div></div>
+      </div>
+      <div class="mt-6 bg-white p-5 rounded-xl border flex gap-8"><button @click="simulateManualActivation" class="bg-indigo-50 px-3 py-1.5 rounded text-sm">确认激活 (触发确认函)</button><button @click="processRefundFromAdmin" class="border border-red-200 px-3 py-1.5 rounded text-sm">确认退款 (释放名额)</button></div>
+    </div>
+
+    <!-- 底部隐藏入口 -->
+    <div class="text-center py-6 text-xs text-gray-300 border-t mt-8"><span @click="currentPage='admin'" class="cursor-pointer hover:text-gray-500">管理员入口</span></div>
+  </main>
+
+  <!-- 3D Secure 模态框 -->
+  <div x-show="show3DSecure" class="fixed inset-0 bg-black/30 flex items-center justify-center z-50" x-cloak>
+    <div class="bg-white max-w-md w-full rounded-3xl p-6 shadow-2xl">
+      <h3 class="text-xl font-semibold flex items-center gap-2"><i class="fas fa-shield text-indigo-600"></i> 银行安全验证 (3D Secure)</h3>
+      <p class="text-gray-500 text-sm mt-1">为了保障资金安全，请验证您的身份。</p>
+      <div class="my-5 flex justify-center"><div class="qr-mock rounded-xl"></div></div>
+      <p class="text-xs text-center mb-4">扫码验证 或 使用短信验证</p>
+      <button @click="sendSmsCode" class="w-full border py-2.5 rounded-xl text-sm mb-2"><i class="far fa-comment-dots"></i> 发送短信验证码</button>
+      <input type="text" placeholder="输入验证码" x-model="smsCode" class="w-full border p-3 rounded-xl text-sm">
+      <div class="flex gap-3 mt-5"><button @click="show3DSecure=false" class="flex-1 border py-3 rounded-xl">取消</button><button @click="complete3DS" class="flex-1 bg-indigo-600 text-white py-3 rounded-xl font-medium">验证并支付</button></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function app() {
+    return {
+      currentPage: 'home',
+      isLoggedIn: false,
+      userEmail: '',
+      userDisplayEmail: '',
+      termsAgreed: false, loginAttempted: false,
+      profile: { name: 'Michael Chen', idNumber: 'E12345678', phone: '+1 (555) 987-6543', email: 'michael@rci.com', inviteCode: 'AGENT123' },
+      inviteError: '', inviteValid: false, inviteParent: 'MASTER',
+      purchaseAgreed: false, isPaying: false, show3DSecure: false, smsCode: '',
+      orderState: 'cooling', coolingDaysLeft: 5,
+      pendingActivationCount: 2,
+      selectedOrder: null,
+      // 订单列表数据 (多个订单)
+      userOrders: [
+        { id:1, buyerName:'Michael Chen', email:'michael@rci.com', phone:'+1 555-987-6543', idNumber:'E12345678', orderNo:'RCI-2024-001', orderDate:'2024-05-10', status:'已完成', effective:'2024-05-20', expiry:'2029-05-20' },
+        { id:2, buyerName:'Sophia Chen', email:'sophia.chen@email.com', phone:'+1 555-222-3344', idNumber:'E87654321', orderNo:'RCI-2024-089', orderDate:'2024-11-02', status:'会员激活中', coolingDays:2 },
+        { id:3, buyerName:'David Lee', email:'david.lee@family.com', phone:'+44 7700 123456', idNumber:'P9876543', orderNo:'RCI-2025-012', orderDate:'2025-02-14', status:'冷静期中', coolingDays:5 }
+      ],
+      adminOrders: [
+        { id: 'RCI-101', name: 'James Lee', inviteCode: 'AGENT123', status: '会员激活中' },
+        { id: 'RCI-102', name: 'Yuna Kim', inviteCode: 'AGENT_A', status: '已完成' },
+        { id: 'RCI-103', name: 'Emma W.', inviteCode: 'AGENT_B', status: '冷静期中' },
+      ],
+      
+      init() {
+        if (this.isLoggedIn) this.userDisplayEmail = this.profile.email;
+      },
+      statusClass(status) {
+        if (status==='已完成') return 'bg-green-50 text-green-700';
+        if (status==='冷静期中') return 'bg-amber-50 text-amber-700';
+        if (status==='会员激活中') return 'bg-blue-50 text-blue-700';
+        return 'bg-gray-50 text-gray-600';
+      },
+      handleBuyNow() { if (!this.isLoggedIn) this.currentPage = 'login'; else this.currentPage = 'profile'; },
+      mockLogin(provider) {
+        if (!this.termsAgreed) { this.loginAttempted = true; return; }
+        this.isLoggedIn = true;
+        this.userEmail = provider==='google'?'member@gmail.com':(provider==='apple'?'member@icloud.com':'member@rci.com');
+        this.profile.email = this.userEmail;
+        this.userDisplayEmail = this.userEmail;
+        this.currentPage = 'profile';
+      },
+      validateInviteCode() {
+        const valid = ['AGENT123','TEAM01','RCI2024','AGENT_A','AGENT_B'];
+        const code = this.profile.inviteCode.trim().toUpperCase();
+        if(valid.includes(code)) { this.inviteValid = true; this.inviteError = ''; this.inviteParent = code==='AGENT_B'?'AGENT_A':'MASTER'; }
+        else { this.inviteValid = false; this.inviteError = '无效邀请码'; }
+      },
+      submitProfile() { if(this.inviteValid) this.currentPage = 'checkout'; },
+      initiatePayment() {
+        if(!this.purchaseAgreed) return;
+        this.isPaying = true;
+        setTimeout(()=>{ this.isPaying=false; this.show3DSecure=true; },1200);
+      },
+      sendSmsCode(){ alert('验证码 123456'); },
+      complete3DS() {
+        this.show3DSecure = false;
+        // 新增一笔订单演示 (模拟刚支付)
+        this.userOrders.unshift({
+          id: Date.now(), buyerName: this.profile.name || 'New Buyer', email: this.profile.email, phone: this.profile.phone, idNumber: this.profile.idNumber,
+          orderNo: 'RCI-'+new Date().getFullYear()+'-'+Math.floor(Math.random()*1000), orderDate: new Date().toISOString().slice(0,10),
+          status: '冷静期中', coolingDays: 7
+        });
+        this.currentPage = 'paymentSuccess';
+      },
+      openWhatsApp() { alert('打开 WhatsApp 联系专属顾问 +1 (888) 123-4567'); },
+      viewOrderDetail(order) { this.selectedOrder = order; },
+      applyRefundForOrder(order) { if(confirm('申请全额退款？')) order.status = '已退款'; },
+      downloadMock(type, order) { alert(`下载 ${type}.pdf (订单:${order.orderNo}, 姓名:${order.buyerName})`); },
+      manualActivate(order) { order.status = '已完成'; this.pendingActivationCount--; },
+      simulateManualActivation() {
+        let target = this.adminOrders.find(o=>o.status==='会员激活中');
+        if(target) target.status = '已完成';
+        alert('手动激活成功，邮件3已触发');
+      },
+      processRefundFromAdmin() { alert('退款已处理，名额释放'); }
+    }
+  }
+</script>
+<!-- 邮件系统注释 -->
+<!-- 邮件1(支付成功)发送订单确认函+预售协议PDF；邮件2冷静期结束自动发送服务启动通知；邮件3管理员手动触发激活成功通知 -->
+</body>
+</html>

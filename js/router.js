@@ -20,7 +20,8 @@
             'faq':               { fragment: 'pages/faq.html',           init: 'initFaqPage',            title: 'FAQ' },
             'contact':           { fragment: 'pages/contact.html',       init: 'initContactPage',        title: 'Contact Us' },
             'privacy':           { fragment: 'pages/privacy.html',       init: 'initPrivacyPage',        title: 'Privacy Policy' },
-            'terms':             { fragment: 'pages/terms.html',         init: 'initTermsPage',          title: 'Terms of Service' }
+            'terms':             { fragment: 'pages/terms.html',         init: 'initTermsPage',          title: 'Terms of Service' },
+            'shop':              { fragment: 'pages/shop.html',          init: 'initShopPage',           title: 'Shop Now' }
         },
 
         init: function() {
@@ -70,7 +71,8 @@
                 'faq.html': 'faq',
                 'contact.html': 'contact',
                 'privacy.html': 'privacy',
-                'terms.html': 'terms'
+                'terms.html': 'terms',
+                'shop.html': 'shop'
             };
 
             if (routeMap[routeName]) {
