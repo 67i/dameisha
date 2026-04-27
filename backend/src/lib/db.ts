@@ -31,6 +31,8 @@ function getPool(): Pool {
     user: config.dbUser,
     password: createPasswordProvider(config),
     database: config.dbName,
+    connectionTimeoutMillis: 3000,
+    idleTimeoutMillis: 10000,
     max: 8,
     ssl: {
       rejectUnauthorized: false

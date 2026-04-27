@@ -32,6 +32,7 @@ type RouteMatch = {
   method: string;
   regex: RegExp;
   protected: boolean;
+  audit: boolean;
   handle: (event: APIGatewayProxyEventV2, auth: AuthContext | null) => Promise<APIGatewayProxyResultV2>;
 };
 
@@ -40,12 +41,14 @@ const routes: RouteMatch[] = [
     method: "GET",
     regex: /^\/health$/,
     protected: false,
+    audit: false,
     handle: async () => ok({ status: "ok", service: "qx-serverless-api" })
   },
   {
     method: "GET",
     regex: /^\/me$/,
     protected: true,
+    audit: true,
     handle: async (_event, auth) => {
       return getMe(auth!);
     }
@@ -54,6 +57,7 @@ const routes: RouteMatch[] = [
     method: "PATCH",
     regex: /^\/me$/,
     protected: true,
+    audit: true,
     handle: async (event, auth) => {
       return patchMe(event, auth!);
     }
@@ -62,6 +66,7 @@ const routes: RouteMatch[] = [
     method: "GET",
     regex: /^\/me\/security$/,
     protected: true,
+    audit: true,
     handle: async (_event, auth) => {
       return getMeSecurity(auth!);
     }
@@ -70,6 +75,7 @@ const routes: RouteMatch[] = [
     method: "GET",
     regex: /^\/orders$/,
     protected: true,
+    audit: true,
     handle: async (event, auth) => {
       return getOrders(event, auth!);
     }
@@ -78,6 +84,7 @@ const routes: RouteMatch[] = [
     method: "GET",
     regex: /^\/orders\/(\d+)$/,
     protected: true,
+    audit: true,
     handle: async (event, auth) => {
       const id = event.rawPath.split("/").pop();
       event.pathParameters = { ...(event.pathParameters ?? {}), id };
@@ -88,6 +95,7 @@ const routes: RouteMatch[] = [
     method: "POST",
     regex: /^\/purchase\/intents$/,
     protected: true,
+    audit: true,
     handle: async (event, auth) => {
       return createPurchaseIntent(event, auth!);
     }
@@ -96,6 +104,7 @@ const routes: RouteMatch[] = [
     method: "POST",
     regex: /^\/purchase\/intents\/(\d+)\/confirm$/,
     protected: true,
+    audit: true,
     handle: async (event, auth) => {
       const id = event.rawPath.split("/")[3];
       event.pathParameters = { ...(event.pathParameters ?? {}), id };
@@ -111,20 +120,18 @@ export const handler = async (event: APIGatewayProxyEventV2): Promise<APIGateway
 
     const route = routes.find((r) => r.method === method && r.regex.test(path));
     if (!route) {
-      const res = notFound("Route not found");
-      await writeAuditLog(event, null, responseStatusCode(res));
-      return res;
+      return notFound("Route not found");
     }
 
     const auth = route.protected ? await requireAuth(event) : null;
     if (route.protected && !auth) {
-      const res = unauthorized();
-      await writeAuditLog(event, null, responseStatusCode(res));
-      return res;
+      return unauthorized();
     }
 
     const result = await route.handle(event, auth);
-    await writeAuditLog(event, auth?.userId ?? null, responseStatusCode(result));
+    if (route.audit) {
+      await writeAuditLog(event, auth?.userId ?? null, responseStatusCode(result));
+    }
     return result;
   } catch (error) {
     console.error("Unhandled error", error);
