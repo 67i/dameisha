@@ -1,0 +1,124 @@
+openapi: 3.0.3
+info:
+  title: QX Phase-1 API
+  version: 0.1.0
+servers:
+  - url: https://{apiId}.execute-api.{region}.amazonaws.com/prod
+    variables:
+      apiId:
+        default: replace-me
+      region:
+        default: us-east-1
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerAuth: []
+paths:
+  /health:
+    get:
+      security: []
+      responses:
+        "200":
+          description: ok
+  /me:
+    get:
+      responses:
+        "200":
+          description: current user profile
+    patch:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                displayName:
+                  type: string
+                countryCode:
+                  type: string
+                phoneNumber:
+                  type: string
+                avatarUrl:
+                  type: string
+      responses:
+        "200":
+          description: updated profile
+  /me/security:
+    get:
+      responses:
+        "200":
+          description: login provider security snapshot
+  /orders:
+    get:
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+            minimum: 1
+        - in: query
+          name: pageSize
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+      responses:
+        "200":
+          description: order list
+  /orders/{id}:
+    get:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: order detail
+  /purchase/intents:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - productCode
+                - quantity
+                - currency
+                - amount
+              properties:
+                productCode:
+                  type: string
+                quantity:
+                  type: integer
+                currency:
+                  type: string
+                  minLength: 3
+                  maxLength: 3
+                amount:
+                  type: number
+                note:
+                  type: string
+      responses:
+        "201":
+          description: purchase intent created
+  /purchase/intents/{id}/confirm:
+    post:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: submitted or idempotent confirmation result
+

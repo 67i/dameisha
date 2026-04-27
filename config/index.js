@@ -27,7 +27,7 @@ var CONFIG = {
     },
 
     api: {
-        baseUrl: '',
+        baseUrl: window.__QX_API_BASE_URL__ || '',
         timeout: 30000,
         googleMapsKey: window.__GOOGLE_MAPS_KEY__ || '',
         useEmbedApi: false
