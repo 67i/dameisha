@@ -33,8 +33,23 @@ type RouteMatch = {
   regex: RegExp;
   protected: boolean;
   audit: boolean;
-  handle: (event: APIGatewayProxyEventV2, auth: AuthContext | null) => Promise<APIGatewayProxyResultV2>;
+  handle: (event: APIGatewayProxyEventV2, auth: AuthContext | null, routePath: string) => Promise<APIGatewayProxyResultV2>;
 };
+
+function routePathFromEvent(event: APIGatewayProxyEventV2): string {
+  const rawPath = event.rawPath || "/";
+  const stage = event.requestContext.stage;
+  if (stage && stage !== "$default") {
+    const stagePrefix = `/${stage}`;
+    if (rawPath === stagePrefix) {
+      return "/";
+    }
+    if (rawPath.startsWith(`${stagePrefix}/`)) {
+      return rawPath.slice(stagePrefix.length);
+    }
+  }
+  return rawPath;
+}
 
 const routes: RouteMatch[] = [
   {
@@ -85,8 +100,8 @@ const routes: RouteMatch[] = [
     regex: /^\/orders\/(\d+)$/,
     protected: true,
     audit: true,
-    handle: async (event, auth) => {
-      const id = event.rawPath.split("/").pop();
+    handle: async (event, auth, routePath) => {
+      const id = routePath.split("/").pop();
       event.pathParameters = { ...(event.pathParameters ?? {}), id };
       return getOrderById(event, auth!);
     }
@@ -105,8 +120,8 @@ const routes: RouteMatch[] = [
     regex: /^\/purchase\/intents\/(\d+)\/confirm$/,
     protected: true,
     audit: true,
-    handle: async (event, auth) => {
-      const id = event.rawPath.split("/")[3];
+    handle: async (event, auth, routePath) => {
+      const id = routePath.split("/")[3];
       event.pathParameters = { ...(event.pathParameters ?? {}), id };
       return confirmPurchaseIntent(event, auth!);
     }
@@ -116,7 +131,7 @@ const routes: RouteMatch[] = [
 export const handler = async (event: APIGatewayProxyEventV2): Promise<APIGatewayProxyResultV2> => {
   try {
     const method = event.requestContext.http.method.toUpperCase();
-    const path = event.rawPath;
+    const path = routePathFromEvent(event);
 
     const route = routes.find((r) => r.method === method && r.regex.test(path));
     if (!route) {
@@ -128,7 +143,7 @@ export const handler = async (event: APIGatewayProxyEventV2): Promise<APIGateway
       return unauthorized();
     }
 
-    const result = await route.handle(event, auth);
+    const result = await route.handle(event, auth, path);
     if (route.audit) {
       await writeAuditLog(event, auth?.userId ?? null, responseStatusCode(result));
     }
