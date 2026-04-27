@@ -11,7 +11,7 @@ Globals:
     Runtime: nodejs20.x
     Timeout: 15
     MemorySize: 512
-    Handler: dist/handler.handler
+    Handler: handler.handler
     Environment:
       Variables:
         COGNITO_USER_POOL_ID: !Ref CognitoUserPoolId
@@ -80,6 +80,15 @@ Resources:
 
   QxApiFunction:
     Type: AWS::Serverless::Function
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        EntryPoints:
+          - src/handler.ts
+        Format: cjs
+        Minify: false
+        Sourcemap: false
+        Target: es2022
     Properties:
       CodeUri: .
       Policies:
