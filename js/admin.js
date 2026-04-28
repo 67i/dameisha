@@ -8,15 +8,20 @@ var AdminApp = (function() {
     }
 
     function token() {
-        return localStorage.getItem(tokenKey) || '';
+        return normalizeToken(localStorage.getItem(tokenKey) || '');
     }
 
     function setToken(value) {
-        if (value) {
-            localStorage.setItem(tokenKey, value);
+        var normalized = normalizeToken(value || '');
+        if (normalized) {
+            localStorage.setItem(tokenKey, normalized);
         } else {
             localStorage.removeItem(tokenKey);
         }
+    }
+
+    function normalizeToken(value) {
+        return String(value || '').replace(/\s+/g, '');
     }
 
     function escape(value) {
@@ -72,6 +77,11 @@ var AdminApp = (function() {
                 }
                 return body.data || body;
             });
+        }).catch(function(error) {
+            if (error && error.message === 'Failed to fetch') {
+                throw new Error('请求失败：请确认正在使用线上后台地址，并检查 API 跨域或网络连接。');
+            }
+            throw error;
         });
     }
 
@@ -249,7 +259,8 @@ var AdminApp = (function() {
         var saveBtn = document.getElementById('adminSaveTokenBtn');
         if (saveBtn) {
             saveBtn.addEventListener('click', function() {
-                setToken(input ? input.value.trim() : '');
+                setToken(input ? input.value : '');
+                if (input) input.value = token();
                 loadActive();
             });
         }
