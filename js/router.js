@@ -22,6 +22,7 @@
             'privacy':           { fragment: 'pages/privacy.html',       init: 'initPrivacyPage',        title: 'Privacy Policy' },
             'terms':             { fragment: 'pages/terms.html',         init: 'initTermsPage',          title: 'Terms of Service' },
             'shop':              { fragment: 'pages/shop.html',          init: 'initShopPage',           title: 'Shop Now' },
+            'account':           { fragment: 'pages/account.html',       init: 'initAccountPage',        title: '会员订单中心' },
             'admin':             { fragment: 'pages/admin.html',         init: 'initAdminPage',          title: '后台管理系统' }
         },
 
@@ -74,6 +75,7 @@
                 'privacy.html': 'privacy',
                 'terms.html': 'terms',
                 'shop.html': 'shop',
+                'account.html': 'account',
                 'admin.html': 'admin'
             };
 
@@ -246,6 +248,7 @@ function convertLinksToRouter() {
         'contact.html': 'contact',
         'privacy.html': 'privacy',
         'terms.html': 'terms',
+        'account.html': 'account',
         'admin.html': 'admin'
     };
 

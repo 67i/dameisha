@@ -6628,6 +6628,214 @@ html[lang="ja"] .logic-circle-text-en {
     color: #667085;
 }
 
+.account-page {
+    background: #f5f7fa;
+    min-height: 70vh;
+    padding: 3rem 0;
+}
+
+.account-shell {
+    width: min(1120px, calc(100% - 2rem));
+    margin: 0 auto;
+}
+
+.account-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.account-kicker {
+    margin: 0 0 0.35rem;
+    color: #116c6e;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.account-header h1 {
+    margin: 0;
+    color: #0b1730;
+    font: 900 2rem 'PT Serif', serif;
+}
+
+.account-card,
+.account-alert {
+    background: #ffffff;
+    border: 1px solid #e3e7ee;
+    border-radius: 0.5rem;
+}
+
+.account-card {
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.account-card h2 {
+    margin: 0 0 1rem;
+    color: #172033;
+    font: 900 1.125rem 'Lato new', sans-serif;
+}
+
+.account-alert {
+    color: #b42318;
+    background: #fff3f0;
+    border-color: #ffd1c7;
+    padding: 0.875rem 1rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.account-login-form {
+    display: grid;
+    grid-template-columns: minmax(12rem, 1fr) minmax(12rem, 1fr) auto;
+    gap: 0.75rem;
+    align-items: end;
+}
+
+.account-login-form label {
+    display: grid;
+    gap: 0.5rem;
+    color: #344054;
+    font-size: 0.8125rem;
+    font-weight: 900;
+}
+
+.account-login-form input,
+.account-refund-box textarea {
+    width: 100%;
+    border: 1px solid #d5dae3;
+    border-radius: 0.5rem;
+    padding: 0.75rem 0.875rem;
+    color: #172033;
+    font: 700 0.875rem 'Lato new', sans-serif;
+    outline: none;
+}
+
+.account-login-form input:focus,
+.account-refund-box textarea:focus {
+    border-color: #116c6e;
+    box-shadow: 0 0 0 3px rgba(17, 108, 110, 0.12);
+}
+
+.account-primary-btn,
+.account-secondary-btn,
+.account-danger-btn {
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding: 0.75rem 1rem;
+    font: 900 0.8125rem 'Lato new', sans-serif;
+}
+
+.account-primary-btn {
+    border: 1px solid #07595b;
+    background: #07595b;
+    color: #ffffff;
+}
+
+.account-secondary-btn {
+    border: 1px solid #d5dae3;
+    background: #ffffff;
+    color: #172033;
+}
+
+.account-danger-btn {
+    border: 1px solid #b42318;
+    background: #b42318;
+    color: #ffffff;
+}
+
+.account-primary-btn:disabled,
+.account-secondary-btn:disabled,
+.account-danger-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.account-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.account-section-header h2,
+.account-section-header p {
+    margin: 0;
+}
+
+.account-section-header p {
+    color: #667085;
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-top: 0.25rem;
+}
+
+.account-orders {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.account-order-card {
+    border: 1px solid #e3e7ee;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.account-order-main {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.account-order-main span {
+    display: block;
+    color: #667085;
+    font-size: 0.75rem;
+    font-weight: 900;
+    margin-bottom: 0.35rem;
+}
+
+.account-order-main strong {
+    display: block;
+    color: #172033;
+    font-size: 0.9rem;
+    font-weight: 900;
+    overflow-wrap: anywhere;
+}
+
+.account-refund-box {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    align-items: start;
+}
+
+.account-refund-box textarea {
+    min-height: 4rem;
+    resize: vertical;
+}
+
+.account-muted,
+.account-empty {
+    color: #667085;
+    font-weight: 700;
+    margin: 1rem 0 0;
+}
+
+.account-empty {
+    margin: 0;
+}
+
 @media (max-width: 1024px) {
     .admin-page {
         grid-template-columns: 1fr;
@@ -6658,6 +6866,10 @@ html[lang="ja"] .logic-circle-text-en {
     .admin-detail-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    .account-order-main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 640px) {
@@ -6682,6 +6894,18 @@ html[lang="ja"] .logic-circle-text-en {
     .admin-trend-row {
         grid-template-columns: 1fr;
         gap: 0.5rem;
+    }
+
+    .account-header,
+    .account-section-header {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .account-login-form,
+    .account-order-main,
+    .account-refund-box {
+        grid-template-columns: 1fr;
     }
 }
 

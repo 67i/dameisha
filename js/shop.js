@@ -421,3 +421,279 @@ PageInit.initShopPage = function(params) {
     document.addEventListener('languageChanged', onLangChange);
     return function() { document.removeEventListener('languageChanged', onLangChange); };
 };
+
+var AccountApp = (function() {
+    var tokenKey = 'qx_member_token';
+    var pageSize = 20;
+
+    function apiBase() {
+        return (typeof CONFIG !== 'undefined' && CONFIG.api && CONFIG.api.baseUrl) ? CONFIG.api.baseUrl : '';
+    }
+
+    function escape(value) {
+        if (value === null || value === undefined) return '';
+        return String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
+
+    function token() {
+        return String(localStorage.getItem(tokenKey) || '').replace(/\s+/g, '');
+    }
+
+    function setToken(value) {
+        var normalized = String(value || '').replace(/\s+/g, '');
+        if (normalized) {
+            localStorage.setItem(tokenKey, normalized);
+        } else {
+            localStorage.removeItem(tokenKey);
+        }
+    }
+
+    function showAlert(message) {
+        var el = document.getElementById('accountAlert');
+        if (!el) return;
+        el.textContent = message;
+        el.style.display = message ? 'block' : 'none';
+    }
+
+    function setStatus(message) {
+        var el = document.getElementById('accountStatusText');
+        if (el) el.textContent = message;
+    }
+
+    function setLoggedIn(loggedIn) {
+        var loginPanel = document.getElementById('accountLoginPanel');
+        var ordersPanel = document.getElementById('accountOrdersPanel');
+        var logoutBtn = document.getElementById('accountLogoutBtn');
+        if (loginPanel) loginPanel.style.display = loggedIn ? 'none' : 'block';
+        if (ordersPanel) ordersPanel.style.display = loggedIn ? 'block' : 'none';
+        if (logoutBtn) logoutBtn.style.display = loggedIn ? 'inline-flex' : 'none';
+    }
+
+    function request(path, options) {
+        if (!apiBase()) {
+            return Promise.reject(new Error('API 地址尚未配置。'));
+        }
+        var requestOptions = options || {};
+        requestOptions.headers = Object.assign({
+            Authorization: 'Bearer ' + token()
+        }, requestOptions.headers || {});
+
+        return fetch(apiBase() + path, requestOptions).then(function(response) {
+            return response.json().catch(function() { return {}; }).then(function(body) {
+                if (!response.ok) {
+                    throw new Error(body.message || ('HTTP ' + response.status));
+                }
+                return body.data || body;
+            });
+        }).catch(function(error) {
+            if (error && error.message === 'Failed to fetch') {
+                throw new Error('请求失败：请检查网络连接或稍后重试。');
+            }
+            throw error;
+        });
+    }
+
+    function login(username, password) {
+        if (!apiBase()) {
+            return Promise.reject(new Error('API 地址尚未配置。'));
+        }
+        return fetch(apiBase() + '/api/v1/login', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password
+            })
+        }).then(function(response) {
+            return response.json().catch(function() { return {}; }).then(function(body) {
+                if (!response.ok) {
+                    throw new Error(body.message || ('HTTP ' + response.status));
+                }
+                return body.data || body;
+            });
+        });
+    }
+
+    function statusLabel(value) {
+        return {
+            cooling_period: '冷静期',
+            active: '激活中',
+            completed: '已完成',
+            refund_pending: '退款审核中',
+            refunded: '已退款'
+        }[value] || value || '';
+    }
+
+    function money(value, currency) {
+        var n = Number(value || 0);
+        return (currency || 'USD') + ' ' + n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function shortDate(value) {
+        if (!value) return '';
+        var d = new Date(value);
+        if (Number.isNaN(d.getTime())) return value;
+        return d.toLocaleString();
+    }
+
+    function renderOrders(data) {
+        var wrap = document.getElementById('accountOrders');
+        if (!wrap) return;
+        var orders = data.items || data.list || [];
+        if (!orders.length) {
+            wrap.innerHTML = '<p class="account-empty">暂无订单。</p>';
+            setStatus('共 0 笔订单');
+            return;
+        }
+
+        wrap.innerHTML = orders.map(function(order) {
+            var refundForm = '';
+            if (order.status === 'cooling_period') {
+                refundForm =
+                    '<div class="account-refund-box">' +
+                    '<textarea data-refund-reason="' + escape(order.orderId) + '" rows="2" placeholder="退款原因（选填）"></textarea>' +
+                    '<button class="account-danger-btn" type="button" data-refund-order-id="' + escape(order.orderId) + '">申请退款</button>' +
+                    '</div>';
+            } else if (order.status === 'refund_pending') {
+                refundForm = '<p class="account-muted">退款申请已提交，等待管理员审核。</p>';
+            }
+
+            return '<article class="account-order-card">' +
+                '<div class="account-order-main">' +
+                '<div><span>订单 ID</span><strong>' + escape(order.orderId) + '</strong></div>' +
+                '<div><span>状态</span><strong>' + escape(statusLabel(order.status)) + '</strong></div>' +
+                '<div><span>金额</span><strong>' + escape(money(order.amount, order.currency)) + '</strong></div>' +
+                '<div><span>创建时间</span><strong>' + escape(shortDate(order.createdAt)) + '</strong></div>' +
+                '</div>' +
+                refundForm +
+                '</article>';
+        }).join('');
+
+        setStatus('共 ' + (data.total || orders.length) + ' 笔订单');
+        bindRefundButtons();
+    }
+
+    function loadOrders() {
+        showAlert('');
+        setLoggedIn(true);
+        setStatus('正在加载订单...');
+        return request('/orders?page=1&pageSize=' + pageSize).then(function(data) {
+            renderOrders(data);
+        }).catch(function(error) {
+            if ((error.message || '').indexOf('Unauthorized') !== -1) {
+                setToken('');
+                setLoggedIn(false);
+                showAlert('登录已失效，请重新登录。');
+                return;
+            }
+            showAlert(error.message || '订单加载失败。');
+            setStatus('订单加载失败');
+        });
+    }
+
+    function requestRefund(orderId) {
+        var reason = document.querySelector('[data-refund-reason="' + orderId + '"]');
+        showAlert('');
+        setStatus('正在提交退款申请...');
+        return request('/orders/' + encodeURIComponent(orderId) + '/refunds', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                reason: reason ? reason.value.trim() : ''
+            })
+        }).then(function() {
+            setStatus('退款申请已提交，等待管理员审核。');
+            return loadOrders();
+        }).catch(function(error) {
+            showAlert(error.message || '退款申请提交失败。');
+            setStatus('退款申请提交失败');
+        });
+    }
+
+    function bindRefundButtons() {
+        document.querySelectorAll('[data-refund-order-id]').forEach(function(btn) {
+            if (btn.getAttribute('data-bound') === 'true') return;
+            btn.setAttribute('data-bound', 'true');
+            btn.addEventListener('click', function() {
+                var orderId = btn.getAttribute('data-refund-order-id');
+                if (!orderId) return;
+                btn.disabled = true;
+                requestRefund(orderId).finally(function() {
+                    btn.disabled = false;
+                });
+            });
+        });
+    }
+
+    function init() {
+        var form = document.getElementById('accountLoginForm');
+        var usernameInput = document.getElementById('accountUsernameInput');
+        var passwordInput = document.getElementById('accountPasswordInput');
+        var loginBtn = document.getElementById('accountLoginBtn');
+        var refreshBtn = document.getElementById('accountRefreshBtn');
+        var logoutBtn = document.getElementById('accountLogoutBtn');
+
+        if (form) {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                var username = usernameInput ? usernameInput.value.trim() : '';
+                var password = passwordInput ? passwordInput.value : '';
+                if (!username || !password) {
+                    showAlert('请输入用户名和密码。');
+                    return;
+                }
+                showAlert('');
+                if (loginBtn) {
+                    loginBtn.disabled = true;
+                    loginBtn.textContent = '登录中...';
+                }
+                login(username, password).then(function(data) {
+                    setToken(data.idToken || '');
+                    if (passwordInput) passwordInput.value = '';
+                    return loadOrders();
+                }).catch(function(error) {
+                    setToken('');
+                    setLoggedIn(false);
+                    showAlert(error.message || '登录失败。');
+                }).finally(function() {
+                    if (loginBtn) {
+                        loginBtn.disabled = false;
+                        loginBtn.textContent = '登录';
+                    }
+                });
+            });
+        }
+
+        if (refreshBtn) refreshBtn.addEventListener('click', loadOrders);
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', function() {
+                setToken('');
+                setLoggedIn(false);
+                showAlert('');
+            });
+        }
+
+        if (token()) {
+            loadOrders();
+        } else {
+            setLoggedIn(false);
+        }
+    }
+
+    return {
+        init: init
+    };
+})();
+
+PageInit.initAccountPage = function() {
+    AccountApp.init();
+};

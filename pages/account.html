@@ -1,0 +1,39 @@
+<section class="account-page">
+    <div class="account-shell">
+        <header class="account-header">
+            <div>
+                <p class="account-kicker">Member Center</p>
+                <h1>会员订单中心</h1>
+            </div>
+            <button class="account-secondary-btn" id="accountLogoutBtn" type="button" style="display:none;">退出登录</button>
+        </header>
+
+        <div class="account-alert" id="accountAlert" style="display:none;"></div>
+
+        <section class="account-card" id="accountLoginPanel">
+            <h2>会员登录</h2>
+            <form class="account-login-form" id="accountLoginForm">
+                <label>
+                    <span>用户名</span>
+                    <input id="accountUsernameInput" type="text" autocomplete="username" required>
+                </label>
+                <label>
+                    <span>密码</span>
+                    <input id="accountPasswordInput" type="password" autocomplete="current-password" required>
+                </label>
+                <button class="account-primary-btn" id="accountLoginBtn" type="submit">登录</button>
+            </form>
+        </section>
+
+        <section class="account-card" id="accountOrdersPanel" style="display:none;">
+            <div class="account-section-header">
+                <div>
+                    <h2>我的订单</h2>
+                    <p id="accountStatusText">正在加载订单...</p>
+                </div>
+                <button class="account-secondary-btn" id="accountRefreshBtn" type="button">刷新</button>
+            </div>
+            <div class="account-orders" id="accountOrders"></div>
+        </section>
+    </div>
+</section>
