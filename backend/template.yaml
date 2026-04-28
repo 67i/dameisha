@@ -9,7 +9,7 @@ Conditions:
 Globals:
   Function:
     Runtime: nodejs20.x
-    Timeout: 15
+    Timeout: 30
     MemorySize: 512
     Handler: handler.handler
     Environment:
