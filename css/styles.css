@@ -6566,6 +6566,63 @@ html[lang="ja"] .logic-circle-text-en {
     padding: 0.75rem 1rem;
 }
 
+.admin-review-editor {
+    margin-top: 1rem;
+}
+
+.admin-review-editor label {
+    display: block;
+    color: #344054;
+    font-size: 0.8125rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+}
+
+.admin-review-editor textarea {
+    width: 100%;
+    min-height: 5.5rem;
+    border: 1px solid #d5dae3;
+    border-radius: 0.5rem;
+    padding: 0.75rem 0.875rem;
+    font: 600 0.875rem 'Lato new', sans-serif;
+    outline: none;
+    resize: vertical;
+}
+
+.admin-review-editor textarea:focus {
+    border-color: #116c6e;
+    box-shadow: 0 0 0 3px rgba(17, 108, 110, 0.12);
+}
+
+.admin-review-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.admin-review-actions button {
+    border: 1px solid #07595b;
+    background: #07595b;
+    color: #ffffff;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font: 800 0.8125rem 'Lato new', sans-serif;
+    padding: 0.75rem 1rem;
+}
+
+.admin-review-actions button + button {
+    border-color: #b42318;
+    background: #b42318;
+}
+
+.admin-review-actions button:disabled {
+    border-color: #d0d5dd;
+    background: #eaecf0;
+    color: #98a2b3;
+    cursor: not-allowed;
+}
+
 .admin-empty {
     margin: 0;
     color: #667085;

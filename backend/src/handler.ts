@@ -2,7 +2,7 @@ import type { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from "aws-lambda
 import { requireAuth } from "./lib/auth";
 import { internalError, noContent, notFound, ok, unauthorized } from "./lib/response";
 import { getMe, getMeSecurity, patchMe } from "./routes/me";
-import { getOrderById, getOrders } from "./routes/orders";
+import { getOrderById, getOrders, requestOrderRefund } from "./routes/orders";
 import { confirmPurchaseIntent, createPurchaseIntent } from "./routes/purchase-intents";
 import { execute } from "./lib/db";
 import type { AuthContext } from "./types";
@@ -12,7 +12,9 @@ import {
   getAdminOrderDetail,
   getAdminOrders,
   getAdminPurchaseIntents,
+  getAdminRefundRequests,
   getAdminUsers,
+  reviewAdminRefundRequest,
   updateAdminOrderStatus
 } from "./routes/admin";
 import { adminLogin } from "./routes/admin-login";
@@ -118,6 +120,17 @@ const routes: RouteMatch[] = [
   },
   {
     method: "POST",
+    regex: /^\/orders\/(\d+)\/refunds$/,
+    protected: true,
+    audit: true,
+    handle: async (event, auth, routePath) => {
+      const id = routePath.split("/")[2];
+      event.pathParameters = { ...(event.pathParameters ?? {}), id };
+      return requestOrderRefund(event, auth!);
+    }
+  },
+  {
+    method: "POST",
     regex: /^\/purchase\/intents$/,
     protected: true,
     audit: true,
@@ -192,6 +205,26 @@ const routes: RouteMatch[] = [
     audit: true,
     handle: async (event, auth) => {
       return getAdminPurchaseIntents(event, auth!);
+    }
+  },
+  {
+    method: "GET",
+    regex: /^\/api\/v1\/admin\/refund-requests$/,
+    protected: true,
+    audit: true,
+    handle: async (event, auth) => {
+      return getAdminRefundRequests(event, auth!);
+    }
+  },
+  {
+    method: "PATCH",
+    regex: /^\/api\/v1\/admin\/refund-requests\/(\d+)\/review$/,
+    protected: true,
+    audit: true,
+    handle: async (event, auth, routePath) => {
+      const id = routePath.split("/")[5];
+      event.pathParameters = { ...(event.pathParameters ?? {}), id };
+      return reviewAdminRefundRequest(event, auth!);
     }
   },
   {

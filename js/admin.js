@@ -51,6 +51,7 @@ var AdminApp = (function() {
             cooling_period: '冷静期',
             active: '激活中',
             completed: '已完成',
+            refund_pending: '退款处理中',
             refunded: '已退款',
             draft: '冷静期',
             submitted: '激活中',
@@ -140,6 +141,7 @@ var AdminApp = (function() {
             { label: '冷静期订单', value: totals.coolingPeriodOrders || 0, icon: 'hourglass_top' },
             { label: '激活中订单', value: totals.activeOrders || 0, icon: 'task_alt' },
             { label: '已完成订单', value: totals.completedOrders || 0, icon: 'verified' },
+            { label: '退款处理中', value: totals.refundPendingOrders || 0, icon: 'pending_actions' },
             { label: '已退款订单', value: totals.refundedOrders || 0, icon: 'assignment_return' },
             { label: '审计事件', value: totals.auditEvents || 0, icon: 'manage_search' }
         ];
@@ -156,7 +158,7 @@ var AdminApp = (function() {
     function renderStatusList(data) {
         var rows = data.orderStatus || [];
         var html = rows.length ? rows.map(function(row) {
-            return '<div class="admin-status-row"><span>' + escape(row.status) + '</span><strong>' + escape(row.total) + '</strong></div>';
+            return '<div class="admin-status-row"><span>' + escape(statusLabel(row.status)) + '</span><strong>' + escape(row.total) + '</strong></div>';
         }).join('') : '<p class="admin-empty">暂无订单状态数据。</p>';
         var el = document.getElementById('adminStatusList');
         if (el) el.innerHTML = html;
@@ -227,6 +229,14 @@ var AdminApp = (function() {
 
     function detailItem(label, value) {
         return '<div class="admin-detail-item"><span>' + escape(label) + '</span><strong>' + escape(value || '-') + '</strong></div>';
+    }
+
+    function refundStatusLabel(value) {
+        return {
+            pending: '待审核',
+            approved: '已批准',
+            rejected: '已拒绝'
+        }[value] || value || '';
     }
 
     function renderOrderDetail(order) {
@@ -312,6 +322,96 @@ var AdminApp = (function() {
         });
     }
 
+    function loadRefunds() {
+        return request('/api/v1/admin/refund-requests?page=1&pageSize=' + pageSize).then(function(data) {
+            meta('adminRefundsMeta', data);
+            table('adminRefundsTable', [
+                { label: '退款 ID', value: function(row) { return row.refundId; } },
+                { label: '订单 ID', value: function(row) { return row.orderId; } },
+                { label: '用户', value: function(row) { return row.userEmail || row.userId; } },
+                { label: '退款状态', value: function(row) { return refundStatusLabel(row.status); } },
+                { label: '订单状态', value: function(row) { return statusLabel(row.orderStatus); } },
+                { label: '金额', value: function(row) { return money(row.amount, row.currency); } },
+                { label: '申请时间', value: function(row) { return shortDate(row.createdAt); } },
+                {
+                    label: '操作',
+                    html: true,
+                    value: function(row) {
+                        var label = row.status === 'pending' ? '审核' : '查看';
+                        return '<button class="admin-link-btn" type="button" data-admin-refund=\'' + escape(JSON.stringify(row)) + '\'>' + label + '</button>';
+                    }
+                }
+            ], data.list || []);
+            bindRefundActions();
+        });
+    }
+
+    function renderRefundReview(refund) {
+        var panel = document.getElementById('adminRefundReviewPanel');
+        var detail = document.getElementById('adminRefundReviewDetail');
+        var note = document.getElementById('adminRefundReviewNote');
+        var approveBtn = document.getElementById('adminApproveRefundBtn');
+        var rejectBtn = document.getElementById('adminRejectRefundBtn');
+        if (!panel || !detail) return;
+
+        detail.innerHTML = [
+            detailItem('退款 ID', refund.refundId),
+            detailItem('订单 ID', refund.orderId),
+            detailItem('用户', refund.userEmail || refund.userId),
+            detailItem('退款状态', refundStatusLabel(refund.status)),
+            detailItem('订单状态', statusLabel(refund.orderStatus)),
+            detailItem('金额', money(refund.amount, refund.currency)),
+            detailItem('申请原因', refund.reason || ''),
+            detailItem('申请时间', shortDate(refund.createdAt)),
+            detailItem('审核时间', shortDate(refund.reviewedAt))
+        ].join('');
+
+        if (note) note.value = refund.adminNote || '';
+        if (approveBtn) approveBtn.setAttribute('data-admin-refund-id', refund.refundId);
+        if (rejectBtn) rejectBtn.setAttribute('data-admin-refund-id', refund.refundId);
+        if (approveBtn) approveBtn.disabled = refund.status !== 'pending';
+        if (rejectBtn) rejectBtn.disabled = refund.status !== 'pending';
+        panel.style.display = 'block';
+    }
+
+    function reviewRefund(refundId, decision) {
+        var note = document.getElementById('adminRefundReviewNote');
+        showAlert('');
+        setStatus('正在提交退款审核...');
+        return request('/api/v1/admin/refund-requests/' + encodeURIComponent(refundId) + '/review', {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                decision: decision,
+                adminNote: note ? note.value : ''
+            })
+        }).then(function() {
+            setStatus('退款审核已提交。');
+            var panel = document.getElementById('adminRefundReviewPanel');
+            if (panel) panel.style.display = 'none';
+            return Promise.all([loadRefunds(), loadOrders(), loadDashboard()]);
+        }).catch(function(error) {
+            setStatus('未连接。');
+            showAlert(error.message || '退款审核提交失败。');
+        });
+    }
+
+    function bindRefundActions() {
+        document.querySelectorAll('[data-admin-refund]').forEach(function(btn) {
+            if (btn.getAttribute('data-admin-bound') === 'true') return;
+            btn.setAttribute('data-admin-bound', 'true');
+            btn.addEventListener('click', function() {
+                try {
+                    renderRefundReview(JSON.parse(btn.getAttribute('data-admin-refund') || '{}'));
+                } catch (error) {
+                    showAlert('退款申请数据解析失败。');
+                }
+            });
+        });
+    }
+
     function loadUsers() {
         return request('/api/v1/admin/users?page=1&pageSize=' + pageSize).then(function(data) {
             meta('adminUsersMeta', data);
@@ -354,6 +454,7 @@ var AdminApp = (function() {
             dashboard: loadDashboard,
             orders: loadOrders,
             intents: loadIntents,
+            refunds: loadRefunds,
             users: loadUsers,
             audit: loadAudit
         }[activeView] || loadDashboard;
@@ -380,6 +481,7 @@ var AdminApp = (function() {
         });
         var id = 'adminView' + view.slice(0, 1).toUpperCase() + view.slice(1);
         if (view === 'intents') id = 'adminViewIntents';
+        if (view === 'refunds') id = 'adminViewRefunds';
         if (view === 'audit') id = 'adminViewAudit';
         var section = document.getElementById(id);
         if (section) section.classList.add('active');
@@ -394,6 +496,9 @@ var AdminApp = (function() {
         var closeOrderDetailBtn = document.getElementById('adminCloseOrderDetailBtn');
         var updateOrderStatusBtn = document.getElementById('adminUpdateOrderStatusBtn');
         var orderStatusSelect = document.getElementById('adminOrderStatusSelect');
+        var closeRefundReviewBtn = document.getElementById('adminCloseRefundReviewBtn');
+        var approveRefundBtn = document.getElementById('adminApproveRefundBtn');
+        var rejectRefundBtn = document.getElementById('adminRejectRefundBtn');
 
         document.querySelectorAll('.admin-nav-btn').forEach(function(btn) {
             btn.addEventListener('click', function() {
@@ -453,6 +558,43 @@ var AdminApp = (function() {
                     return;
                 }
                 updateOrderStatus(orderId, status);
+            });
+        }
+
+        if (closeRefundReviewBtn) {
+            closeRefundReviewBtn.addEventListener('click', function() {
+                var panel = document.getElementById('adminRefundReviewPanel');
+                if (panel) panel.style.display = 'none';
+                if (approveRefundBtn) {
+                    approveRefundBtn.removeAttribute('data-admin-refund-id');
+                    approveRefundBtn.disabled = false;
+                }
+                if (rejectRefundBtn) {
+                    rejectRefundBtn.removeAttribute('data-admin-refund-id');
+                    rejectRefundBtn.disabled = false;
+                }
+            });
+        }
+
+        if (approveRefundBtn) {
+            approveRefundBtn.addEventListener('click', function() {
+                var refundId = approveRefundBtn.getAttribute('data-admin-refund-id');
+                if (!refundId) {
+                    showAlert('请先选择退款申请。');
+                    return;
+                }
+                reviewRefund(refundId, 'approve');
+            });
+        }
+
+        if (rejectRefundBtn) {
+            rejectRefundBtn.addEventListener('click', function() {
+                var refundId = rejectRefundBtn.getAttribute('data-admin-refund-id');
+                if (!refundId) {
+                    showAlert('请先选择退款申请。');
+                    return;
+                }
+                reviewRefund(refundId, 'reject');
             });
         }
 

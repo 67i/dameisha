@@ -28,6 +28,7 @@ type DashboardTotalRow = {
   cooling_period_orders: string;
   active_orders: string;
   completed_orders: string;
+  refund_pending_orders: string;
   refunded_orders: string;
   audit_events: string;
 };
@@ -102,6 +103,24 @@ type AuditRow = {
   status_code: number;
   request_id: string | null;
   created_at: string;
+};
+
+type RefundRequestRow = {
+  refund_id: number;
+  order_id: number;
+  user_id: string;
+  status: string;
+  reason: string | null;
+  admin_note: string | null;
+  reviewed_by: string | null;
+  reviewed_at: string | null;
+  created_at: string;
+  updated_at: string;
+  order_status: string;
+  currency: string;
+  amount: string;
+  user_email: string | null;
+  display_name: string | null;
 };
 
 function claimArray(value: unknown): string[] {
@@ -207,6 +226,7 @@ export async function getAdminDashboard(auth: AuthContext): Promise<APIGatewayPr
         (SELECT COUNT(1)::text FROM orders WHERE status = 'cooling_period') AS cooling_period_orders,
         (SELECT COUNT(1)::text FROM orders WHERE status = 'active') AS active_orders,
         (SELECT COUNT(1)::text FROM orders WHERE status = 'completed') AS completed_orders,
+        (SELECT COUNT(1)::text FROM orders WHERE status = 'refund_pending') AS refund_pending_orders,
         (SELECT COUNT(1)::text FROM orders WHERE status = 'refunded') AS refunded_orders,
         (SELECT COUNT(1)::text FROM audit_logs) AS audit_events
     `
@@ -245,6 +265,7 @@ export async function getAdminDashboard(auth: AuthContext): Promise<APIGatewayPr
       coolingPeriodOrders: Number(total?.cooling_period_orders ?? 0),
       activeOrders: Number(total?.active_orders ?? 0),
       completedOrders: Number(total?.completed_orders ?? 0),
+      refundPendingOrders: Number(total?.refund_pending_orders ?? 0),
       refundedOrders: Number(total?.refunded_orders ?? 0),
       auditEvents: Number(total?.audit_events ?? 0)
     },
@@ -380,6 +401,180 @@ export async function updateAdminOrderStatus(
   }
 
   return success(orderPayload(row));
+}
+
+function refundPayload(row: RefundRequestRow) {
+  return {
+    refundId: row.refund_id,
+    orderId: row.order_id,
+    userId: row.user_id,
+    userEmail: maskEmail(row.user_email),
+    displayName: row.display_name,
+    status: row.status,
+    reason: row.reason,
+    adminNote: row.admin_note,
+    reviewedBy: row.reviewed_by,
+    reviewedAt: row.reviewed_at,
+    orderStatus: row.order_status,
+    currency: row.currency,
+    amount: Number(row.amount),
+    createdAt: row.created_at,
+    updatedAt: row.updated_at
+  };
+}
+
+export async function getAdminRefundRequests(
+  event: APIGatewayProxyEventV2,
+  auth: AuthContext
+): Promise<APIGatewayProxyStructuredResultV2> {
+  const role = requireAdminResponse(auth);
+  if (typeof role !== "string") return role;
+
+  const pg = parsePagination(event);
+  if (!pg) return badRequest("Invalid pagination");
+
+  const status = event.queryStringParameters?.status;
+  if (status && !["pending", "approved", "rejected"].includes(status)) {
+    return badRequest("Invalid refund status");
+  }
+
+  const offset = (pg.page - 1) * pg.pageSize;
+  const params: unknown[] = [];
+  let where = "";
+  if (status) {
+    params.push(status);
+    where = "WHERE r.status = $1";
+  }
+  params.push(pg.pageSize, offset);
+
+  const rows = await query<RefundRequestRow>(
+    `
+      SELECT
+        r.refund_id, r.order_id, r.user_id, r.status, r.reason, r.admin_note,
+        r.reviewed_by, r.reviewed_at, r.created_at, r.updated_at,
+        o.status AS order_status, o.currency, o.amount,
+        u.email AS user_email, u.display_name
+      FROM refund_requests r
+      JOIN orders o ON o.order_id = r.order_id
+      LEFT JOIN users u ON u.user_id = r.user_id
+      ${where}
+      ORDER BY r.created_at DESC
+      LIMIT $${params.length - 1} OFFSET $${params.length}
+    `,
+    params
+  );
+
+  const countRows = await query<CountRow>(
+    `SELECT COUNT(1)::text AS total FROM refund_requests r ${where}`,
+    status ? [status] : []
+  );
+
+  return success({
+    list: rows.map(refundPayload),
+    page: pg.page,
+    size: pg.pageSize,
+    total: Number(countRows[0]?.total ?? 0)
+  });
+}
+
+export async function reviewAdminRefundRequest(
+  event: APIGatewayProxyEventV2,
+  auth: AuthContext
+): Promise<APIGatewayProxyStructuredResultV2> {
+  const role = requireAdminResponse(auth);
+  if (typeof role !== "string") return role;
+
+  const refundId = event.pathParameters?.id;
+  if (!refundId || !/^\d+$/.test(refundId)) {
+    return badRequest("Invalid refund id");
+  }
+
+  const body = parseJsonBody(event);
+  const decision = typeof body?.decision === "string" ? body.decision : "";
+  const adminNote = typeof body?.adminNote === "string" ? body.adminNote.trim() : "";
+  if (!["approve", "reject"].includes(decision)) {
+    return badRequest("Invalid refund decision");
+  }
+  if (adminNote.length > 1000) {
+    return badRequest("Admin note is too long");
+  }
+
+  const rows = await query<RefundRequestRow>(
+    `
+      SELECT
+        r.refund_id, r.order_id, r.user_id, r.status, r.reason, r.admin_note,
+        r.reviewed_by, r.reviewed_at, r.created_at, r.updated_at,
+        o.status AS order_status, o.currency, o.amount,
+        u.email AS user_email, u.display_name
+      FROM refund_requests r
+      JOIN orders o ON o.order_id = r.order_id
+      LEFT JOIN users u ON u.user_id = r.user_id
+      WHERE r.refund_id = $1::bigint
+      LIMIT 1
+    `,
+    [refundId]
+  );
+  const refund = rows[0];
+  if (!refund) return notFound("Refund request not found");
+  if (refund.status !== "pending") {
+    return badRequest("Refund request has already been reviewed");
+  }
+
+  const nextRefundStatus = decision === "approve" ? "approved" : "rejected";
+  let nextOrderStatus = "refunded";
+  if (decision === "reject") {
+    const fallbackRows = await query<{ status: string }>(
+      `
+        SELECT CASE
+          WHEN created_at <= NOW() - INTERVAL '7 days' THEN 'active'
+          ELSE 'cooling_period'
+        END AS status
+        FROM orders
+        WHERE order_id = $1::bigint
+        LIMIT 1
+      `,
+      [refund.order_id]
+    );
+    nextOrderStatus = refund.order_status === "refund_pending"
+      ? (fallbackRows[0]?.status ?? "cooling_period")
+      : refund.order_status;
+  }
+
+  await query(
+    `
+      UPDATE refund_requests
+      SET status = $2, admin_note = $3, reviewed_by = $4, reviewed_at = NOW(), updated_at = NOW()
+      WHERE refund_id = $1::bigint
+    `,
+    [refundId, nextRefundStatus, adminNote || null, auth.userId]
+  );
+
+  await query(
+    `
+      UPDATE orders
+      SET status = $2, updated_at = NOW()
+      WHERE order_id = $1::bigint
+    `,
+    [refund.order_id, nextOrderStatus]
+  );
+
+  const refreshed = await query<RefundRequestRow>(
+    `
+      SELECT
+        r.refund_id, r.order_id, r.user_id, r.status, r.reason, r.admin_note,
+        r.reviewed_by, r.reviewed_at, r.created_at, r.updated_at,
+        o.status AS order_status, o.currency, o.amount,
+        u.email AS user_email, u.display_name
+      FROM refund_requests r
+      JOIN orders o ON o.order_id = r.order_id
+      LEFT JOIN users u ON u.user_id = r.user_id
+      WHERE r.refund_id = $1::bigint
+      LIMIT 1
+    `,
+    [refundId]
+  );
+
+  return success(refundPayload(refreshed[0]));
 }
 
 export async function getAdminPurchaseIntents(

@@ -34,7 +34,7 @@ CREATE INDEX IF NOT EXISTS idx_purchase_intents_created_at ON purchase_intents (
 CREATE TABLE IF NOT EXISTS orders (
   order_id BIGSERIAL PRIMARY KEY,
   user_id VARCHAR(128) NOT NULL,
-  status VARCHAR(16) NOT NULL DEFAULT 'cooling_period' CHECK (status IN ('cooling_period', 'active', 'completed', 'refunded')),
+  status VARCHAR(24) NOT NULL DEFAULT 'cooling_period' CHECK (status IN ('cooling_period', 'active', 'completed', 'refund_pending', 'refunded')),
   currency CHAR(3) NOT NULL,
   amount DECIMAL(12, 2) NOT NULL,
   source_intent_id BIGINT NULL,
@@ -56,7 +56,24 @@ SET status = CASE
 END
 WHERE status IN ('draft', 'submitted', 'cancelled');
 ALTER TABLE orders ALTER COLUMN status SET DEFAULT 'cooling_period';
-ALTER TABLE orders ADD CONSTRAINT orders_status_check CHECK (status IN ('cooling_period', 'active', 'completed', 'refunded'));
+ALTER TABLE orders ADD CONSTRAINT orders_status_check CHECK (status IN ('cooling_period', 'active', 'completed', 'refund_pending', 'refunded'));
+
+CREATE TABLE IF NOT EXISTS refund_requests (
+  refund_id BIGSERIAL PRIMARY KEY,
+  order_id BIGINT NOT NULL,
+  user_id VARCHAR(128) NOT NULL,
+  status VARCHAR(16) NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'approved', 'rejected')),
+  reason TEXT NULL,
+  admin_note TEXT NULL,
+  reviewed_by VARCHAR(128) NULL,
+  reviewed_at TIMESTAMPTZ NULL,
+  created_at TIMESTAMPTZ NOT NULL,
+  updated_at TIMESTAMPTZ NOT NULL,
+  CONSTRAINT fk_refund_requests_order FOREIGN KEY (order_id) REFERENCES orders(order_id),
+  CONSTRAINT fk_refund_requests_user FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+CREATE INDEX IF NOT EXISTS idx_refund_requests_order_status ON refund_requests (order_id, status);
+CREATE INDEX IF NOT EXISTS idx_refund_requests_created_at ON refund_requests (created_at);
 
 CREATE TABLE IF NOT EXISTS audit_logs (
   audit_id BIGSERIAL PRIMARY KEY,

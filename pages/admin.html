@@ -20,6 +20,10 @@
                 <span class="material-symbols-outlined">shopping_cart</span>
                 <span>购买意向</span>
             </button>
+            <button class="admin-nav-btn" data-admin-view="refunds" type="button">
+                <span class="material-symbols-outlined">assignment_return</span>
+                <span>退款审核</span>
+            </button>
             <button class="admin-nav-btn" data-admin-view="users" type="button">
                 <span class="material-symbols-outlined">group</span>
                 <span>用户管理</span>
@@ -100,6 +104,7 @@
                             <option value="cooling_period">冷静期</option>
                             <option value="active">激活中</option>
                             <option value="completed">已完成</option>
+                            <option value="refund_pending">退款处理中</option>
                             <option value="refunded">已退款</option>
                         </select>
                         <button id="adminUpdateOrderStatusBtn" type="button">保存状态</button>
@@ -116,6 +121,35 @@
                 </div>
                 <div class="admin-table-wrap">
                     <table class="admin-table" id="adminIntentsTable"></table>
+                </div>
+            </div>
+        </section>
+
+        <section class="admin-view" id="adminViewRefunds">
+            <div class="admin-section">
+                <div class="admin-section-header">
+                    <h2>退款审核</h2>
+                    <span id="adminRefundsMeta"></span>
+                </div>
+                <div class="admin-table-wrap">
+                    <table class="admin-table" id="adminRefundsTable"></table>
+                </div>
+                <div class="admin-detail-panel" id="adminRefundReviewPanel" style="display:none;">
+                    <div class="admin-detail-header">
+                        <h3>审核退款申请</h3>
+                        <button class="admin-icon-btn" id="adminCloseRefundReviewBtn" type="button" aria-label="关闭退款审核">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                    </div>
+                    <div class="admin-detail-grid" id="adminRefundReviewDetail"></div>
+                    <div class="admin-review-editor">
+                        <label for="adminRefundReviewNote">审核备注</label>
+                        <textarea id="adminRefundReviewNote" rows="3" placeholder="填写给内部审核记录使用的备注"></textarea>
+                        <div class="admin-review-actions">
+                            <button id="adminApproveRefundBtn" type="button">批准退款</button>
+                            <button id="adminRejectRefundBtn" type="button">拒绝退款</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

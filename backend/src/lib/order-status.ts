@@ -1,6 +1,6 @@
 import { execute } from "./db";
 
-export const ORDER_STATUSES = ["cooling_period", "active", "completed", "refunded"] as const;
+export const ORDER_STATUSES = ["cooling_period", "active", "completed", "refund_pending", "refunded"] as const;
 
 export type OrderStatus = typeof ORDER_STATUSES[number];
 
