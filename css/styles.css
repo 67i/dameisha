@@ -5510,6 +5510,64 @@ html[lang="ja"] .logic-circle-text-en {
     margin-bottom: 1.5rem;
 }
 
+.shop-login-form {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.25rem;
+}
+
+.shop-login-status {
+    align-items: center;
+    background: #f4fbfa;
+    border: 1px solid #cce8e4;
+    border-radius: 0.75rem;
+    color: #16433f;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    padding: 1rem;
+}
+
+.shop-login-status strong,
+.shop-login-status span {
+    display: block;
+}
+
+.shop-login-status strong {
+    font-size: 0.95rem;
+    font-weight: 900;
+}
+
+.shop-login-status span {
+    color: #516461;
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.shop-login-links {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.shop-login-links a {
+    color: var(--resort-green);
+    font-size: 0.875rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.shop-login-links a:hover {
+    text-decoration: underline;
+}
+
+.shop-login-links span {
+    color: #777;
+    font-size: 0.8125rem;
+}
+
 .shop-login-btn {
     display: flex;
     align-items: center;

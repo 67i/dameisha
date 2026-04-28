@@ -6,6 +6,8 @@ var ShopApp = (function() {
     var purchaseAgreed = false;
     var isPaying = false;
     var profile = {};
+    var tokenKey = 'qx_member_token';
+    var currentIntentId = null;
 
     var VALID_INVITE_CODES = ['AGENT123', 'TEAM01', 'RCI2024', 'AGENT_A', 'AGENT_B'];
 
@@ -195,6 +197,66 @@ var ShopApp = (function() {
         return 'en';
     }
 
+    function apiBase() {
+        return (typeof CONFIG !== 'undefined' && CONFIG.api && CONFIG.api.baseUrl) ? CONFIG.api.baseUrl : '';
+    }
+
+    function memberToken() {
+        return String(localStorage.getItem(tokenKey) || '').replace(/\s+/g, '');
+    }
+
+    function setMemberToken(value) {
+        var normalized = String(value || '').replace(/\s+/g, '');
+        if (normalized) {
+            localStorage.setItem(tokenKey, normalized);
+        } else {
+            localStorage.removeItem(tokenKey);
+        }
+    }
+
+    function memberRequest(path, options) {
+        if (!apiBase()) {
+            return Promise.reject(new Error('API 地址尚未配置。'));
+        }
+        if (!memberToken()) {
+            return Promise.reject(new Error('请先登录会员账号。'));
+        }
+        var requestOptions = options || {};
+        requestOptions.headers = Object.assign({
+            Authorization: 'Bearer ' + memberToken()
+        }, requestOptions.headers || {});
+
+        return fetch(apiBase() + path, requestOptions).then(function(response) {
+            return response.json().catch(function() { return {}; }).then(function(body) {
+                if (!response.ok) {
+                    throw new Error(body.message || ('HTTP ' + response.status));
+                }
+                return body.data || body;
+            });
+        });
+    }
+
+    function setLoginError(message) {
+        var el = document.getElementById('shopLoginError');
+        if (!el) return;
+        el.textContent = message || '';
+        el.style.display = message ? 'block' : 'none';
+    }
+
+    function updateLoginStatus() {
+        var status = document.getElementById('shopLoginStatus');
+        var form = document.getElementById('shopLoginForm');
+        if (!status || !form) return;
+        if (memberToken()) {
+            status.innerHTML = '<strong>已检测到会员登录状态</strong><span>可直接继续购买，或在会员中心查看订单。</span><button class="shop-btn-outline" type="button" onclick="ShopApp.continueWithSavedLogin()">继续购买</button>';
+            status.style.display = 'grid';
+            form.style.display = 'none';
+        } else {
+            status.style.display = 'none';
+            form.style.display = 'grid';
+        }
+    }
+
     function generateCountryOptions() {
         var select = document.getElementById('shopCountryCode');
         if (!select) return;
@@ -270,6 +332,84 @@ var ShopApp = (function() {
         profile.email = emailMap[provider] || 'member@rci.com';
         var emailInput = document.getElementById('shopEmail');
         if (emailInput) emailInput.value = profile.email;
+        goToStep(2);
+    }
+
+    function loginWithPassword(event) {
+        event.preventDefault();
+        if (!termsAgreed) {
+            var termsError = document.getElementById('shopTermsError');
+            if (termsError) termsError.style.display = 'block';
+            return;
+        }
+        if (!apiBase()) {
+            setLoginError('API 地址尚未配置。');
+            return;
+        }
+
+        var usernameInput = document.getElementById('shopLoginUsername');
+        var passwordInput = document.getElementById('shopLoginPassword');
+        var submitBtn = document.getElementById('shopLoginSubmitBtn');
+        var username = usernameInput ? usernameInput.value.trim() : '';
+        var password = passwordInput ? passwordInput.value : '';
+        if (!username || !password) {
+            setLoginError('请输入用户名和密码。');
+            return;
+        }
+
+        setLoginError('');
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = '登录中...';
+        }
+
+        fetch(apiBase() + '/api/v1/login', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password
+            })
+        }).then(function(response) {
+            return response.json().catch(function() { return {}; }).then(function(body) {
+                if (!response.ok) {
+                    throw new Error(body.message || ('HTTP ' + response.status));
+                }
+                return body.data || body;
+            });
+        }).then(function(data) {
+            setMemberToken(data.idToken || '');
+            profile.email = data.user && data.user.email ? data.user.email : '';
+            var emailInput = document.getElementById('shopEmail');
+            if (emailInput && profile.email) emailInput.value = profile.email;
+            if (passwordInput) passwordInput.value = '';
+            isLoggedIn = true;
+            goToStep(2);
+        }).catch(function(error) {
+            setMemberToken('');
+            setLoginError(error.message || '登录失败。');
+        }).finally(function() {
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = '登录并继续';
+            }
+            updateLoginStatus();
+        });
+    }
+
+    function continueWithSavedLogin() {
+        if (!termsAgreed) {
+            var termsError = document.getElementById('shopTermsError');
+            if (termsError) termsError.style.display = 'block';
+            return;
+        }
+        if (!memberToken()) {
+            updateLoginStatus();
+            return;
+        }
+        isLoggedIn = true;
         goToStep(2);
     }
 
@@ -376,8 +516,56 @@ var ShopApp = (function() {
     }
 
     function complete3ds() {
-        close3ds();
-        goToStep(4);
+        var verifyBtn = document.querySelector('.shop-3ds-actions .shop-btn-primary');
+        if (verifyBtn) {
+            verifyBtn.disabled = true;
+            verifyBtn.textContent = '正在生成订单...';
+        }
+
+        createAndConfirmOrder().then(function() {
+            close3ds();
+            goToStep(4);
+        }).catch(function(error) {
+            alert(error.message || '订单生成失败，请联系顾问处理。');
+        }).finally(function() {
+            if (verifyBtn) {
+                verifyBtn.disabled = false;
+                verifyBtn.textContent = typeof I18n !== 'undefined' && I18n.t ? I18n.t('shop.verifyAndPay') : 'Verify and Pay';
+            }
+        });
+    }
+
+    function createAndConfirmOrder() {
+        if (currentIntentId) {
+            return memberRequest('/purchase/intents/' + encodeURIComponent(currentIntentId) + '/confirm', {
+                method: 'POST'
+            });
+        }
+
+        var note = [
+            profile.name ? ('姓名：' + profile.name) : '',
+            profile.phone ? ('电话：' + profile.phone) : '',
+            profile.inviteCode ? ('邀请码：' + profile.inviteCode) : ''
+        ].filter(Boolean).join('；');
+
+        return memberRequest('/purchase/intents', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                productCode: 'DAMEISHA-MEMBERSHIP-5Y',
+                quantity: 1,
+                currency: 'USD',
+                amount: 4980,
+                note: note
+            })
+        }).then(function(intent) {
+            currentIntentId = intent.intentId;
+            return memberRequest('/purchase/intents/' + encodeURIComponent(currentIntentId) + '/confirm', {
+                method: 'POST'
+            });
+        });
     }
 
     function reset() {
@@ -388,6 +576,7 @@ var ShopApp = (function() {
         purchaseAgreed = false;
         isPaying = false;
         profile = {};
+        currentIntentId = null;
     }
 
     return {
@@ -395,6 +584,8 @@ var ShopApp = (function() {
         goToStep: goToStep,
         prevStep: prevStep,
         login: login,
+        loginWithPassword: loginWithPassword,
+        continueWithSavedLogin: continueWithSavedLogin,
         toggleTerms: toggleTerms,
         validateInviteCode: validateInviteCode,
         submitProfile: submitProfile,
@@ -403,7 +594,8 @@ var ShopApp = (function() {
         complete3ds: complete3ds,
         sendSmsCode: sendSmsCode,
         close3ds: close3ds,
-        generateCountryOptions: generateCountryOptions
+        generateCountryOptions: generateCountryOptions,
+        updateLoginStatus: updateLoginStatus
     };
 })();
 
@@ -411,15 +603,23 @@ PageInit.initShopPage = function(params) {
     ShopApp.reset();
     ShopApp.goToStep(1);
     ShopApp.generateCountryOptions();
+    ShopApp.updateLoginStatus();
+
+    var loginForm = document.getElementById('shopLoginForm');
+    if (loginForm) loginForm.addEventListener('submit', ShopApp.loginWithPassword);
 
     var onLangChange = function() {
         if (typeof I18n !== 'undefined' && I18n.applyTranslations) {
             I18n.applyTranslations();
             ShopApp.generateCountryOptions();
+            ShopApp.updateLoginStatus();
         }
     };
     document.addEventListener('languageChanged', onLangChange);
-    return function() { document.removeEventListener('languageChanged', onLangChange); };
+    return function() {
+        document.removeEventListener('languageChanged', onLangChange);
+        if (loginForm) loginForm.removeEventListener('submit', ShopApp.loginWithPassword);
+    };
 };
 
 var AccountApp = (function() {
