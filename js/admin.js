@@ -46,6 +46,14 @@ var AdminApp = (function() {
         return d.toLocaleString();
     }
 
+    function statusLabel(value) {
+        return {
+            draft: '草稿',
+            submitted: '已提交',
+            cancelled: '已取消'
+        }[value] || value || '';
+    }
+
     function showAlert(message) {
         var el = document.getElementById('adminAlert');
         if (!el) return;
@@ -63,7 +71,7 @@ var AdminApp = (function() {
         if (panel) panel.style.display = visible ? 'block' : 'none';
     }
 
-    function request(path) {
+    function request(path, options) {
         if (!apiBase()) {
             return Promise.reject(new Error('API 地址尚未配置。'));
         }
@@ -71,11 +79,12 @@ var AdminApp = (function() {
             return Promise.reject(new Error('请先登录管理员账号。'));
         }
 
-        return fetch(apiBase() + path, {
-            headers: {
-                Authorization: 'Bearer ' + token()
-            }
-        }).then(function(response) {
+        var requestOptions = options || {};
+        requestOptions.headers = Object.assign({
+            Authorization: 'Bearer ' + token()
+        }, requestOptions.headers || {});
+
+        return fetch(apiBase() + path, requestOptions).then(function(response) {
             return response.json().catch(function() { return {}; }).then(function(body) {
                 if (!response.ok) {
                     throw new Error(body.message || ('HTTP ' + response.status));
@@ -168,7 +177,7 @@ var AdminApp = (function() {
         var head = '<thead><tr>' + columns.map(function(col) { return '<th>' + escape(col.label) + '</th>'; }).join('') + '</tr></thead>';
         var bodyRows = rows.length ? rows.map(function(row) {
             return '<tr>' + columns.map(function(col) {
-                return '<td>' + escape(col.value(row)) + '</td>';
+                return '<td>' + (col.html ? col.value(row) : escape(col.value(row))) + '</td>';
             }).join('') + '</tr>';
         }).join('') : '<tr><td colspan="' + columns.length + '">暂无数据。</td></tr>';
         el.innerHTML = head + '<tbody>' + bodyRows + '</tbody>';
@@ -194,11 +203,91 @@ var AdminApp = (function() {
             table('adminOrdersTable', [
                 { label: '订单 ID', value: function(row) { return row.orderId; } },
                 { label: '用户', value: function(row) { return row.userEmail || row.userId; } },
-                { label: '状态', value: function(row) { return row.status; } },
+                { label: '状态', value: function(row) { return statusLabel(row.status); } },
                 { label: '金额', value: function(row) { return money(row.amount, row.currency); } },
                 { label: '意向 ID', value: function(row) { return row.sourceIntentId || ''; } },
-                { label: '创建时间', value: function(row) { return shortDate(row.createdAt); } }
+                { label: '创建时间', value: function(row) { return shortDate(row.createdAt); } },
+                {
+                    label: '操作',
+                    html: true,
+                    value: function(row) {
+                        return '<button class="admin-link-btn" type="button" data-admin-order-id="' + escape(row.orderId) + '">查看</button>';
+                    }
+                }
             ], data.list || []);
+            bindOrderActions();
+        });
+    }
+
+    function detailItem(label, value) {
+        return '<div class="admin-detail-item"><span>' + escape(label) + '</span><strong>' + escape(value || '-') + '</strong></div>';
+    }
+
+    function renderOrderDetail(order) {
+        var panel = document.getElementById('adminOrderDetailPanel');
+        var detail = document.getElementById('adminOrderDetail');
+        var statusSelect = document.getElementById('adminOrderStatusSelect');
+        var updateBtn = document.getElementById('adminUpdateOrderStatusBtn');
+        if (!panel || !detail) return;
+
+        var intent = order.purchaseIntent || {};
+        detail.innerHTML = [
+            detailItem('订单 ID', order.orderId),
+            detailItem('用户', order.userEmail || order.userId),
+            detailItem('状态', statusLabel(order.status)),
+            detailItem('金额', money(order.amount, order.currency)),
+            detailItem('购买意向 ID', order.sourceIntentId || ''),
+            detailItem('产品', intent.productCode || ''),
+            detailItem('数量', intent.quantity || ''),
+            detailItem('支付渠道', intent.paymentProvider || ''),
+            detailItem('支付参考号', intent.paymentRef || ''),
+            detailItem('创建时间', shortDate(order.createdAt)),
+            detailItem('更新时间', shortDate(order.updatedAt)),
+            detailItem('备注', intent.note || '')
+        ].join('');
+
+        if (statusSelect) statusSelect.value = order.status || 'draft';
+        if (updateBtn) updateBtn.setAttribute('data-admin-order-id', order.orderId);
+        panel.style.display = 'block';
+    }
+
+    function loadOrderDetail(orderId) {
+        showAlert('');
+        setStatus('正在加载订单详情...');
+        return request('/api/v1/admin/orders/' + encodeURIComponent(orderId)).then(function(data) {
+            renderOrderDetail(data);
+            setStatus('已连接。');
+        }).catch(function(error) {
+            setStatus('未连接。');
+            showAlert(error.message || '订单详情加载失败。');
+        });
+    }
+
+    function updateOrderStatus(orderId, status) {
+        showAlert('');
+        setStatus('正在保存订单状态...');
+        return request('/api/v1/admin/orders/' + encodeURIComponent(orderId) + '/status', {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ status: status })
+        }).then(function() {
+            setStatus('订单状态已更新。');
+            return Promise.all([loadOrders(), loadOrderDetail(orderId)]);
+        }).catch(function(error) {
+            setStatus('未连接。');
+            showAlert(error.message || '订单状态更新失败。');
+        });
+    }
+
+    function bindOrderActions() {
+        document.querySelectorAll('[data-admin-order-id]').forEach(function(btn) {
+            if (btn.getAttribute('data-admin-bound') === 'true') return;
+            btn.setAttribute('data-admin-bound', 'true');
+            btn.addEventListener('click', function() {
+                loadOrderDetail(btn.getAttribute('data-admin-order-id'));
+            });
         });
     }
 
@@ -296,6 +385,9 @@ var AdminApp = (function() {
         var passwordInput = document.getElementById('adminPasswordInput');
         var loginForm = document.getElementById('adminLoginForm');
         var loginBtn = document.getElementById('adminLoginBtn');
+        var closeOrderDetailBtn = document.getElementById('adminCloseOrderDetailBtn');
+        var updateOrderStatusBtn = document.getElementById('adminUpdateOrderStatusBtn');
+        var orderStatusSelect = document.getElementById('adminOrderStatusSelect');
 
         document.querySelectorAll('.admin-nav-btn').forEach(function(btn) {
             btn.addEventListener('click', function() {
@@ -338,6 +430,25 @@ var AdminApp = (function() {
 
         var refreshBtn = document.getElementById('adminRefreshBtn');
         if (refreshBtn) refreshBtn.addEventListener('click', loadActive);
+
+        if (closeOrderDetailBtn) {
+            closeOrderDetailBtn.addEventListener('click', function() {
+                var panel = document.getElementById('adminOrderDetailPanel');
+                if (panel) panel.style.display = 'none';
+            });
+        }
+
+        if (updateOrderStatusBtn) {
+            updateOrderStatusBtn.addEventListener('click', function() {
+                var orderId = updateOrderStatusBtn.getAttribute('data-admin-order-id');
+                var status = orderStatusSelect ? orderStatusSelect.value : '';
+                if (!orderId) {
+                    showAlert('请先选择订单。');
+                    return;
+                }
+                updateOrderStatus(orderId, status);
+            });
+        }
 
         var logoutBtn = document.getElementById('adminLogoutBtn');
         if (logoutBtn) {

@@ -1,6 +1,6 @@
 import type { APIGatewayProxyEventV2, APIGatewayProxyStructuredResultV2 } from "aws-lambda";
 import type { AdminRole, AuthContext } from "../types";
-import { badRequest, forbidden, ok } from "../lib/response";
+import { badRequest, forbidden, notFound, ok } from "../lib/response";
 import { query } from "../lib/db";
 
 const ADMIN_ROLES: AdminRole[] = ["super_admin", "admin", "dealer"];
@@ -48,6 +48,16 @@ type AdminOrderRow = {
   display_name: string | null;
   created_at: string;
   updated_at: string;
+};
+
+type AdminOrderDetailRow = AdminOrderRow & {
+  note: string | null;
+  product_code: string | null;
+  quantity: number | null;
+  payment_provider: string | null;
+  payment_ref: string | null;
+  paid_at: string | null;
+  submitted_at: string | null;
 };
 
 type AdminIntentRow = {
@@ -153,6 +163,33 @@ function requireAdminResponse(auth: AuthContext): AdminRole | APIGatewayProxyStr
   return role;
 }
 
+function parseJsonBody(event: APIGatewayProxyEventV2): Record<string, unknown> | null {
+  if (!event.body) return null;
+  try {
+    const raw = event.isBase64Encoded ? Buffer.from(event.body, "base64").toString("utf8") : event.body;
+    const parsed = JSON.parse(raw) as unknown;
+    return parsed && typeof parsed === "object" && !Array.isArray(parsed) ? parsed as Record<string, unknown> : null;
+  } catch {
+    return null;
+  }
+}
+
+function orderPayload(row: AdminOrderRow) {
+  return {
+    orderId: row.order_id,
+    userId: row.user_id,
+    userEmail: maskEmail(row.user_email),
+    userPhoneNumber: hidden(row.user_phone_number),
+    displayName: row.display_name,
+    status: row.status,
+    currency: row.currency,
+    amount: Number(row.amount),
+    sourceIntentId: row.source_intent_id,
+    createdAt: row.created_at,
+    updatedAt: row.updated_at
+  };
+}
+
 export async function getAdminDashboard(auth: AuthContext): Promise<APIGatewayProxyStructuredResultV2> {
   const role = requireAdminResponse(auth);
   if (typeof role !== "string") return role;
@@ -245,23 +282,97 @@ export async function getAdminOrders(
   const countRows = await query<CountRow>("SELECT COUNT(1)::text AS total FROM orders");
 
   return success({
-    list: rows.map((row) => ({
-      orderId: row.order_id,
-      userId: row.user_id,
-      userEmail: maskEmail(row.user_email),
-      userPhoneNumber: hidden(row.user_phone_number),
-      displayName: row.display_name,
-      status: row.status,
-      currency: row.currency,
-      amount: Number(row.amount),
-      sourceIntentId: row.source_intent_id,
-      createdAt: row.created_at,
-      updatedAt: row.updated_at
-    })),
+    list: rows.map(orderPayload),
     page: pg.page,
     size: pg.pageSize,
     total: Number(countRows[0]?.total ?? 0)
   });
+}
+
+export async function getAdminOrderDetail(
+  event: APIGatewayProxyEventV2,
+  auth: AuthContext
+): Promise<APIGatewayProxyStructuredResultV2> {
+  const role = requireAdminResponse(auth);
+  if (typeof role !== "string") return role;
+
+  const orderId = event.pathParameters?.id;
+  if (!orderId || !/^\d+$/.test(orderId)) {
+    return badRequest("Invalid order id");
+  }
+
+  const rows = await query<AdminOrderDetailRow>(
+    `
+      SELECT
+        o.order_id, o.user_id, o.status, o.currency, o.amount, o.source_intent_id,
+        u.email AS user_email, u.phone_number AS user_phone_number, u.display_name,
+        o.created_at, o.updated_at,
+        p.product_code, p.quantity, p.note, p.payment_provider, p.payment_ref, p.paid_at, p.submitted_at
+      FROM orders o
+      LEFT JOIN users u ON u.user_id = o.user_id
+      LEFT JOIN purchase_intents p ON p.intent_id = o.source_intent_id
+      WHERE o.order_id = $1::bigint
+      LIMIT 1
+    `,
+    [orderId]
+  );
+
+  const row = rows[0];
+  if (!row) {
+    return notFound("Order not found");
+  }
+
+  return success({
+    ...orderPayload(row),
+    purchaseIntent: row.source_intent_id ? {
+      intentId: row.source_intent_id,
+      productCode: row.product_code,
+      quantity: row.quantity,
+      note: row.note,
+      paymentProvider: row.payment_provider,
+      paymentRef: row.payment_ref,
+      paidAt: row.paid_at,
+      submittedAt: row.submitted_at
+    } : null
+  });
+}
+
+export async function updateAdminOrderStatus(
+  event: APIGatewayProxyEventV2,
+  auth: AuthContext
+): Promise<APIGatewayProxyStructuredResultV2> {
+  const role = requireAdminResponse(auth);
+  if (typeof role !== "string") return role;
+
+  const orderId = event.pathParameters?.id;
+  if (!orderId || !/^\d+$/.test(orderId)) {
+    return badRequest("Invalid order id");
+  }
+
+  const body = parseJsonBody(event);
+  const status = typeof body?.status === "string" ? body.status : "";
+  if (!["draft", "submitted", "cancelled"].includes(status)) {
+    return badRequest("Invalid order status");
+  }
+
+  const rows = await query<AdminOrderRow>(
+    `
+      UPDATE orders
+      SET status = $2, updated_at = NOW()
+      WHERE order_id = $1::bigint
+      RETURNING order_id, user_id, status, currency, amount, source_intent_id,
+        NULL::text AS user_email, NULL::text AS user_phone_number, NULL::text AS display_name,
+        created_at, updated_at
+    `,
+    [orderId, status]
+  );
+
+  const row = rows[0];
+  if (!row) {
+    return notFound("Order not found");
+  }
+
+  return success(orderPayload(row));
 }
 
 export async function getAdminPurchaseIntents(

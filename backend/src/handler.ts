@@ -9,9 +9,11 @@ import type { AuthContext } from "./types";
 import {
   getAdminAuditLogs,
   getAdminDashboard,
+  getAdminOrderDetail,
   getAdminOrders,
   getAdminPurchaseIntents,
-  getAdminUsers
+  getAdminUsers,
+  updateAdminOrderStatus
 } from "./routes/admin";
 import { adminLogin } from "./routes/admin-login";
 
@@ -159,6 +161,28 @@ const routes: RouteMatch[] = [
     audit: true,
     handle: async (event, auth) => {
       return getAdminOrders(event, auth!);
+    }
+  },
+  {
+    method: "GET",
+    regex: /^\/api\/v1\/admin\/orders\/(\d+)$/,
+    protected: true,
+    audit: true,
+    handle: async (event, auth, routePath) => {
+      const id = routePath.split("/").pop();
+      event.pathParameters = { ...(event.pathParameters ?? {}), id };
+      return getAdminOrderDetail(event, auth!);
+    }
+  },
+  {
+    method: "PATCH",
+    regex: /^\/api\/v1\/admin\/orders\/(\d+)\/status$/,
+    protected: true,
+    audit: true,
+    handle: async (event, auth, routePath) => {
+      const id = routePath.split("/")[5];
+      event.pathParameters = { ...(event.pathParameters ?? {}), id };
+      return updateAdminOrderStatus(event, auth!);
     }
   },
   {

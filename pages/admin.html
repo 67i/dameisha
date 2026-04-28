@@ -86,6 +86,24 @@
                 <div class="admin-table-wrap">
                     <table class="admin-table" id="adminOrdersTable"></table>
                 </div>
+                <div class="admin-detail-panel" id="adminOrderDetailPanel" style="display:none;">
+                    <div class="admin-detail-header">
+                        <h3>订单详情</h3>
+                        <button class="admin-icon-btn" id="adminCloseOrderDetailBtn" type="button" aria-label="关闭订单详情">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                    </div>
+                    <div class="admin-detail-grid" id="adminOrderDetail"></div>
+                    <div class="admin-status-editor">
+                        <label for="adminOrderStatusSelect">订单状态</label>
+                        <select id="adminOrderStatusSelect">
+                            <option value="draft">草稿</option>
+                            <option value="submitted">已提交</option>
+                            <option value="cancelled">已取消</option>
+                        </select>
+                        <button id="adminUpdateOrderStatusBtn" type="button">保存状态</button>
+                    </div>
+                </div>
             </div>
         </section>
 

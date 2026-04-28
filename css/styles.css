@@ -6320,6 +6320,19 @@ html[lang="ja"] .logic-circle-text-en {
     opacity: 0.65;
 }
 
+.admin-link-btn {
+    border: 0;
+    background: transparent;
+    color: #07595b;
+    cursor: pointer;
+    font: 800 0.8125rem 'Lato new', sans-serif;
+    padding: 0;
+}
+
+.admin-link-btn:hover {
+    text-decoration: underline;
+}
+
 .admin-alert {
     color: #b42318;
     background: #fff3f0;
@@ -6471,6 +6484,88 @@ html[lang="ja"] .logic-circle-text-en {
     font-weight: 600;
 }
 
+.admin-detail-panel {
+    border-top: 1px solid #e3e7ee;
+    padding: 1rem;
+}
+
+.admin-detail-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.admin-detail-header h3 {
+    margin: 0;
+    color: #0b1730;
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.admin-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.admin-detail-item {
+    min-width: 0;
+    border: 1px solid #e3e7ee;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    background: #f8fafc;
+}
+
+.admin-detail-item span {
+    display: block;
+    color: #667085;
+    font-size: 0.75rem;
+    font-weight: 800;
+    margin-bottom: 0.35rem;
+}
+
+.admin-detail-item strong {
+    display: block;
+    color: #172033;
+    font-size: 0.875rem;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.admin-status-editor {
+    display: grid;
+    grid-template-columns: auto minmax(10rem, 14rem) auto;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.admin-status-editor label {
+    color: #344054;
+    font-size: 0.8125rem;
+    font-weight: 900;
+}
+
+.admin-status-editor select {
+    border: 1px solid #d5dae3;
+    border-radius: 0.5rem;
+    padding: 0.7rem 0.875rem;
+    font: 700 0.875rem 'Lato new', sans-serif;
+    outline: none;
+}
+
+.admin-status-editor button {
+    border: 1px solid #07595b;
+    background: #07595b;
+    color: #ffffff;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font: 800 0.8125rem 'Lato new', sans-serif;
+    padding: 0.75rem 1rem;
+}
+
 .admin-empty {
     margin: 0;
     color: #667085;
@@ -6502,6 +6597,10 @@ html[lang="ja"] .logic-circle-text-en {
     .admin-login-form {
         grid-template-columns: 1fr;
     }
+
+    .admin-detail-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 640px) {
@@ -6515,6 +6614,11 @@ html[lang="ja"] .logic-circle-text-en {
     }
 
     .admin-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-detail-grid,
+    .admin-status-editor {
         grid-template-columns: 1fr;
     }
 
