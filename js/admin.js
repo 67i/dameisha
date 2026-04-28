@@ -278,15 +278,19 @@ var AdminApp = (function() {
 PageInit.initAdminPage = function() {
     var header = document.getElementById('header-placeholder');
     var footer = document.getElementById('footer-placeholder');
+    var cookieBanner = document.getElementById('cookie-banner');
     var previousHeaderDisplay = header ? header.style.display : '';
     var previousFooterDisplay = footer ? footer.style.display : '';
+    var previousCookieDisplay = cookieBanner ? cookieBanner.style.display : '';
     if (header) header.style.display = 'none';
     if (footer) footer.style.display = 'none';
+    if (cookieBanner) cookieBanner.style.display = 'none';
 
     AdminApp.init();
 
     return function() {
         if (header) header.style.display = previousHeaderDisplay;
         if (footer) footer.style.display = previousFooterDisplay;
+        if (cookieBanner) cookieBanner.style.display = previousCookieDisplay;
     };
 };
