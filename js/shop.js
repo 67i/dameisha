@@ -205,6 +205,10 @@ var ShopApp = (function() {
         return String(localStorage.getItem(tokenKey) || '').replace(/\s+/g, '');
     }
 
+    function memberAccessToken() {
+        return String(localStorage.getItem('qx_member_access_token') || '').replace(/\s+/g, '');
+    }
+
     function setMemberToken(value) {
         var normalized = String(value || '').replace(/\s+/g, '');
         if (normalized) {
@@ -212,6 +216,35 @@ var ShopApp = (function() {
         } else {
             localStorage.removeItem(tokenKey);
         }
+    }
+
+    function setMemberAccessToken(value) {
+        var normalized = String(value || '').replace(/\s+/g, '');
+        if (normalized) {
+            localStorage.setItem('qx_member_access_token', normalized);
+        } else {
+            localStorage.removeItem('qx_member_access_token');
+        }
+    }
+
+    function authRequest(path, body) {
+        if (!apiBase()) {
+            return Promise.reject(new Error('API 地址尚未配置。'));
+        }
+        return fetch(apiBase() + path, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(body || {})
+        }).then(function(response) {
+            return response.json().catch(function() { return {}; }).then(function(payload) {
+                if (!response.ok) {
+                    throw new Error(payload.message || ('HTTP ' + response.status));
+                }
+                return payload.data || payload;
+            });
+        });
     }
 
     function memberRequest(path, options) {
@@ -243,6 +276,13 @@ var ShopApp = (function() {
         el.style.display = message ? 'block' : 'none';
     }
 
+    function setAuthSuccess(message) {
+        var el = document.getElementById('shopAuthSuccess');
+        if (!el) return;
+        el.textContent = message || '';
+        el.style.display = message ? 'block' : 'none';
+    }
+
     function updateLoginStatus() {
         var status = document.getElementById('shopLoginStatus');
         var form = document.getElementById('shopLoginForm');
@@ -255,6 +295,42 @@ var ShopApp = (function() {
             status.style.display = 'none';
             form.style.display = 'grid';
         }
+    }
+
+    function switchAuthMode(mode) {
+        ['login', 'register', 'reset'].forEach(function(key) {
+            var form = document.getElementById(key === 'login' ? 'shopLoginForm' : key === 'register' ? 'shopRegisterForm' : 'shopResetForm');
+            if (form) form.style.display = key === mode ? 'grid' : 'none';
+        });
+        document.querySelectorAll('[data-shop-auth-mode]').forEach(function(btn) {
+            btn.classList.toggle('active', btn.getAttribute('data-shop-auth-mode') === mode);
+        });
+        setLoginError('');
+        setAuthSuccess('');
+        updateLoginStatus();
+    }
+
+    function socialLogin(provider) {
+        var cognito = (typeof CONFIG !== 'undefined' && CONFIG.cognito) ? CONFIG.cognito : {};
+        var domain = String(cognito.hostedUiDomain || '').replace(/\/+$/, '');
+        if (!domain) {
+            setLoginError('请先在 config/index.js 配置 Cognito Hosted UI 域名。');
+            return;
+        }
+
+        localStorage.setItem('qx_oauth_next', window.location.hash || '#/shop');
+        var params = {
+            client_id: cognito.clientId || '',
+            response_type: cognito.responseType || 'token',
+            scope: cognito.scopes || 'openid email profile',
+            redirect_uri: cognito.redirectUri || (window.location.origin + window.location.pathname)
+        };
+        if (provider) params.identity_provider = provider;
+
+        var query = Object.keys(params).map(function(key) {
+            return encodeURIComponent(key) + '=' + encodeURIComponent(params[key]);
+        }).join('&');
+        window.location.href = domain + '/oauth2/authorize?' + query;
     }
 
     function generateCountryOptions() {
@@ -363,24 +439,12 @@ var ShopApp = (function() {
             submitBtn.textContent = '登录中...';
         }
 
-        fetch(apiBase() + '/api/v1/login', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({
-                username: username,
-                password: password
-            })
-        }).then(function(response) {
-            return response.json().catch(function() { return {}; }).then(function(body) {
-                if (!response.ok) {
-                    throw new Error(body.message || ('HTTP ' + response.status));
-                }
-                return body.data || body;
-            });
+        authRequest('/api/v1/login', {
+            username: username,
+            password: password
         }).then(function(data) {
             setMemberToken(data.idToken || '');
+            setMemberAccessToken(data.accessToken || '');
             profile.email = data.user && data.user.email ? data.user.email : '';
             var emailInput = document.getElementById('shopEmail');
             if (emailInput && profile.email) emailInput.value = profile.email;
@@ -389,6 +453,7 @@ var ShopApp = (function() {
             goToStep(2);
         }).catch(function(error) {
             setMemberToken('');
+            setMemberAccessToken('');
             setLoginError(error.message || '登录失败。');
         }).finally(function() {
             if (submitBtn) {
@@ -396,6 +461,99 @@ var ShopApp = (function() {
                 submitBtn.textContent = '登录并继续';
             }
             updateLoginStatus();
+        });
+    }
+
+    function registerWithEmail(event) {
+        event.preventDefault();
+        var emailInput = document.getElementById('shopRegisterEmail');
+        var nameInput = document.getElementById('shopRegisterName');
+        var passwordInput = document.getElementById('shopRegisterPassword');
+        var submitBtn = document.getElementById('shopRegisterSubmitBtn');
+        var email = emailInput ? emailInput.value.trim() : '';
+        var name = nameInput ? nameInput.value.trim() : '';
+        var password = passwordInput ? passwordInput.value : '';
+        if (!email || !password) {
+            setLoginError('请输入邮箱和密码。');
+            return;
+        }
+        setLoginError('');
+        setAuthSuccess('');
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = '发送中...';
+        }
+        authRequest('/api/v1/register', { email: email, name: name, password: password }).then(function() {
+            setAuthSuccess('验证码已发送到邮箱，请输入验证码完成注册。');
+        }).catch(function(error) {
+            setLoginError(error.message || '注册失败。');
+        }).finally(function() {
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = '发送邮箱验证码';
+            }
+        });
+    }
+
+    function confirmRegister() {
+        var emailInput = document.getElementById('shopRegisterEmail');
+        var codeInput = document.getElementById('shopRegisterCode');
+        var email = emailInput ? emailInput.value.trim() : '';
+        var code = codeInput ? codeInput.value.trim() : '';
+        if (!email || !code) {
+            setLoginError('请输入邮箱和验证码。');
+            return;
+        }
+        setLoginError('');
+        authRequest('/api/v1/register/confirm', { email: email, code: code }).then(function() {
+            setAuthSuccess('注册完成，请使用 Email 登录。');
+            switchAuthMode('login');
+            var usernameInput = document.getElementById('shopLoginUsername');
+            if (usernameInput) usernameInput.value = email;
+        }).catch(function(error) {
+            setLoginError(error.message || '邮箱验证失败。');
+        });
+    }
+
+    function sendResetCode() {
+        var emailInput = document.getElementById('shopResetEmail');
+        var email = emailInput ? emailInput.value.trim() : '';
+        if (!email) {
+            setLoginError('请输入邮箱。');
+            return;
+        }
+        setLoginError('');
+        authRequest('/api/v1/password/forgot', { email: email }).then(function() {
+            setAuthSuccess('重置验证码已发送到邮箱。');
+        }).catch(function(error) {
+            setLoginError(error.message || '发送重置验证码失败。');
+        });
+    }
+
+    function resetPassword(event) {
+        event.preventDefault();
+        var emailInput = document.getElementById('shopResetEmail');
+        var codeInput = document.getElementById('shopResetCode');
+        var passwordInput = document.getElementById('shopResetPassword');
+        var email = emailInput ? emailInput.value.trim() : '';
+        var code = codeInput ? codeInput.value.trim() : '';
+        var newPassword = passwordInput ? passwordInput.value : '';
+        if (!email || !code || !newPassword) {
+            setLoginError('请输入邮箱、验证码和新密码。');
+            return;
+        }
+        setLoginError('');
+        authRequest('/api/v1/password/reset', {
+            email: email,
+            code: code,
+            newPassword: newPassword
+        }).then(function() {
+            setAuthSuccess('密码已重置，请重新登录。');
+            switchAuthMode('login');
+            var usernameInput = document.getElementById('shopLoginUsername');
+            if (usernameInput) usernameInput.value = email;
+        }).catch(function(error) {
+            setLoginError(error.message || '重置密码失败。');
         });
     }
 
@@ -585,7 +743,13 @@ var ShopApp = (function() {
         prevStep: prevStep,
         login: login,
         loginWithPassword: loginWithPassword,
+        registerWithEmail: registerWithEmail,
+        confirmRegister: confirmRegister,
+        sendResetCode: sendResetCode,
+        resetPassword: resetPassword,
         continueWithSavedLogin: continueWithSavedLogin,
+        switchAuthMode: switchAuthMode,
+        socialLogin: socialLogin,
         toggleTerms: toggleTerms,
         validateInviteCode: validateInviteCode,
         submitProfile: submitProfile,
@@ -606,7 +770,20 @@ PageInit.initShopPage = function(params) {
     ShopApp.updateLoginStatus();
 
     var loginForm = document.getElementById('shopLoginForm');
+    var registerForm = document.getElementById('shopRegisterForm');
+    var resetForm = document.getElementById('shopResetForm');
+    var confirmRegisterBtn = document.getElementById('shopConfirmRegisterBtn');
+    var sendResetBtn = document.getElementById('shopSendResetBtn');
     if (loginForm) loginForm.addEventListener('submit', ShopApp.loginWithPassword);
+    if (registerForm) registerForm.addEventListener('submit', ShopApp.registerWithEmail);
+    if (resetForm) resetForm.addEventListener('submit', ShopApp.resetPassword);
+    if (confirmRegisterBtn) confirmRegisterBtn.addEventListener('click', ShopApp.confirmRegister);
+    if (sendResetBtn) sendResetBtn.addEventListener('click', ShopApp.sendResetCode);
+    document.querySelectorAll('[data-shop-auth-mode]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            ShopApp.switchAuthMode(btn.getAttribute('data-shop-auth-mode') || 'login');
+        });
+    });
 
     var onLangChange = function() {
         if (typeof I18n !== 'undefined' && I18n.applyTranslations) {
@@ -619,11 +796,16 @@ PageInit.initShopPage = function(params) {
     return function() {
         document.removeEventListener('languageChanged', onLangChange);
         if (loginForm) loginForm.removeEventListener('submit', ShopApp.loginWithPassword);
+        if (registerForm) registerForm.removeEventListener('submit', ShopApp.registerWithEmail);
+        if (resetForm) resetForm.removeEventListener('submit', ShopApp.resetPassword);
+        if (confirmRegisterBtn) confirmRegisterBtn.removeEventListener('click', ShopApp.confirmRegister);
+        if (sendResetBtn) sendResetBtn.removeEventListener('click', ShopApp.sendResetCode);
     };
 };
 
 var AccountApp = (function() {
     var tokenKey = 'qx_member_token';
+    var accessTokenKey = 'qx_member_access_token';
     var pageSize = 20;
 
     function apiBase() {
@@ -644,12 +826,25 @@ var AccountApp = (function() {
         return String(localStorage.getItem(tokenKey) || '').replace(/\s+/g, '');
     }
 
+    function accessToken() {
+        return String(localStorage.getItem(accessTokenKey) || '').replace(/\s+/g, '');
+    }
+
     function setToken(value) {
         var normalized = String(value || '').replace(/\s+/g, '');
         if (normalized) {
             localStorage.setItem(tokenKey, normalized);
         } else {
             localStorage.removeItem(tokenKey);
+        }
+    }
+
+    function setAccessToken(value) {
+        var normalized = String(value || '').replace(/\s+/g, '');
+        if (normalized) {
+            localStorage.setItem(accessTokenKey, normalized);
+        } else {
+            localStorage.removeItem(accessTokenKey);
         }
     }
 
@@ -672,6 +867,17 @@ var AccountApp = (function() {
         if (loginPanel) loginPanel.style.display = loggedIn ? 'none' : 'block';
         if (ordersPanel) ordersPanel.style.display = loggedIn ? 'block' : 'none';
         if (logoutBtn) logoutBtn.style.display = loggedIn ? 'inline-flex' : 'none';
+    }
+
+    function renderProfile(data) {
+        var el = document.getElementById('accountProfileList');
+        if (!el) return;
+        el.innerHTML = [
+            '<div><span>用户 ID</span><strong>' + escape(data.userId || '-') + '</strong></div>',
+            '<div><span>Email</span><strong>' + escape(data.email || '-') + '</strong></div>',
+            '<div><span>登录方式</span><strong>' + escape((data.loginProviders || []).join(', ') || 'COGNITO') + '</strong></div>',
+            '<div><span>最近登录</span><strong>' + escape(shortDate(data.lastLoginAt) || '-') + '</strong></div>'
+        ].join('');
     }
 
     function request(path, options) {
@@ -757,7 +963,7 @@ var AccountApp = (function() {
             var refundForm = '';
             if (order.status === 'cooling_period') {
                 refundForm =
-                    '<div class="account-refund-box">' +
+                    '<div class="account-refund-box" style="display:none;" data-refund-panel="' + escape(order.orderId) + '">' +
                     '<textarea data-refund-reason="' + escape(order.orderId) + '" rows="2" placeholder="退款原因（选填）"></textarea>' +
                     '<button class="account-danger-btn" type="button" data-refund-order-id="' + escape(order.orderId) + '">申请退款</button>' +
                     '</div>';
@@ -772,23 +978,50 @@ var AccountApp = (function() {
                 '<div><span>金额</span><strong>' + escape(money(order.amount, order.currency)) + '</strong></div>' +
                 '<div><span>创建时间</span><strong>' + escape(shortDate(order.createdAt)) + '</strong></div>' +
                 '</div>' +
+                '<button class="account-order-toggle" type="button" data-order-toggle="' + escape(order.orderId) + '">查看详情</button>' +
+                '<div class="account-order-detail" style="display:none;" data-order-detail="' + escape(order.orderId) + '">' +
+                '<div><span>购买意向 ID</span><strong>' + escape(order.sourceIntentId || '-') + '</strong></div>' +
+                '<div><span>更新时间</span><strong>' + escape(shortDate(order.updatedAt)) + '</strong></div>' +
+                '</div>' +
                 refundForm +
                 '</article>';
         }).join('');
 
         setStatus('共 ' + (data.total || orders.length) + ' 笔订单');
+        bindOrderToggles();
         bindRefundButtons();
+    }
+
+    function bindOrderToggles() {
+        document.querySelectorAll('[data-order-toggle]').forEach(function(btn) {
+            if (btn.getAttribute('data-bound') === 'true') return;
+            btn.setAttribute('data-bound', 'true');
+            btn.addEventListener('click', function() {
+                var orderId = btn.getAttribute('data-order-toggle');
+                var detail = document.querySelector('[data-order-detail="' + orderId + '"]');
+                var refund = document.querySelector('[data-refund-panel="' + orderId + '"]');
+                var isOpen = detail && detail.style.display !== 'none';
+                if (detail) detail.style.display = isOpen ? 'none' : 'grid';
+                if (refund) refund.style.display = isOpen ? 'none' : 'grid';
+                btn.textContent = isOpen ? '查看详情' : '收起详情';
+            });
+        });
     }
 
     function loadOrders() {
         showAlert('');
         setLoggedIn(true);
         setStatus('正在加载订单...');
-        return request('/orders?page=1&pageSize=' + pageSize).then(function(data) {
-            renderOrders(data);
+        return Promise.all([
+            request('/me'),
+            request('/orders?page=1&pageSize=' + pageSize)
+        ]).then(function(results) {
+            renderProfile(results[0]);
+            renderOrders(results[1]);
         }).catch(function(error) {
             if ((error.message || '').indexOf('Unauthorized') !== -1) {
                 setToken('');
+                setAccessToken('');
                 setLoggedIn(false);
                 showAlert('登录已失效，请重新登录。');
                 return;
@@ -819,6 +1052,50 @@ var AccountApp = (function() {
         });
     }
 
+    function changePassword(event) {
+        event.preventDefault();
+        var oldInput = document.getElementById('accountOldPasswordInput');
+        var newInput = document.getElementById('accountNewPasswordInput');
+        var btn = document.getElementById('accountPasswordBtn');
+        var previousPassword = oldInput ? oldInput.value : '';
+        var newPassword = newInput ? newInput.value : '';
+        if (!previousPassword || !newPassword) {
+            showAlert('请输入原密码和新密码。');
+            return;
+        }
+        if (!accessToken()) {
+            showAlert('请重新登录后再修改密码。');
+            return;
+        }
+        showAlert('');
+        if (btn) {
+            btn.disabled = true;
+            btn.textContent = '修改中...';
+        }
+        request('/api/v1/password/change', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                previousPassword: previousPassword,
+                newPassword: newPassword,
+                accessToken: accessToken()
+            })
+        }).then(function() {
+            if (oldInput) oldInput.value = '';
+            if (newInput) newInput.value = '';
+            setStatus('密码已修改。');
+        }).catch(function(error) {
+            showAlert(error.message || '修改密码失败。');
+        }).finally(function() {
+            if (btn) {
+                btn.disabled = false;
+                btn.textContent = '修改密码';
+            }
+        });
+    }
+
     function bindRefundButtons() {
         document.querySelectorAll('[data-refund-order-id]').forEach(function(btn) {
             if (btn.getAttribute('data-bound') === 'true') return;
@@ -841,6 +1118,7 @@ var AccountApp = (function() {
         var loginBtn = document.getElementById('accountLoginBtn');
         var refreshBtn = document.getElementById('accountRefreshBtn');
         var logoutBtn = document.getElementById('accountLogoutBtn');
+        var passwordForm = document.getElementById('accountPasswordForm');
 
         if (form) {
             form.addEventListener('submit', function(event) {
@@ -858,10 +1136,12 @@ var AccountApp = (function() {
                 }
                 login(username, password).then(function(data) {
                     setToken(data.idToken || '');
+                    setAccessToken(data.accessToken || '');
                     if (passwordInput) passwordInput.value = '';
                     return loadOrders();
                 }).catch(function(error) {
                     setToken('');
+                    setAccessToken('');
                     setLoggedIn(false);
                     showAlert(error.message || '登录失败。');
                 }).finally(function() {
@@ -874,9 +1154,11 @@ var AccountApp = (function() {
         }
 
         if (refreshBtn) refreshBtn.addEventListener('click', loadOrders);
+        if (passwordForm) passwordForm.addEventListener('submit', changePassword);
         if (logoutBtn) {
             logoutBtn.addEventListener('click', function() {
                 setToken('');
+                setAccessToken('');
                 setLoggedIn(false);
                 showAlert('');
             });

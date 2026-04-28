@@ -43,7 +43,26 @@
             <div class="shop-card">
                 <h2 class="shop-card-title">会员登录</h2>
                 <p class="shop-card-subtitle">使用你的会员账号继续购买，订单和退款申请都会绑定到这个账号。</p>
+                <div class="shop-social-login">
+                    <button type="button" onclick="ShopApp.socialLogin('Google')">
+                        <span class="material-symbols-outlined">public</span>
+                        <span>Google 登录</span>
+                    </button>
+                    <button type="button" onclick="ShopApp.socialLogin('SignInWithApple')">
+                        <span class="material-symbols-outlined">phone_iphone</span>
+                        <span>Apple 登录</span>
+                    </button>
+                    <button type="button" onclick="ShopApp.socialLogin('')">
+                        <span class="material-symbols-outlined">bolt</span>
+                        <span>快捷登录</span>
+                    </button>
+                </div>
                 <div class="shop-login-status" id="shopLoginStatus" style="display:none;"></div>
+                <div class="shop-auth-tabs">
+                    <button class="active" type="button" data-shop-auth-mode="login">Email 登录</button>
+                    <button type="button" data-shop-auth-mode="register">注册账号</button>
+                    <button type="button" data-shop-auth-mode="reset">忘记密码</button>
+                </div>
                 <form class="shop-login-form" id="shopLoginForm">
                     <div class="shop-form-group">
                         <label for="shopLoginUsername">用户名</label>
@@ -55,6 +74,45 @@
                     </div>
                     <button class="shop-btn-primary" id="shopLoginSubmitBtn" type="submit">登录并继续</button>
                 </form>
+                <form class="shop-login-form" id="shopRegisterForm" style="display:none;">
+                    <div class="shop-form-row">
+                        <div class="shop-form-group">
+                            <label for="shopRegisterEmail">邮箱</label>
+                            <input type="email" id="shopRegisterEmail" autocomplete="email" required>
+                        </div>
+                        <div class="shop-form-group">
+                            <label for="shopRegisterName">姓名</label>
+                            <input type="text" id="shopRegisterName" autocomplete="name">
+                        </div>
+                    </div>
+                    <div class="shop-form-group">
+                        <label for="shopRegisterPassword">密码</label>
+                        <input type="password" id="shopRegisterPassword" autocomplete="new-password" required>
+                    </div>
+                    <button class="shop-btn-primary" id="shopRegisterSubmitBtn" type="submit">发送邮箱验证码</button>
+                    <div class="shop-confirm-row">
+                        <input type="text" id="shopRegisterCode" inputmode="numeric" placeholder="输入邮箱验证码">
+                        <button class="shop-btn-outline" id="shopConfirmRegisterBtn" type="button">完成注册</button>
+                    </div>
+                </form>
+                <form class="shop-login-form" id="shopResetForm" style="display:none;">
+                    <div class="shop-form-group">
+                        <label for="shopResetEmail">邮箱</label>
+                        <input type="email" id="shopResetEmail" autocomplete="email" required>
+                    </div>
+                    <button class="shop-btn-outline" id="shopSendResetBtn" type="button">发送重置验证码</button>
+                    <div class="shop-form-row">
+                        <div class="shop-form-group">
+                            <label for="shopResetCode">验证码</label>
+                            <input type="text" id="shopResetCode" inputmode="numeric">
+                        </div>
+                        <div class="shop-form-group">
+                            <label for="shopResetPassword">新密码</label>
+                            <input type="password" id="shopResetPassword" autocomplete="new-password">
+                        </div>
+                    </div>
+                    <button class="shop-btn-primary" id="shopResetSubmitBtn" type="submit">重置密码</button>
+                </form>
                 <div class="shop-terms-check">
                     <label class="shop-checkbox-label">
                         <input type="checkbox" id="shopTermsAgree" onchange="ShopApp.toggleTerms()">
@@ -63,6 +121,7 @@
                 </div>
                 <p class="shop-error" id="shopTermsError" style="display:none;" data-i18n="shop.termsError">Please agree to the terms first</p>
                 <p class="shop-error" id="shopLoginError" style="display:none;"></p>
+                <p class="shop-success" id="shopAuthSuccess" style="display:none;"></p>
                 <div class="shop-login-links">
                     <a href="#/account">查看我的订单</a>
                     <span>没有账号？请联系专属顾问开通。</span>

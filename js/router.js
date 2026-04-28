@@ -28,6 +28,9 @@
 
         init: function() {
             var self = this;
+            if (this.captureCognitoToken()) {
+                return;
+            }
             window.addEventListener('hashchange', function() {
                 self.handleRoute();
             });
@@ -46,6 +49,32 @@
             } else {
                 document.addEventListener('i18nReady', startRouting);
             }
+        },
+
+        captureCognitoToken: function() {
+            var hash = window.location.hash || '';
+            if (hash.indexOf('id_token=') === -1 && hash.indexOf('access_token=') === -1) {
+                return false;
+            }
+
+            var params = {};
+            hash.replace(/^#/, '').split('&').forEach(function(pair) {
+                var kv = pair.split('=');
+                if (!kv[0]) return;
+                params[decodeURIComponent(kv[0])] = decodeURIComponent(kv.slice(1).join('=') || '');
+            });
+
+            if (params.id_token) {
+                localStorage.setItem('qx_member_token', params.id_token.replace(/\s+/g, ''));
+            }
+            if (params.access_token) {
+                localStorage.setItem('qx_member_access_token', params.access_token.replace(/\s+/g, ''));
+            }
+
+            var next = localStorage.getItem('qx_oauth_next') || '#/account';
+            localStorage.removeItem('qx_oauth_next');
+            window.location.hash = next.indexOf('#') === 0 ? next : '#/account';
+            return true;
         },
 
         handleRoute: function() {

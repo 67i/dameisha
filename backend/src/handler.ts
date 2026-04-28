@@ -18,7 +18,14 @@ import {
   updateAdminOrderStatus
 } from "./routes/admin";
 import { adminLogin } from "./routes/admin-login";
-import { memberLogin } from "./routes/login";
+import {
+  changeMemberPassword,
+  confirmMemberRegister,
+  forgotMemberPassword,
+  memberLogin,
+  memberRegister,
+  resetMemberPassword
+} from "./routes/login";
 
 async function writeAuditLog(event: APIGatewayProxyEventV2, userId: string | null, statusCode: number): Promise<void> {
   try {
@@ -88,6 +95,51 @@ const routes: RouteMatch[] = [
     audit: false,
     handle: async (event) => {
       return memberLogin(event);
+    }
+  },
+  {
+    method: "POST",
+    regex: /^\/api\/v1\/register$/,
+    protected: false,
+    audit: false,
+    handle: async (event) => {
+      return memberRegister(event);
+    }
+  },
+  {
+    method: "POST",
+    regex: /^\/api\/v1\/register\/confirm$/,
+    protected: false,
+    audit: false,
+    handle: async (event) => {
+      return confirmMemberRegister(event);
+    }
+  },
+  {
+    method: "POST",
+    regex: /^\/api\/v1\/password\/forgot$/,
+    protected: false,
+    audit: false,
+    handle: async (event) => {
+      return forgotMemberPassword(event);
+    }
+  },
+  {
+    method: "POST",
+    regex: /^\/api\/v1\/password\/reset$/,
+    protected: false,
+    audit: false,
+    handle: async (event) => {
+      return resetMemberPassword(event);
+    }
+  },
+  {
+    method: "POST",
+    regex: /^\/api\/v1\/password\/change$/,
+    protected: true,
+    audit: true,
+    handle: async (event, auth) => {
+      return changeMemberPassword(event, auth!);
     }
   },
   {

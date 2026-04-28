@@ -26,6 +26,26 @@
         </section>
 
         <section class="account-card" id="accountOrdersPanel" style="display:none;">
+            <div class="account-overview-grid">
+                <section class="account-mini-card">
+                    <h2>账号信息</h2>
+                    <div class="account-profile-list" id="accountProfileList"></div>
+                </section>
+                <section class="account-mini-card">
+                    <h2>安全设置</h2>
+                    <form class="account-password-form" id="accountPasswordForm">
+                        <label>
+                            <span>原密码</span>
+                            <input id="accountOldPasswordInput" type="password" autocomplete="current-password" required>
+                        </label>
+                        <label>
+                            <span>新密码</span>
+                            <input id="accountNewPasswordInput" type="password" autocomplete="new-password" required>
+                        </label>
+                        <button class="account-secondary-btn" id="accountPasswordBtn" type="submit">修改密码</button>
+                    </form>
+                </section>
+            </div>
             <div class="account-section-header">
                 <div>
                     <h2>我的订单</h2>

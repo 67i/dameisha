@@ -105,6 +105,11 @@ Resources:
             - Effect: Allow
               Action:
                 - cognito-idp:AdminInitiateAuth
+                - cognito-idp:ChangePassword
+                - cognito-idp:ConfirmForgotPassword
+                - cognito-idp:ConfirmSignUp
+                - cognito-idp:ForgotPassword
+                - cognito-idp:SignUp
               Resource: !Sub "arn:${AWS::Partition}:cognito-idp:${AWS::Region}:${AWS::AccountId}:userpool/${CognitoUserPoolId}"
       VpcConfig: !If
         - UseVpcConfig

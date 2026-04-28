@@ -5516,6 +5516,56 @@ html[lang="ja"] .logic-circle-text-en {
     margin-top: 1.25rem;
 }
 
+.shop-social-login {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.shop-social-login button,
+.shop-auth-tabs button {
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    border-radius: 0.75rem;
+    color: #243142;
+    cursor: pointer;
+    font: 800 0.875rem 'Lato new', sans-serif;
+}
+
+.shop-social-login button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 3rem;
+    padding: 0.75rem;
+}
+
+.shop-social-login button:hover,
+.shop-auth-tabs button:hover {
+    border-color: #ccd3de;
+    background: #f8fafc;
+}
+
+.shop-auth-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.shop-auth-tabs button {
+    min-height: 2.5rem;
+    padding: 0.6rem;
+}
+
+.shop-auth-tabs button.active {
+    background: #0d1c2f;
+    border-color: #0d1c2f;
+    color: #ffffff;
+}
+
 .shop-login-status {
     align-items: center;
     background: #f4fbfa;
@@ -5566,6 +5616,24 @@ html[lang="ja"] .logic-circle-text-en {
 .shop-login-links span {
     color: #777;
     font-size: 0.8125rem;
+}
+
+.shop-confirm-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.75rem;
+}
+
+.shop-confirm-row input {
+    border: 1px solid #e5e7eb;
+    border-radius: 0.625rem;
+    padding: 0.875rem 1rem;
+    outline: none;
+}
+
+.shop-confirm-row input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.1);
 }
 
 .shop-login-btn {
@@ -6160,6 +6228,12 @@ html[lang="ja"] .logic-circle-text-en {
     }
 
     .shop-form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .shop-social-login,
+    .shop-auth-tabs,
+    .shop-confirm-row {
         grid-template-columns: 1fr;
     }
 
@@ -6842,6 +6916,71 @@ html[lang="ja"] .logic-circle-text-en {
     gap: 0.75rem;
 }
 
+.account-overview-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.8fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.account-mini-card {
+    border: 1px solid #e3e7ee;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background: #fbfcfe;
+}
+
+.account-mini-card h2 {
+    margin: 0 0 0.875rem;
+}
+
+.account-profile-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.account-profile-list span,
+.account-order-detail span {
+    color: #667085;
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 900;
+    margin-bottom: 0.25rem;
+}
+
+.account-profile-list strong,
+.account-order-detail strong {
+    color: #172033;
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 900;
+    overflow-wrap: anywhere;
+}
+
+.account-password-form {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.account-password-form label {
+    display: grid;
+    gap: 0.4rem;
+    color: #344054;
+    font-size: 0.8125rem;
+    font-weight: 900;
+}
+
+.account-password-form input {
+    border: 1px solid #d5dae3;
+    border-radius: 0.5rem;
+    color: #172033;
+    font: 700 0.875rem 'Lato new', sans-serif;
+    outline: none;
+    padding: 0.75rem 0.875rem;
+    width: 100%;
+}
+
 .account-order-card {
     border: 1px solid #e3e7ee;
     border-radius: 0.5rem;
@@ -6868,6 +7007,24 @@ html[lang="ja"] .logic-circle-text-en {
     font-size: 0.9rem;
     font-weight: 900;
     overflow-wrap: anywhere;
+}
+
+.account-order-toggle {
+    border: 0;
+    background: transparent;
+    color: #07595b;
+    cursor: pointer;
+    font: 900 0.8125rem 'Lato new', sans-serif;
+    margin-top: 0.875rem;
+    padding: 0;
+}
+
+.account-order-detail {
+    border-top: 1px solid #eef1f5;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-top: 0.875rem;
+    padding-top: 0.875rem;
 }
 
 .account-refund-box {
@@ -6928,6 +7085,10 @@ html[lang="ja"] .logic-circle-text-en {
     .account-order-main {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    .account-overview-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 640px) {
@@ -6962,6 +7123,8 @@ html[lang="ja"] .logic-circle-text-en {
 
     .account-login-form,
     .account-order-main,
+    .account-profile-list,
+    .account-order-detail,
     .account-refund-box {
         grid-template-columns: 1fr;
     }

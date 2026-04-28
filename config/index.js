@@ -33,6 +33,14 @@ var CONFIG = {
         useEmbedApi: false
     },
 
+    cognito: {
+        hostedUiDomain: window.__COGNITO_HOSTED_UI_DOMAIN__ || '',
+        clientId: window.__COGNITO_CLIENT_ID__ || '2hocldoipetlrco1llmcc86nnk',
+        redirectUri: window.__COGNITO_REDIRECT_URI__ || (window.location.origin + window.location.pathname),
+        scopes: 'openid email profile',
+        responseType: 'token'
+    },
+
     images: {
         basePath: './assets/'
     }
