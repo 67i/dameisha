@@ -28,9 +28,7 @@
 
         init: function() {
             var self = this;
-            if (this.captureCognitoToken()) {
-                return;
-            }
+            this.captureCognitoToken();
             window.addEventListener('hashchange', function() {
                 self.handleRoute();
             });
