@@ -55,10 +55,10 @@ var AdminApp = (function() {
 
     function request(path) {
         if (!apiBase()) {
-            return Promise.reject(new Error('API base URL is not configured.'));
+            return Promise.reject(new Error('API 地址尚未配置。'));
         }
         if (!token()) {
-            return Promise.reject(new Error('Admin token is required.'));
+            return Promise.reject(new Error('请先填写管理员 token。'));
         }
 
         return fetch(apiBase() + path, {
@@ -78,12 +78,12 @@ var AdminApp = (function() {
     function renderMetrics(data) {
         var totals = data.totals || {};
         var metrics = [
-            { label: 'Users', value: totals.users || 0, icon: 'group' },
-            { label: 'Orders', value: totals.orders || 0, icon: 'receipt_long' },
-            { label: 'Revenue', value: money(totals.revenue || 0), icon: 'payments' },
-            { label: 'Submitted', value: totals.submittedOrders || 0, icon: 'task_alt' },
-            { label: 'Draft', value: totals.draftOrders || 0, icon: 'pending_actions' },
-            { label: 'Audit events', value: totals.auditEvents || 0, icon: 'manage_search' }
+            { label: '用户总数', value: totals.users || 0, icon: 'group' },
+            { label: '订单总数', value: totals.orders || 0, icon: 'receipt_long' },
+            { label: '成交金额', value: money(totals.revenue || 0), icon: 'payments' },
+            { label: '已提交订单', value: totals.submittedOrders || 0, icon: 'task_alt' },
+            { label: '草稿订单', value: totals.draftOrders || 0, icon: 'pending_actions' },
+            { label: '审计事件', value: totals.auditEvents || 0, icon: 'manage_search' }
         ];
         var html = metrics.map(function(item) {
             return '<div class="admin-metric">' +
@@ -99,7 +99,7 @@ var AdminApp = (function() {
         var rows = data.orderStatus || [];
         var html = rows.length ? rows.map(function(row) {
             return '<div class="admin-status-row"><span>' + escape(row.status) + '</span><strong>' + escape(row.total) + '</strong></div>';
-        }).join('') : '<p class="admin-empty">No order status data.</p>';
+        }).join('') : '<p class="admin-empty">暂无订单状态数据。</p>';
         var el = document.getElementById('adminStatusList');
         if (el) el.innerHTML = html;
     }
@@ -114,7 +114,7 @@ var AdminApp = (function() {
                 '<div class="admin-trend-bar"><i style="width:' + pct + '%"></i></div>' +
                 '<strong>' + escape(row.orders) + '</strong>' +
                 '</div>';
-        }).join('') : '<p class="admin-empty">No recent orders.</p>';
+        }).join('') : '<p class="admin-empty">暂无近期订单。</p>';
         var el = document.getElementById('adminTrend');
         if (el) el.innerHTML = html;
     }
@@ -127,13 +127,13 @@ var AdminApp = (function() {
             return '<tr>' + columns.map(function(col) {
                 return '<td>' + escape(col.value(row)) + '</td>';
             }).join('') + '</tr>';
-        }).join('') : '<tr><td colspan="' + columns.length + '">No data.</td></tr>';
+        }).join('') : '<tr><td colspan="' + columns.length + '">暂无数据。</td></tr>';
         el.innerHTML = head + '<tbody>' + bodyRows + '</tbody>';
     }
 
     function meta(id, data) {
         var el = document.getElementById(id);
-        if (el) el.textContent = 'Total ' + (data.total || 0);
+        if (el) el.textContent = '共 ' + (data.total || 0) + ' 条';
     }
 
     function loadDashboard() {
@@ -141,7 +141,7 @@ var AdminApp = (function() {
             renderMetrics(data);
             renderStatusList(data);
             renderTrend(data);
-            setStatus('Connected as ' + (data.role || 'admin') + '.');
+            setStatus('已连接，当前角色：' + (data.role || 'admin') + '。');
         });
     }
 
@@ -149,12 +149,12 @@ var AdminApp = (function() {
         return request('/api/v1/admin/orders?page=1&pageSize=' + pageSize).then(function(data) {
             meta('adminOrdersMeta', data);
             table('adminOrdersTable', [
-                { label: 'Order ID', value: function(row) { return row.orderId; } },
-                { label: 'User', value: function(row) { return row.userEmail || row.userId; } },
-                { label: 'Status', value: function(row) { return row.status; } },
-                { label: 'Amount', value: function(row) { return money(row.amount, row.currency); } },
-                { label: 'Intent', value: function(row) { return row.sourceIntentId || ''; } },
-                { label: 'Created', value: function(row) { return shortDate(row.createdAt); } }
+                { label: '订单 ID', value: function(row) { return row.orderId; } },
+                { label: '用户', value: function(row) { return row.userEmail || row.userId; } },
+                { label: '状态', value: function(row) { return row.status; } },
+                { label: '金额', value: function(row) { return money(row.amount, row.currency); } },
+                { label: '意向 ID', value: function(row) { return row.sourceIntentId || ''; } },
+                { label: '创建时间', value: function(row) { return shortDate(row.createdAt); } }
             ], data.list || []);
         });
     }
@@ -163,13 +163,13 @@ var AdminApp = (function() {
         return request('/api/v1/admin/purchase-intents?page=1&pageSize=' + pageSize).then(function(data) {
             meta('adminIntentsMeta', data);
             table('adminIntentsTable', [
-                { label: 'Intent ID', value: function(row) { return row.intentId; } },
-                { label: 'User', value: function(row) { return row.userEmail || row.userId; } },
-                { label: 'Product', value: function(row) { return row.productCode; } },
-                { label: 'Status', value: function(row) { return row.status; } },
-                { label: 'Qty', value: function(row) { return row.quantity; } },
-                { label: 'Amount', value: function(row) { return money(row.amount, row.currency); } },
-                { label: 'Created', value: function(row) { return shortDate(row.createdAt); } }
+                { label: '意向 ID', value: function(row) { return row.intentId; } },
+                { label: '用户', value: function(row) { return row.userEmail || row.userId; } },
+                { label: '产品', value: function(row) { return row.productCode; } },
+                { label: '状态', value: function(row) { return row.status; } },
+                { label: '数量', value: function(row) { return row.quantity; } },
+                { label: '金额', value: function(row) { return money(row.amount, row.currency); } },
+                { label: '创建时间', value: function(row) { return shortDate(row.createdAt); } }
             ], data.list || []);
         });
     }
@@ -178,13 +178,13 @@ var AdminApp = (function() {
         return request('/api/v1/admin/users?page=1&pageSize=' + pageSize).then(function(data) {
             meta('adminUsersMeta', data);
             table('adminUsersTable', [
-                { label: 'User ID', value: function(row) { return row.userId; } },
-                { label: 'Email', value: function(row) { return row.email || ''; } },
-                { label: 'Name', value: function(row) { return row.displayName || ''; } },
-                { label: 'Country', value: function(row) { return row.countryCode || ''; } },
-                { label: 'Orders', value: function(row) { return row.orderCount; } },
-                { label: 'Amount', value: function(row) { return money(row.orderAmount); } },
-                { label: 'Last login', value: function(row) { return shortDate(row.lastLoginAt); } }
+                { label: '用户 ID', value: function(row) { return row.userId; } },
+                { label: '邮箱', value: function(row) { return row.email || ''; } },
+                { label: '姓名', value: function(row) { return row.displayName || ''; } },
+                { label: '国家区号', value: function(row) { return row.countryCode || ''; } },
+                { label: '订单数', value: function(row) { return row.orderCount; } },
+                { label: '订单金额', value: function(row) { return money(row.orderAmount); } },
+                { label: '最近登录', value: function(row) { return shortDate(row.lastLoginAt); } }
             ], data.list || []);
         });
     }
@@ -193,19 +193,19 @@ var AdminApp = (function() {
         return request('/api/v1/admin/audit-logs?page=1&pageSize=' + pageSize).then(function(data) {
             meta('adminAuditMeta', data);
             table('adminAuditTable', [
-                { label: 'Audit ID', value: function(row) { return row.auditId; } },
-                { label: 'User ID', value: function(row) { return row.userId || ''; } },
-                { label: 'Method', value: function(row) { return row.method; } },
-                { label: 'Route', value: function(row) { return row.route; } },
-                { label: 'Status', value: function(row) { return row.statusCode; } },
-                { label: 'Created', value: function(row) { return shortDate(row.createdAt); } }
+                { label: '日志 ID', value: function(row) { return row.auditId; } },
+                { label: '用户 ID', value: function(row) { return row.userId || ''; } },
+                { label: '方法', value: function(row) { return row.method; } },
+                { label: '路径', value: function(row) { return row.route; } },
+                { label: '状态码', value: function(row) { return row.statusCode; } },
+                { label: '创建时间', value: function(row) { return shortDate(row.createdAt); } }
             ], data.list || []);
         });
     }
 
     function loadActive() {
         showAlert('');
-        setStatus('Loading ' + activeView + '...');
+        setStatus('正在加载数据...');
         var loader = {
             dashboard: loadDashboard,
             orders: loadOrders,
@@ -215,8 +215,8 @@ var AdminApp = (function() {
         }[activeView] || loadDashboard;
 
         return loader().catch(function(error) {
-            setStatus('Disconnected.');
-            showAlert(error.message || 'Failed to load admin data.');
+            setStatus('未连接。');
+            showAlert(error.message || '后台数据加载失败。');
         });
     }
 
@@ -262,7 +262,7 @@ var AdminApp = (function() {
             logoutBtn.addEventListener('click', function() {
                 setToken('');
                 if (input) input.value = '';
-                setStatus('Token cleared.');
+                setStatus('Token 已清除。');
                 showAlert('');
             });
         }
@@ -276,5 +276,17 @@ var AdminApp = (function() {
 })();
 
 PageInit.initAdminPage = function() {
+    var header = document.getElementById('header-placeholder');
+    var footer = document.getElementById('footer-placeholder');
+    var previousHeaderDisplay = header ? header.style.display : '';
+    var previousFooterDisplay = footer ? footer.style.display : '';
+    if (header) header.style.display = 'none';
+    if (footer) footer.style.display = 'none';
+
     AdminApp.init();
+
+    return function() {
+        if (header) header.style.display = previousHeaderDisplay;
+        if (footer) footer.style.display = previousFooterDisplay;
+    };
 };

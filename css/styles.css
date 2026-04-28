@@ -6135,7 +6135,7 @@ html[lang="ja"] .logic-circle-text-en {
    ======================================== */
 
 .admin-page {
-    min-height: calc(100vh - 96px);
+    min-height: 100vh;
     background: #f6f7f9;
     display: grid;
     grid-template-columns: 260px minmax(0, 1fr);

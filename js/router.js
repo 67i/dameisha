@@ -22,7 +22,7 @@
             'privacy':           { fragment: 'pages/privacy.html',       init: 'initPrivacyPage',        title: 'Privacy Policy' },
             'terms':             { fragment: 'pages/terms.html',         init: 'initTermsPage',          title: 'Terms of Service' },
             'shop':              { fragment: 'pages/shop.html',          init: 'initShopPage',           title: 'Shop Now' },
-            'admin':             { fragment: 'pages/admin.html',         init: 'initAdminPage',          title: 'QX Admin' }
+            'admin':             { fragment: 'pages/admin.html',         init: 'initAdminPage',          title: '后台管理系统' }
         },
 
         init: function() {
