@@ -194,7 +194,15 @@ export const handler = async (event: APIGatewayProxyEventV2): Promise<APIGateway
       return notFound("Route not found");
     }
 
-    const auth = route.protected ? await requireAuth(event) : null;
+    let auth: AuthContext | null = null;
+    if (route.protected) {
+      try {
+        auth = await requireAuth(event);
+      } catch (error) {
+        console.warn("Auth verification failed", error);
+        return unauthorized();
+      }
+    }
     if (route.protected && !auth) {
       return unauthorized();
     }
