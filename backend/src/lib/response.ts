@@ -1,12 +1,26 @@
 import type { APIGatewayProxyStructuredResultV2 } from "aws-lambda";
 
+export const corsHeaders = {
+  "access-control-allow-origin": "*",
+  "access-control-allow-methods": "GET,POST,PATCH,OPTIONS",
+  "access-control-allow-headers": "authorization,content-type"
+};
+
 export function json(statusCode: number, body: unknown): APIGatewayProxyStructuredResultV2 {
   return {
     statusCode,
     headers: {
-      "content-type": "application/json; charset=utf-8"
+      "content-type": "application/json; charset=utf-8",
+      ...corsHeaders
     },
     body: JSON.stringify(body)
+  };
+}
+
+export function noContent(): APIGatewayProxyStructuredResultV2 {
+  return {
+    statusCode: 204,
+    headers: corsHeaders
   };
 }
 
@@ -37,4 +51,3 @@ export function notFound(message = "Not Found"): APIGatewayProxyStructuredResult
 export function internalError(message = "Internal Server Error"): APIGatewayProxyStructuredResultV2 {
   return json(500, { message });
 }
-

@@ -1,6 +1,6 @@
 import type { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from "aws-lambda";
 import { requireAuth } from "./lib/auth";
-import { internalError, notFound, ok, unauthorized } from "./lib/response";
+import { internalError, noContent, notFound, ok, unauthorized } from "./lib/response";
 import { getMe, getMeSecurity, patchMe } from "./routes/me";
 import { getOrderById, getOrders } from "./routes/orders";
 import { confirmPurchaseIntent, createPurchaseIntent } from "./routes/purchase-intents";
@@ -183,6 +183,10 @@ const routes: RouteMatch[] = [
 export const handler = async (event: APIGatewayProxyEventV2): Promise<APIGatewayProxyResultV2> => {
   try {
     const method = event.requestContext.http.method.toUpperCase();
+    if (method === "OPTIONS") {
+      return noContent();
+    }
+
     const path = routePathFromEvent(event);
 
     const route = routes.find((r) => r.method === method && r.regex.test(path));
