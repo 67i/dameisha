@@ -6,6 +6,8 @@ export type AuthContext = {
   rawClaims: Record<string, unknown>;
 };
 
+export type AdminRole = "super_admin" | "admin" | "dealer";
+
 export type UserProfile = {
   displayName: string | null;
   countryCode: string | null;
@@ -20,4 +22,3 @@ export type PurchaseIntentCreateInput = {
   amount: number;
   note: string | null;
 };
-

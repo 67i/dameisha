@@ -21,7 +21,8 @@
             'contact':           { fragment: 'pages/contact.html',       init: 'initContactPage',        title: 'Contact Us' },
             'privacy':           { fragment: 'pages/privacy.html',       init: 'initPrivacyPage',        title: 'Privacy Policy' },
             'terms':             { fragment: 'pages/terms.html',         init: 'initTermsPage',          title: 'Terms of Service' },
-            'shop':              { fragment: 'pages/shop.html',          init: 'initShopPage',           title: 'Shop Now' }
+            'shop':              { fragment: 'pages/shop.html',          init: 'initShopPage',           title: 'Shop Now' },
+            'admin':             { fragment: 'pages/admin.html',         init: 'initAdminPage',          title: 'QX Admin' }
         },
 
         init: function() {
@@ -72,7 +73,8 @@
                 'contact.html': 'contact',
                 'privacy.html': 'privacy',
                 'terms.html': 'terms',
-                'shop.html': 'shop'
+                'shop.html': 'shop',
+                'admin.html': 'admin'
             };
 
             if (routeMap[routeName]) {
@@ -243,7 +245,8 @@ function convertLinksToRouter() {
         'faq.html': 'faq',
         'contact.html': 'contact',
         'privacy.html': 'privacy',
-        'terms.html': 'terms'
+        'terms.html': 'terms',
+        'admin.html': 'admin'
     };
 
     links.forEach(function(link) {

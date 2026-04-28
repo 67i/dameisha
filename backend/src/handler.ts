@@ -6,6 +6,13 @@ import { getOrderById, getOrders } from "./routes/orders";
 import { confirmPurchaseIntent, createPurchaseIntent } from "./routes/purchase-intents";
 import { execute } from "./lib/db";
 import type { AuthContext } from "./types";
+import {
+  getAdminAuditLogs,
+  getAdminDashboard,
+  getAdminOrders,
+  getAdminPurchaseIntents,
+  getAdminUsers
+} from "./routes/admin";
 
 async function writeAuditLog(event: APIGatewayProxyEventV2, userId: string | null, statusCode: number): Promise<void> {
   try {
@@ -124,6 +131,51 @@ const routes: RouteMatch[] = [
       const id = routePath.split("/")[3];
       event.pathParameters = { ...(event.pathParameters ?? {}), id };
       return confirmPurchaseIntent(event, auth!);
+    }
+  },
+  {
+    method: "GET",
+    regex: /^\/api\/v1\/admin\/dashboard$/,
+    protected: true,
+    audit: true,
+    handle: async (_event, auth) => {
+      return getAdminDashboard(auth!);
+    }
+  },
+  {
+    method: "GET",
+    regex: /^\/api\/v1\/admin\/orders$/,
+    protected: true,
+    audit: true,
+    handle: async (event, auth) => {
+      return getAdminOrders(event, auth!);
+    }
+  },
+  {
+    method: "GET",
+    regex: /^\/api\/v1\/admin\/purchase-intents$/,
+    protected: true,
+    audit: true,
+    handle: async (event, auth) => {
+      return getAdminPurchaseIntents(event, auth!);
+    }
+  },
+  {
+    method: "GET",
+    regex: /^\/api\/v1\/admin\/users$/,
+    protected: true,
+    audit: true,
+    handle: async (event, auth) => {
+      return getAdminUsers(event, auth!);
+    }
+  },
+  {
+    method: "GET",
+    regex: /^\/api\/v1\/admin\/audit-logs$/,
+    protected: true,
+    audit: true,
+    handle: async (event, auth) => {
+      return getAdminAuditLogs(event, auth!);
     }
   }
 ];
