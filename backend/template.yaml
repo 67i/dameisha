@@ -101,6 +101,11 @@ Resources:
                   - rds-db:connect
                 Resource: !Sub "arn:${AWS::Partition}:rds-db:${AWS::Region}:${AWS::AccountId}:dbuser:${DbResourceId}/${DbUser}"
           - !Ref AWS::NoValue
+        - Statement:
+            - Effect: Allow
+              Action:
+                - cognito-idp:AdminInitiateAuth
+              Resource: !Sub "arn:${AWS::Partition}:cognito-idp:${AWS::Region}:${AWS::AccountId}:userpool/${CognitoUserPoolId}"
       VpcConfig: !If
         - UseVpcConfig
         - SubnetIds: !Ref VpcSubnetIds

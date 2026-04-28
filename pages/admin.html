@@ -35,22 +35,28 @@
         <header class="admin-topbar">
             <div>
                 <h1>后台管理系统</h1>
-                <p id="adminStatusText">请使用 Cognito 管理员令牌连接后台数据。</p>
+                <p id="adminStatusText">请登录管理员账号。</p>
             </div>
             <div class="admin-actions">
                 <button class="admin-icon-btn" id="adminRefreshBtn" type="button" aria-label="刷新">
                     <span class="material-symbols-outlined">refresh</span>
                 </button>
-                <button class="admin-logout-btn" id="adminLogoutBtn" type="button">清除令牌</button>
+                <button class="admin-logout-btn" id="adminLogoutBtn" type="button">退出登录</button>
             </div>
         </header>
 
-        <section class="admin-token-panel" id="adminTokenPanel">
-            <label for="adminTokenInput">Cognito 管理员 ID Token</label>
-            <div class="admin-token-row">
-                <input id="adminTokenInput" type="password" autocomplete="off" placeholder="粘贴管理员 JWT token">
-                <button id="adminSaveTokenBtn" type="button">保存</button>
-            </div>
+        <section class="admin-login-panel" id="adminLoginPanel">
+            <form class="admin-login-form" id="adminLoginForm">
+                <div class="admin-login-field">
+                    <label for="adminUsernameInput">管理员用户名</label>
+                    <input id="adminUsernameInput" type="text" autocomplete="username" placeholder="例如 admin001">
+                </div>
+                <div class="admin-login-field">
+                    <label for="adminPasswordInput">密码</label>
+                    <input id="adminPasswordInput" type="password" autocomplete="current-password" placeholder="输入管理员密码">
+                </div>
+                <button id="adminLoginBtn" type="submit">登录</button>
+            </form>
         </section>
 
         <section class="admin-alert" id="adminAlert" style="display:none;"></section>

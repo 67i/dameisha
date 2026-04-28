@@ -102,7 +102,7 @@ function claimArray(value: unknown): string[] {
   return [];
 }
 
-function adminRole(auth: AuthContext): AdminRole | null {
+export function getAdminRole(auth: AuthContext): AdminRole | null {
   const groups = claimArray(auth.rawClaims["cognito:groups"]);
   const customRole = auth.rawClaims["custom:role"];
   const roleValues = [
@@ -114,7 +114,7 @@ function adminRole(auth: AuthContext): AdminRole | null {
 }
 
 function ensureAdmin(auth: AuthContext): AdminRole | null {
-  return adminRole(auth);
+  return getAdminRole(auth);
 }
 
 function parsePagination(event: APIGatewayProxyEventV2): Pagination | null {

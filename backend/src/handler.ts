@@ -13,6 +13,7 @@ import {
   getAdminPurchaseIntents,
   getAdminUsers
 } from "./routes/admin";
+import { adminLogin } from "./routes/admin-login";
 
 async function writeAuditLog(event: APIGatewayProxyEventV2, userId: string | null, statusCode: number): Promise<void> {
   try {
@@ -140,6 +141,15 @@ const routes: RouteMatch[] = [
     audit: true,
     handle: async (_event, auth) => {
       return getAdminDashboard(auth!);
+    }
+  },
+  {
+    method: "POST",
+    regex: /^\/api\/v1\/admin\/login$/,
+    protected: false,
+    audit: false,
+    handle: async (event) => {
+      return adminLogin(event);
     }
   },
   {

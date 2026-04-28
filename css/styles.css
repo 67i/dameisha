@@ -6242,7 +6242,7 @@ html[lang="ja"] .logic-circle-text-en {
 
 .admin-icon-btn,
 .admin-logout-btn,
-.admin-token-row button {
+.admin-login-form button {
     border: 1px solid #d5dae3;
     background: #ffffff;
     color: #172033;
@@ -6264,11 +6264,11 @@ html[lang="ja"] .logic-circle-text-en {
 }
 
 .admin-logout-btn,
-.admin-token-row button {
+.admin-login-form button {
     padding: 0.7rem 1rem;
 }
 
-.admin-token-panel,
+.admin-login-panel,
 .admin-alert,
 .admin-section {
     background: #ffffff;
@@ -6276,12 +6276,19 @@ html[lang="ja"] .logic-circle-text-en {
     border-radius: 0.5rem;
 }
 
-.admin-token-panel {
+.admin-login-panel {
     padding: 1rem;
     margin-bottom: 1rem;
 }
 
-.admin-token-panel label {
+.admin-login-form {
+    display: grid;
+    grid-template-columns: minmax(12rem, 1fr) minmax(12rem, 1fr) auto;
+    gap: 0.75rem;
+    align-items: end;
+}
+
+.admin-login-field label {
     display: block;
     color: #344054;
     font-size: 0.8125rem;
@@ -6289,13 +6296,8 @@ html[lang="ja"] .logic-circle-text-en {
     margin-bottom: 0.5rem;
 }
 
-.admin-token-row {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.admin-token-row input {
-    flex: 1;
+.admin-login-field input {
+    width: 100%;
     min-width: 0;
     border: 1px solid #d5dae3;
     border-radius: 0.5rem;
@@ -6304,9 +6306,18 @@ html[lang="ja"] .logic-circle-text-en {
     outline: none;
 }
 
-.admin-token-row input:focus {
+.admin-login-field input:focus {
     border-color: #116c6e;
     box-shadow: 0 0 0 3px rgba(17, 108, 110, 0.12);
+}
+
+.admin-login-form button {
+    min-height: 2.85rem;
+}
+
+.admin-login-form button:disabled {
+    cursor: wait;
+    opacity: 0.65;
 }
 
 .admin-alert {
@@ -6487,6 +6498,10 @@ html[lang="ja"] .logic-circle-text-en {
     .admin-metrics {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    .admin-login-form {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 640px) {
@@ -6494,8 +6509,7 @@ html[lang="ja"] .logic-circle-text-en {
         padding: 1rem;
     }
 
-    .admin-topbar,
-    .admin-token-row {
+    .admin-topbar {
         flex-direction: column;
         align-items: stretch;
     }

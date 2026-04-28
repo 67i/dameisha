@@ -58,12 +58,17 @@ var AdminApp = (function() {
         if (el) el.textContent = message;
     }
 
+    function setLoginVisible(visible) {
+        var panel = document.getElementById('adminLoginPanel');
+        if (panel) panel.style.display = visible ? 'block' : 'none';
+    }
+
     function request(path) {
         if (!apiBase()) {
             return Promise.reject(new Error('API 地址尚未配置。'));
         }
         if (!token()) {
-            return Promise.reject(new Error('请先填写管理员 token。'));
+            return Promise.reject(new Error('请先登录管理员账号。'));
         }
 
         return fetch(apiBase() + path, {
@@ -80,6 +85,34 @@ var AdminApp = (function() {
         }).catch(function(error) {
             if (error && error.message === 'Failed to fetch') {
                 throw new Error('请求失败：请确认正在使用线上后台地址，并检查 API 跨域或网络连接。');
+            }
+            throw error;
+        });
+    }
+
+    function login(username, password) {
+        if (!apiBase()) {
+            return Promise.reject(new Error('API 地址尚未配置。'));
+        }
+        return fetch(apiBase() + '/api/v1/admin/login', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password
+            })
+        }).then(function(response) {
+            return response.json().catch(function() { return {}; }).then(function(body) {
+                if (!response.ok) {
+                    throw new Error(body.message || ('HTTP ' + response.status));
+                }
+                return body.data || body;
+            });
+        }).catch(function(error) {
+            if (error && error.message === 'Failed to fetch') {
+                throw new Error('登录请求失败：请检查 API 跨域或网络连接。');
             }
             throw error;
         });
@@ -215,6 +248,12 @@ var AdminApp = (function() {
 
     function loadActive() {
         showAlert('');
+        if (!token()) {
+            setLoginVisible(true);
+            setStatus('请登录管理员账号。');
+            return Promise.resolve();
+        }
+        setLoginVisible(false);
         setStatus('正在加载数据...');
         var loader = {
             dashboard: loadDashboard,
@@ -226,6 +265,12 @@ var AdminApp = (function() {
 
         return loader().catch(function(error) {
             setStatus('未连接。');
+            if ((error.message || '').indexOf('Unauthorized') !== -1) {
+                setToken('');
+                setLoginVisible(true);
+                showAlert('登录已失效，请重新登录。');
+                return;
+            }
             showAlert(error.message || '后台数据加载失败。');
         });
     }
@@ -247,8 +292,10 @@ var AdminApp = (function() {
     }
 
     function init() {
-        var input = document.getElementById('adminTokenInput');
-        if (input) input.value = token();
+        var usernameInput = document.getElementById('adminUsernameInput');
+        var passwordInput = document.getElementById('adminPasswordInput');
+        var loginForm = document.getElementById('adminLoginForm');
+        var loginBtn = document.getElementById('adminLoginBtn');
 
         document.querySelectorAll('.admin-nav-btn').forEach(function(btn) {
             btn.addEventListener('click', function() {
@@ -256,12 +303,36 @@ var AdminApp = (function() {
             });
         });
 
-        var saveBtn = document.getElementById('adminSaveTokenBtn');
-        if (saveBtn) {
-            saveBtn.addEventListener('click', function() {
-                setToken(input ? input.value : '');
-                if (input) input.value = token();
-                loadActive();
+        if (loginForm) {
+            loginForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                var username = usernameInput ? usernameInput.value.trim() : '';
+                var password = passwordInput ? passwordInput.value : '';
+                showAlert('');
+                if (!username || !password) {
+                    showAlert('请输入管理员用户名和密码。');
+                    return;
+                }
+                if (loginBtn) {
+                    loginBtn.disabled = true;
+                    loginBtn.textContent = '登录中...';
+                }
+                setStatus('正在登录...');
+                login(username, password).then(function(data) {
+                    setToken(data.idToken || '');
+                    if (passwordInput) passwordInput.value = '';
+                    setLoginVisible(false);
+                    return loadActive();
+                }).catch(function(error) {
+                    setToken('');
+                    setStatus('未连接。');
+                    showAlert(error.message || '登录失败。');
+                }).finally(function() {
+                    if (loginBtn) {
+                        loginBtn.disabled = false;
+                        loginBtn.textContent = '登录';
+                    }
+                });
             });
         }
 
@@ -272,8 +343,9 @@ var AdminApp = (function() {
         if (logoutBtn) {
             logoutBtn.addEventListener('click', function() {
                 setToken('');
-                if (input) input.value = '';
-                setStatus('Token 已清除。');
+                if (passwordInput) passwordInput.value = '';
+                setLoginVisible(true);
+                setStatus('已退出，请重新登录。');
                 showAlert('');
             });
         }

@@ -38,13 +38,7 @@ function authHeader(event: APIGatewayProxyEventV2): string | undefined {
   return raw?.trim();
 }
 
-export async function requireAuth(event: APIGatewayProxyEventV2): Promise<AuthContext | null> {
-  const header = authHeader(event);
-  if (!header || !header.startsWith("Bearer ")) {
-    return null;
-  }
-
-  const token = header.slice("Bearer ".length);
+export async function verifyToken(token: string): Promise<AuthContext | null> {
   const config = getConfig();
   const issuer = `https://cognito-idp.${config.awsRegion}.amazonaws.com/${config.cognitoUserPoolId}`;
 
@@ -67,3 +61,11 @@ export async function requireAuth(event: APIGatewayProxyEventV2): Promise<AuthCo
   };
 }
 
+export async function requireAuth(event: APIGatewayProxyEventV2): Promise<AuthContext | null> {
+  const header = authHeader(event);
+  if (!header || !header.startsWith("Bearer ")) {
+    return null;
+  }
+
+  return verifyToken(header.slice("Bearer ".length));
+}
