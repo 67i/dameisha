@@ -3,11 +3,12 @@ import type { AuthContext } from "../types";
 import { badRequest, notFound, ok } from "../lib/response";
 import { query } from "../lib/db";
 import { upsertUserFromAuth } from "../lib/user-repo";
+import { advanceExpiredCoolingPeriodOrders, type OrderStatus } from "../lib/order-status";
 
 type OrderRow = {
   order_id: number;
   user_id: string;
-  status: "draft" | "submitted" | "cancelled";
+  status: OrderStatus;
   currency: string;
   amount: string;
   source_intent_id: number | null;
@@ -31,6 +32,7 @@ export async function getOrders(
   auth: AuthContext
 ): Promise<APIGatewayProxyStructuredResultV2> {
   await upsertUserFromAuth(auth);
+  await advanceExpiredCoolingPeriodOrders();
   const pg = parsePagination(event);
   if (!pg) {
     return badRequest("Invalid pagination");
@@ -75,6 +77,7 @@ export async function getOrderById(
   auth: AuthContext
 ): Promise<APIGatewayProxyStructuredResultV2> {
   await upsertUserFromAuth(auth);
+  await advanceExpiredCoolingPeriodOrders();
   const orderId = event.pathParameters?.id;
   if (!orderId) {
     return badRequest("Missing order id");
@@ -106,7 +109,7 @@ export async function getOrderById(
   });
 }
 
-export async function createDraftOrderFromIntent(
+export async function createCoolingPeriodOrderFromIntent(
   userId: string,
   currency: string,
   amount: number,
@@ -115,7 +118,7 @@ export async function createDraftOrderFromIntent(
   const rows = await query<{ order_id: number }>(
     `
       INSERT INTO orders (user_id, status, currency, amount, source_intent_id, created_at, updated_at)
-      VALUES ($1, 'draft', $2, $3, $4::bigint, NOW(), NOW())
+      VALUES ($1, 'cooling_period', $2, $3, $4::bigint, NOW(), NOW())
       RETURNING order_id
     `,
     [userId, currency, amount, intentId]

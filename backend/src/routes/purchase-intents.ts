@@ -2,7 +2,7 @@ import type { APIGatewayProxyEventV2, APIGatewayProxyStructuredResultV2 } from "
 import type { AuthContext, PurchaseIntentCreateInput } from "../types";
 import { badRequest, created, notFound, ok } from "../lib/response";
 import { query, execute } from "../lib/db";
-import { createDraftOrderFromIntent } from "./orders";
+import { createCoolingPeriodOrderFromIntent } from "./orders";
 import { upsertUserFromAuth } from "../lib/user-repo";
 
 type IntentRow = {
@@ -110,7 +110,6 @@ export async function createPurchaseIntent(
   );
 
   const intentId = String(rows[0].intent_id);
-  await createDraftOrderFromIntent(auth.userId, input.currency, input.amount, intentId);
   return created({ intentId, status: "draft" });
 }
 
@@ -159,11 +158,24 @@ export async function confirmPurchaseIntent(
   await execute(
     `
       UPDATE orders
-      SET status = 'submitted', updated_at = NOW()
+      SET status = 'cooling_period', updated_at = NOW()
       WHERE source_intent_id = $1::bigint AND user_id = $2
     `,
     [intentId, auth.userId]
   );
+
+  const existingOrderRows = await query<{ order_id: number }>(
+    `
+      SELECT order_id
+      FROM orders
+      WHERE source_intent_id = $1::bigint AND user_id = $2
+      LIMIT 1
+    `,
+    [intentId, auth.userId]
+  );
+  if (!existingOrderRows[0]) {
+    await createCoolingPeriodOrderFromIntent(auth.userId, existing.currency, Number(existing.amount), intentId);
+  }
 
   const refreshed = await query<IntentRow>(
     `

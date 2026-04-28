@@ -48,9 +48,13 @@ var AdminApp = (function() {
 
     function statusLabel(value) {
         return {
-            draft: '草稿',
-            submitted: '已提交',
-            cancelled: '已取消'
+            cooling_period: '冷静期',
+            active: '激活中',
+            completed: '已完成',
+            refunded: '已退款',
+            draft: '冷静期',
+            submitted: '激活中',
+            cancelled: '已退款'
         }[value] || value || '';
     }
 
@@ -133,8 +137,10 @@ var AdminApp = (function() {
             { label: '用户总数', value: totals.users || 0, icon: 'group' },
             { label: '订单总数', value: totals.orders || 0, icon: 'receipt_long' },
             { label: '成交金额', value: money(totals.revenue || 0), icon: 'payments' },
-            { label: '已提交订单', value: totals.submittedOrders || 0, icon: 'task_alt' },
-            { label: '草稿订单', value: totals.draftOrders || 0, icon: 'pending_actions' },
+            { label: '冷静期订单', value: totals.coolingPeriodOrders || 0, icon: 'hourglass_top' },
+            { label: '激活中订单', value: totals.activeOrders || 0, icon: 'task_alt' },
+            { label: '已完成订单', value: totals.completedOrders || 0, icon: 'verified' },
+            { label: '已退款订单', value: totals.refundedOrders || 0, icon: 'assignment_return' },
             { label: '审计事件', value: totals.auditEvents || 0, icon: 'manage_search' }
         ];
         var html = metrics.map(function(item) {
@@ -246,7 +252,7 @@ var AdminApp = (function() {
             detailItem('备注', intent.note || '')
         ].join('');
 
-        if (statusSelect) statusSelect.value = order.status || 'draft';
+        if (statusSelect) statusSelect.value = order.status || 'cooling_period';
         if (updateBtn) updateBtn.setAttribute('data-admin-order-id', order.orderId);
         panel.style.display = 'block';
     }

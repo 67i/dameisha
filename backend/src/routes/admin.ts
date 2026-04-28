@@ -2,6 +2,7 @@ import type { APIGatewayProxyEventV2, APIGatewayProxyStructuredResultV2 } from "
 import type { AdminRole, AuthContext } from "../types";
 import { badRequest, forbidden, notFound, ok } from "../lib/response";
 import { query } from "../lib/db";
+import { advanceExpiredCoolingPeriodOrders, isOrderStatus } from "../lib/order-status";
 
 const ADMIN_ROLES: AdminRole[] = ["super_admin", "admin", "dealer"];
 
@@ -24,9 +25,10 @@ type DashboardTotalRow = {
   total_orders: string;
   total_purchase_intents: string;
   total_revenue: string | null;
-  submitted_orders: string;
-  draft_orders: string;
-  cancelled_orders: string;
+  cooling_period_orders: string;
+  active_orders: string;
+  completed_orders: string;
+  refunded_orders: string;
   audit_events: string;
 };
 
@@ -193,6 +195,7 @@ function orderPayload(row: AdminOrderRow) {
 export async function getAdminDashboard(auth: AuthContext): Promise<APIGatewayProxyStructuredResultV2> {
   const role = requireAdminResponse(auth);
   if (typeof role !== "string") return role;
+  await advanceExpiredCoolingPeriodOrders();
 
   const totals = await query<DashboardTotalRow>(
     `
@@ -200,10 +203,11 @@ export async function getAdminDashboard(auth: AuthContext): Promise<APIGatewayPr
         (SELECT COUNT(1)::text FROM users) AS total_users,
         (SELECT COUNT(1)::text FROM orders) AS total_orders,
         (SELECT COUNT(1)::text FROM purchase_intents) AS total_purchase_intents,
-        (SELECT COALESCE(SUM(amount), 0)::text FROM orders WHERE status = 'submitted') AS total_revenue,
-        (SELECT COUNT(1)::text FROM orders WHERE status = 'submitted') AS submitted_orders,
-        (SELECT COUNT(1)::text FROM orders WHERE status = 'draft') AS draft_orders,
-        (SELECT COUNT(1)::text FROM orders WHERE status = 'cancelled') AS cancelled_orders,
+        (SELECT COALESCE(SUM(amount), 0)::text FROM orders WHERE status IN ('cooling_period', 'active', 'completed')) AS total_revenue,
+        (SELECT COUNT(1)::text FROM orders WHERE status = 'cooling_period') AS cooling_period_orders,
+        (SELECT COUNT(1)::text FROM orders WHERE status = 'active') AS active_orders,
+        (SELECT COUNT(1)::text FROM orders WHERE status = 'completed') AS completed_orders,
+        (SELECT COUNT(1)::text FROM orders WHERE status = 'refunded') AS refunded_orders,
         (SELECT COUNT(1)::text FROM audit_logs) AS audit_events
     `
   );
@@ -238,9 +242,10 @@ export async function getAdminDashboard(auth: AuthContext): Promise<APIGatewayPr
       orders: Number(total?.total_orders ?? 0),
       purchaseIntents: Number(total?.total_purchase_intents ?? 0),
       revenue: Number(total?.total_revenue ?? 0),
-      submittedOrders: Number(total?.submitted_orders ?? 0),
-      draftOrders: Number(total?.draft_orders ?? 0),
-      cancelledOrders: Number(total?.cancelled_orders ?? 0),
+      coolingPeriodOrders: Number(total?.cooling_period_orders ?? 0),
+      activeOrders: Number(total?.active_orders ?? 0),
+      completedOrders: Number(total?.completed_orders ?? 0),
+      refundedOrders: Number(total?.refunded_orders ?? 0),
       auditEvents: Number(total?.audit_events ?? 0)
     },
     orderStatus: statusRows.map((row) => ({
@@ -261,6 +266,7 @@ export async function getAdminOrders(
 ): Promise<APIGatewayProxyStructuredResultV2> {
   const role = requireAdminResponse(auth);
   if (typeof role !== "string") return role;
+  await advanceExpiredCoolingPeriodOrders();
 
   const pg = parsePagination(event);
   if (!pg) return badRequest("Invalid pagination");
@@ -295,6 +301,7 @@ export async function getAdminOrderDetail(
 ): Promise<APIGatewayProxyStructuredResultV2> {
   const role = requireAdminResponse(auth);
   if (typeof role !== "string") return role;
+  await advanceExpiredCoolingPeriodOrders();
 
   const orderId = event.pathParameters?.id;
   if (!orderId || !/^\d+$/.test(orderId)) {
@@ -351,7 +358,7 @@ export async function updateAdminOrderStatus(
 
   const body = parseJsonBody(event);
   const status = typeof body?.status === "string" ? body.status : "";
-  if (!["draft", "submitted", "cancelled"].includes(status)) {
+  if (!isOrderStatus(status)) {
     return badRequest("Invalid order status");
   }
 

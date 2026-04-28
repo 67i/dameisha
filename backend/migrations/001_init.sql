@@ -34,7 +34,7 @@ CREATE INDEX IF NOT EXISTS idx_purchase_intents_created_at ON purchase_intents (
 CREATE TABLE IF NOT EXISTS orders (
   order_id BIGSERIAL PRIMARY KEY,
   user_id VARCHAR(128) NOT NULL,
-  status VARCHAR(16) NOT NULL DEFAULT 'draft' CHECK (status IN ('draft', 'submitted', 'cancelled')),
+  status VARCHAR(16) NOT NULL DEFAULT 'cooling_period' CHECK (status IN ('cooling_period', 'active', 'completed', 'refunded')),
   currency CHAR(3) NOT NULL,
   amount DECIMAL(12, 2) NOT NULL,
   source_intent_id BIGINT NULL,
@@ -45,6 +45,18 @@ CREATE TABLE IF NOT EXISTS orders (
 );
 CREATE INDEX IF NOT EXISTS idx_orders_user_status ON orders (user_id, status);
 CREATE INDEX IF NOT EXISTS idx_orders_created_at ON orders (created_at);
+
+ALTER TABLE orders DROP CONSTRAINT IF EXISTS orders_status_check;
+UPDATE orders
+SET status = CASE
+  WHEN status = 'draft' THEN 'cooling_period'
+  WHEN status = 'submitted' THEN 'active'
+  WHEN status = 'cancelled' THEN 'refunded'
+  ELSE status
+END
+WHERE status IN ('draft', 'submitted', 'cancelled');
+ALTER TABLE orders ALTER COLUMN status SET DEFAULT 'cooling_period';
+ALTER TABLE orders ADD CONSTRAINT orders_status_check CHECK (status IN ('cooling_period', 'active', 'completed', 'refunded'));
 
 CREATE TABLE IF NOT EXISTS audit_logs (
   audit_id BIGSERIAL PRIMARY KEY,
