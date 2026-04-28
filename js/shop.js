@@ -807,9 +807,50 @@ var AccountApp = (function() {
     var tokenKey = 'qx_member_token';
     var accessTokenKey = 'qx_member_access_token';
     var pageSize = 20;
+    var sessionVersion = 0;
 
     function apiBase() {
         return (typeof CONFIG !== 'undefined' && CONFIG.api && CONFIG.api.baseUrl) ? CONFIG.api.baseUrl : '';
+    }
+
+    function apiTimeout() {
+        var timeout = Number(typeof CONFIG !== 'undefined' && CONFIG.api ? CONFIG.api.timeout : 30000);
+        return Number.isFinite(timeout) && timeout > 0 ? timeout : 30000;
+    }
+
+    function fetchJson(url, options) {
+        var requestOptions = Object.assign({}, options || {});
+        var controller = null;
+        var timeoutId = null;
+
+        if (typeof AbortController !== 'undefined') {
+            controller = new AbortController();
+            requestOptions.signal = controller.signal;
+            timeoutId = setTimeout(function() {
+                controller.abort();
+            }, apiTimeout());
+        }
+
+        return fetch(url, requestOptions).then(function(response) {
+            return response.json().catch(function() { return {}; }).then(function(body) {
+                if (!response.ok) {
+                    throw new Error(body.message || ('HTTP ' + response.status));
+                }
+                return body.data || body;
+            });
+        }).catch(function(error) {
+            if (error && error.name === 'AbortError') {
+                throw new Error('请求超时，请稍后重试或检查 API 服务。');
+            }
+            if (error && error.message === 'Failed to fetch') {
+                throw new Error('请求失败，请检查网络连接或 API 跨域配置。');
+            }
+            throw error;
+        }).finally(function() {
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
+        });
     }
 
     function escape(value) {
@@ -869,13 +910,31 @@ var AccountApp = (function() {
         if (logoutBtn) logoutBtn.style.display = loggedIn ? 'inline-flex' : 'none';
     }
 
+    function clearAccountView() {
+        var profile = document.getElementById('accountProfileList');
+        var orders = document.getElementById('accountOrders');
+        if (profile) profile.innerHTML = '';
+        if (orders) orders.innerHTML = '';
+        setStatus('');
+    }
+
+    function logout() {
+        sessionVersion += 1;
+        setToken('');
+        setAccessToken('');
+        setLoggedIn(false);
+        clearAccountView();
+        showAlert('');
+    }
+
     function renderProfile(data) {
         var el = document.getElementById('accountProfileList');
         if (!el) return;
+        var providers = data.loginProviders || data.providers || [];
         el.innerHTML = [
             '<div><span>用户 ID</span><strong>' + escape(data.userId || '-') + '</strong></div>',
             '<div><span>Email</span><strong>' + escape(data.email || '-') + '</strong></div>',
-            '<div><span>登录方式</span><strong>' + escape((data.loginProviders || []).join(', ') || 'COGNITO') + '</strong></div>',
+            '<div><span>登录方式</span><strong>' + escape(providers.join(', ') || 'COGNITO') + '</strong></div>',
             '<div><span>最近登录</span><strong>' + escape(shortDate(data.lastLoginAt) || '-') + '</strong></div>'
         ].join('');
     }
@@ -889,26 +948,14 @@ var AccountApp = (function() {
             Authorization: 'Bearer ' + token()
         }, requestOptions.headers || {});
 
-        return fetch(apiBase() + path, requestOptions).then(function(response) {
-            return response.json().catch(function() { return {}; }).then(function(body) {
-                if (!response.ok) {
-                    throw new Error(body.message || ('HTTP ' + response.status));
-                }
-                return body.data || body;
-            });
-        }).catch(function(error) {
-            if (error && error.message === 'Failed to fetch') {
-                throw new Error('请求失败：请检查网络连接或稍后重试。');
-            }
-            throw error;
-        });
+        return fetchJson(apiBase() + path, requestOptions);
     }
 
     function login(username, password) {
         if (!apiBase()) {
             return Promise.reject(new Error('API 地址尚未配置。'));
         }
-        return fetch(apiBase() + '/api/v1/login', {
+        return fetchJson(apiBase() + '/api/v1/login', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -917,13 +964,6 @@ var AccountApp = (function() {
                 username: username,
                 password: password
             })
-        }).then(function(response) {
-            return response.json().catch(function() { return {}; }).then(function(body) {
-                if (!response.ok) {
-                    throw new Error(body.message || ('HTTP ' + response.status));
-                }
-                return body.data || body;
-            });
         });
     }
 
@@ -1008,27 +1048,43 @@ var AccountApp = (function() {
         });
     }
 
+    function handleUnauthorized(error) {
+        var message = error && error.message ? error.message : '';
+        if (message.indexOf('Unauthorized') === -1 && message.indexOf('HTTP 401') === -1) {
+            return false;
+        }
+
+        logout();
+        showAlert('登录已失效，请重新登录。');
+        return true;
+    }
+
     function loadOrders() {
+        var requestVersion = sessionVersion;
         showAlert('');
         setLoggedIn(true);
         setStatus('正在加载订单...');
-        return Promise.all([
-            request('/me'),
-            request('/orders?page=1&pageSize=' + pageSize)
-        ]).then(function(results) {
-            renderProfile(results[0]);
-            renderOrders(results[1]);
+
+        var profileRequest = request('/me').then(function(data) {
+            if (requestVersion !== sessionVersion || !token()) return;
+            renderProfile(data);
         }).catch(function(error) {
-            if ((error.message || '').indexOf('Unauthorized') !== -1) {
-                setToken('');
-                setAccessToken('');
-                setLoggedIn(false);
-                showAlert('登录已失效，请重新登录。');
-                return;
-            }
+            if (requestVersion !== sessionVersion || !token()) return;
+            if (handleUnauthorized(error)) return;
+            showAlert(error.message || '账号信息加载失败。');
+        });
+
+        var ordersRequest = request('/orders?page=1&pageSize=' + pageSize).then(function(data) {
+            if (requestVersion !== sessionVersion || !token()) return;
+            renderOrders(data);
+        }).catch(function(error) {
+            if (requestVersion !== sessionVersion || !token()) return;
+            if (handleUnauthorized(error)) return;
             showAlert(error.message || '订单加载失败。');
             setStatus('订单加载失败');
         });
+
+        return Promise.all([profileRequest, ordersRequest]);
     }
 
     function requestRefund(orderId) {
@@ -1157,10 +1213,7 @@ var AccountApp = (function() {
         if (passwordForm) passwordForm.addEventListener('submit', changePassword);
         if (logoutBtn) {
             logoutBtn.addEventListener('click', function() {
-                setToken('');
-                setAccessToken('');
-                setLoggedIn(false);
-                showAlert('');
+                logout();
             });
         }
 
